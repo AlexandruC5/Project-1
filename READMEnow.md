@@ -5,4 +5,8 @@ hy3e
 oyeboyy
 =======
 hy3pe de k tonto
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+Fuck yeah
 >>>>>>> origin/master
