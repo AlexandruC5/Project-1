@@ -10,3 +10,6 @@ hy3pe de k tonto
 =======
 Fuck yeah
 >>>>>>> origin/master
+Dale Like
+>>>>>>> origin/master
+=======
