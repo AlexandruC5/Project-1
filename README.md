@@ -1,9 +1,10 @@
 # Project-1
 <<<<<<< HEAD
-Repositori Project 1
-https://github.com/AlexandruC5/Project-1/invitations
+
+Hello! This is our repository of Tengai, the arcade game we are programing for our project 1 of asignment Porject 1 at CITM.
+
+
+
 =======
-Projecte 1 joc Tengai GDDV
+Project 1 Tengai Aracade.
 >>>>>>> refs/remotes/origin/readme
-drum  sucks
-esto es una shit
