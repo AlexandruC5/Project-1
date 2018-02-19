@@ -1,10 +1,11 @@
-# Project-1
+## Project-1
+
+* Game: Tengai
+
+  Hello! This is our repository of Tengai, the arcade game we are programming for our project 1 of asignment at CITM.
 
 
-Hello! This is our repository of Tengai, the arcade game we are programing for our project 1 of asignment at CITM.
 
 
 
-
-Project 1 Tengai Aracade.
 
