@@ -16,7 +16,7 @@ ModuleBackground::~ModuleBackground()
 // Load assets
 bool ModuleBackground::Start()
 {
-	LOG("Loading space scene");
+	LOG("Loading scene");
 	
 	background = App->textures->Load("assets/background.png");
 
@@ -28,8 +28,6 @@ bool ModuleBackground::Start()
 // UnLoad assets
 bool ModuleBackground::CleanUp()
 {
-	LOG("Unloading space scene");
-
 	
 	return true;
 }
