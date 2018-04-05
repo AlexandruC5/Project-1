@@ -11,6 +11,7 @@ public:
 	ModuleBackground();
 	~ModuleBackground();
 	int x=0, x1=511, x2=1022;
+	int wh = 0;
 	bool Start();
 	update_status Update();
 	update_status PreUpdate();
