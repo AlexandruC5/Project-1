@@ -16,10 +16,15 @@ ModuleBackground::~ModuleBackground()
 // Load assets
 bool ModuleBackground::Start()
 {
+	Back = new SDL_Rect();
+
 	LOG("Loading scene");
 	
 	background = App->textures->Load("assets/background.png");
-
+	Back->x = 0;
+	Back->y = 0;
+	Back->h = 785;
+	Back->w = 511;
 	
 	
 	return true;
@@ -30,6 +35,14 @@ bool ModuleBackground::CleanUp()
 {
 	
 	return true;
+}
+update_status ModuleBackground::PreUpdate()
+{
+	
+	App->render->Blit(background, x, 0, Back);
+	App->render->Blit(background, x1, 0, Back);
+	App->render->Blit(background, x2, 0, Back);
+	return UPDATE_CONTINUE;
 }
 
 // Update: draw background
@@ -43,7 +56,7 @@ update_status ModuleBackground::Update()
 	
 
 	// Draw everything --------------------------------------
-	App->render->Blit(background, 0, 0, NULL);
+
 	
 	return UPDATE_CONTINUE;
 }

@@ -13,8 +13,8 @@ ModulePlayer::ModulePlayer()
 	graphics = NULL;
 	current_animation = NULL;
 
-	position.x = 150;
-	position.y = 120;
+	position.x =0;
+	position.y = 100;
 
 	// idle-forward-downwards animation 
 	forward.PushBack({ 68 ,53 ,32 ,28 });
