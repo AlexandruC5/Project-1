@@ -44,6 +44,12 @@ public:
 	{
 		current_frame = 0;
 	}
+
+	bool isDone() {
+		if (current_frame == last_frame - 1) return true; 
+		else return false;
+	}
+	
 };
 
 #endif

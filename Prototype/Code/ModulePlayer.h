@@ -26,6 +26,7 @@ public:
 	Animation forward;
 	Animation backward;
 	Animation mid;
+	Animation mid2;
 	iPoint position;
 };
 
