@@ -16,15 +16,15 @@ ModuleBackground::~ModuleBackground()
 // Load assets
 bool ModuleBackground::Start()
 {
-	Back = new SDL_Rect();
+	//Back = new SDL_Rect();
 
 	LOG("Loading scene");
 	
 	background = App->textures->Load("assets/background2.png");
-	Back->x = 0;
-	Back->y = 0;
-	Back->h = 785;
-	Back->w = 5110;
+	//Back->x = 0;
+	//Back->y = 0;
+	//Back->h = 785;
+	//Back->w = 5110;
 	
 	
 	return true;
@@ -39,7 +39,8 @@ bool ModuleBackground::CleanUp()
 update_status ModuleBackground::PreUpdate()
 {
 	
-		App->render->Blit(background, x, -560, Back);
+		//App->render->Blit(background, x, -560, Back);
+		
 		
 	
 	return UPDATE_CONTINUE;
@@ -52,7 +53,7 @@ update_status ModuleBackground::Update()
 	int scroll_speed = 1;
 
 	App->player->position.x += 1;
-	App->render->camera.x -= 3;
+	App->render->camera.x -= 2;
 
 /*	do
 	{
@@ -66,6 +67,6 @@ update_status ModuleBackground::Update()
 
 	// Draw everything --------------------------------------
 
-	
+	App->render->Blit(background, 0, 0, NULL);
 	return UPDATE_CONTINUE;
 }

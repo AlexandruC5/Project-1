@@ -13,7 +13,7 @@ ModulePlayer::ModulePlayer()
 	graphics = NULL;
 	current_animation = NULL;
 
-	position.x =0;
+	position.x = 180;
 	position.y = 100;
 
 	// idle-forward-downwards animation 
