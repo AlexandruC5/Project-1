@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleBackground.h"
+#include "ModuleInput.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -62,6 +63,19 @@ update_status ModuleBackground::Update()
 		App->render->camera.y += 3;
 
 	}
+
+	if (App->input->keyboard[SDL_SCANCODE_A]) {
+		App->player->position.x -= 2;
+		App->render->camera.x -= 0;
+
+		
+	}
+	if (App->input->keyboard[SDL_SCANCODE_W]) {
+	
+		App->player->position.x -= 0;
+		App->render->camera.x -= 0;
+	}
+
 
 	
 	

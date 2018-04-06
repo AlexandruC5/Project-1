@@ -1,17 +1,8 @@
-<<<<<<< HEAD
 ﻿  ModuleBackground.cpp
-=======
-﻿  ModulePlayer.cpp
->>>>>>> 6847cd62c624707259ed839b972ddfae7babcb27
   Generating code
   1 of 73 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-<<<<<<< HEAD
   SDL Game.vcxproj -> C:\Users\alexandruc\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\alexandruc\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
-=======
-  SDL Game.vcxproj -> C:\Users\carlosph3\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
-  SDL Game.vcxproj -> C:\Users\carlosph3\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
->>>>>>> 6847cd62c624707259ed839b972ddfae7babcb27
