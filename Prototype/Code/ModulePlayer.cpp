@@ -74,6 +74,12 @@ update_status ModulePlayer::Update()
 
 	int speed = 1;
 
+	if (current_animation != &mid && current_animation != &mid2) {
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
+			&& App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
+			current_animation = &forward;
+	}
+
 	if(App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 
 		if (current_animation != &mid && !mid.isDone()) {
@@ -126,23 +132,34 @@ update_status ModulePlayer::Update()
 			
 	}
 	
-
+	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
+		mid.Reset();
+		current_animation = &mid2;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE) {
+		if (current_animation->isDone()) {
+			mid2.Reset();
+			current_animation = &forward;
+		}
 
 	else if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP) {
 		mid.Reset();
+		current_animation = &mid2;
+	}
+
+	else if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) {
+		if (current_animation->isDone()) {
+			mid2.Reset();
+			current_animation = &forward;
+		}
 	}
 	
-	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
-		mid.Reset();	
+	
 	}
 	
 	
 	
 	
-	if(App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
-	   && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
-		current_animation = &forward;
-		
 	// Draw everything --------------------------------------
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
