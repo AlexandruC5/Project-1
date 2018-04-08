@@ -1,4 +1,4 @@
-/*
+
 
 #ifndef __MODULEBACKGROUND_H__
 #define __MODULEBACKGROUND_H__
@@ -28,4 +28,3 @@ public:
 
 #endif // __MODULEBACKGROUND_H__
 
-*/

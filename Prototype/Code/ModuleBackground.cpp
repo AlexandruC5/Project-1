@@ -1,4 +1,4 @@
-/*
+
 
 #include "Globals.h"
 #include "Application.h"
@@ -89,4 +89,3 @@ update_status ModuleBackground::Update()
 	return UPDATE_CONTINUE;
 }
 
-*/

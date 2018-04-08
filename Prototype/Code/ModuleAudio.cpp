@@ -33,13 +33,24 @@ bool ModuleAudio::Init()
 	// load support for the PNG image format
 	int flags = MIX_INIT_OGG;
 	int init = Mix_Init(flags);
-	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+	Mix_OpenAudio(44100, AUDIO_S8, 2, 4096);
 
 	if ((init & flags) != flags)
 	{
 		LOG("Could not initialize mixer lib. Mix_Init: %s", Mix_GetError());
 		ret = false;
 	}
+
+	for (int i = 0; i < MAX_MUSICS; ++i) {
+		if (musics[i] != nullptr) {
+			Mix_PlayMusic(musics[0], 1);
+		}
+		if (sfx[i] != nullptr) {
+			Mix_PlayChannel(-1, sfx[0], 0);
+		}
+	}
+
+	return ret;
 
 	Mix_VolumeMusic(MIX_MAX_VOLUME / 6);
 
