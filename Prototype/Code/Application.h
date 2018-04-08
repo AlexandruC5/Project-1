@@ -12,6 +12,7 @@ class ModuleAudio;
 class ModuleRender;
 
 class ModuleBackground;
+class ModuleFadeToBlack;
 class ModulePlayer;
 
 class Module;
@@ -30,6 +31,7 @@ public:
 	ModuleAudio* audio;
 	ModuleBackground* scene_background;
 	ModulePlayer* player;
+	ModuleFadeToBlack* fade;
 	
 	
 	

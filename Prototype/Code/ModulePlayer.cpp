@@ -64,6 +64,8 @@ bool ModulePlayer::Start()
 
 bool ModulePlayer::CleanUp()
 {
+	App->textures->Unload(graphics);
+	graphics = nullptr;
 	return true;
 }
 
