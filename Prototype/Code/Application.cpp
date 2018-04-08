@@ -4,9 +4,12 @@
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
-#include "ModuleBackground.h"
+//#include "ModuleBackground.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
+
+#include "ModuleWelcomeScreen.h"
+#include "ModuleSceneAir.h"
 
 
 
@@ -17,9 +20,15 @@ Application::Application()
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = audio = new ModuleAudio();
-	modules[5] = scene_background = new ModuleBackground();
-	modules[6] = player = new ModulePlayer();
-	modules[7] = fade = new ModuleFadeToBlack();
+	//modules[5] = scene_background = new ModuleBackground();
+	modules[5] = scene_start = new ModuleWelcomeScreen();
+	modules[6] = scene_air = new ModuleSceneAir();
+
+	modules[7] = player = new ModulePlayer();
+	modules[8] = fade = new ModuleFadeToBlack();
+	
+
+	
 }
 	
 
@@ -34,6 +43,8 @@ bool Application::Init()
 	bool ret = true;
 
 	player->Disable();
+	scene_air->Disable();
+
 
 	
 

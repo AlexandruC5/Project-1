@@ -56,7 +56,7 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player");
 
-	graphics = App->textures->Load("assets/miko.png");
+	graphics = App->textures->Load("assets/sprites/miko.png");
 
 	return true;
 }
