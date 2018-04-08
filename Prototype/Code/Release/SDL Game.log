@@ -1,8 +1,7 @@
-﻿  ModuleWelcomeScreen.cpp
-  Generando código
-  1 of 99 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+﻿  ModuleAudio.cpp
+  Generating code
+  3 of 105 functions ( 2.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Generación de código finalizada
-  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
-  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SDL Game.vcxproj -> C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\SDL6 Handout.exe
