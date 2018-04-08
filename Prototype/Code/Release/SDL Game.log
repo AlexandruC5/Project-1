@@ -1,20 +1,8 @@
-<<<<<<< HEAD
-﻿  Application.cpp
-  Globals.cpp
-  Main.cpp
-  ModuleInput.cpp
-  ModulePlayer.cpp
-  ModuleRender.cpp
-  ModuleBackground.cpp
-  ModuleTextures.cpp
-  ModuleWindow.cpp
+﻿  ModuleAudio.cpp
   Generando código
-  70 of 73 functions (95.9%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  13 of 77 functions (16.9%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
+    25 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
-=======
-﻿  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
->>>>>>> c3f75d701f09d3aeea88ba0a346a47187c9d412e
