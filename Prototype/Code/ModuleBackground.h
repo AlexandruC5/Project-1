@@ -22,7 +22,7 @@ public:
 
 	SDL_Texture* background = nullptr;
 	SDL_Texture* stuff = nullptr;
-
+	
 	SDL_Rect* Back = nullptr;
 };
 

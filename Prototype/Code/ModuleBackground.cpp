@@ -11,7 +11,9 @@
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModuleBackground::ModuleBackground()
-{}
+{
+	
+}
 
 ModuleBackground::~ModuleBackground()
 {}
