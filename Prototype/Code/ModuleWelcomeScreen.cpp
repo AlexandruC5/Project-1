@@ -8,6 +8,7 @@
 #include "ModuleFadeToBlack.h"
 #include "SDL_mixer/include/SDL_mixer.h"
 #include "ModuleWelcomeScreen.h"
+#include "ModulePlayer.h"
 
 ModuleWelcomeScreen::ModuleWelcomeScreen()
 {
@@ -27,8 +28,11 @@ bool ModuleWelcomeScreen::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
+	App->player->position.x = 0;
+	App->player->position.y = 100;
+
 	graphics = App->textures->Load("assets/sprites/UI/WelcomeScreen/WelcomeScreen4.png");
-	//graphics2 = App->textures->Load("assets/sprites/UI/WelcomeScreen/WelcomeScreen1.png");
+	
 
 	music = App->audio->LoadMusic("assets/audio/music/01_Gem_of_hope.ogg");
 	Mix_PlayMusic(music, -1);
@@ -45,7 +49,7 @@ update_status ModuleWelcomeScreen::Update()
 	App->render->Blit(graphics, 15, 203, &company1);
 	App->render->Blit(graphics, 180, 205, &company2);
 	App->render->Blit(graphics, 87, 110, &start_button);
-
+		
 	return update_status::UPDATE_CONTINUE;
 }
 
