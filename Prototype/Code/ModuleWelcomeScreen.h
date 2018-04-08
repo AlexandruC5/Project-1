@@ -15,6 +15,7 @@ class ModuleWelcomeScreen : public Module
 private:
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
+	bool parpadeo = true;
 	//SDL_Rect screen;
 	
 	SDL_Rect title;
@@ -30,7 +31,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	bool Start();
-
+	bool Parpadear() { return parpadeo; }
 	ModuleWelcomeScreen();
 	~ModuleWelcomeScreen();
 };
