@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Application.cpp
   Globals.cpp
   Main.cpp
@@ -14,3 +15,6 @@
   Generación de código finalizada
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
+=======
+﻿  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+>>>>>>> c3f75d701f09d3aeea88ba0a346a47187c9d412e
