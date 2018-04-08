@@ -88,15 +88,30 @@ update_status ModuleSceneAir::Update()
 	int scroll_speed = 1;
 	timer++;
 
+	//App->render->camera.x -= 2;
+	//if (timer <= 100)
+	//{
+	//	App->player->position.x += 2;
+	//}
+	//App->player->position.x -= App->render->camera.x;
+	//	
+
 	App->player->position.x += 2;
 	App->render->camera.x -= 2;
 
-	if (timer >= 50 && timer <= 200) {
+	if (timer >= 500 && timer <= 700) {
+
+		App->player->position.y -= 1;
+		App->render->camera.y += 2;
+
+	}
+
+	/*if (timer >= 500 && timer <= 700) {
 
 		App->player->position.y -= 1;
 		App->render->camera.y += 3;
 
-	}
+	}*/
 
 	if (App->input->keyboard[SDL_SCANCODE_A]) {
 		App->player->position.x -= 2;
