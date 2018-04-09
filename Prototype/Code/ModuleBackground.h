@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 #ifndef __MODULEBACKGROUND_H__
@@ -29,7 +28,6 @@ public:
 
 #endif // __MODULEBACKGROUND_H__
 
-=======
 //
 //
 //#ifndef __MODULEBACKGROUND_H__

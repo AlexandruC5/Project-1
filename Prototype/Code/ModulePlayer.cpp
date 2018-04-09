@@ -5,7 +5,7 @@
 
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
-
+#include "ModuleParticles.h"
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModulePlayer::ModulePlayer()
@@ -157,6 +157,30 @@ update_status ModulePlayer::Update()
 	}
 	
 	
+	}
+	if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {//Differents sprites for the same attack NOT ANIMATION
+		int cont = 0;
+		if (cont == 0) {
+			App->particles->AddParticle(App->particles->card1, position.x + 30, position.y);
+			cont++;
+		}
+		else if (cont == 1) {
+			App->particles->AddParticle(App->particles->card2, position.x + 30, position.y);
+			cont++;
+		}
+		else if (cont == 2) {
+			App->particles->AddParticle(App->particles->card3, position.x + 30, position.y);
+			cont++;
+		}
+		else if (cont == 3) {
+			App->particles->AddParticle(App->particles->card4, position.x + 30, position.y);
+
+			cont++;
+		}
+		else if(cont ==4){
+			App->particles->AddParticle(App->particles->card5, position.x + 30, position.y);
+			cont = 0;
+		}
 	}
 	
 	

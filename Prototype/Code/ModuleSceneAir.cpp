@@ -43,7 +43,7 @@ bool ModuleSceneAir::Start() {
 	if (!loadMapTextures()) {
 		return false;
 	}
-	for (int i = 0; i < NUM_LAYERS; i++) {
+	for (int i = 0; i <= NUM_LAYERS; i++) {
 		textrect[i] = new SDL_Rect();
 	}
 	textrect[0]->x = 0;
@@ -51,18 +51,18 @@ bool ModuleSceneAir::Start() {
 	textrect[0]->h = 785;
 	textrect[0]->w = 5110;
 
-	textrect[1]->x = 237;
-	textrect[1]->y = 192;
+	textrect[1]->x = 0;
+	textrect[1]->y = 0;
 	textrect[1]->w = 128;
 	textrect[1]->h = 16;
 
-	textrect[2]->x = -21;
-	textrect[2]->y = 192;
+	textrect[2]->x = 21;
+	textrect[2]->y = -192;
 	textrect[2]->w = 128;
 	textrect[2]->h = 16;
 	
-	textrect[3]->x = -56;
-	textrect[3]->y = 192;
+	textrect[3]->x = 56;
+	textrect[3]->y = -192;
 	textrect[3]->w = 128;
 	textrect[3]->h = 16;
 
@@ -79,8 +79,8 @@ update_status ModuleSceneAir::Update()
 
 	App->render->Blit(textures[0], 0, -560, textrect[0]);
 	App->render->Blit(textures[1], 10, -560, textrect[1]);
-	App->render->Blit(textures[2], 45, -560, textrect[2]);
-	App->render->Blit(textures[3], 29, -560, textrect[3]);
+	App->render->Blit(textures[2], 45, -570, textrect[2]);
+	App->render->Blit(textures[3], 29, -580, textrect[3]);
 
 	//App->render->Blit(textures[1], xLayer, yLayer, textrect[1]);
 
@@ -162,17 +162,18 @@ bool ModuleSceneAir::loadMapTextures()
 {
 	LOG("Loading background textures");
 	//Load all background textures
-	
+
 	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/Background2.png");
 	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
 	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
 	textures[3] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
 
 	//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
-
-	if (textures[0] == nullptr) {
+	for (int b = 0; b <= NUM_LAYERS; b++) {
+	if (textures[b] == nullptr) {
 		return false;
 	}
 	else return true;
+}
 }
 

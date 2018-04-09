@@ -1,6 +1,2 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.15063.0
-<<<<<<< HEAD
-Release|Win32|C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\|
-=======
 Release|Win32|C:\Users\Gerard Clotet\Desktop\Project-1\Prototype\Code\|
->>>>>>> cfda2d6d0ff642f07f3cf5a582b32ebdf333fdaa
