@@ -10,7 +10,7 @@
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
-<<<<<<< HEAD
+
 ModuleBackground::ModuleBackground()
 {
 	
@@ -92,7 +92,7 @@ update_status ModuleBackground::Update()
 	return UPDATE_CONTINUE;
 }
 
-=======
+
 //ModuleBackground::ModuleBackground()
 //{}
 //
@@ -172,4 +172,4 @@ update_status ModuleBackground::Update()
 //	return UPDATE_CONTINUE;
 //}
 //
->>>>>>> bd4bc993eec117b2f579f055ed6fb8f3fab2c3c4
+

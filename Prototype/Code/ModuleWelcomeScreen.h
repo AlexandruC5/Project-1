@@ -16,8 +16,13 @@ class ModuleWelcomeScreen : public Module
 private:
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
+	SDL_Texture* graphics3 = nullptr;
 	bool activate = false;
 	//SDL_Rect screen;
+
+	int time;
+	int aux;
+	bool print;
 	
 	SDL_Rect title;
 	SDL_Rect background;
@@ -30,6 +35,7 @@ private:
 
 public:
 	update_status Update();
+	bool Init();
 	bool CleanUp();
 	bool Start();
 	bool Parpadear() { return activate; }
