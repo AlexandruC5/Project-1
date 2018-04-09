@@ -12,6 +12,9 @@
 
 ModuleWelcomeScreen::ModuleWelcomeScreen()
 {
+	int time = 20;
+	int aux = 0;
+	bool print = true;
 	title = { 10, 248, 252, 194 };
 	background = { 8, 8, 326, 229 };
 	company1 = { 22, 453, 158, 22 };
@@ -48,7 +51,16 @@ update_status ModuleWelcomeScreen::Update()
 	App->render->Blit(graphics, 35, 3, &title);
 	App->render->Blit(graphics, 15, 203, &company1);
 	App->render->Blit(graphics, 180, 205, &company2);
-	App->render->Blit(graphics, 87, 110, &start_button);
+	
+	if(aux <= time && print)
+	{
+	 	App->render->Blit(graphics, 87, 110, &start_button);	
+	 	aux++;
+	}else{
+		print = false;
+		aux--;
+		if(aux == 0)print=true;
+	}
 		
 	return update_status::UPDATE_CONTINUE;
 }
