@@ -7,6 +7,10 @@
 #include "ModulePlayer.h"
 #include "ModuleBackground.h"
 #include "ModuleInput.h"
+#include "SDL/include/SDL.h"
+
+#pragma comment( lib, "SDL/libx86/SDL2.lib" )
+#pragma comment( lib, "SDL/libx86/SDL2main.lib" )
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -69,7 +73,7 @@ update_status ModuleBackground::Update()
 
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_A]) {
+	if (App->input->keyboard[SDL_SCANCODE_A]=KEY_DOWN) {
 		App->player->position.x -= 2;
 		App->render->camera.x -= 0;
 

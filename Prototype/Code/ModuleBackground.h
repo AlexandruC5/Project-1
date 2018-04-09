@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84d967ff8e25b98e519888e827ade17b5fb9a1ed
 
 #ifndef __MODULEBACKGROUND_H__
 #define __MODULEBACKGROUND_H__
@@ -27,7 +31,10 @@ public:
 
 #endif // __MODULEBACKGROUND_H__
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84d967ff8e25b98e519888e827ade17b5fb9a1ed
 //
 //
 //#ifndef __MODULEBACKGROUND_H__
