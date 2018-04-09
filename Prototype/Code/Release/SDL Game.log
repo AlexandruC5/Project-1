@@ -1,7 +1,31 @@
+<<<<<<< HEAD
+﻿  Application.cpp
+  ModuleSceneAir.cpp
+  ModuleWelcomeScreen.cpp
+  Generando código
+  8 of 105 functions ( 7.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+Globals.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\release\vc141.pdb' está dañado; puede que algunos símbolos y tipos no sean accesibles desde el depurador
+ModuleBackground.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\release\vc141.pdb' está dañado; puede que algunos símbolos y tipos no sean accesibles desde el depurador
+  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
+=======
 ﻿  ModuleSceneAir.cpp
+<<<<<<< HEAD
+  Generando código
+  2 of 105 functions ( 1.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Desktop\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+=======
   Generating code
   0 of 99 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SDL Game.vcxproj -> C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+>>>>>>> bd4bc993eec117b2f579f055ed6fb8f3fab2c3c4
+>>>>>>> cfda2d6d0ff642f07f3cf5a582b32ebdf333fdaa

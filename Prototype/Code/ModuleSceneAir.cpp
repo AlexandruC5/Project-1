@@ -43,16 +43,32 @@ bool ModuleSceneAir::Start() {
 	if (!loadMapTextures()) {
 		return false;
 	}
-
-	textrect[0] = new SDL_Rect();
-
+	for (int i = 0; i < NUM_LAYERS; i++) {
+		textrect[i] = new SDL_Rect();
+	}
 	textrect[0]->x = 0;
 	textrect[0]->y = 0;
 	textrect[0]->h = 785;
 	textrect[0]->w = 5110;
 
-	music = App->audio->LoadMusic("assets/audio/music/03_Sky_dance.ogg");
+	textrect[1]->x = 237;
+	textrect[1]->y = 192;
+	textrect[1]->w = 128;
+	textrect[1]->h = 16;
+
+	textrect[2]->x = -21;
+	textrect[2]->y = 192;
+	textrect[2]->w = 128;
+	textrect[2]->h = 16;
+	
+	textrect[3]->x = -56;
+	textrect[3]->y = 192;
+	textrect[3]->w = 128;
+	textrect[3]->h = 16;
+
 	//shipSpawn = App->audio->LoadFx("Assets/Audio/SFX/xmultipl-026.wav");
+	music = App->audio->LoadMusic("Game/assets/audio/music/03_Sky_dance.ogg");
+
 	Mix_PlayMusic(music, -1);
 	//Mix_PlayChannel(-1, shipSpawn, 0);
 	return true;
@@ -62,6 +78,10 @@ update_status ModuleSceneAir::Update()
 {
 
 	App->render->Blit(textures[0], 0, -560, textrect[0]);
+	App->render->Blit(textures[1], 10, -560, textrect[1]);
+	App->render->Blit(textures[2], 45, -560, textrect[2]);
+	App->render->Blit(textures[3], 29, -560, textrect[3]);
+
 	//App->render->Blit(textures[1], xLayer, yLayer, textrect[1]);
 
 	// Move camera forward -----------------------------
@@ -120,7 +140,7 @@ bool ModuleSceneAir::CleanUp()
 {
 	App->player->Disable();
 
-	for (int i = NUM_LAYERS; i < 1; --i)
+	for ( int i = NUM_LAYERS; i < 1; --i)
 	{
 		App->textures->Unload(textures[i]);
 		textures[i] = nullptr;
@@ -142,8 +162,12 @@ bool ModuleSceneAir::loadMapTextures()
 {
 	LOG("Loading background textures");
 	//Load all background textures
-	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/Background2.png");
 	
+	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/Background2.png");
+	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
+	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
+	textures[3] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
+
 	//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
 
 	if (textures[0] == nullptr) {
