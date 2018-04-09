@@ -3,6 +3,7 @@
 
 #include "Module.h"
 
+
 #define NUM_TEXTURES 2
 
 struct SDL_Rect;
@@ -15,7 +16,7 @@ class ModuleWelcomeScreen : public Module
 private:
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
-	bool parpadeo = true;
+	bool activate = false;
 	//SDL_Rect screen;
 	
 	SDL_Rect title;
@@ -31,7 +32,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	bool Start();
-	bool Parpadear() { return parpadeo; }
+	bool Parpadear() { return activate; }
 	ModuleWelcomeScreen();
 	~ModuleWelcomeScreen();
 };

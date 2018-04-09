@@ -10,13 +10,17 @@
 #include "ModuleWelcomeScreen.h"
 #include "ModulePlayer.h"
 
+
 ModuleWelcomeScreen::ModuleWelcomeScreen()
 {
+	
+
 	title = { 10, 248, 252, 194 };
 	background = { 8, 8, 326, 229 };
 	company1 = { 22, 453, 158, 22 };
 	company2 = { 184, 454, 116, 17 };
 	start_button = { 24, 480, 147, 17 };
+
 }
 
 ModuleWelcomeScreen::~ModuleWelcomeScreen()
@@ -42,6 +46,8 @@ bool ModuleWelcomeScreen::Start()
 
 update_status ModuleWelcomeScreen::Update()
 {
+
+
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) App->fade->FadeToBlack(this, App->scene_air, 2);
 
 	App->render->Blit(graphics, 0, 0, &background);
@@ -49,6 +55,7 @@ update_status ModuleWelcomeScreen::Update()
 	App->render->Blit(graphics, 15, 203, &company1);
 	App->render->Blit(graphics, 180, 205, &company2);
 	App->render->Blit(graphics, 87, 110, &start_button);
+	
 		
 	return update_status::UPDATE_CONTINUE;
 }
