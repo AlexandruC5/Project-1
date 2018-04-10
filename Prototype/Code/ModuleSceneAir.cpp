@@ -97,7 +97,7 @@ update_status ModuleSceneAir::Update()
 	int scroll_speed = 1;
 	timer++;
 
-	//App->render->camera.x -= 2;
+	//App->render->camera.x -= 4;
 	//if (timer <= 100)
 	//{
 	//	App->player->position.x += 2;
@@ -105,13 +105,26 @@ update_status ModuleSceneAir::Update()
 	//App->player->position.x -= App->render->camera.x;
 	//	
 
+
+	if (timer < 30) {
+		App->player->position.x += 1;
+	}
+
 	App->player->position.x += 2;
-	App->render->camera.x -= 2;
+	App->render->camera.x -= 6;
 
 	if (timer >= 500 && timer <= 700) {
 
 		App->player->position.y -= 1;
-		App->render->camera.y += 2;
+		App->render->camera.y += 3;
+
+	}
+
+
+	if (timer >= 1300 && timer <= 1650) {
+
+		App->player->position.y -= 1;
+		App->render->camera.y += 3;
 
 	}
 

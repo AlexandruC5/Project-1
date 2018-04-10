@@ -7,7 +7,7 @@
 //#include "ModuleBackground.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
-
+#include "ModuleParticles.h"
 #include "ModuleWelcomeScreen.h"
 #include "ModuleSceneAir.h"
 
@@ -23,10 +23,9 @@ Application::Application()
 	//modules[5] = scene_background = new ModuleBackground();
 	modules[5] = scene_start = new ModuleWelcomeScreen();
 	modules[6] = scene_air = new ModuleSceneAir();
-
 	modules[7] = player = new ModulePlayer();
 	modules[8] = fade = new ModuleFadeToBlack();
-
+	modules[9] = particles = new ModuleParticles();
 
 	
 }
