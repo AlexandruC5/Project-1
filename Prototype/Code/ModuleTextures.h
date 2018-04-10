@@ -24,6 +24,7 @@ public:
 public:
 	SDL_Texture* textures[MAX_TEXTURES];
 	uint last_texture = 0;
+	
 };
 
 #endif // __ModuleTextures_H__

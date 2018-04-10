@@ -14,31 +14,49 @@ struct Mix_Chunk;
 class ModuleWelcomeScreen : public Module
 {
 private:
+    // Scrolling variables
+	int scroll;
+	int scroll2;
+	int bg_width;
+
+
+	//Component Textures
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
 	SDL_Texture* graphics3 = nullptr;
-	bool activate = false;
-	//SDL_Rect screen;
 
-	int time;
-	int aux;
-	bool print;
+	//Layer Textures
+	SDL_Texture* bg1 = nullptr;
 	
+	//Rect Main Textures
 	SDL_Rect title;
 	SDL_Rect background;
 	SDL_Rect company1;
 	SDL_Rect company2;
 	SDL_Rect start_button;
-	
 
+	//Rect Layers
+	SDL_Rect bg1_rect;
+	
+	// Music
 	_Mix_Music* music = nullptr;
 
+	/*
+	int time;
+	int aux;
+	bool print;
+	int timer;
+	*/
+
 public:
+
+	//Functions
 	update_status Update();
 	bool Init();
 	bool CleanUp();
 	bool Start();
-	bool Parpadear() { return activate; }
+	
+	//Constructor&Destructor
 	ModuleWelcomeScreen();
 	~ModuleWelcomeScreen();
 };

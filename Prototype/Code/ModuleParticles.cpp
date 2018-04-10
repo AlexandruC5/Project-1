@@ -7,6 +7,7 @@
 
 #include "SDL/include/SDL_timer.h"
 
+
 ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -53,6 +54,8 @@ bool ModuleParticles::Start()
 //Unload
 
 bool ModuleParticles::CleanUp() {
+
+	bool ret = true;
 	LOG("Unloading prticles");
 	App->textures->Unload(graphics);
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -63,7 +66,7 @@ bool ModuleParticles::CleanUp() {
 			active[i] = nullptr;
 		}
 	}
-
+	return ret;
 }
 
 update_status ModuleParticles::Update() {
@@ -130,3 +133,4 @@ bool Particle::Update()
 
 	return ret;
 }
+
