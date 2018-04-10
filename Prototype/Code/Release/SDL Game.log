@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Generando código
   23 of 108 functions (21.3%) were compiled, the rest were copied from previous compilation.
     8 functions were new in current compilation
@@ -8,3 +9,12 @@ ModuleParticles.obj : warning LNK4205: falta información de depuración actual 
 ModuleBackground.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\release\vc141.pdb' está dañado; puede que algunos símbolos y tipos no sean accesibles desde el depurador
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
+=======
+﻿  ModuleSceneAir.cpp
+  Generating code
+  1 of 115 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SDL Game.vcxproj -> C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+>>>>>>> 19c6cbf4e77f5ecb7f612b090eb924842d5d3f17
