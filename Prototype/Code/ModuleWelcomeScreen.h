@@ -14,11 +14,25 @@ struct Mix_Chunk;
 class ModuleWelcomeScreen : public Module
 {
 private:
-    // Scrolling variables
-	int scroll;
-	int scroll2;
-	int bg_width;
 
+	int aux;
+	bool print;
+
+    // Scrolling variables
+	float scroll;
+	float  scroll2;
+	float  scroll3;
+	float  scroll4;
+	float  scroll5;
+	float  scroll6;
+	float  scroll7;
+	float  scroll8;
+	float  scroll9;
+	float  scroll10;
+	float  scroll11;
+	float  scroll12;
+	float  scroll13;
+	float  scroll14;
 
 	//Component Textures
 	SDL_Texture* graphics = nullptr;
@@ -27,6 +41,12 @@ private:
 
 	//Layer Textures
 	SDL_Texture* bg1 = nullptr;
+	SDL_Texture* bg2 = nullptr;
+	SDL_Texture* bg3 = nullptr;
+	SDL_Texture* bg4 = nullptr;
+	SDL_Texture* bg5 = nullptr;
+	SDL_Texture* bg6 = nullptr;
+	SDL_Texture* bg7 = nullptr;
 	
 	//Rect Main Textures
 	SDL_Rect title;
@@ -37,6 +57,12 @@ private:
 
 	//Rect Layers
 	SDL_Rect bg1_rect;
+	SDL_Rect bg2_rect;
+	SDL_Rect bg3_rect;
+	SDL_Rect bg4_rect;
+	SDL_Rect bg5_rect;
+	SDL_Rect bg6_rect;
+	SDL_Rect bg7_rect;
 	
 	// Music
 	_Mix_Music* music = nullptr;
