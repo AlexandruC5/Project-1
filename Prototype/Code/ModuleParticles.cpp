@@ -66,7 +66,11 @@ bool ModuleParticles::CleanUp() {
 			active[i] = nullptr;
 		}
 	}
+<<<<<<< HEAD
 	return ret;
+=======
+	return true;
+>>>>>>> eadcac60e73506a735ff0325c04459c837f424cd
 }
 
 update_status ModuleParticles::Update() {

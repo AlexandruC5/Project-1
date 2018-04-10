@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.15063.0
+<<<<<<< HEAD
 Release|Win32|C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\|
+=======
+Release|Win32|C:\Users\alexa\Desktop\Project-1\Prototype\Code\|
+>>>>>>> eadcac60e73506a735ff0325c04459c837f424cd

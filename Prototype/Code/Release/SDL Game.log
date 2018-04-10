@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  ModuleWelcomeScreen.cpp
   Generando código
   1 of 100 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
@@ -7,3 +8,122 @@
 Globals.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\release\vc141.pdb' está dañado; puede que algunos símbolos y tipos no sean accesibles desde el depurador
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
+=======
+﻿  Application.cpp
+  Globals.cpp
+  Main.cpp
+  ModuleAudio.cpp
+  ModuleFadeToBlack.cpp
+  ModuleInput.cpp
+  ModuleParticles.cpp
+  ModulePlayer.cpp
+  ModuleRender.cpp
+  ModuleBackground.cpp
+c:\users\alexa\desktop\project-1\prototype\code\ModuleBackground.h(1): error C2059: syntax error: '<<'
+c:\users\alexa\desktop\project-1\prototype\code\ModuleBackground.h(34): error C2059: syntax error: '<<'
+c:\users\alexa\desktop\project-1\prototype\code\SDL\include\SDL_scancode.h(44): error C2143: syntax error: missing ';' before '{'
+c:\users\alexa\desktop\project-1\prototype\code\SDL\include\SDL_scancode.h(44): error C2447: '{': missing function header (old-style formal list?)
+c:\users\alexa\desktop\project-1\prototype\code\SDL\include\SDL_scancode.h(397): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(124): error C2065: 'SDL_SCANCODE_CAPSLOCK': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(124): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(126): error C2065: 'SDL_SCANCODE_F1': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(126): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(127): error C2065: 'SDL_SCANCODE_F2': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(127): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(128): error C2065: 'SDL_SCANCODE_F3': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(128): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(129): error C2065: 'SDL_SCANCODE_F4': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(129): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(130): error C2065: 'SDL_SCANCODE_F5': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(130): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(131): error C2065: 'SDL_SCANCODE_F6': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(131): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(132): error C2065: 'SDL_SCANCODE_F7': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(132): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(133): error C2065: 'SDL_SCANCODE_F8': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(133): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(134): error C2065: 'SDL_SCANCODE_F9': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(134): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(135): error C2065: 'SDL_SCANCODE_F10': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(135): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(136): error C2065: 'SDL_SCANCODE_F11': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(136): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(137): error C2065: 'SDL_SCANCODE_F12': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(137): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(139): error C2065: 'SDL_SCANCODE_PRINTSCREEN': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(139): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(140): error C2065: 'SDL_SCANCODE_SCROLLLOCK': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(140): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(141): error C2065: 'SDL_SCANCODE_PAUSE': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(141): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(142): error C2065: 'SDL_SCANCODE_INSERT': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(142): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(143): error C2065: 'SDL_SCANCODE_HOME': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(143): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(144): error C2065: 'SDL_SCANCODE_PAGEUP': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(144): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(146): error C2065: 'SDL_SCANCODE_END': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(146): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(147): error C2065: 'SDL_SCANCODE_PAGEDOWN': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(147): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(148): error C2065: 'SDL_SCANCODE_RIGHT': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(148): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(149): error C2065: 'SDL_SCANCODE_LEFT': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(149): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(150): error C2065: 'SDL_SCANCODE_DOWN': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(150): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(151): error C2065: 'SDL_SCANCODE_UP': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(151): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(153): error C2065: 'SDL_SCANCODE_NUMLOCKCLEAR': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(153): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(154): error C2065: 'SDL_SCANCODE_KP_DIVIDE': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(154): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(155): error C2065: 'SDL_SCANCODE_KP_MULTIPLY': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(155): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(156): error C2065: 'SDL_SCANCODE_KP_MINUS': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(156): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(157): error C2065: 'SDL_SCANCODE_KP_PLUS': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(157): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(158): error C2065: 'SDL_SCANCODE_KP_ENTER': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(158): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(159): error C2065: 'SDL_SCANCODE_KP_1': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(159): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(160): error C2065: 'SDL_SCANCODE_KP_2': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(160): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(161): error C2065: 'SDL_SCANCODE_KP_3': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(161): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(162): error C2065: 'SDL_SCANCODE_KP_4': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(162): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(163): error C2065: 'SDL_SCANCODE_KP_5': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(163): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(164): error C2065: 'SDL_SCANCODE_KP_6': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(164): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(165): error C2065: 'SDL_SCANCODE_KP_7': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(165): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(166): error C2065: 'SDL_SCANCODE_KP_8': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(166): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(167): error C2065: 'SDL_SCANCODE_KP_9': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(167): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(168): error C2065: 'SDL_SCANCODE_KP_0': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(168): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(169): error C2065: 'SDL_SCANCODE_KP_PERIOD': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(169): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(171): error C2065: 'SDL_SCANCODE_APPLICATION': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(171): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(172): error C2065: 'SDL_SCANCODE_POWER': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(172): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(173): error C2065: 'SDL_SCANCODE_KP_EQUALS': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(173): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(174): error C2065: 'SDL_SCANCODE_F13': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(174): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(175): error C2065: 'SDL_SCANCODE_F14': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(175): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(176): error C2065: 'SDL_SCANCODE_F15': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(176): error C2056: illegal expression
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(177): error C2065: 'SDL_SCANCODE_F16': undeclared identifier
+c:\users\alexa\desktop\project-1\prototype\code\sdl\include\SDL_keycode.h(177): fatal error C1003: error count exceeds 100; stopping compilation
+  ModuleSceneAir.cpp
+  ModuleTextures.cpp
+  ModuleWelcomeScreen.cpp
+  ModuleWindow.cpp
+>>>>>>> eadcac60e73506a735ff0325c04459c837f424cd
