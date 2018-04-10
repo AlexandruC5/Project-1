@@ -63,7 +63,7 @@ bool ModuleParticles::CleanUp() {
 			active[i] = nullptr;
 		}
 	}
-
+	return true;
 }
 
 update_status ModuleParticles::Update() {
