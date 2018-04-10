@@ -1,5 +1,3 @@
-
-
 #ifndef __MODULEPARTICLES_H__
 #define __MODULEPARTICLES_H__
 
@@ -41,14 +39,14 @@ public:
 
 private:
 
-	SDL_Texture* graphics = nullptr;
+	SDL_Texture * graphics = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
 
 public:
 
-	Particle card1, card2, card3, card4, card5;
-	
+	Particle explosion;
+	Particle laser;
 };
 
-#endif // __MODULEPARTICLES_H_
+#endif // __MODULEPARTICLES_H__

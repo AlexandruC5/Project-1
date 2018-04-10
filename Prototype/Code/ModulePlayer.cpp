@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
-
+#include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 
@@ -57,7 +57,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	graphics = App->textures->Load("assets/sprites/miko.png");
-
+	bool isShooting = false;
 	return true;
 }
 
@@ -81,6 +81,14 @@ update_status ModulePlayer::Update()
 			&& App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
 			current_animation = &forward;
 	}
+
+	if (firerate == 0 && isShooting) {
+
+		App->particles->AddParticle(App->particles->laser, position.x, position.y);
+		firerate = 15;
+		isShooting = false;
+	}
+	else firerate--;
 
 	if(App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
@@ -133,6 +141,13 @@ update_status ModulePlayer::Update()
 		position.y -= speed;
 
 			
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) {
+
+		App->particles->AddParticle(App->particles->laser, position.x , position.y);
+		firerate = 10;
+		isShooting = true;
 	}
 	
 	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
