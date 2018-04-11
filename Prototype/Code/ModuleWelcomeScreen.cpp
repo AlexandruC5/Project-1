@@ -85,7 +85,6 @@ bool ModuleWelcomeScreen::Start()
 	//Loading Music
 	music = App->audio->LoadMusic("assets/audio/music/01_Gem_of_hope.ogg");
 	Mix_PlayMusic(music, -1);
-
 	return true;
 }
 
