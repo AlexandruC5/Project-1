@@ -1,7 +1,16 @@
 ﻿  ModuleSceneAir.cpp
+<<<<<<< HEAD
   Generando código
   3 of 115 functions ( 2.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     3 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   SDL Game.vcxproj -> D:\upc\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+=======
+  Generating code
+  1 of 115 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SDL Game.vcxproj -> C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+>>>>>>> cc3ed4865f3ac3c5874cd898b2092685fe08df11
