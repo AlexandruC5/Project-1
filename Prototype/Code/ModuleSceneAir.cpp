@@ -43,18 +43,23 @@ bool ModuleSceneAir::Start() {
 	if (!loadMapTextures()) {
 		return false;
 	}
-	textrect[0] = new SDL_Rect();	
-	
- textrect[0]->x = 0;	 	
+	for (int i = 0; i < NUM_LAYERS; i++) {
+		textrect[i] = new SDL_Rect();
+	}
+textrect[0]->x = 0;	 	
 textrect[0]->y = 0;	 	
 textrect[0]->h = 785;	 	
 textrect[0]->w = 5110;
 
+textrect[1]->x = 0;
+textrect[1]->y = 0;
+textrect[1]->h = 16;
+textrect[1]->w = 128;
+
+
 
 	/*
-	for (int i = 0; i < NUM_LAYERS; i++) {
-		textrect[i] = new SDL_Rect();
-	}
+	
 	textrect[0]->x = 0;
 	textrect[0]->y = 0;
 	textrect[0]->h = 785;
@@ -86,11 +91,13 @@ textrect[0]->w = 5110;
 update_status ModuleSceneAir::Update()
 {
 
-	App->render->Blit(textures[0], 0, -560, textrect[0]);
-	App->render->Blit(textures[1], 10, -560, textrect[1]);
+	App->render->Blit(textures[0], 0, -560, textrect[0], 1);
+
+	App->render->Blit(textures[1], 0, -560, textrect[1], 0.5);
+	/*App->render->Blit(textures[1], 10, -560, textrect[1]);
 	App->render->Blit(textures[2], 45, -560, textrect[2]);
 	App->render->Blit(textures[3], 29, -560, textrect[3]);
-
+	*/
 	//App->render->Blit(textures[1], xLayer, yLayer, textrect[1]);
 
 	// Move camera forward -----------------------------
@@ -184,8 +191,9 @@ bool ModuleSceneAir::loadMapTextures()
 {
 	LOG("Loading background textures");
 	//Load all background textures
-
 	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/Background2.png");
+	textures[1] = App->textures->Load("assets/spirtes/Scenes/Scene_Air/treeline1.png");
+
 	/*
 	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
 	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
@@ -194,6 +202,10 @@ bool ModuleSceneAir::loadMapTextures()
 	//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
 	
 	if (textures[0] == nullptr) {
+		return false;
+	}
+	else return true;
+	if (textures[1] == nullptr) {
 		return false;
 	}
 	else return true;
