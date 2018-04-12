@@ -49,7 +49,6 @@ bool ModuleSceneAir::Start() {
 	}
 
 
-	textrect[0] = new SDL_Rect();	
 	
 
 
@@ -92,7 +91,7 @@ textrect[2]->x = 5510;
 	textrect[3]->h = 16;
 	*/
 	//shipSpawn = App->audio->LoadFx("Assets/Audio/SFX/xmultipl-026.wav");
-	music = App->audio->LoadMusic("Game/assets/audio/music/03_Sky_dance.ogg");
+	music = App->audio->LoadMusic("assets/audio/music/03_Sky_dance.ogg");
 
 	Mix_PlayMusic(music, -1);
 	//Mix_PlayChannel(-1, shipSpawn, 0);
@@ -106,7 +105,7 @@ update_status ModuleSceneAir::Update()
 	App->render->Blit(textures[0], 0, -670, textrect[0], 1);
 	
 
-	App->render->Blit(textures[1], 0, 30, textrect[1], 0.5f);
+	App->render->Blit(textures[1], 0, -700, textrect[1], 0.5f);
 
 	App->render->Blit(textures[2], 0, 40, textrect[2], 0.5f);
 
@@ -213,7 +212,7 @@ bool ModuleSceneAir::loadMapTextures()
 		return false;
 	}
 	else return true;
-}
+	};
 }
 
 
