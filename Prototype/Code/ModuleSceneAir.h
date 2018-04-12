@@ -4,7 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 
-#define NUM_LAYERS 2
+#define NUM_LAYERS 3
 
 struct SDL_Rect;
 struct SDL_Texture;
