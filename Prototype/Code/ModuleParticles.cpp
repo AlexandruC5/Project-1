@@ -42,7 +42,7 @@ bool ModuleParticles::Start()
 	laser.anim.loop = false;
 	laser.anim.speed = 1;
 	laser.speed = { 5,0 };
-	laser.life = 5 * 500;
+	laser.life = 5 *150;
 	
 	return true;
 }
