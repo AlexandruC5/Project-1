@@ -58,7 +58,7 @@ textrect[0]->h = 897;
 textrect[0]->w = 5110;
 
 textrect[1]->x = 0;
-textrect[1]->y = -484;
+textrect[1]->y = 0;
 textrect[1]->h = 16;
 textrect[1]->w = 5510;
 
@@ -101,28 +101,42 @@ textrect[2]->x = 5510;
 update_status ModuleSceneAir::Update()
 {
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+	//Painting the background
+	App->render->Blit(textures[0], 0, -670, textrect[0], 1);
+	App->render->Blit(textures[1], 0, -700, textrect[1], 0.5f);
+=======
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
+=======
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 
 	App->render->Blit(textures[0], 0, -670, textrect[0], 1);
 	
 
+<<<<<<< HEAD
 	App->render->Blit(textures[1], 0, -700, textrect[1], 0.5f);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+	
+=======
+=======
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
+	App->render->Blit(textures[1], 0, 30, textrect[1], 0.5f);
+>>>>>>> 3175d113bc458900f60aff4f8d2ed3b1429d7be9
 
 	App->render->Blit(textures[2], 0, 40, textrect[2], 0.5f);
 
 
 	//App->render->Blit(textures[1], xLayer, yLayer, textrect[1]);
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 
 	// Move camera forward -----------------------------
 	int scroll_speed = 1;
 	timer++;
 
-	//App->render->camera.x -= 4;
-	//if (timer <= 100)
-	//{
-	//	App->player->position.x += 2;
-	//}
-	//App->player->position.x -= App->render->camera.x;
-	//	
 
 
 	if (timer < 30) {
@@ -139,12 +153,7 @@ update_status ModuleSceneAir::Update()
 
 	}
 
-	/*if (timer >= 500 && timer <= 700) {
-
-		App->player->position.y -= 1;
-		App->render->camera.y += 3;
-
-	}*/
+	
 
 	if (App->input->keyboard[SDL_SCANCODE_A]) {
 		App->player->position.x -= 2;
@@ -195,8 +204,20 @@ bool ModuleSceneAir::loadMapTextures()
 {
 	LOG("Loading background textures");
 	//Load all background textures
-	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/Background2.png");
+	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/background2.png");
 	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
+<<<<<<< HEAD
+<<<<<<< HEAD
+	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
+
+	if (textures[0] == nullptr) {
+		return false;
+	}
+	else return true;
+	if (textures[1] == nullptr) {
+=======
+=======
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 
 	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
 
@@ -209,6 +230,10 @@ bool ModuleSceneAir::loadMapTextures()
 	//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
 	for (int i = 0; i <= NUM_LAYERS; i++) {
 	if (textures[i] == nullptr) {
+<<<<<<< HEAD
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
+=======
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 		return false;
 	}
 	else return true;
