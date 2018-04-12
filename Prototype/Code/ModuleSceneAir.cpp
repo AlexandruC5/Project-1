@@ -45,7 +45,7 @@ bool ModuleSceneAir::Start() {
 	}
 	textrect[0] = new SDL_Rect();	
 	
- textrect[0]->x = 0;	 	
+textrect[0]->x = 0;	 	
 textrect[0]->y = 0;	 	
 textrect[0]->h = 785;	 	
 textrect[0]->w = 5110;
@@ -87,9 +87,9 @@ update_status ModuleSceneAir::Update()
 {
 
 	App->render->Blit(textures[0], 0, -560, textrect[0]);
-	App->render->Blit(textures[1], 10, -560, textrect[1]);
-	App->render->Blit(textures[2], 45, -560, textrect[2]);
-	App->render->Blit(textures[3], 29, -560, textrect[3]);
+	//App->render->Blit(textures[1], 10, -560, textrect[1]);
+	//App->render->Blit(textures[2], 45, -560, textrect[2]);
+	//App->render->Blit(textures[3], 29, -560, textrect[3]);
 
 	//App->render->Blit(textures[1], xLayer, yLayer, textrect[1]);
 
@@ -111,12 +111,12 @@ update_status ModuleSceneAir::Update()
 	}
 
 	App->player->position.x += 1;
-	App->render->camera.x -= 3;
+	App->render->camera.x -= 2;
 
 	if (timer >= 500 && timer <= 700) {
 
 		App->player->position.y -= 1;
-		App->render->camera.y += 3;
+		App->render->camera.y += 2;
 
 	}
 
@@ -124,7 +124,7 @@ update_status ModuleSceneAir::Update()
 	if (timer >= 1300 && timer <= 1650) {
 
 		App->player->position.y -= 1;
-		App->render->camera.y += 3;
+		App->render->camera.y += 2;
 
 	}
 
