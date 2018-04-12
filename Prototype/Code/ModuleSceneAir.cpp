@@ -48,10 +48,14 @@ bool ModuleSceneAir::Start() {
 		textrect[i] = new SDL_Rect();
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	textrect[0] = new SDL_Rect();	
 	
 
+=======
+	
+>>>>>>> e6b76f90ab6f46d70b1879711402c94b5bb26bbd
 =======
 	
 >>>>>>> e6b76f90ab6f46d70b1879711402c94b5bb26bbd
@@ -105,12 +109,18 @@ update_status ModuleSceneAir::Update()
 {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	App->render->Blit(textures[0], 0, -670, textrect[0]);
 	
 
 	App->render->Blit(textures[1], 0, -600, textrect[1], 0.5);
 
 
+=======
+	App->render->Blit(textures[0], 0, -560, textrect[0], 0.5);
+
+	App->render->Blit(textures[1], 0, -525, textrect[1], 1);
+>>>>>>> e6b76f90ab6f46d70b1879711402c94b5bb26bbd
 =======
 	App->render->Blit(textures[0], 0, -560, textrect[0], 0.5);
 
@@ -125,7 +135,10 @@ update_status ModuleSceneAir::Update()
 	//App->render->Blit(textures[3], 29, -560, textrect[3]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> e6b76f90ab6f46d70b1879711402c94b5bb26bbd
 =======
 >>>>>>> e6b76f90ab6f46d70b1879711402c94b5bb26bbd
 	//App->render->Blit(textures[1], xLayer, yLayer, textrect[1]);
@@ -216,7 +229,11 @@ bool ModuleSceneAir::loadMapTextures()
 	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/Background2.png");
 	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
+>>>>>>> e6b76f90ab6f46d70b1879711402c94b5bb26bbd
 =======
 	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
 >>>>>>> e6b76f90ab6f46d70b1879711402c94b5bb26bbd
