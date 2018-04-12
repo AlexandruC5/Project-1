@@ -4,7 +4,7 @@
 #include "Module.h"
 
 
-#define NUM_TEXTURES 2
+#define NUM_TEXTURES 3
 
 struct SDL_Rect;
 struct SDL_Texture;

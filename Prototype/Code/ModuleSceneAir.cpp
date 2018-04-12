@@ -43,24 +43,25 @@ bool ModuleSceneAir::Start() {
 	if (!loadMapTextures()) {
 		return false;
 	}
-<<<<<<< HEAD
+
 	for (int i = 0; i < NUM_LAYERS; i++) {
 		textrect[i] = new SDL_Rect();
 	}
-=======
-	textrect[0] = new SDL_Rect();	
 	
->>>>>>> cc3ed4865f3ac3c5874cd898b2092685fe08df11
 textrect[0]->x = 0;	 	
 textrect[0]->y = 0;	 	
 textrect[0]->h = 785;	 	
 textrect[0]->w = 5110;
 
 textrect[1]->x = 0;
-textrect[1]->y = 0;
+textrect[1]->y = -484;
 textrect[1]->h = 16;
-textrect[1]->w = 128;
+textrect[1]->w = 5510;
 
+textrect[2]->x = 0;
+textrect[2]->y = 0;
+textrect[2]->h = 16;
+textrect[2]->x = 5510;
 
 
 	/*
@@ -96,21 +97,17 @@ textrect[1]->w = 128;
 update_status ModuleSceneAir::Update()
 {
 
-<<<<<<< HEAD
-	App->render->Blit(textures[0], 0, -560, textrect[0], 1);
+	App->render->Blit(textures[0], 0, -560, textrect[0], 0.5);
 
-	App->render->Blit(textures[1], 0, -560, textrect[1], 0.5);
+	App->render->Blit(textures[1], 0, -525, textrect[1], 1);
 	/*App->render->Blit(textures[1], 10, -560, textrect[1]);
 	App->render->Blit(textures[2], 45, -560, textrect[2]);
 	App->render->Blit(textures[3], 29, -560, textrect[3]);
 	*/
-=======
-	App->render->Blit(textures[0], 0, -560, textrect[0]);
 	//App->render->Blit(textures[1], 10, -560, textrect[1]);
 	//App->render->Blit(textures[2], 45, -560, textrect[2]);
 	//App->render->Blit(textures[3], 29, -560, textrect[3]);
 
->>>>>>> cc3ed4865f3ac3c5874cd898b2092685fe08df11
 	//App->render->Blit(textures[1], xLayer, yLayer, textrect[1]);
 
 	// Move camera forward -----------------------------
@@ -205,8 +202,8 @@ bool ModuleSceneAir::loadMapTextures()
 	LOG("Loading background textures");
 	//Load all background textures
 	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/Background2.png");
-	textures[1] = App->textures->Load("assets/spirtes/Scenes/Scene_Air/treeline1.png");
-
+	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
+	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
 	/*
 	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
 	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
