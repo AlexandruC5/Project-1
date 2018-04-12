@@ -110,7 +110,7 @@ update_status ModuleSceneAir::Update()
 	App->player->position.x += 1;
 	App->render->camera.x -= 2;
 
-	if (timer >= 1000 && timer <= 1668) {
+	if (timer >= 1000 && timer <= 2400) {
 
 		App->player->position.y -= 1;
 		App->render->camera.y += 2;
