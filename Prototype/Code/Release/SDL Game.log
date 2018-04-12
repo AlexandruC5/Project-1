@@ -1,18 +1,1 @@
-﻿  Application.cpp
-  Globals.cpp
-  Main.cpp
-  ModuleAudio.cpp
-  ModuleFadeToBlack.cpp
-  ModuleInput.cpp
-  ModuleParticles.cpp
-  ModulePlayer.cpp
-  ModuleRender.cpp
-  ModuleSceneAir.cpp
-  ModuleTextures.cpp
-  ModuleWelcomeScreen.cpp
-  ModuleWindow.cpp
-  Generating code
-c:\users\alexa\documents\project-1\prototype\code\modulesceneair.cpp(211): warning C4715: 'ModuleSceneAir::loadMapTextures': not all control paths return a value
-  All 115 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  SDL Game.vcxproj -> C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+﻿  SDL Game.vcxproj -> D:\upc\Project-1\Prototype\Code\Release\SDL6 Handout.exe
