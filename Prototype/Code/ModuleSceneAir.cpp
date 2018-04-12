@@ -103,9 +103,12 @@ update_status ModuleSceneAir::Update()
 {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//Painting the background
 	App->render->Blit(textures[0], 0, -670, textrect[0], 1);
 	App->render->Blit(textures[1], 0, -700, textrect[1], 0.5f);
+=======
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 =======
 >>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 
@@ -113,9 +116,12 @@ update_status ModuleSceneAir::Update()
 	
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	
 =======
+=======
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 	App->render->Blit(textures[1], 0, 30, textrect[1], 0.5f);
 
 	App->render->Blit(textures[2], 0, 40, textrect[2], 0.5f);
@@ -198,6 +204,7 @@ bool ModuleSceneAir::loadMapTextures()
 	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/background2.png");
 	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
 <<<<<<< HEAD
+<<<<<<< HEAD
 	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
 
 	if (textures[0] == nullptr) {
@@ -206,6 +213,8 @@ bool ModuleSceneAir::loadMapTextures()
 	else return true;
 	if (textures[1] == nullptr) {
 =======
+=======
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 
 	textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
 
@@ -218,6 +227,9 @@ bool ModuleSceneAir::loadMapTextures()
 	//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
 	for (int i = 0; i <= NUM_LAYERS; i++) {
 	if (textures[i] == nullptr) {
+<<<<<<< HEAD
+>>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
+=======
 >>>>>>> 364d0c88ed31de0e2b146ea7cf8759c328ce0e0e
 		return false;
 	}
