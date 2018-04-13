@@ -113,7 +113,11 @@ update_status ModuleSceneAir::Update()
 <<<<<<< HEAD
 	if (timer >= 1000 && timer <= 2370) {
 		if (timer >= 1000 && timer <= 2400) {
+=======
+
 	if (timer >= 1000 && timer <= 2400) {
+
+		if (timer >= 1000 && timer <= 2370) {
 
 >>>>>>> df16491dfe5085ea61ccd4207f2b809e02ca13fb
 
@@ -222,6 +226,7 @@ update_status ModuleSceneAir::Update()
 =======
 >>>>>>> df16491dfe5085ea61ccd4207f2b809e02ca13fb
 
+		//Woods
 
 		App->render->Blit(textures[0], 0, -700, textrect[0], 0.5f);
 		App->render->Blit(textures[1], 10, -315, textp[1], 1.0f);
