@@ -1,21 +1,6 @@
-﻿  Application.cpp
-  Globals.cpp
-  Main.cpp
-  ModuleAudio.cpp
-  ModuleFadeToBlack.cpp
-  ModuleInput.cpp
-  ModuleParticles.cpp
-  ModulePlayer.cpp
-  ModuleRender.cpp
-  ModuleBackground.cpp
-  ModuleSceneAir.cpp
-  ModuleTextures.cpp
-  ModuleWelcomeScreen.cpp
-  ModuleWindow.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Generating code
-e:\downloads\project-1-b11e8ab6877bb0d8b310685b0e03e820e17dec60\project-1-b11e8ab6877bb0d8b310685b0e03e820e17dec60\prototype\code\modulesceneair.cpp(331): warning C4715: 'ModuleSceneAir::loadMapTextures': not all control paths return a value
-  115 of 115 functions (100.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+c:\users\alexa\documents\project-1\prototype\code\modulesceneair.cpp(331): warning C4715: 'ModuleSceneAir::loadMapTextures': not all control paths return a value
+  All 115 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  SDL Game.vcxproj -> E:\Downloads\Project-1-b11e8ab6877bb0d8b310685b0e03e820e17dec60\Project-1-b11e8ab6877bb0d8b310685b0e03e820e17dec60\Prototype\Code\Release\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\alexa\Documents\Project-1\Prototype\Code\.\Game\SDL6 Handout.exe
