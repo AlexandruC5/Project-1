@@ -4,7 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 
-#define NUM_LAYERS 20
+#define NUM_LAYERS 15
 
 struct SDL_Rect;
 struct SDL_Texture;
@@ -31,7 +31,7 @@ private:
 	SDL_Rect* textrect[NUM_LAYERS];
 	SDL_Texture* textures[NUM_LAYERS];
 	SDL_Rect* textp[NUM_LAYERS];
-	SDL_Rect* textcl[NUM_LAYERS];
+	
 	_Mix_Music* music = nullptr;
 	Mix_Chunk* shipSpawn = nullptr;
 
