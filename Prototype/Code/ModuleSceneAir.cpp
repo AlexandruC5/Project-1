@@ -110,107 +110,109 @@ update_status ModuleSceneAir::Update()
 	App->player->position.x += 1;
 	App->render->camera.x -= 2;
 
-<<<<<<< HEAD
+
 	if (timer >= 1000 && timer <= 2400) {
-=======
-	if (timer >= 1000 && timer <= 2370) {
->>>>>>> parent of 74f6efc... Merge branch 'master' of https://github.com/AlexandruC5/Project-1
 
-		App->player->position.y -= 1;
-		App->render->camera.y += 2;
+		if (timer >= 1000 && timer <= 2370) {
 
+
+			App->player->position.y -= 1;
+			App->render->camera.y += 2;
+
+		}
+
+
+
+		if (App->input->keyboard[SDL_SCANCODE_A]) {
+			App->player->position.x -= 2;
+			App->render->camera.x -= 0;
+
+
+		}
+		if (App->input->keyboard[SDL_SCANCODE_W]) {
+
+			App->player->position.x -= 0;
+			App->render->camera.x -= 0;
+		}
+
+		if (App->render->camera.x < -8000 && App->render->camera.x > -10400)
+		{
+			down = true;
+		}
+		else if (down) down = false;
+
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) App->fade->FadeToBlack(this, App->scene_start, 2);
+
+		//Woods
+
+		App->render->Blit(textures[0], 0, -700, textrect[0], 0.5f);
+		App->render->Blit(textures[1], 10, -315, textp[1], 1.0f);
+		App->render->Blit(textures[1], 10, -315, textp[1], 1.0f);
+		App->render->Blit(textures[2], 0, -310, textp[1], 1.0f);
+		App->render->Blit(textures[1], 0, -305, textp[1], 1.1f);
+		App->render->Blit(textures[2], 0, -305, textp[1], 1.1f);
+		App->render->Blit(textures[1], 0, -300, textp[1], 1.3f);
+		App->render->Blit(textures[2], 0, -300, textp[1], 1.3f);
+		App->render->Blit(textures[1], 0, -295, textp[1], 1.5f);
+		App->render->Blit(textures[2], 0, -295, textp[1], 1.5f);
+		App->render->Blit(textures[3], 0, 200, textp[2], 1.7f);
+		App->render->Blit(textures[4], 0, 200, textp[3], 1.7f);
+		App->render->Blit(textures[3], 15, 190, textp[2], 1.7f);
+		App->render->Blit(textures[4], 15, 190, textp[3], 1.7f);
+
+
+		return update_status::UPDATE_CONTINUE;
 	}
 
-	
-
-	if (App->input->keyboard[SDL_SCANCODE_A]) {
-		App->player->position.x -= 2;
-		App->render->camera.x -= 0;
-
-
-	}
-	if (App->input->keyboard[SDL_SCANCODE_W]) {
-
-		App->player->position.x -= 0;
-		App->render->camera.x -= 0;
-	}
-
-	if (App->render->camera.x < -8000 && App->render->camera.x > -10400)
+	bool ModuleSceneAir::CleanUp()
 	{
-		down = true;
+		App->player->Disable();
+
+		for (int i = NUM_LAYERS; i < 1; --i)
+		{
+			App->textures->Unload(textures[i]);
+			textures[i] = nullptr;
+		}
+
+		App->audio->UnloadMusic(music);
+		music = nullptr;
+		//App->audio->UnloadSFX(shipSpawn);
+		//shipSpawn = nullptr;
+
+		return true;
 	}
-	else if (down) down = false;
-
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) App->fade->FadeToBlack(this, App->scene_start, 2);
-
-	//Woods
-
-	App->render->Blit(textures[0], 0, -700, textrect[0], 0.5f);
-	App->render->Blit(textures[1], 10, -315, textp[1], 1.0f);
-	App->render->Blit(textures[1], 10, -315, textp[1], 1.0f);
-	App->render->Blit(textures[2], 0, -310, textp[1], 1.0f);
-	App->render->Blit(textures[1], 0, -305, textp[1], 1.1f);
-	App->render->Blit(textures[2], 0, -305, textp[1], 1.1f);
-	App->render->Blit(textures[1], 0, -300, textp[1], 1.3f);
-	App->render->Blit(textures[2], 0, -300, textp[1], 1.3f);
-	App->render->Blit(textures[1], 0, -295, textp[1], 1.5f);
-	App->render->Blit(textures[2], 0, -295, textp[1], 1.5f);
-	App->render->Blit(textures[3], 0, 200, textp[2], 1.7f);
-	App->render->Blit(textures[4], 0, 200, textp[3], 1.7f);
-	App->render->Blit(textures[3], 15, 190, textp[2], 1.7f);
-	App->render->Blit(textures[4], 15, 190, textp[3], 1.7f);
 
 
-	return update_status::UPDATE_CONTINUE;
-}
 
-bool ModuleSceneAir::CleanUp()
-{
-	App->player->Disable();
 
-	for ( int i = NUM_LAYERS; i < 1; --i)
+
+	bool ModuleSceneAir::loadMapTextures()
 	{
-		App->textures->Unload(textures[i]);
-		textures[i] = nullptr;
+		LOG("Loading background textures");
+
+		//Load all background textures
+
+
+
+		textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/background2.png");
+
+		//Woods textures
+		textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
+		textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
+		textures[3] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline3.png");
+		textures[4] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline4.png");
+
+
+		//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
+		for (int i = 0; i <= NUM_LAYERS; i++) {
+			if (textures[i] == nullptr) {
+
+				return false;
+			}
+			else return true;
+		};
 	}
-
-	App->audio->UnloadMusic(music);
-	music = nullptr;
-	//App->audio->UnloadSFX(shipSpawn);
-	//shipSpawn = nullptr;
-
-	return true;
 }
 
-
-
-
-
-bool ModuleSceneAir::loadMapTextures()
-{
-	LOG("Loading background textures");
-
-	//Load all background textures
-
-
-	
-	textures[0] = App->textures->Load("assets/sprites/Scenes/Scene_Air/background2.png");
-
-	//Woods textures
-	textures[1] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline1.png");
-    textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
-	textures[3] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline3.png");
-	textures[4] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline4.png");
-	
-
-	//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
-	for (int i = 0; i <= NUM_LAYERS; i++) {
-	if (textures[i] == nullptr) {
-
-		return false;
-	}
-	else return true;
-	};
-}
 
 
