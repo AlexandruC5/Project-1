@@ -110,7 +110,11 @@ update_status ModuleSceneAir::Update()
 	App->player->position.x += 1;
 	App->render->camera.x -= 2;
 
+<<<<<<< HEAD
 	if (timer >= 1000 && timer <= 2400) {
+=======
+	if (timer >= 1000 && timer <= 2370) {
+>>>>>>> parent of 74f6efc... Merge branch 'master' of https://github.com/AlexandruC5/Project-1
 
 		App->player->position.y -= 1;
 		App->render->camera.y += 2;
