@@ -268,25 +268,26 @@ update_status ModuleSceneAir::Update()
 	//App->render->Blit(textures[13], 0, -100, textcl[7], 1.5f);
 
 	return update_status::UPDATE_CONTINUE;
+
 }
 
-bool ModuleSceneAir::CleanUp()
-{
-	App->player->Disable();
-
-	for ( int i = NUM_LAYERS; i < 1; --i)
+	bool ModuleSceneAir::CleanUp()
 	{
-		App->textures->Unload(textures[i]);
-		textures[i] = nullptr;
+		App->player->Disable();
+
+		for (int i = NUM_LAYERS; i < 1; --i)
+		{
+			App->textures->Unload(textures[i]);
+			textures[i] = nullptr;
+		}
+
+		App->audio->UnloadMusic(music);
+		music = nullptr;
+		//App->audio->UnloadSFX(shipSpawn);
+		//shipSpawn = nullptr;
+
+		return true;
 	}
-
-	App->audio->UnloadMusic(music);
-	music = nullptr;
-	//App->audio->UnloadSFX(shipSpawn);
-	//shipSpawn = nullptr;
-
-	return true;
-}
 
 
 

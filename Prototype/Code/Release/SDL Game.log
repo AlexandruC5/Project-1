@@ -1,6 +1,6 @@
 ﻿  ModuleSceneAir.cpp
-ModuleSceneAir.cpp(274): error C2601: 'ModuleSceneAir::CleanUp': local function definitions are illegal
+ModuleSceneAir.cpp(275): error C2601: 'ModuleSceneAir::CleanUp': local function definitions are illegal
   ModuleSceneAir.cpp(144): note: this line contains a '{' which has not yet been matched
-ModuleSceneAir.cpp(296): error C2601: 'ModuleSceneAir::loadMapTextures': local function definitions are illegal
+ModuleSceneAir.cpp(297): error C2601: 'ModuleSceneAir::loadMapTextures': local function definitions are illegal
   ModuleSceneAir.cpp(144): note: this line contains a '{' which has not yet been matched
 ModuleSceneAir.cpp(144): fatal error C1075: the left brace '{' was unmatched at the end of the file
