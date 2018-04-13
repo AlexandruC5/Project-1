@@ -110,11 +110,12 @@ update_status ModuleSceneAir::Update()
 	App->player->position.x += 1;
 	App->render->camera.x -= 2;
 
-
+<<<<<<< HEAD
+	if (timer >= 1000 && timer <= 2370) {
+		if (timer >= 1000 && timer <= 2400) {
 	if (timer >= 1000 && timer <= 2400) {
 
-		if (timer >= 1000 && timer <= 2370) {
-
+>>>>>>> df16491dfe5085ea61ccd4207f2b809e02ca13fb
 
 			App->player->position.y -= 1;
 			App->render->camera.y += 2;
@@ -142,8 +143,85 @@ update_status ModuleSceneAir::Update()
 		else if (down) down = false;
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) App->fade->FadeToBlack(this, App->scene_start, 2);
+<<<<<<< HEAD
 
 		//Woods
+
+		App->render->Blit(textures[0], 0, -700, textrect[0], 0.5f);
+		App->render->Blit(textures[1], 10, -315, textp[1], 1.0f);
+		App->render->Blit(textures[1], 10, -315, textp[1], 1.0f);
+		App->render->Blit(textures[2], 0, -310, textp[1], 1.0f);
+		App->render->Blit(textures[1], 0, -305, textp[1], 1.1f);
+		App->render->Blit(textures[2], 0, -305, textp[1], 1.1f);
+		App->render->Blit(textures[1], 0, -300, textp[1], 1.3f);
+		App->render->Blit(textures[2], 0, -300, textp[1], 1.3f);
+		App->render->Blit(textures[1], 0, -295, textp[1], 1.5f);
+		App->render->Blit(textures[2], 0, -295, textp[1], 1.5f);
+		App->render->Blit(textures[3], 0, 200, textp[2], 1.7f);
+		App->render->Blit(textures[4], 0, 200, textp[3], 1.7f);
+		App->render->Blit(textures[3], 15, 190, textp[2], 1.7f);
+		App->render->Blit(textures[4], 15, 190, textp[3], 1.7f);
+
+		//Clouds
+		/*App->render->Blit(textures[5], 1330, -265, textcl[0], 1.0);
+		App->render->Blit(textures[6], 1420, -300, textcl[1], 1.0);
+		App->render->Blit(textures[7], 1497, -339, textcl[2], 1.0);
+		App->render->Blit(textures[8], 1390, -325, textcl[3], 1.1);
+		*/
+		//cloudline
+		App->render->Blit(textures[11], 1944, -1515, textcl[6], 1.1f);//slow
+
+		App->render->Blit(textures[11], 1939, -1505, textcl[6], 1.1f);//slow
+		App->render->Blit(textures[11], 1924, -1500, textcl[6], 1.1f);//slow
+		App->render->Blit(textures[9], 1920, -2150, textcl[4], 1.3f);
+		App->render->Blit(textures[10], 1940, -2145, textcl[5], 1.3f);
+		App->render->Blit(textures[9], 1920, -2140, textcl[4], 1.3f);
+		App->render->Blit(textures[10], 1900, -2135, textcl[5], 1.3f);
+		App->render->Blit(textures[9], 1920, -2130, textcl[4], 1.3f);
+		App->render->Blit(textures[9], 1960, -2125, textcl[4], 1.3f);
+		App->render->Blit(textures[10], 1940, -2120, textcl[5], 1.3f);
+		App->render->Blit(textures[9], 1920, -2115, textcl[4], 1.3f);
+		App->render->Blit(textures[10], 1900, -2110, textcl[5], 1.3f);
+		App->render->Blit(textures[9], 1920, -2103, textcl[4], 1.3f);
+		App->render->Blit(textures[10], 1900, -2095, textcl[5], 1.3f);
+
+		//App->render->Blit(textures[9], 15, -2250, textcl[4], 1.3f);
+
+		//App->render->Blit(textures[9], 10, -2250, textcl[4], 1.5f);//mid
+
+		/*App->render->Blit(textures[10], 0, -2280, textcl[5], 1.5f);//mid
+		App->render->Blit(textures[10], 0, -2265, textcl[5], 1.3f);//mid
+		App->render->Blit(textures[10], 0, -2200, textcl[5], 1.3f);//mid
+		App->render->Blit(textures[11], 0, -100, textcl[6], 1.1f);//slow
+		*/
+		App->render->Blit(textures[10], 1980, -2385, textcl[5], 1.5f);//mid
+		App->render->Blit(textures[9], 1960, -2380, textcl[4], 1.5f);//mid
+		App->render->Blit(textures[10], 1940, -2375, textcl[5], 1.5f);
+		App->render->Blit(textures[9], 1920, -2370, textcl[4], 1.5f);
+		App->render->Blit(textures[10], 1900, -2365, textcl[5], 1.5f);//mid
+		App->render->Blit(textures[10], 1980, -2360, textcl[5], 1.5f);//mid
+		App->render->Blit(textures[9], 1960, -2355, textcl[4], 1.5f);//mid
+		App->render->Blit(textures[10], 1940, -2350, textcl[5], 1.5f);
+		App->render->Blit(textures[9], 1920, -2345, textcl[4], 1.5f);
+		App->render->Blit(textures[10], 1900, -2340, textcl[5], 1.5f);//mid
+
+
+		App->render->Blit(textures[16], 1990, -2135, textcl[12], 1.7f);//quick
+		App->render->Blit(textures[16], 1970, -2130, textcl[12], 1.7f);//quick
+		App->render->Blit(textures[16], 1950, -2125, textcl[12], 1.7f);//quick
+		App->render->Blit(textures[16], 1930, -2019, textcl[12], 1.6f);//quick
+
+
+		//high clouds
+		//App->render->Blit(textures[12], 0, -25, textcl[7], 1.0f);
+		//App->render->Blit(textures[13], 0, -100, textcl[7], 1.5f);
+
+		return update_status::UPDATE_CONTINUE;
+	}
+}
+=======
+>>>>>>> df16491dfe5085ea61ccd4207f2b809e02ca13fb
+
 
 		App->render->Blit(textures[0], 0, -700, textrect[0], 0.5f);
 		App->render->Blit(textures[1], 10, -315, textp[1], 1.0f);
