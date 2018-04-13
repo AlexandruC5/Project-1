@@ -52,7 +52,9 @@ bool ModuleSceneAir::Start() {
 		textp[i] = new SDL_Rect();
 	}
 
-
+	for (int i = 0; i < NUM_LAYERS; i++) {
+		textcl[i] = new SDL_Rect();
+	}
 	
 
 
@@ -76,9 +78,60 @@ textp[3]->y = 0;
 textp[3]->h = 19;
 textp[3]->w = 5510;
 
+textcl[0]->x = 0;
+textcl[0]->y = 0;
+textcl[0]->w = 112;
+textcl[0]->h = 79;
 
+textcl[1]->x = 0;
+textcl[1]->y = 0;
+textcl[1]->w = 70;
+textcl[1]->h = 42;
 
+textcl[2]->x = 0;
+textcl[2]->y = 0;
+textcl[2]->w = 102;
+textcl[2]->h = 71;
 
+textcl[3]->x = 0;
+textcl[3]->y = 0;
+textcl[3]->w = 32;
+textcl[3]->h = 42;
+
+textcl[4]->x = 0;
+textcl[4]->y = 0;
+textcl[4]->w = 5510;
+textcl[4]->h = 500;
+
+textcl[5]->x = 0;
+textcl[5]->y = 0;
+textcl[5]->w = 5510;
+textcl[5]->h = 500;
+
+textcl[6]->x = 0;
+textcl[6]->y = 0;
+textcl[6]->w = 5510;
+textcl[6]->h = 124;
+
+textcl[7]->x = 0;
+textcl[7]->y = 0;
+textcl[7]->w = 38;
+textcl[7]->h = 16;
+
+textcl[8]->x = 0;
+textcl[8]->y = 0;
+textcl[8]->w = 42;
+textcl[8]->h = 15;
+
+textcl[9]->x = 0;
+textcl[9]->y = 0;
+textcl[9]->w = 42;
+textcl[9]->h = 15;
+
+textcl[12]->x = 0; //high cloud line
+textcl[12]->y = 0; 
+textcl[12]->w = 5510; 
+textcl[12]->h = 29; 
 	//shipSpawn = App->audio->LoadFx("Assets/Audio/SFX/xmultipl-026.wav");
 	music = App->audio->LoadMusic("assets/audio/music/03_Sky_dance.ogg");
 
@@ -110,7 +163,11 @@ update_status ModuleSceneAir::Update()
 	App->player->position.x += 1;
 	App->render->camera.x -= 2;
 
+<<<<<<< HEAD
+	if (timer >= 1000 && timer <= 2370) {
+=======
 	if (timer >= 1000 && timer <= 2400) {
+>>>>>>> 04cbf0b64fd7a4751ddbf2d8aaac20245767ed5f
 
 		App->player->position.y -= 1;
 		App->render->camera.y += 2;
@@ -156,6 +213,59 @@ update_status ModuleSceneAir::Update()
 	App->render->Blit(textures[3], 15, 190, textp[2], 1.7f);
 	App->render->Blit(textures[4], 15, 190, textp[3], 1.7f);
 
+	//Clouds
+	/*App->render->Blit(textures[5], 1330, -265, textcl[0], 1.0);
+	App->render->Blit(textures[6], 1420, -300, textcl[1], 1.0);
+	App->render->Blit(textures[7], 1497, -339, textcl[2], 1.0);
+	App->render->Blit(textures[8], 1390, -325, textcl[3], 1.1);
+	*/
+	//cloudline
+	App->render->Blit(textures[11], 1944, -1515, textcl[6], 1.1f);//slow
+
+	App->render->Blit(textures[11], 1939, -1505, textcl[6], 1.1f);//slow
+	App->render->Blit(textures[11], 1924, -1500, textcl[6], 1.1f);//slow
+	App->render->Blit(textures[9], 1920, -2150, textcl[4], 1.3f);
+    App->render->Blit(textures[10], 1940, -2145, textcl[5], 1.3f);
+	App->render->Blit(textures[9], 1920, -2140, textcl[4], 1.3f);
+	App->render->Blit(textures[10], 1900, -2135, textcl[5], 1.3f);
+	App->render->Blit(textures[9], 1920, -2130, textcl[4], 1.3f);
+	App->render->Blit(textures[9], 1960, -2125, textcl[4], 1.3f);
+	App->render->Blit(textures[10], 1940, -2120, textcl[5], 1.3f);
+	App->render->Blit(textures[9], 1920, -2115, textcl[4], 1.3f);
+	App->render->Blit(textures[10], 1900, -2110, textcl[5], 1.3f);
+	App->render->Blit(textures[9], 1920, -2103, textcl[4], 1.3f);
+	App->render->Blit(textures[10], 1900, -2095, textcl[5], 1.3f);
+
+	//App->render->Blit(textures[9], 15, -2250, textcl[4], 1.3f);
+
+	//App->render->Blit(textures[9], 10, -2250, textcl[4], 1.5f);//mid
+
+	/*App->render->Blit(textures[10], 0, -2280, textcl[5], 1.5f);//mid
+	App->render->Blit(textures[10], 0, -2265, textcl[5], 1.3f);//mid
+	App->render->Blit(textures[10], 0, -2200, textcl[5], 1.3f);//mid
+	App->render->Blit(textures[11], 0, -100, textcl[6], 1.1f);//slow
+	*/	
+	App->render->Blit(textures[10], 1980, -2385, textcl[5], 1.5f);//mid
+	App->render->Blit(textures[9], 1960, -2380, textcl[4], 1.5f);//mid
+	App->render->Blit(textures[10], 1940, -2375, textcl[5], 1.5f);
+	App->render->Blit(textures[9], 1920, -2370, textcl[4], 1.5f);
+	App->render->Blit(textures[10], 1900, -2365, textcl[5], 1.5f);//mid
+	App->render->Blit(textures[10], 1980, -2360, textcl[5], 1.5f);//mid
+	App->render->Blit(textures[9], 1960, -2355, textcl[4], 1.5f);//mid
+	App->render->Blit(textures[10], 1940, -2350, textcl[5], 1.5f);
+	App->render->Blit(textures[9], 1920, -2345, textcl[4], 1.5f);
+	App->render->Blit(textures[10], 1900, -2340, textcl[5], 1.5f);//mid
+	
+
+	App->render->Blit(textures[16], 1990, -2135, textcl[12], 1.7f);//quick
+	App->render->Blit(textures[16], 1970, -2130, textcl[12], 1.7f);//quick
+	App->render->Blit(textures[16], 1950, -2125, textcl[12], 1.7f);//quick
+	App->render->Blit(textures[16], 1930, -2019, textcl[12], 1.6f);//quick
+
+
+	//high clouds
+	//App->render->Blit(textures[12], 0, -25, textcl[7], 1.0f);
+	//App->render->Blit(textures[13], 0, -100, textcl[7], 1.5f);
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -197,9 +307,24 @@ bool ModuleSceneAir::loadMapTextures()
     textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
 	textures[3] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline3.png");
 	textures[4] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline4.png");
-	
 
-	//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
+	//Clouds textures
+	textures[5] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud2.png");
+	textures[6] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud1.png");
+	textures[7] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud4.png");
+	textures[8] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud3.png");
+	//Highsky
+	textures[9] = App->textures->Load("assets/sprites/Scenes/Scene_Air/BigCloudLine1.png");
+	textures[10] = App->textures->Load("assets/sprites/Scenes/Scene_Air/BigCloudLine2.png");
+	textures[11] = App->textures->Load("assets/sprites/Scenes/Scene_Air/BigCloudLine3.png");
+	/*
+	textures[12] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud5.png");
+	textures[13] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud6.png");
+	textures[14] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud7.png");
+	textures[15] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud8.png");
+	*/
+	textures[16] = App->textures->Load("assets/sprites/Scenes/Scene_Air/bigcloudline4.png");
+
 	for (int i = 0; i <= NUM_LAYERS; i++) {
 	if (textures[i] == nullptr) {
 

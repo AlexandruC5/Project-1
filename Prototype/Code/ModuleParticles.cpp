@@ -42,7 +42,7 @@ bool ModuleParticles::Start()
 	laser.anim.loop = false;
 	laser.anim.speed = 1;
 	laser.speed = { 5,0 };
-	laser.life = 5 *150;
+	laser.life = 5 *500;
 	
 	return true;
 }
@@ -101,6 +101,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32
 	p->born = SDL_GetTicks() + delay;
 	p->position.x = x;
 	p->position.y = y;
+
 
 
 	active[last_particle++] = p;
