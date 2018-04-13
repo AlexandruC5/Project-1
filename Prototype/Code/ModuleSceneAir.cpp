@@ -77,6 +77,61 @@ textp[3]->h = 19;
 textp[3]->w = 5510;
 
 
+textcl[0]->x = 0;
+textcl[0]->y = 0;
+textcl[0]->w = 112;
+textcl[0]->h = 79;
+
+textcl[1]->x = 0;
+textcl[1]->y = 0;
+textcl[1]->w = 70;
+textcl[1]->h = 42;
+
+textcl[2]->x = 0;
+textcl[2]->y = 0;
+textcl[2]->w = 102;
+textcl[2]->h = 71;
+
+textcl[3]->x = 0;
+textcl[3]->y = 0;
+textcl[3]->w = 32;
+textcl[3]->h = 42;
+
+textcl[4]->x = 0;
+textcl[4]->y = 0;
+textcl[4]->w = 5510;
+textcl[4]->h = 500;
+
+textcl[5]->x = 0;
+textcl[5]->y = 0;
+textcl[5]->w = 5510;
+textcl[5]->h = 500;
+
+textcl[6]->x = 0;
+textcl[6]->y = 0;
+textcl[6]->w = 5510;
+textcl[6]->h = 124;
+
+textcl[7]->x = 0;
+textcl[7]->y = 0;
+textcl[7]->w = 38;
+textcl[7]->h = 16;
+
+textcl[8]->x = 0;
+textcl[8]->y = 0;
+textcl[8]->w = 42;
+textcl[8]->h = 15;
+
+textcl[9]->x = 0;
+textcl[9]->y = 0;
+textcl[9]->w = 42;
+textcl[9]->h = 15;
+
+textcl[12]->x = 0; //high cloud line
+textcl[12]->y = 0;
+textcl[12]->w = 5510;
+textcl[12]->h = 29;
+
 
 
 	//shipSpawn = App->audio->LoadFx("Assets/Audio/SFX/xmultipl-026.wav");
@@ -110,12 +165,11 @@ update_status ModuleSceneAir::Update()
 	App->player->position.x += 1;
 	App->render->camera.x -= 2;
 
-<<<<<<< HEAD
 	if (timer >= 1000 && timer <= 2370) {
 		if (timer >= 1000 && timer <= 2400) {
 	if (timer >= 1000 && timer <= 2400) {
 
->>>>>>> df16491dfe5085ea61ccd4207f2b809e02ca13fb
+
 
 			App->player->position.y -= 1;
 			App->render->camera.y += 2;
@@ -143,7 +197,7 @@ update_status ModuleSceneAir::Update()
 		else if (down) down = false;
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) App->fade->FadeToBlack(this, App->scene_start, 2);
-<<<<<<< HEAD
+
 
 		//Woods
 
@@ -219,8 +273,7 @@ update_status ModuleSceneAir::Update()
 		return update_status::UPDATE_CONTINUE;
 	}
 }
-=======
->>>>>>> df16491dfe5085ea61ccd4207f2b809e02ca13fb
+
 
 
 		App->render->Blit(textures[0], 0, -700, textrect[0], 0.5f);
@@ -279,7 +332,21 @@ update_status ModuleSceneAir::Update()
 		textures[2] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline2.png");
 		textures[3] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline3.png");
 		textures[4] = App->textures->Load("assets/sprites/Scenes/Scene_Air/treeline4.png");
-
+		textures[5] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud2.png");
+		textures[6] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud1.png");
+		textures[7] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud4.png");
+		textures[8] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud3.png");
+		//Highsky
+		textures[9] = App->textures->Load("assets/sprites/Scenes/Scene_Air/BigCloudLine1.png");
+		textures[10] = App->textures->Load("assets/sprites/Scenes/Scene_Air/BigCloudLine2.png");
+		textures[11] = App->textures->Load("assets/sprites/Scenes/Scene_Air/BigCloudLine3.png");
+		/*
+		textures[12] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud5.png");
+		textures[13] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud6.png");
+		textures[14] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud7.png");
+		textures[15] = App->textures->Load("assets/sprites/Scenes/Scene_Air/cloud8.png");
+		*/
+		textures[16] = App->textures->Load("assets/sprites/Scenes/Scene_Air/bigcloudline4.png");
 
 		//textures[1] = App->textures->Load("Assets/Sprites/Stages/Stage1/Background/BG01.png");
 		for (int i = 0; i <= NUM_LAYERS; i++) {
@@ -290,7 +357,7 @@ update_status ModuleSceneAir::Update()
 			else return true;
 		};
 	}
-}
+
 
 
 

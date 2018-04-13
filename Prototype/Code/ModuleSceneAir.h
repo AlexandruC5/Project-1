@@ -31,7 +31,7 @@ private:
 	SDL_Rect* textrect[NUM_LAYERS];
 	SDL_Texture* textures[NUM_LAYERS];
 	SDL_Rect* textp[NUM_LAYERS];
-	
+	SDL_Rect* textcl[NUM_LAYERS];
 	_Mix_Music* music = nullptr;
 	Mix_Chunk* shipSpawn = nullptr;
 
