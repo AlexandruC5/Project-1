@@ -1,4 +1,5 @@
 ﻿  ModuleSceneAir.cpp
+<<<<<<< HEAD
   Generando código
 d:\upc\project-1\prototype\code\modulesceneair.cpp(333): warning C4715: 'ModuleSceneAir::loadMapTextures': no todas las rutas de acceso de control devuelven un valor
 d:\upc\project-1\prototype\code\modulesceneair.cpp(269): warning C4715: 'ModuleSceneAir::Update': no todas las rutas de acceso de control devuelven un valor
@@ -7,3 +8,9 @@ d:\upc\project-1\prototype\code\modulesceneair.cpp(269): warning C4715: 'ModuleS
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   SDL Game.vcxproj -> D:\upc\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+=======
+ModuleSceneAir.cpp(168): error C2601: 'ModuleSceneAir::CleanUp': local function definitions are illegal
+  ModuleSceneAir.cpp(91): note: this line contains a '{' which has not yet been matched
+ModuleSceneAir.cpp(190): error C2601: 'ModuleSceneAir::loadMapTextures': local function definitions are illegal
+  ModuleSceneAir.cpp(91): note: this line contains a '{' which has not yet been matched
+>>>>>>> df16491dfe5085ea61ccd4207f2b809e02ca13fb
