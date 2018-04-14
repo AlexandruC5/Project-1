@@ -33,6 +33,11 @@ public:
 	SDL_Rect layer_ocean_5;
 	SDL_Rect Waterfall_rocks;
 
+	Animation waterfall1;
+	Animation waterfall2;
+	Animation waterfall3;
+	Animation under_waterfall;
+
 	Mix_Music* SceneWater = nullptr;
 
 };

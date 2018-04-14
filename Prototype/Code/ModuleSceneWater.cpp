@@ -56,6 +56,31 @@ ModuleSceneWater::ModuleSceneWater()
 	Waterfall_rocks.w = 320;
 	Waterfall_rocks.h = 282;
 	
+	//Small waterfall animation
+	waterfall1.PushBack({20, 155, 6, 68});
+	waterfall1.PushBack({ 32, 155, 6, 68 });
+	waterfall1.PushBack({ 44, 155, 6, 68 });
+	waterfall1.PushBack({ 56, 155, 6, 68 });
+	waterfall1.speed = 0.05f;
+
+	//Mid waterfall animation
+	waterfall2.PushBack({ 13, 243, 36, 82 });
+	waterfall2.PushBack({ 62, 243, 41, 83 });
+	waterfall2.PushBack({ 113, 244, 41, 83 });
+	waterfall2.PushBack({ 163, 244, 41, 83 });
+	waterfall2.speed = 0.05f;
+
+	//Last waterfall animation
+	waterfall3.PushBack({ 15, 344, 7, 66 });
+	waterfall3.PushBack({ 40, 345, 7, 66 });
+	waterfall3.PushBack({ 91, 344, 7, 66 });
+	waterfall3.PushBack({ 116, 344, 7, 66 });
+	waterfall3.speed = 0.05f;
+
+	//Under waterfall animation
+	under_waterfall.PushBack({166,176,32,16});
+	under_waterfall.PushBack({ 125,176,32,16 });
+	waterfall3.speed = 0.07f;
 
 }
 
@@ -91,6 +116,13 @@ update_status ModuleSceneWater::Update()
 	// Draw everything --------------------------------------
 
 	App->render->Blit(graphics1, 0, 0, &BG_Mountain, 0.55f);
+
+	App->render->Blit(graphics1, 156, 44, &(waterfall1.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics1, 510, 44, &(waterfall2.GetCurrentFrame()), 0.55F);
+	//App->render->Blit(graphics1, 509, 106, &(under_waterfall.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics1, 710, 45, &(waterfall3.GetCurrentFrame()), 0.55F);
+	
+	//App->render->Blit(graphics1, 697, 107, &(under_waterfall.GetCurrentFrame()), 0.55F);
 
 	App->render->Blit(graphics1, 0, 128, &layer_ocean_1, 0.60f);
 	App->render->Blit(graphics1, 0, 144, &layer_ocean_2, 0.65f);
