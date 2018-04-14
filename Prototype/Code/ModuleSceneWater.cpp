@@ -80,11 +80,30 @@ ModuleSceneWater::ModuleSceneWater()
 	under_waterfall.PushBack({ 125,176,32,16 });
 	waterfall3.speed = 0.07f;
 
+	//Static Ocean
+	static_layers.x = 436;
+	static_layers.y = 128;
+	static_layers.w = 320;
+	static_layers.h = 96;
+
 	//Waterfall background
 	Waterfall_bg.x = 436;
-	Waterfall_bg.y = 128;
+	Waterfall_bg.y = 224;
 	Waterfall_bg.w = 320;
-	Waterfall_bg.h = 768;
+	Waterfall_bg.h = 672;
+
+	//Scroll background
+	scroll_bg.x = 38;
+	scroll_bg.y = 69;
+	scroll_bg.w = 545;
+	scroll_bg.h = 447;
+
+	//Sea background
+	sea_bg.x = 849;
+	sea_bg.y = 330;
+	sea_bg.w = 775;
+	sea_bg.h = 224;
+
 
 }
 
@@ -100,12 +119,13 @@ bool ModuleSceneWater::Start()
 	up = false;
 	down = false;
 	left = false;
+	down_right = false;
 	waterfall = false;
 
 	graphics1 = App->textures->Load("assets/sprites/Scenes/Scene_Water/mountain&waterfall.png");
 	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Water/waterfall.png");
 	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Water/background_waterfall.png");
-	graphics4 = App->textures->Load("assets/sprites/Scenes/Scene_Water/lateral_scroll&waterfall.png");
+	graphics4 = App->textures->Load("assets/sprites/Scenes/Scene_Water/lateral_scroll&loop.png");
 
 	App->player->Enable();
 	
@@ -129,12 +149,17 @@ update_status ModuleSceneWater::Update()
 	// Draw everything --------------------------------------
 
 	App->render->Blit(graphics1, 0, 0, &BG_Mountain, 0.55f);
+	App->render->Blit(graphics1, 437, 223, &Waterfall_bg, 0.55F);
+	App->render->Blit(graphics4, 437, 673, &scroll_bg, 0.55F);
+	App->render->Blit(graphics4, 662, 896, &sea_bg, 0.55F);
 
 	App->render->Blit(graphics1, 156, 44, &(waterfall1.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics1, 510, 44, &(waterfall2.GetCurrentFrame()), 0.55F);
 	//App->render->Blit(graphics1, 509, 106, &(under_waterfall.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics1, 710, 45, &(waterfall3.GetCurrentFrame()), 0.55F);
+
 	
+
 	//App->render->Blit(graphics1, 697, 107, &(under_waterfall.GetCurrentFrame()), 0.55F);
 
 	if (!waterfall) {
@@ -145,7 +170,7 @@ update_status ModuleSceneWater::Update()
 		App->render->Blit(graphics1, 0, 200, &layer_ocean_5, 0.70f);
 	}
 
-
+	//App->render->Blit(graphics4, 437, 673, &scroll_bg, 0.55F);
 	
 	return UPDATE_CONTINUE;
 }
@@ -174,15 +199,28 @@ bool ModuleSceneWater::CleanUp()
 
 void ModuleSceneWater::checkCameraEvents()
 {
-	if (App->render->camera.x <= -1590)
+	if (App->render->camera.x <= -1590 && App->render->camera.y >= -2390)
 	{
 		waterfall = true;
 		right = false;
 		down = true;
-		App->render->Blit(graphics1, 436, 127, &Waterfall_bg, 0.55f);
+		App->render->Blit(graphics1, 436, 127, &static_layers, 0.55f);
 		
 	}
-	else if (down) down = false;
+	//else if (down) down = false;
+
+	if ((App->render->camera.y < -2390 && App->render->camera.y >= -2500)) {
+
+		//down = false;
+		//right = true;
+		down_right = true;
+		
+	}
+	else if (down_right) {
+		down_right = false;
+	}
+
+	
 }
 
 
@@ -205,7 +243,18 @@ void ModuleSceneWater::updateCamera()
 	if (down) {
 			App->render->camera.y -= speed;
 			App->player->position.y += 1;
-			
-		
+	}
+	if (down_right) {
+
+		if (down_right) {
+			timer++;
+			if (timer >= 3) {
+				App->render->camera.y -= speed;
+				App->player->position.y += 1;
+				timer = 0;
+			}
+		}
+
+
 	}
 }

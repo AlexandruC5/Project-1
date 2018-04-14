@@ -22,7 +22,7 @@ public:
 
 public:
 
-	bool right, left, up, down, waterfall;
+	bool right, left, up, down,down_right, waterfall;
 	int timer;
 	SDL_Texture * graphics1 = nullptr;
 	SDL_Texture * graphics2 = nullptr;
@@ -35,8 +35,10 @@ public:
 	SDL_Rect layer_ocean_3;
 	SDL_Rect layer_ocean_4;
 	SDL_Rect layer_ocean_5;
+	SDL_Rect static_layers;
 	SDL_Rect Waterfall_bg;
-	
+	SDL_Rect scroll_bg;
+	SDL_Rect sea_bg;
 
 	Animation waterfall1;
 	Animation waterfall2;
