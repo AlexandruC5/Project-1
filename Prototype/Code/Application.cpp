@@ -10,6 +10,7 @@
 #include "ModuleParticles.h"
 #include "ModuleWelcomeScreen.h"
 #include "ModuleSceneAir.h"
+#include "ModuleSceneWater.h"
 
 
 
@@ -23,9 +24,11 @@ Application::Application()
 	//modules[5] = scene_background = new ModuleBackground();
 	modules[5] = scene_start = new ModuleWelcomeScreen();
 	modules[6] = scene_air = new ModuleSceneAir();
-	modules[7] = player = new ModulePlayer();
-	modules[8] = fade = new ModuleFadeToBlack();
-	modules[9] = particles = new ModuleParticles();
+	modules[7] = scene_water = new ModuleSceneWater();
+	modules[8] = player = new ModulePlayer();
+	modules[9] = fade = new ModuleFadeToBlack();
+	modules[10] = particles = new ModuleParticles();
+	
 
 	
 }
@@ -43,6 +46,7 @@ bool Application::Init()
 
 	player->Disable();
 	scene_air->Disable();
+	scene_water->Disable();
 
 
 	

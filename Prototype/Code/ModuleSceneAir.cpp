@@ -35,6 +35,7 @@ bool ModuleSceneAir::Start() {
 
 	App->player->Enable();
 
+	
 	right = true;
 	up = false;
 	down = false;
