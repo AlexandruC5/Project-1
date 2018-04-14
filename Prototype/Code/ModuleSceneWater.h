@@ -14,12 +14,16 @@ public:
 	ModuleSceneWater();
 	~ModuleSceneWater();
 
+	void checkCameraEvents();
+	void updateCamera();
 	bool Start();
 	update_status Update();
 	bool CleanUp();
 
 public:
 
+	bool right, left, up, down, waterfall;
+	int timer;
 	SDL_Texture * graphics1 = nullptr;
 	SDL_Texture * graphics2 = nullptr;
 	SDL_Texture * graphics3 = nullptr;
@@ -31,7 +35,8 @@ public:
 	SDL_Rect layer_ocean_3;
 	SDL_Rect layer_ocean_4;
 	SDL_Rect layer_ocean_5;
-	SDL_Rect Waterfall_rocks;
+	SDL_Rect Waterfall_bg;
+	
 
 	Animation waterfall1;
 	Animation waterfall2;
