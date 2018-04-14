@@ -30,7 +30,7 @@ bool ModuleSceneWater::Start()
 	graphics4 = App->textures->Load("assets/sprites/Scenes/Scene_Water/lateral_scroll&waterfall");
 
 	App->player->Enable();
-	
+
 	return true;
 }
 
@@ -45,19 +45,19 @@ bool ModuleSceneWater::CleanUp()
 {
 	App->player->Disable();
 
-	
-		App->textures->Unload(graphics1);
-		graphics1 = nullptr;
 
-		App->textures->Unload(graphics2);
-		graphics2 = nullptr;
+	App->textures->Unload(graphics1);
+	graphics1 = nullptr;
 
-		App->textures->Unload(graphics3);
-		graphics3 = nullptr;
+	App->textures->Unload(graphics2);
+	graphics2 = nullptr;
 
-		App->textures->Unload(graphics4);
-		graphics4 = nullptr;
-	
+	App->textures->Unload(graphics3);
+	graphics3 = nullptr;
+
+	App->textures->Unload(graphics4);
+	graphics4 = nullptr;
+
 
 	return true;
 }
