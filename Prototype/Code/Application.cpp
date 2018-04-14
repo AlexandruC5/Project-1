@@ -28,6 +28,7 @@ Application::Application()
 	modules[8] = player = new ModulePlayer();
 	modules[9] = fade = new ModuleFadeToBlack();
 	modules[10] = particles = new ModuleParticles();
+	
 
 	
 }
