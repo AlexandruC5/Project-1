@@ -13,7 +13,7 @@ ModulePlayer::ModulePlayer()
 	graphics = NULL;
 	current_animation = NULL;
 
-	position.x = 0;
+	position.x = 10;
 	position.y = 100;
 
 	// idle-forward-downwards animation 
@@ -75,7 +75,7 @@ update_status ModulePlayer::Update()
 {
 	//Animation* current_animation = &forward;
 
-	int speed = 1;
+	int speed = 2;
 
 	if (current_animation != &mid && current_animation != &mid2) {
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
@@ -105,7 +105,9 @@ update_status ModulePlayer::Update()
 	
 		
 		position.x -= speed;
-	
+		if ((position.x * SCREEN_SIZE) < -App->render->camera.x) {
+			position.x += speed;
+		}
 		
 		
 	}
@@ -115,6 +117,9 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.x += speed;
+		if (((position.x + 32) * SCREEN_SIZE) > (-App->render->camera.x + SCREEN_WIDTH + 320)) {
+			position.x -= speed;
+		}
 	}
 
 	if(App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
@@ -122,7 +127,9 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.y += speed;
-		
+		if (((position.y + 28) * SCREEN_SIZE) > (-App->render->camera.y + SCREEN_HEIGHT + 224)) {
+			position.y -= speed;
+		}
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
@@ -140,7 +147,10 @@ update_status ModulePlayer::Update()
 	
 
 		position.y -= speed;
-
+		if ((position.y * SCREEN_SIZE) < -App->render->camera.y)
+		{
+			position.y += speed;
+		}
 			
 	}
 
