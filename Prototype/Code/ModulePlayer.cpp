@@ -58,6 +58,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	graphics = App->textures->Load("assets/sprites/miko.png");
+	player_collider = App->collision->AddCollider({position.x, position.y, 32, 28}, COLLIDER_PLAYER, this);
 	bool isShooting = false;
 	return true;
 }
@@ -146,7 +147,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) {
 
-		App->particles->AddParticle(App->particles->laser, position.x , position.y);
+		App->particles->AddParticle(App->particles->laser, position.x , position.y, COLLIDER_PLAYER_SHOT);
 		firerate = 10;
 		isShooting = true;
 	}
@@ -174,6 +175,7 @@ update_status ModulePlayer::Update()
 		}
 	}
 	
+	player_collider->SetPos(position.x, position.y);
 	// Draw everything --------------------------------------
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
