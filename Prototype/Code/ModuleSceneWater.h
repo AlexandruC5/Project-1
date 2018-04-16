@@ -53,6 +53,7 @@ public:
 	Animation candle1;
 	Animation candle2;
 	Animation candle3;
+	Animation wave;
 
 	Mix_Music* SceneWater = nullptr;
 

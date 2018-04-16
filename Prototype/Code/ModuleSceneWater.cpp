@@ -129,6 +129,14 @@ ModuleSceneWater::ModuleSceneWater()
 	under_waterfall.PushBack({ 125,176,32,16 });
 	waterfall3.speed = 0.07f;
 
+	//Wave animation
+	wave.PushBack({632, 41, 764, 8});
+	wave.PushBack({ 629, 77, 767, 7});
+	wave.PushBack({628, 109, 768, 8});
+	wave.PushBack({628, 144, 768, 8});
+	wave.PushBack({ 626, 174, 768, 9});
+	wave.PushBack({ 625, 207, 768, 8});
+	wave.speed = 0.06;
 	//Static Ocean
 	static_layers.x = 436;
 	static_layers.y = 128;
@@ -220,7 +228,8 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics1, 510, 44, &(waterfall2.GetCurrentFrame()), 0.55F);
 	//App->render->Blit(graphics1, 509, 106, &(under_waterfall.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics1, 710, 45, &(waterfall3.GetCurrentFrame()), 0.55F);
-
+	
+	App->render->Blit(graphics4, 430, 875, &(wave.GetCurrentFrame()), 0.55F);
 	
 
 	//App->render->Blit(graphics1, 697, 107, &(under_waterfall.GetCurrentFrame()), 0.55F);
