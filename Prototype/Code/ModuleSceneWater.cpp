@@ -53,8 +53,57 @@ ModuleSceneWater::ModuleSceneWater()
 	layer_ocean_5.w = 960;
 	layer_ocean_5.h = 41;
 
-	
-	
+	//small stone
+	stone1.x = 18;
+	stone1.y = 705;
+	stone1.w = 20;
+	stone1.h = 10;
+
+	// mid stone
+	stone2.x = 18;
+	stone2.y = 758;
+	stone2.w = 29;
+	stone2.h = 20;
+
+	// big stone
+	stone3.x = 13;
+	stone3.y = 805;
+	stone3.w = 42;
+	stone3.h = 16;
+
+
+
+	//Small green candle
+	candle1.PushBack({78, 698, 14, 28});
+	candle1.PushBack({103, 698, 14, 28});
+	candle1.PushBack({129, 698, 14, 28});
+	candle1.PushBack({155, 698, 14, 28});
+	candle1.PushBack({179, 698, 14, 28});
+	candle1.PushBack({204, 698, 14, 28});
+	candle1.PushBack({230, 698, 14, 28});
+	candle1.speed = 0.03;
+
+	//Mid green candle
+	candle2.PushBack({74, 743, 23, 42});
+	candle2.PushBack({101, 743, 23, 42});
+	candle2.PushBack({126, 743, 23, 42});
+	candle2.PushBack({151, 743, 23, 42});
+	candle2.PushBack({176, 743, 24, 42});
+	candle2.PushBack({206, 744, 23, 41});
+	candle2.PushBack({231, 743, 23, 42});
+	candle2.PushBack({255, 742, 23, 42});
+	candle2.speed = 0.03;
+
+	//Big green candle
+	candle3.PushBack({69, 805, 31, 59});
+	candle3.PushBack({102, 803, 31, 62});
+	candle3.PushBack({137, 801, 31, 65});
+	candle3.PushBack({172, 801, 31, 66});
+	candle3.PushBack({209, 802, 31, 65});
+	candle3.PushBack({245, 801, 31, 66});
+	candle3.PushBack({279, 801, 32, 65});
+	candle3.speed = 0.03;
+
 	//Small waterfall animation
 	waterfall1.PushBack({20, 155, 6, 68});
 	waterfall1.PushBack({ 32, 155, 6, 68 });
@@ -136,7 +185,8 @@ bool ModuleSceneWater::Start()
 	graphics4 = App->textures->Load("assets/sprites/Scenes/Scene_Water/lateral_scroll&loop.png");
 
 	App->player->Enable();
-	
+	App->collision->Enable();
+
 	return true;
 }
 
@@ -181,6 +231,21 @@ update_status ModuleSceneWater::Update()
 		App->render->Blit(graphics1, 0, 180, &layer_ocean_4, 0.70f);
 		App->render->Blit(graphics1, 0, 200, &layer_ocean_5, 0.70f);
 	}
+
+	//Small candle
+	App->render->Blit(graphics4, 55, 120, &(candle1.GetCurrentFrame()), 0.60F);
+	App->render->Blit(graphics4, 240, 120, &(candle1.GetCurrentFrame()), 0.60F);
+	App->render->Blit(graphics4, 450, 120, &(candle1.GetCurrentFrame()), 0.60F);
+
+	//Mid candle
+	App->render->Blit(graphics4, 30, 145, &(candle2.GetCurrentFrame()), 0.65F);
+	App->render->Blit(graphics4, 220, 145, &(candle2.GetCurrentFrame()), 0.65F);
+	App->render->Blit(graphics4, 420, 145, &(candle2.GetCurrentFrame()), 0.65F);
+
+	//Big candle
+	App->render->Blit(graphics4, 0, 175, &(candle3.GetCurrentFrame()), 0.70F);
+	App->render->Blit(graphics4, 200, 175, &(candle3.GetCurrentFrame()), 0.70F);
+	App->render->Blit(graphics4, 400, 175, &(candle3.GetCurrentFrame()), 0.70F);
 
 	//App->render->Blit(graphics4, 437, 673, &scroll_bg, 0.55F);
 	

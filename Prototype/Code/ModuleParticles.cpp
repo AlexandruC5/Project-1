@@ -4,7 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
-
+#include "ModuleCollision.h"
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -94,7 +94,7 @@ update_status ModuleParticles::Update()
 
 	return UPDATE_CONTINUE;
 }
-
+/*
 void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32 delay)
 {
 	Particle* p = new Particle(particle);
@@ -106,9 +106,41 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32
 
 	active[last_particle++] = p;
 }
+*/
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
+{
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active[i] == nullptr)
+		{
+			Particle* p = new Particle(particle);
+			p->born = SDL_GetTicks() + delay;
+			p->position.x = x;
+			p->position.y = y;
+			if (collider_type != COLLIDER_NONE)
+				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+			active[i] = p;
+			break;
+		}
+	}
+}
+// -------------------------------------------------------------
+// -------------------------------------------------------------
+void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
+{
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		// Always destroy particles that collide
+		if (active[i] != nullptr && active[i]->collider == c1)
+		{
 
-// -------------------------------------------------------------
-// -------------------------------------------------------------
+			AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+			delete active[i];
+			active[i] = nullptr;
+			break;
+		}
+	}
+}
 
 Particle::Particle()
 {
@@ -120,6 +152,13 @@ Particle::Particle(const Particle& p) :
 anim(p.anim), position(p.position), speed(p.speed),
 fx(p.fx), born(p.born), life(p.life)
 {}
+
+Particle::~Particle()
+ {
+	if (collider != nullptr)
+		 collider->to_delete = true;
+	}
+
 
 bool Particle::Update()
 {
@@ -136,6 +175,9 @@ bool Particle::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
+
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
 
 	return ret;
 }

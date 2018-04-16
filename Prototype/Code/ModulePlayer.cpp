@@ -5,6 +5,7 @@
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleSceneWater.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 

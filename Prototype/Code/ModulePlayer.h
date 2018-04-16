@@ -7,6 +7,7 @@
 
 struct SDL_Texture;
 
+
 class ModulePlayer : public Module
 {
 public:
