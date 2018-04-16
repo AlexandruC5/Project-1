@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Application.cpp
   ModulePlayer.cpp
   ModuleSceneWater.cpp
@@ -24,3 +25,17 @@ ModuleTextures.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\one
 ModuleWindow.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\release\vc141.pdb' está dañado; puede que algunos símbolos y tipos no sean accesibles desde el depurador
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
+=======
+﻿  ModuleCollision.cpp
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\moduleaudio.cpp': 36 and 32 bytes
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\modulefadetoblack.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp': 32 and 36 bytes
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\moduleinput.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp': 32 and 36 bytes
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\moduleparticles.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp': 32 and 36 bytes
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\moduleplayer.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp': 32 and 36 bytes
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\modulerender.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp': 32 and 36 bytes
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\modulesceneair.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp': 32 and 36 bytes
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\modulescenewater.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp': 32 and 36 bytes
+LINK : warning C4743: 'const Module::`vftable'' has different size in 'c:\users\alexa\documents\project-1\prototype\code\moduletextures.cpp' and 'c:\users\alexa\documents\project-1\prototype\code\modulecollision.cpp': 32 and 36 bytes
+ModuleCollision.obj : error LNK2001: unresolved external symbol "public: bool __thiscall ModuleRender::DrawQuad(struct SDL_Rect const &,unsigned char,unsigned char,unsigned char,unsigned char,bool)" (?DrawQuad@ModuleRender@@QAE_NABUSDL_Rect@@EEEE_N@Z)
+C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\SDL6 Handout.exe : fatal error LNK1120: 1 unresolved externals
+>>>>>>> e7c9e722a387175b2dec65775fb68d6cfc49f17e
