@@ -2,6 +2,7 @@
 #define __ModuleSceneWater_H__
 
 #include "Module.h"
+#include "Animation.h"
 #include "SDL_mixer/include/SDL_mixer.h"
 #pragma comment(lib,"SDL_mixer/libx86/SDL2_mixer.lib")
 
@@ -14,8 +15,8 @@ public:
 	ModuleSceneWater();
 	~ModuleSceneWater();
 
-	void checkCameraEvents();
-	void updateCamera();
+	void CameraPosition();
+	void CameraStates();
 	bool Start();
 	update_status Update();
 	bool CleanUp();
@@ -41,11 +42,20 @@ public:
 	SDL_Rect scroll_bg;
 	SDL_Rect sea_bg;
 	SDL_Rect sea_scroll;
+	SDL_Rect stone1;
+	SDL_Rect stone2;
+	SDL_Rect stone3;
 
 	Animation waterfall1;
 	Animation waterfall2;
 	Animation waterfall3;
 	Animation under_waterfall;
+	Animation candle1;
+	Animation candle2;
+	Animation candle3;
+	Animation wave;
+
+	
 
 	Mix_Music* SceneWater = nullptr;
 

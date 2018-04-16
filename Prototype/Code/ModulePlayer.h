@@ -6,6 +6,7 @@
 #include "p2Point.h"
 
 struct SDL_Texture;
+struct Collider;
 
 class ModulePlayer : public Module
 {
@@ -19,7 +20,8 @@ public:
 
 public:
 
-	int aux, firerate;
+	int aux;
+	//int firerate;
 	bool isShooting;
 	SDL_Texture* graphics = nullptr;
 	Animation* current_animation = nullptr;
@@ -29,6 +31,8 @@ public:
 	Animation mid;
 	Animation mid2;
 	iPoint position;
+	
+	Collider* player_collider;
 };
 
 #endif

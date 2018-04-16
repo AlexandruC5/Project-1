@@ -11,11 +11,13 @@
 #include "ModuleWelcomeScreen.h"
 #include "ModuleSceneAir.h"
 #include "ModuleSceneWater.h"
+#include "ModuleCollision.h"
 
 
 
 Application::Application()
 {
+	
 	modules[0] = window = new ModuleWindow();
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
@@ -28,7 +30,7 @@ Application::Application()
 	modules[8] = player = new ModulePlayer();
 	modules[9] = fade = new ModuleFadeToBlack();
 	modules[10] = particles = new ModuleParticles();
-	
+	modules[11] = collision = new ModuleCollision();
 
 	
 }
@@ -47,7 +49,7 @@ bool Application::Init()
 	player->Disable();
 	scene_air->Disable();
 	scene_water->Disable();
-
+	collision->Disable();
 
 	
 

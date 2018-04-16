@@ -5,16 +5,16 @@
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleSceneWater.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
-
 ModulePlayer::ModulePlayer()
 {
 	graphics = NULL;
 	current_animation = NULL;
 
-	position.x = 0;
-	position.y = 100;
+	position.x = 10;
+	position.y = 60;
 
 	// idle-forward-downwards animation 
 	forward.PushBack({ 68 ,53 ,32 ,28 });
@@ -57,6 +57,12 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	graphics = App->textures->Load("assets/sprites/miko.png");
+
+	position.x = 10;
+	position.y = 60;
+	
+
+	player_collider = App->collision->AddCollider({position.x, position.y, 32, 28}, COLLIDER_PLAYER, this);
 	bool isShooting = false;
 	return true;
 }
@@ -74,7 +80,7 @@ update_status ModulePlayer::Update()
 {
 	//Animation* current_animation = &forward;
 
-	int speed = 1;
+	int speed = 2;
 
 	if (current_animation != &mid && current_animation != &mid2) {
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
@@ -82,14 +88,14 @@ update_status ModulePlayer::Update()
 			current_animation = &forward;
 	}
 
-	if (firerate == 0 && isShooting) {
+	/*if (firerate == 0 && isShooting) {
 
-		App->particles->AddParticle(App->particles->laser, position.x, position.y);
+		App->particles->AddParticle(App->particles->card1, position.x, position.y);
 		firerate = 15;
 		isShooting = false;
 	}
 	else firerate--;
-
+	*/
 	if(App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
 
@@ -100,11 +106,16 @@ update_status ModulePlayer::Update()
 
 		else if (current_animation->isDone()) {
 			current_animation = &backward;
+			//position.x -= speed;
+
 		}
-	
+
 		
 		position.x -= speed;
-	
+
+		if ((position.x * SCREEN_SIZE) < -App->render->camera.x) {
+			position.x += speed;
+		}
 		
 		
 	}
@@ -114,6 +125,9 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.x += speed;
+		if (((position.x + 32) * SCREEN_SIZE) > (-App->render->camera.x + SCREEN_WIDTH + 320)) {
+			position.x -= speed;
+		}
 	}
 
 	if(App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
@@ -121,7 +135,9 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.y += speed;
-		
+		if (((position.y + 28) * SCREEN_SIZE) > (-App->render->camera.y + SCREEN_HEIGHT + 224)) {
+			position.y -= speed;
+		}
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
@@ -139,15 +155,67 @@ update_status ModulePlayer::Update()
 	
 
 		position.y -= speed;
-
+		if ((position.y * SCREEN_SIZE) < -App->render->camera.y)
+		{
+			position.y += speed;
+		}
 			
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) {
+		switch (aux) {
+		case 0:
+			App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
+<<<<<<< HEAD
 
-		App->particles->AddParticle(App->particles->laser, position.x , position.y);
-		firerate = 10;
-		isShooting = true;
+			//firerate = 10;
+			//isShooting = true;
+			break;
+		case 1:
+			App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
+
+		
+			break;
+		case 2:
+			App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			//App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
+
+			break;
+		case 3:
+			App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			break;
+		case 4:
+			
+			App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
+
+=======
+
+			//firerate = 10;
+			//isShooting = true;
+			break;
+		case 1:
+			App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
+
+		
+			break;
+		case 2:
+			App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			//App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
+
+			break;
+		case 3:
+			App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			break;
+		case 4:
+			
+			App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
+
+>>>>>>> b3185e8491a703e457f7908b15829ba3fafbb16d
+			aux = 0;
+			break;
+		
+		}
+		aux++;
 	}
 	
 	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
@@ -172,10 +240,14 @@ update_status ModulePlayer::Update()
 			current_animation = &forward;
 		}
 	}
+
+
 	
+	player_collider->SetPos(position.x, position.y);
 	// Draw everything --------------------------------------
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
+	
 	return UPDATE_CONTINUE;
 }

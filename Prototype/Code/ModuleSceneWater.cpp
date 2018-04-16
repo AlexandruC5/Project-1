@@ -14,8 +14,7 @@
 
 ModuleSceneWater::ModuleSceneWater()
 {
-	scroll = 1417.0;
-	scroll2 = 1417.0;
+
 	
 	//Mountain
 	BG_Mountain.x = 0;
@@ -53,8 +52,57 @@ ModuleSceneWater::ModuleSceneWater()
 	layer_ocean_5.w = 960;
 	layer_ocean_5.h = 41;
 
-	
-	
+	//small stone
+	stone1.x = 18;
+	stone1.y = 705;
+	stone1.w = 20;
+	stone1.h = 10;
+
+	// mid stone
+	stone2.x = 18;
+	stone2.y = 758;
+	stone2.w = 29;
+	stone2.h = 20;
+
+	// big stone
+	stone3.x = 13;
+	stone3.y = 805;
+	stone3.w = 42;
+	stone3.h = 16;
+
+
+
+	//Small green candle
+	candle1.PushBack({78, 698, 14, 28});
+	candle1.PushBack({103, 698, 14, 28});
+	candle1.PushBack({129, 698, 14, 28});
+	candle1.PushBack({155, 698, 14, 28});
+	candle1.PushBack({179, 698, 14, 28});
+	candle1.PushBack({204, 698, 14, 28});
+	candle1.PushBack({230, 698, 14, 28});
+	candle1.speed = 0.03;
+
+	//Mid green candle
+	candle2.PushBack({74, 743, 23, 42});
+	candle2.PushBack({101, 743, 23, 42});
+	candle2.PushBack({126, 743, 23, 42});
+	candle2.PushBack({151, 743, 23, 42});
+	candle2.PushBack({176, 743, 24, 42});
+	candle2.PushBack({206, 744, 23, 41});
+	candle2.PushBack({231, 743, 23, 42});
+	candle2.PushBack({255, 742, 23, 42});
+	candle2.speed = 0.03;
+
+	//Big green candle
+	candle3.PushBack({69, 805, 31, 59});
+	candle3.PushBack({102, 803, 31, 62});
+	candle3.PushBack({137, 801, 31, 65});
+	candle3.PushBack({172, 801, 31, 66});
+	candle3.PushBack({209, 802, 31, 65});
+	candle3.PushBack({245, 801, 31, 66});
+	candle3.PushBack({279, 801, 32, 65});
+	candle3.speed = 0.03;
+
 	//Small waterfall animation
 	waterfall1.PushBack({20, 155, 6, 68});
 	waterfall1.PushBack({ 32, 155, 6, 68 });
@@ -67,7 +115,7 @@ ModuleSceneWater::ModuleSceneWater()
 	waterfall2.PushBack({ 62, 243, 41, 83 });
 	waterfall2.PushBack({ 113, 244, 41, 83 });
 	waterfall2.PushBack({ 163, 244, 41, 83 });
-	waterfall2.speed = 0.05f;
+	waterfall2.speed = 0.08f;
 
 	//Last waterfall animation
 	waterfall3.PushBack({ 15, 344, 7, 66 });
@@ -77,10 +125,20 @@ ModuleSceneWater::ModuleSceneWater()
 	waterfall3.speed = 0.05f;
 
 	//Under waterfall animation
-	under_waterfall.PushBack({166,176,32,16});
-	under_waterfall.PushBack({ 125,176,32,16 });
-	waterfall3.speed = 0.07f;
+	under_waterfall.PushBack({17, 444, 37, 16});
+	under_waterfall.PushBack({ 71, 444, 37, 16 });
+	under_waterfall.PushBack({ 124, 443, 37, 17 });
+	under_waterfall.PushBack({ 180, 444, 37, 16 });
+	under_waterfall.speed = 0.06f;
 
+	//Wave animation
+	wave.PushBack({632, 41, 764, 8});
+	wave.PushBack({ 629, 77, 767, 7});
+	wave.PushBack({628, 109, 768, 8});
+	wave.PushBack({628, 144, 768, 8});
+	wave.PushBack({ 626, 174, 768, 9});
+	wave.PushBack({ 625, 207, 768, 8});
+	wave.speed = 0.06;
 	//Static Ocean
 	static_layers.x = 436;
 	static_layers.y = 128;
@@ -96,7 +154,7 @@ ModuleSceneWater::ModuleSceneWater()
 	//Scroll background
 	scroll_bg.x = 38;
 	scroll_bg.y = 69;
-	scroll_bg.w = 545;
+	scroll_bg.w = 616;
 	scroll_bg.h = 447;
 
 	//Sea background
@@ -108,8 +166,8 @@ ModuleSceneWater::ModuleSceneWater()
 	//Scroll Sea
 	sea_scroll.x = 849;
 	sea_scroll.y = 587;
-	sea_scroll.w = 830;
-	sea_scroll.h = 224;
+	sea_scroll.w = 3316;
+	sea_scroll.h = 225;
 
 
 }
@@ -121,6 +179,10 @@ ModuleSceneWater::~ModuleSceneWater()
 bool ModuleSceneWater::Start()
 {
 	LOG("Loading Water Scene");
+
+	
+	scroll = 1417.0;
+	scroll2 = 1417.0;
 
 	right = false;
 	up = false;
@@ -136,7 +198,12 @@ bool ModuleSceneWater::Start()
 	graphics4 = App->textures->Load("assets/sprites/Scenes/Scene_Water/lateral_scroll&loop.png");
 
 	App->player->Enable();
+	App->collision->Enable();
 	
+
+	
+	
+
 	return true;
 }
 
@@ -145,9 +212,11 @@ update_status ModuleSceneWater::Update()
 
 	right = true;
 
-	checkCameraEvents();
-	updateCamera();
 
+	CameraPosition();
+	CameraStates();
+
+	
 	// Move camera forward -----------------------------
 	//int scroll_speed = 2;
 	
@@ -168,8 +237,9 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics1, 156, 44, &(waterfall1.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics1, 510, 44, &(waterfall2.GetCurrentFrame()), 0.55F);
 	//App->render->Blit(graphics1, 509, 106, &(under_waterfall.GetCurrentFrame()), 0.55F);
-	App->render->Blit(graphics1, 710, 45, &(waterfall3.GetCurrentFrame()), 0.55F);
-
+	App->render->Blit(graphics1, 710, 55, &(waterfall3.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics1, 693, 110, &(under_waterfall.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics4, 430, 875, &(wave.GetCurrentFrame()), 0.55F);
 	
 
 	//App->render->Blit(graphics1, 697, 107, &(under_waterfall.GetCurrentFrame()), 0.55F);
@@ -182,9 +252,33 @@ update_status ModuleSceneWater::Update()
 		App->render->Blit(graphics1, 0, 200, &layer_ocean_5, 0.70f);
 	}
 
-	//App->render->Blit(graphics4, 437, 673, &scroll_bg, 0.55F);
+	//Small candle
+	App->render->Blit(graphics4, 100, 128, &(candle1.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics4, 240, 128, &(candle1.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics4, 355, 128, &(candle1.GetCurrentFrame()), 0.55F);
+
+	//Mid candle
+	App->render->Blit(graphics4, 75, 138, &(candle2.GetCurrentFrame()), 0.57F);
+	App->render->Blit(graphics4, 265, 138, &(candle2.GetCurrentFrame()), 0.57F);
+	App->render->Blit(graphics4, 395, 138, &(candle2.GetCurrentFrame()), 0.57F);
+
+	//Big candle
+	App->render->Blit(graphics4,33, 152, &(candle3.GetCurrentFrame()), 0.60F);
+	App->render->Blit(graphics4, 300, 152, &(candle3.GetCurrentFrame()), 0.60F);
+	App->render->Blit(graphics4, 470, 160, &(candle3.GetCurrentFrame()), 0.60F);
+
+	//Small stone
+	App->render->Blit(graphics4, 300, 143, &stone1, 0.55f);
+	App->render->Blit(graphics4, 500, 143, &stone1, 0.55f);
+	//Mid stone
+	App->render->Blit(graphics4, 335, 155, &stone2, 0.57f);
+	App->render->Blit(graphics4, 500, 152, &stone2, 0.57f);
+	//Big stone
+	App->render->Blit(graphics4, 390, 185, &stone3, 0.60f);
+	App->render->Blit(graphics4, 570, 185, &stone3, 0.60f);
+
 	
-		
+
 	
 	return UPDATE_CONTINUE;
 }
@@ -211,7 +305,7 @@ bool ModuleSceneWater::CleanUp()
 	return true;
 }
 
-void ModuleSceneWater::checkCameraEvents()
+void ModuleSceneWater::CameraPosition()
 {
 	if (App->render->camera.x <= -1590 && App->render->camera.y >= -2390)
 	{
@@ -229,25 +323,27 @@ void ModuleSceneWater::checkCameraEvents()
 		//right = true;		
 	}
 
-
+	/*
 	if (App->render->camera.x < -5000) {
 
 		right = false;
 		stop = true;
 
 		scroll -= 2.0f;
-		if (scroll <= -sea_scroll.w) {
-			scroll = 0;
+		if (scroll <= 587.0) {
+			scroll = 1417.0;
 		}
+
 		scroll2 = scroll;
 
 		App->render->Blit(graphics4, (int)scroll, 896, &sea_scroll);
 
 		//bg1_rect.x += bg1_rect.w;
 		scroll2 += sea_scroll.w;
-
 		App->render->Blit(graphics4, (int)scroll2, 896, &sea_scroll);
+
 	}
+	*/
 
 	
 
@@ -258,41 +354,32 @@ void ModuleSceneWater::checkCameraEvents()
 }
 
 
-void ModuleSceneWater::updateCamera()
+void ModuleSceneWater::CameraStates()
 {
-	int speed = 2;
+	int speed = 3;
 
 	if (right) {
 		App->render->camera.x -= speed;
 		App->player->position.x += 1;
 	}
-	if (left)App->render->camera.x += speed;
+
+	if (left) {
+		App->render->camera.x += speed;
+	}
 	if (up) {
-		timer++;
-		if (timer >= 3) {
+		
 			App->render->camera.y += speed;
-			timer = 0;
-		}
 	}
 	if (down) {
 			App->render->camera.y -= speed;
 			App->player->position.y += 1;
 	}
-
+	/*
 	if (stop) {
 		speed = 0;
 		//App->player->position.x += 0;
 	}
+	*/
 	
-	if (down_right) {
-		timer++;
-		if (timer >= 3) {
-			App->render->camera.y -= speed;
-			App->player->position.y += 1;
-			timer = 0;
-			}
-		}
 
-
-	
 }
