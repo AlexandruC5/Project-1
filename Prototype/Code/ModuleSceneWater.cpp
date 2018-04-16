@@ -195,8 +195,8 @@ update_status ModuleSceneWater::Update()
 
 	right = true;
 
-	checkCameraEvents();
-	updateCamera();
+	CameraPosition();
+	CameraStates();
 
 	// Move camera forward -----------------------------
 	//int scroll_speed = 2;
@@ -248,7 +248,10 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics4, 400, 175, &(candle3.GetCurrentFrame()), 0.70F);
 
 	//App->render->Blit(graphics4, 437, 673, &scroll_bg, 0.55F);
-	
+
+	if(!stop) {
+		App->render->Blit(graphics4, 1417, 896, &sea_scroll, 0.55F);
+	}
 		
 	
 	return UPDATE_CONTINUE;
@@ -276,7 +279,7 @@ bool ModuleSceneWater::CleanUp()
 	return true;
 }
 
-void ModuleSceneWater::checkCameraEvents()
+void ModuleSceneWater::CameraPosition()
 {
 	if (App->render->camera.x <= -1590 && App->render->camera.y >= -2390)
 	{
@@ -301,8 +304,8 @@ void ModuleSceneWater::checkCameraEvents()
 		stop = true;
 
 		scroll -= 2.0f;
-		if (scroll <= -sea_scroll.w) {
-			scroll = 0;
+		if (scroll <= 587.0) {
+			scroll = 1417.0;
 		}
 		scroll2 = scroll;
 
@@ -323,7 +326,7 @@ void ModuleSceneWater::checkCameraEvents()
 }
 
 
-void ModuleSceneWater::updateCamera()
+void ModuleSceneWater::CameraStates()
 {
 	int speed = 2;
 
@@ -331,13 +334,12 @@ void ModuleSceneWater::updateCamera()
 		App->render->camera.x -= speed;
 		App->player->position.x += 1;
 	}
+
 	if (left)App->render->camera.x += speed;
+
 	if (up) {
-		timer++;
-		if (timer >= 3) {
+		
 			App->render->camera.y += speed;
-			timer = 0;
-		}
 	}
 	if (down) {
 			App->render->camera.y -= speed;
@@ -349,15 +351,5 @@ void ModuleSceneWater::updateCamera()
 		//App->player->position.x += 0;
 	}
 	
-	if (down_right) {
-		timer++;
-		if (timer >= 3) {
-			App->render->camera.y -= speed;
-			App->player->position.y += 1;
-			timer = 0;
-			}
-		}
 
-
-	
 }

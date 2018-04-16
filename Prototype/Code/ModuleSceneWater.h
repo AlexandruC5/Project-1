@@ -15,8 +15,8 @@ public:
 	ModuleSceneWater();
 	~ModuleSceneWater();
 
-	void checkCameraEvents();
-	void updateCamera();
+	void CameraPosition();
+	void CameraStates();
 	bool Start();
 	update_status Update();
 	bool CleanUp();

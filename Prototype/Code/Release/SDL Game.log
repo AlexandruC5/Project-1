@@ -1,11 +1,11 @@
 ﻿  ModuleSceneWater.cpp
-ModuleSceneWater.cpp(84): warning C4305: '=': truncamiento de 'double' a 'float'
-ModuleSceneWater.cpp(95): warning C4305: '=': truncamiento de 'double' a 'float'
-ModuleSceneWater.cpp(105): warning C4305: '=': truncamiento de 'double' a 'float'
-  Generando código
-  1 of 141 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+ModuleSceneWater.cpp(84): warning C4305: '=': truncation from 'double' to 'float'
+ModuleSceneWater.cpp(95): warning C4305: '=': truncation from 'double' to 'float'
+ModuleSceneWater.cpp(105): warning C4305: '=': truncation from 'double' to 'float'
+  Generating code
+  Finished generating code
+  3 of 141 functions ( 2.1%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
-  Generación de código finalizada
-  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
-  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
+  SDL Game.vcxproj -> C:\Users\carlosph3\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\carlosph3\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
