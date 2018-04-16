@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 ﻿  Application.cpp
   ModulePlayer.cpp
   ModuleSceneAir.cpp
+=======
+<<<<<<< HEAD
+﻿  Application.cpp
+  ModuleParticles.cpp
+  ModulePlayer.cpp
+>>>>>>> b3185e8491a703e457f7908b15829ba3fafbb16d
   ModuleSceneWater.cpp
 ModuleSceneWater.cpp(83): warning C4305: '=': truncamiento de 'double' a 'float'
 ModuleSceneWater.cpp(94): warning C4305: '=': truncamiento de 'double' a 'float'
 ModuleSceneWater.cpp(104): warning C4305: '=': truncamiento de 'double' a 'float'
+<<<<<<< HEAD
 ModuleSceneWater.cpp(141): warning C4305: '=': truncamiento de 'double' a 'float'
   ModuleWelcomeScreen.cpp
   Generando código
@@ -25,3 +33,17 @@ ModuleTextures.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\one
 ModuleWindow.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\release\vc141.pdb' está dañado; puede que algunos símbolos y tipos no sean accesibles desde el depurador
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.pdb (Full PDB)
+=======
+ModuleSceneWater.cpp(139): warning C4305: '=': truncamiento de 'double' a 'float'
+  Generando código
+  9 of 141 functions ( 6.4%) were compiled, the rest were copied from previous compilation.
+=======
+﻿  ModulePlayer.cpp
+  Generando código
+  1 of 141 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+>>>>>>> 5e2c6b983e43cddd2be7a0c3b37fd23fe131c8f5
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\Project-1\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+>>>>>>> b3185e8491a703e457f7908b15829ba3fafbb16d
