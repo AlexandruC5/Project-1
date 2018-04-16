@@ -115,7 +115,7 @@ ModuleSceneWater::ModuleSceneWater()
 	waterfall2.PushBack({ 62, 243, 41, 83 });
 	waterfall2.PushBack({ 113, 244, 41, 83 });
 	waterfall2.PushBack({ 163, 244, 41, 83 });
-	waterfall2.speed = 0.05f;
+	waterfall2.speed = 0.08f;
 
 	//Last waterfall animation
 	waterfall3.PushBack({ 15, 344, 7, 66 });
@@ -125,9 +125,11 @@ ModuleSceneWater::ModuleSceneWater()
 	waterfall3.speed = 0.05f;
 
 	//Under waterfall animation
-	under_waterfall.PushBack({166,176,32,16});
-	under_waterfall.PushBack({ 125,176,32,16 });
-	waterfall3.speed = 0.07f;
+	under_waterfall.PushBack({17, 444, 37, 16});
+	under_waterfall.PushBack({ 71, 444, 37, 16 });
+	under_waterfall.PushBack({ 124, 443, 37, 17 });
+	under_waterfall.PushBack({ 180, 444, 37, 16 });
+	under_waterfall.speed = 0.06f;
 
 	//Wave animation
 	wave.PushBack({632, 41, 764, 8});
@@ -177,6 +179,8 @@ ModuleSceneWater::~ModuleSceneWater()
 bool ModuleSceneWater::Start()
 {
 	LOG("Loading Water Scene");
+
+	
 	scroll = 1417.0;
 	scroll2 = 1417.0;
 
@@ -195,6 +199,10 @@ bool ModuleSceneWater::Start()
 
 	App->player->Enable();
 	App->collision->Enable();
+	
+
+	
+	
 
 	return true;
 }
@@ -207,6 +215,8 @@ update_status ModuleSceneWater::Update()
 
 	CameraPosition();
 	CameraStates();
+
+	
 	// Move camera forward -----------------------------
 	//int scroll_speed = 2;
 	
@@ -227,8 +237,8 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics1, 156, 44, &(waterfall1.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics1, 510, 44, &(waterfall2.GetCurrentFrame()), 0.55F);
 	//App->render->Blit(graphics1, 509, 106, &(under_waterfall.GetCurrentFrame()), 0.55F);
-	App->render->Blit(graphics1, 710, 45, &(waterfall3.GetCurrentFrame()), 0.55F);
-	
+	App->render->Blit(graphics1, 710, 55, &(waterfall3.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics1, 693, 110, &(under_waterfall.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics4, 430, 875, &(wave.GetCurrentFrame()), 0.55F);
 	
 
@@ -243,24 +253,31 @@ update_status ModuleSceneWater::Update()
 	}
 
 	//Small candle
-	App->render->Blit(graphics4, 55, 120, &(candle1.GetCurrentFrame()), 0.60F);
-	App->render->Blit(graphics4, 240, 120, &(candle1.GetCurrentFrame()), 0.60F);
-	App->render->Blit(graphics4, 450, 120, &(candle1.GetCurrentFrame()), 0.60F);
+	App->render->Blit(graphics4, 100, 128, &(candle1.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics4, 240, 128, &(candle1.GetCurrentFrame()), 0.55F);
+	App->render->Blit(graphics4, 355, 128, &(candle1.GetCurrentFrame()), 0.55F);
 
 	//Mid candle
-	App->render->Blit(graphics4, 30, 145, &(candle2.GetCurrentFrame()), 0.65F);
-	App->render->Blit(graphics4, 220, 145, &(candle2.GetCurrentFrame()), 0.65F);
-	App->render->Blit(graphics4, 420, 145, &(candle2.GetCurrentFrame()), 0.65F);
+	App->render->Blit(graphics4, 75, 138, &(candle2.GetCurrentFrame()), 0.57F);
+	App->render->Blit(graphics4, 265, 138, &(candle2.GetCurrentFrame()), 0.57F);
+	App->render->Blit(graphics4, 395, 138, &(candle2.GetCurrentFrame()), 0.57F);
 
 	//Big candle
-	App->render->Blit(graphics4, 0, 175, &(candle3.GetCurrentFrame()), 0.70F);
-	App->render->Blit(graphics4, 200, 175, &(candle3.GetCurrentFrame()), 0.70F);
-	App->render->Blit(graphics4, 400, 175, &(candle3.GetCurrentFrame()), 0.70F);
+	App->render->Blit(graphics4,33, 152, &(candle3.GetCurrentFrame()), 0.60F);
+	App->render->Blit(graphics4, 300, 152, &(candle3.GetCurrentFrame()), 0.60F);
+	App->render->Blit(graphics4, 470, 160, &(candle3.GetCurrentFrame()), 0.60F);
 
-	//App->render->Blit(graphics4, 437, 673, &scroll_bg, 0.55F);
+	//Small stone
+	App->render->Blit(graphics4, 300, 143, &stone1, 0.55f);
+	App->render->Blit(graphics4, 500, 143, &stone1, 0.55f);
+	//Mid stone
+	App->render->Blit(graphics4, 335, 155, &stone2, 0.57f);
+	App->render->Blit(graphics4, 500, 152, &stone2, 0.57f);
+	//Big stone
+	App->render->Blit(graphics4, 390, 185, &stone3, 0.60f);
+	App->render->Blit(graphics4, 570, 185, &stone3, 0.60f);
 
 	
-
 
 	
 	return UPDATE_CONTINUE;
@@ -346,8 +363,9 @@ void ModuleSceneWater::CameraStates()
 		App->player->position.x += 1;
 	}
 
-	if (left)App->render->camera.x += speed;
-
+	if (left) {
+		App->render->camera.x += speed;
+	}
 	if (up) {
 		
 			App->render->camera.y += speed;

@@ -55,6 +55,8 @@ public:
 	Animation candle3;
 	Animation wave;
 
+	
+
 	Mix_Music* SceneWater = nullptr;
 
 };

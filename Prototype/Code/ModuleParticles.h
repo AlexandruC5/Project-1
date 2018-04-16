@@ -12,7 +12,6 @@
 struct SDL_Texture;
 struct Collider;
 enum COLLIDER_TYPE;
-
 struct Particle
 {
 	Collider* collider = nullptr;
@@ -50,9 +49,9 @@ private:
 	uint last_particle = 0;
 
 public:
-
+	int time;
 	Particle explosion;
-	Particle laser;
+	Particle card1, card2, card3, card4, card5;
 };
 
 #endif // __MODULEPARTICLES_H__
