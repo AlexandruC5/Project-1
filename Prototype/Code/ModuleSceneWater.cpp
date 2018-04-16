@@ -339,7 +339,7 @@ void ModuleSceneWater::CameraPosition()
 
 void ModuleSceneWater::CameraStates()
 {
-	int speed = 2;
+	int speed = 3;
 
 	if (right) {
 		App->render->camera.x -= speed;
