@@ -20,7 +20,8 @@ public:
 
 public:
 
-	int aux, firerate;
+	int aux;
+	//int firerate;
 	bool isShooting;
 	SDL_Texture* graphics = nullptr;
 	Animation* current_animation = nullptr;

@@ -24,12 +24,12 @@ bool ModuleParticles::Start()
 
 
 
-	laser.anim.PushBack({ 26, 136, 11, 13 });
-	laser.anim.PushBack({ 49, 136, 12, 12 });
-	laser.anim.PushBack({ 73, 137, 12, 11 });
-	laser.anim.PushBack({ 97, 137, 13, 11 });
-	laser.anim.PushBack({ 121, 139, 12, 7 });
-	laser.anim.PushBack({ 144, 135, 13, 15 });
+	card1.anim.PushBack({ 26, 136, 11, 13 });
+	card2.anim.PushBack({ 49, 136, 12, 12 });
+	card3.anim.PushBack({ 73, 137, 12, 11 });
+	card4.anim.PushBack({ 97, 137, 13, 11 });
+	card5.anim.PushBack({ 121, 139, 12, 7 });
+	/*laser.anim.PushBack({ 144, 135, 13, 15 });
 	laser.anim.PushBack({ 168, 135, 15, 15 });
 	laser.anim.PushBack({ 192, 135, 15, 14 });
 	laser.anim.PushBack({ 216, 136, 15, 13 });
@@ -39,11 +39,31 @@ bool ModuleParticles::Start()
 	laser.anim.PushBack({ 312, 135, 15, 14 });
 	laser.anim.PushBack({ 336, 136, 15, 13 });
 	laser.anim.PushBack({ 360, 138, 14, 8 });
-	laser.anim.loop = false;
-	laser.anim.speed = 1;
-	laser.speed = { 5,0 };
-	laser.life = 5 *500;
+	*/
+	card1.anim.loop = false;
+	card1.anim.speed = 1;
+	card1.speed = { 5,0 };
+	card1.life = 5 *500;
 	
+	card2.anim.loop = false;
+	card2.anim.speed = 1;
+	card2.speed = { 5,0 };
+	card2.life = 5 * 500;
+	
+	card3.anim.loop = false;
+	card3.anim.speed = 1;
+	card3.speed = { 5,0 };
+	card3.life = 5 * 500;
+	
+	card4.anim.loop = false;
+	card4.anim.speed = 1;
+	card4.speed = { 5,0 };
+	card4.life = 5 * 500;
+
+	card5.anim.loop = false;
+	card5.anim.speed = 1;
+	card5.speed = { 5,0 };
+	card5.life = 5 * 500;
 	return true;
 }
 
