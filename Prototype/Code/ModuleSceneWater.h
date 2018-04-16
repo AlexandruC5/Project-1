@@ -45,6 +45,9 @@ public:
 	SDL_Rect stone1;
 	SDL_Rect stone2;
 	SDL_Rect stone3;
+	SDL_Rect transition;
+
+
 
 	Animation waterfall1;
 	Animation waterfall2;
@@ -54,7 +57,9 @@ public:
 	Animation candle2;
 	Animation candle3;
 	Animation wave;
-
+	Animation big_waterfall;
+	
+	
 	
 
 	Mix_Music* SceneWater = nullptr;
