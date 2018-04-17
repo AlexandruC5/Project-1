@@ -7,7 +7,7 @@
 
 struct SDL_Texture;
 struct Collider;
-
+struct Mix_Chunk;
 class ModulePlayer : public Module
 {
 public:
@@ -25,7 +25,7 @@ public:
 	bool isShooting;
 	SDL_Texture* graphics = nullptr;
 	Animation* current_animation = nullptr;
-	
+	Mix_Chunk* basic = nullptr;
 	Animation forward;
 	Animation backward;
 	Animation mid;
