@@ -166,7 +166,6 @@ update_status ModulePlayer::Update()
 		switch (aux) {
 		case 0:
 			App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-<<<<<<< HEAD
 
 			//firerate = 10;
 			//isShooting = true;
@@ -188,29 +187,6 @@ update_status ModulePlayer::Update()
 			
 			App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
 
-=======
-
-			//firerate = 10;
-			//isShooting = true;
-			break;
-		case 1:
-			App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
-
-		
-			break;
-		case 2:
-			App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			//App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-
-			break;
-		case 3:
-			App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			break;
-		case 4:
-			
-			App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
-
->>>>>>> b3185e8491a703e457f7908b15829ba3fafbb16d
 			aux = 0;
 			break;
 		

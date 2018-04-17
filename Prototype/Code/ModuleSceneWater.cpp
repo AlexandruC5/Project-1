@@ -7,7 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
-
+#include "ModuleAudio.h"
 #include "ModuleSceneWater.h"
 #include "ModuleWelcomeScreen.h"
 
@@ -80,7 +80,7 @@ ModuleSceneWater::ModuleSceneWater()
 	candle1.PushBack({179, 698, 14, 28});
 	candle1.PushBack({204, 698, 14, 28});
 	candle1.PushBack({230, 698, 14, 28});
-	candle1.speed = 0.03;
+	candle1.speed = 0.02f;
 
 	//Mid green candle
 	candle2.PushBack({74, 743, 23, 42});
@@ -91,7 +91,7 @@ ModuleSceneWater::ModuleSceneWater()
 	candle2.PushBack({206, 744, 23, 41});
 	candle2.PushBack({231, 743, 23, 42});
 	candle2.PushBack({255, 742, 23, 42});
-	candle2.speed = 0.03;
+	candle2.speed = 0.02f;
 
 	//Big green candle
 	candle3.PushBack({69, 805, 31, 59});
@@ -101,7 +101,7 @@ ModuleSceneWater::ModuleSceneWater()
 	candle3.PushBack({209, 802, 31, 65});
 	candle3.PushBack({245, 801, 31, 66});
 	candle3.PushBack({279, 801, 32, 65});
-	candle3.speed = 0.03;
+	candle3.speed = 0.02f;
 
 	//Small waterfall animation
 	waterfall1.PushBack({20, 155, 6, 68});
@@ -169,6 +169,19 @@ ModuleSceneWater::ModuleSceneWater()
 	sea_scroll.w = 3316;
 	sea_scroll.h = 225;
 
+	//background transition
+	transition.x = 1234;
+	transition.y = 627;
+	transition.w = 320;
+	transition.h = 224;
+
+	//Big waterfall
+	big_waterfall.PushBack({27, 65, 172, 599});
+	big_waterfall.PushBack({ 683, 48, 183, 609 });
+	big_waterfall.PushBack({ 1276, 46, 198, 609 });
+	big_waterfall.speed = 0.02f;
+
+	
 
 }
 
@@ -196,6 +209,9 @@ bool ModuleSceneWater::Start()
 	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Water/waterfall.png");
 	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Water/background_waterfall.png");
 	graphics4 = App->textures->Load("assets/sprites/Scenes/Scene_Water/lateral_scroll&loop.png");
+
+	SceneWater = App->audio->LoadMusic("assets/audio/music/06_Torn_silence.ogg");
+	Mix_PlayMusic(SceneWater, -1);
 
 	App->player->Enable();
 	App->collision->Enable();
@@ -241,7 +257,7 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics1, 693, 110, &(under_waterfall.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics4, 430, 875, &(wave.GetCurrentFrame()), 0.55F);
 	
-
+	
 	//App->render->Blit(graphics1, 697, 107, &(under_waterfall.GetCurrentFrame()), 0.55F);
 
 	if (!waterfall) {
@@ -278,8 +294,15 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics4, 570, 185, &stone3, 0.60f);
 
 	
+	if (App->render->camera.y < -1310 && App->render->camera.y > -2000) {
+		App->render->Blit(graphics1, 436, 407, &transition, 0.55f);
+		App->render->Blit(graphics1, 436, 631, &transition, 0.55f);
+		//App->render->Blit(graphics1, 436, 407, &transition, 0.55f);
+	}
 
 	
+	App->render->Blit(graphics2, 580, 232, &(big_waterfall.GetCurrentFrame()), 0.55F);
+
 	return UPDATE_CONTINUE;
 }
 
@@ -287,7 +310,7 @@ update_status ModuleSceneWater::Update()
 bool ModuleSceneWater::CleanUp()
 {
 	App->player->Disable();
-
+	App->collision->Disable();
 	
 		App->textures->Unload(graphics1);
 		graphics1 = nullptr;
@@ -309,14 +332,15 @@ void ModuleSceneWater::CameraPosition()
 {
 	if (App->render->camera.x <= -1590 && App->render->camera.y >= -2390)
 	{
+		
 		waterfall = true;
 		right = false;
-		down = true;
 		App->render->Blit(graphics1, 436, 127, &static_layers, 0.55f);
+		down = true;
 		
 	}
 	//else if (down) down = false;
-
+	
 	if (App->render->camera.y < -3257 && App->render->camera.x >= -3000) {
 
 		down = false;
@@ -356,7 +380,7 @@ void ModuleSceneWater::CameraPosition()
 
 void ModuleSceneWater::CameraStates()
 {
-	int speed = 3;
+	int speed = 2;
 
 	if (right) {
 		App->render->camera.x -= speed;
@@ -374,12 +398,12 @@ void ModuleSceneWater::CameraStates()
 			App->render->camera.y -= speed;
 			App->player->position.y += 1;
 	}
-	/*
+	
 	if (stop) {
 		speed = 0;
 		//App->player->position.x += 0;
 	}
-	*/
+	
 	
 
 }
