@@ -2,9 +2,15 @@
 #define __ModuleEnemies_H__
 
 #include "Module.h"
+#include "Enemy_Fish.h"
+
 #define MAX_ENEMIES 100
 
+// TODO 2: Add a new enemy: Brown Cookies!
 
+// TODO 3: Have the Brown Cookies describe a path in the screen
+
+// TODO 4: Create a new enemy type: the Mech
 
 enum ENEMY_TYPES
 {

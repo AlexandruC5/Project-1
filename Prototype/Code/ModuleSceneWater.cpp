@@ -220,11 +220,9 @@ bool ModuleSceneWater::Start()
 	Mix_PlayMusic(SceneWater, -1);
 
 	//Enemies
-
-
 	//Fish
 
-	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 10, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100 , App->player->position.y);
 
 	
 	

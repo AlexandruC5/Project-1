@@ -7,8 +7,7 @@
 Enemy_Fish::Enemy_Fish(int x, int y) : Enemy(x, y)
 {
 	
-	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
-	original_pos = { x,y };
+	
 
 	//Animation
 
@@ -16,10 +15,12 @@ Enemy_Fish::Enemy_Fish(int x, int y) : Enemy(x, y)
 	backward.PushBack({ 85, 99, 31, 24 });
 	backward.PushBack({ 133, 99, 31, 24 });
 	backward.speed = 0.1f;
-
+	path.PushBack({ -0.5f, 0 }, 100, &backward);
 	animation = &backward;
 
 
+	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	original_pos = { x,y };
 }
 
 

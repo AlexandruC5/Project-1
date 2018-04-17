@@ -6,7 +6,6 @@
 #include "ModuleTextures.h"
 #include "Enemy.h"
 #include "Enemy_Fish.h"
-
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -23,7 +22,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
-	sprites = App->textures->Load("assets/sprites/enemyspritesheet.png");
+	sprites = App->textures->Load("assets/sprites/enemies.png");
 
 	return true;
 }
@@ -129,8 +128,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::FISH:
 			enemies[i] = new Enemy_Fish(info.x, info.y);
 			break;
+		
 		}
-    }
+
+	}
 }
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
