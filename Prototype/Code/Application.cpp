@@ -18,7 +18,7 @@
 Application::Application()
 {
 	
-	modules[12] = enemies = new ModuleEnemies();
+	
 	modules[0] = window = new ModuleWindow();
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
@@ -32,7 +32,7 @@ Application::Application()
 	modules[9] = fade = new ModuleFadeToBlack();
 	modules[10] = particles = new ModuleParticles();
 	modules[11] = collision = new ModuleCollision();
-	
+	modules[12] = enemies = new ModuleEnemies();
 }
 	
 

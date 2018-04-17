@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (SDL6 Handout.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
   ModuleWindow.cpp
   ModuleWelcomeScreen.cpp
@@ -22,3 +23,8 @@ c:\users\gerard clotet\documents\github\tengai1\project-1\prototype\code\modules
   Generando código...
 c:\users\gerard clotet\documents\github\tengai1\project-1\prototype\code\modulesceneair.cpp(332): warning C4715: 'ModuleSceneAir::loadMapTextures': no todas las rutas de acceso de control devuelven un valor
   SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\tengai1\Project-1\Prototype\Code\Debug\SDL6 Handout.exe
+=======
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SDL6 Handout.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  ModuleEnemies.cpp
+  SDL Game.vcxproj -> C:\Users\alexa\Documents\Project-1\Prototype\Code\Debug\SDL6 Handout.exe
+>>>>>>> ffc865c4a8e34f5ba60acf5a7e5a942339181d55
