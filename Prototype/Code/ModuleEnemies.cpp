@@ -7,7 +7,7 @@
 #include "Enemy.h"
 
 
-#define SPAWN_MARGIN 30
+#define SPAWN_MARGIN 50
 #define SCREEN_SIZE2 3
 
 ModuleEnemies::ModuleEnemies()
