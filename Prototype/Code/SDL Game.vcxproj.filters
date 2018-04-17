@@ -12,6 +12,9 @@
     <Filter Include="Containers">
       <UniqueIdentifier>{78a7f487-1d77-4fdc-9f51-f067eccd6239}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\Enemies">
+      <UniqueIdentifier>{60c029d3-bd89-4a28-abd5-0041dfaa29de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -80,6 +83,9 @@
     <ClInclude Include="Path.h">
       <Filter>Containers</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_Fish.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -135,6 +141,9 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Fish.cpp">
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
