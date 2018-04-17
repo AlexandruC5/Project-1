@@ -12,7 +12,7 @@
 #include "ModuleSceneAir.h"
 #include "ModuleSceneWater.h"
 #include "ModuleCollision.h"
-
+#include "ModuleEnemies.h"
 
 
 Application::Application()
@@ -31,7 +31,7 @@ Application::Application()
 	modules[9] = fade = new ModuleFadeToBlack();
 	modules[10] = particles = new ModuleParticles();
 	modules[11] = collision = new ModuleCollision();
-
+	modules[12] = enemies = new ModuleEnemies();
 	
 }
 	
