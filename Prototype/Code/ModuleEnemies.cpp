@@ -5,8 +5,9 @@
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
 #include "Enemy.h"
-#include "Enemy_Fish.h"
-#define SPAWN_MARGIN 50
+
+#include "Fish.h"
+#define SPAWN_MARGIN 35
 
 ModuleEnemies::ModuleEnemies()
 {
@@ -125,10 +126,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 	{
 		switch (info.type)
 		{
+	
 		case ENEMY_TYPES::FISH:
-			enemies[i] = new Enemy_Fish(info.x, info.y);
+			enemies[i] = new Fish(info.x, info.y);
 			break;
-		
 		}
 
 	}
