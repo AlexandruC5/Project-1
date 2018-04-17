@@ -6,6 +6,8 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleSceneWater.h"
+#include "ModuleAudio.h"
+#include "SDL_mixer/include/SDL_mixer.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 ModulePlayer::ModulePlayer()
@@ -63,6 +65,8 @@ bool ModulePlayer::Start()
 	
 
 	player_collider = App->collision->AddCollider({position.x, position.y, 32, 28}, COLLIDER_PLAYER, this);
+	LOG("Loading Audio");
+	basic = App->audio->LoadFx("assets/audio/effects/miko/mikoshot.wav");
 	bool isShooting = false;
 	return true;
 }
@@ -72,6 +76,8 @@ bool ModulePlayer::CleanUp()
 {
 	App->textures->Unload(graphics);
 	graphics = nullptr;
+	App->audio->UnloadSFX(basic);
+	basic = nullptr;
 	return true;
 }
 
@@ -166,30 +172,32 @@ update_status ModulePlayer::Update()
 		switch (aux) {
 		case 0:
 			App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-
+			Mix_PlayChannel(-1, basic, 0);
 			//firerate = 10;
 			//isShooting = true;
 			break;
 		case 1:
 			App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
-
+			Mix_PlayChannel(-1, basic, 0);
 		
 			break;
 		case 2:
 			App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			//App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-
+			Mix_PlayChannel(-1, basic, 0);
 			break;
 		case 3:
 			App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			Mix_PlayChannel(-1, basic, 0);
 			break;
 		case 4:
 			
 			App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
-
+			Mix_PlayChannel(-1, basic, 0);
 			aux = 0;
 			break;
 		
+
 		}
 		aux++;
 	}

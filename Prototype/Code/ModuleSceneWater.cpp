@@ -10,7 +10,7 @@
 #include "ModuleAudio.h"
 #include "ModuleSceneWater.h"
 #include "ModuleWelcomeScreen.h"
-
+#include "ModuleEnemies.h"
 
 ModuleSceneWater::ModuleSceneWater()
 {
@@ -194,6 +194,12 @@ bool ModuleSceneWater::Start()
 	LOG("Loading Water Scene");
 
 	
+
+	App->player->Enable();
+	App->collision->Enable();
+	App->enemies->Enable();
+	App->particles->Enable();
+
 	scroll = 1417.0;
 	scroll2 = 1417.0;
 
@@ -213,14 +219,19 @@ bool ModuleSceneWater::Start()
 	SceneWater = App->audio->LoadMusic("assets/audio/music/06_Torn_silence.ogg");
 	Mix_PlayMusic(SceneWater, -1);
 
-	App->player->Enable();
-	App->collision->Enable();
-	
+	//Enemies
 
-	
-	
+	//Fish
+
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 200, 50);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 300, 25);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 10);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 500, 5);
+
 
 	return true;
+
 }
 
 update_status ModuleSceneWater::Update()

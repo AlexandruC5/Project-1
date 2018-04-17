@@ -12,11 +12,12 @@
 #include "ModuleSceneAir.h"
 #include "ModuleSceneWater.h"
 #include "ModuleCollision.h"
-
+#include "ModuleEnemies.h"
 
 
 Application::Application()
 {
+	
 	
 	modules[0] = window = new ModuleWindow();
 	modules[1] = render = new ModuleRender();
@@ -31,8 +32,7 @@ Application::Application()
 	modules[9] = fade = new ModuleFadeToBlack();
 	modules[10] = particles = new ModuleParticles();
 	modules[11] = collision = new ModuleCollision();
-
-	
+	modules[12] = enemies = new ModuleEnemies();
 }
 	
 
@@ -50,7 +50,7 @@ bool Application::Init()
 	scene_air->Disable();
 	scene_water->Disable();
 	collision->Disable();
-
+	enemies->Disable();
 	
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)
