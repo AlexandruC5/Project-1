@@ -13,18 +13,15 @@ Fish::Fish(int x, int y) : Enemy(x, y)
 	backward.PushBack({ 133, 99, 31, 24 });
 
 
-
-	path.PushBack({ -0.5f, 0 }, 500, &backward);
-
-
 	backward.speed = 0.1f;
 
 	animation = &backward;
-
+	
 	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	original_pos = { x,y };
 
+	path.PushBack({ -0.5f, 0 }, 500, &backward);
 
 }
 

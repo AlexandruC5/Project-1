@@ -7,7 +7,7 @@
 #include "Enemy.h"
 
 #include "Fish.h"
-#define SPAWN_MARGIN 35
+#define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
 {
@@ -23,7 +23,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
-	sprites = App->textures->Load("assets/sprites/enemies.png");
+	sprites = App->textures->Load("assets/sprites/enemies/water_stage_enemies.png");
 
 	return true;
 }
@@ -35,6 +35,7 @@ update_status ModuleEnemies::PreUpdate()
 	{
 		if (queue[i].type != ENEMY_TYPES::NO_TYPE)
 		{
+			
 			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
 				SpawnEnemy(queue[i]);
@@ -66,6 +67,7 @@ update_status ModuleEnemies::PostUpdate()
 	{
 		if (enemies[i] != nullptr)
 		{
+
 			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
