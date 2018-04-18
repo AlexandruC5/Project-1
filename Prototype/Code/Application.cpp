@@ -13,6 +13,7 @@
 #include "ModuleSceneWater.h"
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
+#include "ModulePowerUPS.h"
 
 
 Application::Application()
@@ -33,7 +34,7 @@ Application::Application()
 	modules[10] = fade = new ModuleFadeToBlack();
 	modules[11] = particles = new ModuleParticles();
 	modules[12] = collision = new ModuleCollision();
-
+	modules[13] = powerup = new ModulePowerUPS();
 }
 	
 
