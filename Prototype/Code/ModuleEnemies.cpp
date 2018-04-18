@@ -141,7 +141,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
+			App->particles->AddParticle(App->particles->waterExplosion, enemies[i]->position.x, enemies[i]->position.y,COLLIDER_NONE);
 			enemies[i]->OnCollision(c2);
+
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;
