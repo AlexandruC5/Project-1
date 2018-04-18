@@ -7,6 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModuleSceneWater.h"
 #include "ModuleAudio.h"
+#include "ModuleFadeToBlack.h"
 #include "SDL_mixer/include/SDL_mixer.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -62,7 +63,7 @@ bool ModulePlayer::Start()
 
 	position.x = 10;
 	position.y = 60;
-	
+	destroyed = false;
 
 	player_collider = App->collision->AddCollider({position.x, position.y, 32, 28}, COLLIDER_PLAYER, this);
 	LOG("Loading Audio");
@@ -75,6 +76,11 @@ bool ModulePlayer::Start()
 bool ModulePlayer::CleanUp()
 {
 	App->textures->Unload(graphics);
+
+	if (player_collider != nullptr) {
+		player_collider->to_delete = true;
+	}
+
 	graphics = nullptr;
 	App->audio->UnloadSFX(basic);
 	basic = nullptr;
@@ -119,7 +125,7 @@ update_status ModulePlayer::Update()
 		
 		position.x -= speed;
 
-		if ((position.x * SCREEN_SIZE) < -App->render->camera.x) {
+		if ((position.x * SCREEN_SIZE) < App->render->camera.x) {
 			position.x += speed;
 		}
 		
@@ -131,7 +137,9 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.x += speed;
-		if (((position.x + 32) * SCREEN_SIZE) > (-App->render->camera.x + SCREEN_WIDTH + 320)) {
+
+		
+		if (((position.x + 32)* SCREEN_SIZE) > (App->render->camera.x + SCREEN_WIDTH + 320)) {
 			position.x -= speed;
 		}
 	}
@@ -141,7 +149,7 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.y += speed;
-		if (((position.y + 28) * SCREEN_SIZE) > (-App->render->camera.y + SCREEN_HEIGHT + 224)) {
+		if (((position.y + 28) * SCREEN_SIZE) > (App->render->camera.y + SCREEN_HEIGHT + 224)) {
 			position.y -= speed;
 		}
 	}
@@ -161,7 +169,7 @@ update_status ModulePlayer::Update()
 	
 
 		position.y -= speed;
-		if ((position.y * SCREEN_SIZE) < -App->render->camera.y)
+		if ((position.y * SCREEN_SIZE) < App->render->camera.y)
 		{
 			position.y += speed;
 		}
@@ -169,31 +177,29 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) {
+		Mix_PlayChannel(-1, basic, 0);
+
+
 		switch (aux) {
 		case 0:
 			App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
 			//firerate = 10;
 			//isShooting = true;
 			break;
 		case 1:
 			App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
-		
 			break;
 		case 2:
 			App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			//App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
 			break;
 		case 3:
 			App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
+		
 			break;
 		case 4:
-			
+
 			App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
 			aux = 0;
 			break;
 		
@@ -201,6 +207,8 @@ update_status ModulePlayer::Update()
 		}
 		aux++;
 	}
+	
+
 	
 	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
 		mid.Reset();
@@ -225,13 +233,30 @@ update_status ModulePlayer::Update()
 		}
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+
+		App->collision->GodMode();
+
+		}
+	
+
 
 	
 	player_collider->SetPos(position.x, position.y);
 	// Draw everything --------------------------------------
-
+if(destroyed == false)
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
 	
 	return UPDATE_CONTINUE;
+}
+
+
+void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
+{
+	if (c1 == player_collider && destroyed == false) //&& App->fade->IsFading() == false)
+	{
+		App->fade->FadeToBlack((Module*)App->scene_water, (Module*)App->scene_start);
+		destroyed = true;
+	}
 }

@@ -196,9 +196,9 @@ bool ModuleSceneWater::Start()
 	
 
 	App->player->Enable();
-	App->collision->Enable();
 	App->enemies->Enable();
 	App->particles->Enable();
+	App->collision->Enable();
 
 	scroll = 1417.0;
 	scroll2 = 1417.0;
@@ -223,8 +223,13 @@ bool ModuleSceneWater::Start()
 
 	//Fish
 
+<<<<<<< HEAD
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 128);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 150, 138);
+=======
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 450, 138);
+>>>>>>> e75e7c879874ea22e0b83b8ddd49a9b2fbdd12d6
 	
 
 
@@ -303,7 +308,7 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics4, 570, 185, &stone3, 0.60f);
 
 	
-	if (App->render->camera.y < -1310 && App->render->camera.y > -2000) {
+	if (App->render->camera.y >= 1310 && App->render->camera.y < 2000) {
 		App->render->Blit(graphics1, 436, 407, &transition, 0.55f);
 		App->render->Blit(graphics1, 436, 631, &transition, 0.55f);
 		//App->render->Blit(graphics1, 436, 407, &transition, 0.55f);
@@ -320,7 +325,9 @@ bool ModuleSceneWater::CleanUp()
 {
 	App->player->Disable();
 	App->collision->Disable();
-	
+	App->particles->Disable();
+	App->enemies->Disable();
+
 		App->textures->Unload(graphics1);
 		graphics1 = nullptr;
 
@@ -339,9 +346,8 @@ bool ModuleSceneWater::CleanUp()
 
 void ModuleSceneWater::CameraPosition()
 {
-	if (App->render->camera.x <= -1590 && App->render->camera.y >= -2390)
+	if (App->render->camera.x >= 1590 && App->render->camera.y <= 2390)
 	{
-		
 		waterfall = true;
 		right = false;
 		App->render->Blit(graphics1, 436, 127, &static_layers, 0.55f);
@@ -350,7 +356,7 @@ void ModuleSceneWater::CameraPosition()
 	}
 	//else if (down) down = false;
 	
-	if (App->render->camera.y < -3257 && App->render->camera.x >= -3000) {
+	if (App->render->camera.y > 3257 && App->render->camera.x <= 3000) {
 
 		down = false;
 		//right = true;		
@@ -392,19 +398,19 @@ void ModuleSceneWater::CameraStates()
 	int speed = 2;
 
 	if (right) {
-		App->render->camera.x -= speed;
+		App->render->camera.x += speed;
 		App->player->position.x += 1;
 	}
 
 	if (left) {
-		App->render->camera.x += speed;
+		App->render->camera.x -= speed;
 	}
 	if (up) {
 		
-			App->render->camera.y += speed;
+			App->render->camera.y -= speed;
 	}
 	if (down) {
-			App->render->camera.y -= speed;
+			App->render->camera.y += speed;
 			App->player->position.y += 1;
 	}
 	

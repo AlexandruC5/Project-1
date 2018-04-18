@@ -21,7 +21,7 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/sprites/miko.png");
-
+	graphics1 = App->textures->Load("assets/sprites/explosions/fish_explosions2.png");
 
 
 	card1.anim.PushBack({ 26, 136, 11, 13 });
@@ -64,6 +64,42 @@ bool ModuleParticles::Start()
 	card5.anim.speed = 1;
 	card5.speed = { 5,0 };
 	card5.life = 5 * 500;
+
+
+	//Enemy explosions on Water Stage
+	/*
+	waterExplosion.anim.PushBack({15, 9, 47, 44});
+	waterExplosion.anim.PushBack({70, 5, 48, 45});
+	waterExplosion.anim.PushBack({127, 4, 55, 62});
+	waterExplosion.anim.PushBack({193, 6, 50, 58});
+	waterExplosion.anim.PushBack({10, 71, 55, 60});
+	waterExplosion.anim.PushBack({75, 72, 53, 63});
+	waterExplosion.anim.PushBack({131, 76, 54, 65});
+	waterExplosion.anim.PushBack({191, 78, 56, 63});
+	waterExplosion.anim.PushBack({9, 155, 58, 65});
+	waterExplosion.anim.PushBack({80, 158, 55, 60});
+	waterExplosion.anim.PushBack({155, 160, 53, 59});
+	waterExplosion.anim.loop = false;
+	waterExplosion.anim.speed = 0.5;
+	waterExplosion.life = 200;
+	waterExplosion.speed = {0,0};
+	*/
+	waterExplosion.anim.PushBack({ 26, 522, 47, 44 });
+	waterExplosion.anim.PushBack({ 81, 518, 48, 54 });
+	waterExplosion.anim.PushBack({ 138, 518, 55, 61 });
+	waterExplosion.anim.PushBack({ 203, 520, 51, 57 });
+	waterExplosion.anim.PushBack({ 23, 583, 53, 61 });
+	waterExplosion.anim.PushBack({ 85, 585, 53, 63 });
+	waterExplosion.anim.PushBack({ 143,590, 53, 64 });
+	waterExplosion.anim.PushBack({ 200, 591, 58, 63 });
+	waterExplosion.anim.PushBack({ 21, 688,57, 64 });
+	waterExplosion.anim.PushBack({ 91, 671, 55, 60 });
+	waterExplosion.anim.PushBack({ 166, 673, 52, 59 });
+	waterExplosion.anim.loop = false;
+	waterExplosion.anim.speed = 0.3;
+	waterExplosion.life = 360;
+	waterExplosion.speed = { 0,0 };
+
 	return true;
 }
 
@@ -72,6 +108,7 @@ bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
 	App->textures->Unload(graphics);
+	App->textures->Unload(graphics1);
 
 	for(uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{

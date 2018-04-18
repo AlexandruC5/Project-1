@@ -75,9 +75,9 @@ update_status ModuleEnemies::PostUpdate()
 	{
 		if (enemies[i] != nullptr)
 		{
-			if (enemies[i]->position.x * 1 < (App->render->camera.x) - SPAWN_MARGIN)
+			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
 			{
-				LOG("DeSpawning enemy at %d", enemies[i]->position.x * 1);
+				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
 				delete enemies[i];
 				enemies[i] = nullptr;
 			}
@@ -135,8 +135,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 	{
 		switch (info.type)
 		{
-	
-		case ENEMY_TYPES::FISH:
+			case ENEMY_TYPES::FISH:
 			enemies[i] = new Fish(info.x, info.y);
 			break;
 		}
@@ -150,7 +149,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
+			App->particles->AddParticle(App->particles->waterExplosion, enemies[i]->position.x, enemies[i]->position.y,COLLIDER_NONE);
 			enemies[i]->OnCollision(c2);
+
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;
