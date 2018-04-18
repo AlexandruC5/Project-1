@@ -119,7 +119,7 @@ update_status ModulePlayer::Update()
 		
 		position.x -= speed;
 
-		if ((position.x * SCREEN_SIZE) < -App->render->camera.x) {
+		if ((position.x * SCREEN_SIZE) < App->render->camera.x) {
 			position.x += speed;
 		}
 		
@@ -131,7 +131,9 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.x += speed;
-		if ((position.x + 32) > (App->render->camera.x + SCREEN_WIDTH)) {
+
+		
+		if (((position.x + 32)* SCREEN_SIZE) > (App->render->camera.x + SCREEN_WIDTH + 320)) {
 			position.x -= speed;
 		}
 	}
@@ -141,7 +143,7 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.y += speed;
-		if (((position.y + 28) * SCREEN_SIZE) > (-App->render->camera.y + SCREEN_HEIGHT + 224)) {
+		if (((position.y + 28) * SCREEN_SIZE) > (App->render->camera.y + SCREEN_HEIGHT + 224)) {
 			position.y -= speed;
 		}
 	}
@@ -161,7 +163,7 @@ update_status ModulePlayer::Update()
 	
 
 		position.y -= speed;
-		if ((position.y * SCREEN_SIZE) < -App->render->camera.y)
+		if ((position.y * SCREEN_SIZE) < App->render->camera.y)
 		{
 			position.y += speed;
 		}

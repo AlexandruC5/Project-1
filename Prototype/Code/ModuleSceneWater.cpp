@@ -303,7 +303,7 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics4, 570, 185, &stone3, 0.60f);
 
 	
-	if (App->render->camera.y < 1310 && App->render->camera.y > 2000) {
+	if (App->render->camera.y >= 1310 && App->render->camera.y < 2000) {
 		App->render->Blit(graphics1, 436, 407, &transition, 0.55f);
 		App->render->Blit(graphics1, 436, 631, &transition, 0.55f);
 		//App->render->Blit(graphics1, 436, 407, &transition, 0.55f);
