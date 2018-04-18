@@ -233,6 +233,13 @@ update_status ModulePlayer::Update()
 		}
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+
+		App->collision->GodMode();
+
+		}
+	
+
 
 	
 	player_collider->SetPos(position.x, position.y);

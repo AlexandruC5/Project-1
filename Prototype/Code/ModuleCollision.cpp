@@ -168,3 +168,13 @@ bool Collider::CheckCollision(const SDL_Rect& r) const
 	}
 	return false;
 }
+
+
+void ModuleCollision::GodMode() {
+
+	matrix[COLLIDER_PLAYER][COLLIDER_WALL] = god_mode;
+	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = god_mode;
+	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = god_mode;
+	god_mode = !god_mode;
+
+}
