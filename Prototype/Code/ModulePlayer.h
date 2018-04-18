@@ -17,6 +17,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	void OnCollision(Collider* c1, Collider* c2);
 
 public:
 
@@ -32,6 +33,7 @@ public:
 	Animation mid2;
 	iPoint position;
 	Collider* player_collider;
+	bool destroyed = false;
 };
 
 #endif

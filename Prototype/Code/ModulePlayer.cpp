@@ -7,6 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModuleSceneWater.h"
 #include "ModuleAudio.h"
+#include "ModuleFadeToBlack.h"
 #include "SDL_mixer/include/SDL_mixer.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -62,7 +63,7 @@ bool ModulePlayer::Start()
 
 	position.x = 10;
 	position.y = 60;
-	
+	destroyed = false;
 
 	player_collider = App->collision->AddCollider({position.x, position.y, 32, 28}, COLLIDER_PLAYER, this);
 	LOG("Loading Audio");
@@ -75,6 +76,11 @@ bool ModulePlayer::Start()
 bool ModulePlayer::CleanUp()
 {
 	App->textures->Unload(graphics);
+
+	if (player_collider != nullptr) {
+		player_collider->to_delete = true;
+	}
+
 	graphics = nullptr;
 	App->audio->UnloadSFX(basic);
 	basic = nullptr;
@@ -231,9 +237,19 @@ update_status ModulePlayer::Update()
 	
 	player_collider->SetPos(position.x, position.y);
 	// Draw everything --------------------------------------
-
+if(destroyed == false)
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
 	
 	return UPDATE_CONTINUE;
+}
+
+
+void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
+{
+	if (c1 == player_collider && destroyed == false) //&& App->fade->IsFading() == false)
+	{
+		App->fade->FadeToBlack((Module*)App->scene_water, (Module*)App->scene_start);
+		destroyed = true;
+	}
 }

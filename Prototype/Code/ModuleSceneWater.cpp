@@ -320,7 +320,9 @@ bool ModuleSceneWater::CleanUp()
 {
 	App->player->Disable();
 	App->collision->Disable();
-	
+	App->particles->Disable();
+	App->enemies->Disable();
+
 		App->textures->Unload(graphics1);
 		graphics1 = nullptr;
 
