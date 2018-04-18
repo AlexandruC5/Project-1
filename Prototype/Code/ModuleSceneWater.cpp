@@ -223,11 +223,17 @@ bool ModuleSceneWater::Start()
 
 	//Fish
 
+<<<<<<< HEAD
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 300, 300);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 200, 50);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 300, 25);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 10);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 500, 5);
+=======
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 128);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 265, 138);
+	
+>>>>>>> 447b147877093a900da70f62efa9bec02732ea29
 
 
 	return true;

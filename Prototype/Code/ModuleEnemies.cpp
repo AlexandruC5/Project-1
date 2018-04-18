@@ -6,8 +6,14 @@
 #include "ModuleTextures.h"
 #include "Enemy.h"
 
+<<<<<<< HEAD
 #include "Fish.h"
 #define SPAWN_MARGIN 50
+=======
+
+#define SPAWN_MARGIN 50
+#define SCREEN_SIZE2 3
+>>>>>>> 447b147877093a900da70f62efa9bec02732ea29
 
 ModuleEnemies::ModuleEnemies()
 {
@@ -67,10 +73,14 @@ update_status ModuleEnemies::PostUpdate()
 	{
 		if (enemies[i] != nullptr)
 		{
+<<<<<<< HEAD
 
 			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
+=======
+			if (enemies[i]->position.x * 1 < (App->render->camera.x) - SPAWN_MARGIN)
+>>>>>>> 447b147877093a900da70f62efa9bec02732ea29
 			{
-				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
+				LOG("DeSpawning enemy at %d", enemies[i]->position.x * 1);
 				delete enemies[i];
 				enemies[i] = nullptr;
 			}

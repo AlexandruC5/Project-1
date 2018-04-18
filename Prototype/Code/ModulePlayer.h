@@ -31,7 +31,6 @@ public:
 	Animation mid;
 	Animation mid2;
 	iPoint position;
-	
 	Collider* player_collider;
 };
 

@@ -169,31 +169,29 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) {
+		Mix_PlayChannel(-1, basic, 0);
+
+
 		switch (aux) {
 		case 0:
 			App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
 			//firerate = 10;
 			//isShooting = true;
 			break;
 		case 1:
 			App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
-		
 			break;
 		case 2:
 			App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			//App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
 			break;
 		case 3:
 			App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
+		
 			break;
 		case 4:
-			
+
 			App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			Mix_PlayChannel(-1, basic, 0);
 			aux = 0;
 			break;
 		
@@ -201,6 +199,8 @@ update_status ModulePlayer::Update()
 		}
 		aux++;
 	}
+	
+
 	
 	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
 		mid.Reset();

@@ -51,8 +51,8 @@ bool ModuleAudio::Init()
 	}
 
 	return ret;
-
-	Mix_VolumeMusic(MIX_MAX_VOLUME / 6);
+	         
+	Mix_VolumeMusic(MIX_MAX_VOLUME / 10);
 
 	return ret;
 }
