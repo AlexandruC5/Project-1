@@ -3,10 +3,6 @@
 
 #include "Module.h"
 #include "Fish.h"
-<<<<<<< HEAD
-
-=======
->>>>>>> 447b147877093a900da70f62efa9bec02732ea29
 
 #define MAX_ENEMIES 100
 
@@ -19,11 +15,7 @@
 enum ENEMY_TYPES
 {
 	NO_TYPE,
-<<<<<<< HEAD
-	FISH
-=======
 	FISH,
->>>>>>> 447b147877093a900da70f62efa9bec02732ea29
 };
 
 class Enemy;

@@ -6,14 +6,9 @@
 #include "ModuleTextures.h"
 #include "Enemy.h"
 
-<<<<<<< HEAD
-#include "Fish.h"
-#define SPAWN_MARGIN 50
-=======
 
 #define SPAWN_MARGIN 50
 #define SCREEN_SIZE2 3
->>>>>>> 447b147877093a900da70f62efa9bec02732ea29
 
 ModuleEnemies::ModuleEnemies()
 {
@@ -29,7 +24,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
-	sprites = App->textures->Load("assets/sprites/enemies/water_stage_enemies.png");
+	sprites = App->textures->Load("assets/sprites/enemies.png");
 
 	return true;
 }
@@ -41,7 +36,6 @@ update_status ModuleEnemies::PreUpdate()
 	{
 		if (queue[i].type != ENEMY_TYPES::NO_TYPE)
 		{
-			
 			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
 				SpawnEnemy(queue[i]);
@@ -73,12 +67,7 @@ update_status ModuleEnemies::PostUpdate()
 	{
 		if (enemies[i] != nullptr)
 		{
-<<<<<<< HEAD
-
-			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
-=======
 			if (enemies[i]->position.x * 1 < (App->render->camera.x) - SPAWN_MARGIN)
->>>>>>> 447b147877093a900da70f62efa9bec02732ea29
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.x * 1);
 				delete enemies[i];
@@ -138,8 +127,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 	{
 		switch (info.type)
 		{
-	
-		case ENEMY_TYPES::FISH:
+			case ENEMY_TYPES::FISH:
 			enemies[i] = new Fish(info.x, info.y);
 			break;
 		}

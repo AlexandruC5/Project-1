@@ -131,7 +131,7 @@ update_status ModulePlayer::Update()
 		
 		current_animation = &forward;
 		position.x += speed;
-		if (((position.x + 32) * SCREEN_SIZE) > (-App->render->camera.x + SCREEN_WIDTH + 320)) {
+		if ((position.x + 32) > (App->render->camera.x + SCREEN_WIDTH)) {
 			position.x -= speed;
 		}
 	}

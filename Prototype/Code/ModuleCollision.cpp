@@ -162,33 +162,9 @@ Collider* ModuleCollision::AddCollider(SDL_Rect rect, COLLIDER_TYPE type, Module
 
 bool Collider::CheckCollision(const SDL_Rect& r) const
 {
-
-	if (r.x <= rect.x + rect.w && r.x >= rect.x)
-		if (r.y <= rect.y + rect.h && r.y >= rect.y)
-			return true;
-	if (r.x + r.w <= rect.x + rect.w && r.x + r.w >= rect.x)
-		if (r.y <= rect.y + rect.h && r.y >= rect.y)
-			return true;
-	if (r.x <= rect.x + rect.w && r.x >= rect.x)
-		if (r.y + r.h <= rect.y + rect.h && r.y + r.h >= rect.y)
-			return true;
-	if (r.x + r.w <= rect.x + rect.w && r.x + r.w >= rect.x)
-		if (r.y + r.h <= rect.y + rect.h && r.y + r.h >= rect.y)
-			return true;
-
-	if (rect.x <= r.x + r.w && rect.x >= r.x)
-		if (rect.y <= r.y + r.h && rect.y >= r.y)
-			return true;
-	if (rect.x + rect.w <= r.x + r.w && rect.x + rect.w >= r.x)
-		if (rect.y <= r.y + r.h && rect.y >= r.y)
-			return true;
-	if (rect.x <= r.x + r.w && rect.x >= r.x)
-		if (rect.y + rect.h <= r.y + r.h && rect.y + rect.h >= r.y)
-			return true;
-	if (rect.x + rect.w <= r.x + r.w && rect.x + rect.w >= r.x)
-		if (rect.y + rect.h <= r.y + r.h && rect.y + rect.h >= r.y)
-			return true;
-
-
-	return true;
+	if ((r.x < rect.x + rect.w) && (rect.x < r.x + r.w)
+		&& (r.y < rect.y + rect.h) && (rect.y < r.y + r.h)) {
+		return true;
+	}
+	return false;
 }

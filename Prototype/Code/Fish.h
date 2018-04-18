@@ -4,6 +4,7 @@
 
 #include "Enemy.h"
 #include "Path.h"
+
 class Fish : public Enemy {
 private:
 	iPoint original_pos;

@@ -28,11 +28,12 @@ Application::Application()
 	modules[5] = scene_start = new ModuleWelcomeScreen();
 	modules[6] = scene_air = new ModuleSceneAir();
 	modules[7] = scene_water = new ModuleSceneWater();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = fade = new ModuleFadeToBlack();
-	modules[10] = particles = new ModuleParticles();
-	modules[11] = collision = new ModuleCollision();
-	modules[12] = enemies = new ModuleEnemies();
+	modules[8] = enemies = new ModuleEnemies();
+	modules[9] = player = new ModulePlayer();
+	modules[10] = fade = new ModuleFadeToBlack();
+	modules[11] = particles = new ModuleParticles();
+	modules[12] = collision = new ModuleCollision();
+
 }
 	
 
