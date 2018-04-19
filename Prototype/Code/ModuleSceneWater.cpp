@@ -231,7 +231,7 @@ bool ModuleSceneWater::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 450, 138);
 	App->powerup->AddPowerUp(App->powerup->RED, 300, 60, COLLIDER_POWER_UP);
-	
+	App->powerup->AddPowerUp(App->powerup->BLUE, 500, 40, COLLIDER_POWER_UP);
 
 
 	return true;

@@ -149,7 +149,7 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModulePowerUPS.cpp">
-      <Filter>Core</Filter>
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
