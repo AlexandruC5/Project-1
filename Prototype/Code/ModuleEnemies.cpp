@@ -99,6 +99,7 @@ bool ModuleEnemies::CleanUp()
 	{
 		if (enemies[i] != nullptr)
 		{
+			queue[i].type = ENEMY_TYPES::NO_TYPE;
 			delete enemies[i];
 			enemies[i] = nullptr;
 		}

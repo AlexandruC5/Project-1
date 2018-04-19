@@ -271,7 +271,7 @@ bool ModuleSceneWater::Start()
 	jump = false;
 	
 
-	App->powerup->AddPowerUp(App->powerup->BLUE, 500, 40, COLLIDER_POWER_UP);
+	App->powerup->AddPowerUp(App->powerup->BLUE, 400, 40, COLLIDER_POWER_UP);
 
 
 
