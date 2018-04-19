@@ -241,7 +241,7 @@ bool ModuleSceneWater::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 128);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 150, 138);
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 350, 148);
+	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 350, 130);
 	jump = false;
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
 
