@@ -94,6 +94,7 @@
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWelcomeScreen.h" />
     <ClInclude Include="ModuleWindow.h" />
+    <ClInclude Include="OrientalGenius.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
   </ItemGroup>
@@ -118,6 +119,7 @@
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWelcomeScreen.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
+    <ClCompile Include="OrientalGenius.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

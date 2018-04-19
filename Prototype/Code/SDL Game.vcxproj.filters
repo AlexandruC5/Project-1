@@ -89,6 +89,9 @@
     <ClInclude Include="ModulePowerUPS.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="OrientalGenius.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -149,7 +152,10 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModulePowerUPS.cpp">
-      <Filter>Core</Filter>
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="OrientalGenius.cpp">
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
