@@ -89,6 +89,9 @@
     <ClInclude Include="ModulePowerUPS.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="GREEN.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -149,6 +152,9 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModulePowerUPS.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GREEN.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
