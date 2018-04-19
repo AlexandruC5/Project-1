@@ -11,6 +11,7 @@
 #include "ModuleSceneWater.h"
 #include "ModuleWelcomeScreen.h"
 #include "ModuleEnemies.h"
+#include "ModuleSceneAir.h"
 
 ModuleSceneWater::ModuleSceneWater()
 {
@@ -223,13 +224,11 @@ bool ModuleSceneWater::Start()
 
 	//Fish
 
-<<<<<<< HEAD
+
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 128);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 150, 138);
-=======
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 450, 138);
->>>>>>> e75e7c879874ea22e0b83b8ddd49a9b2fbdd12d6
 	
 
 
@@ -359,8 +358,13 @@ void ModuleSceneWater::CameraPosition()
 	if (App->render->camera.y > 3257 && App->render->camera.x <= 3000) {
 
 		down = false;
+
 		//right = true;		
 	}
+	if (App->render->camera.y > 3257 && App->render->camera.x >= 3000) {
+		App->fade->FadeToBlack(this, App->scene_air, 1);
+	}
+
 
 	/*
 	if (App->render->camera.x < -5000) {
