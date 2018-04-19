@@ -153,9 +153,12 @@
     </ClCompile>
     <ClCompile Include="ModulePowerUPS.cpp">
       <Filter>Modules</Filter>
+<<<<<<< HEAD
     </ClCompile>
     <ClCompile Include="OrientalGenius.cpp">
       <Filter>Modules\Enemies</Filter>
+=======
+>>>>>>> 46d5441c1fe1a99223eaf4cdf7bcd7b398f248f4
     </ClCompile>
   </ItemGroup>
 </Project>

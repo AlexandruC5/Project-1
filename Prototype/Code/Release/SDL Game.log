@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 ﻿  ModuleSceneWater.cpp
 ModuleSceneWater.cpp(142): warning C4305: '=': truncamiento de 'double' a 'float'
   Generando código
   1 of 200 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+=======
+﻿  ModuleCollision.cpp
+  Generating code
+  4 of 195 functions ( 2.1%) were compiled, the rest were copied from previous compilation.
+>>>>>>> 46d5441c1fe1a99223eaf4cdf7bcd7b398f248f4
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada

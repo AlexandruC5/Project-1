@@ -28,6 +28,22 @@ ModulePowerUPS::ModulePowerUPS()
 	RED.anim.speed = 0.1f;
 	RED.type = Red;
 	RED.enabled = false;
+
+	BLUE.anim.PushBack({ 0, 0, 31, 22 });
+	BLUE.anim.PushBack({ 39, 0, 31, 20 });
+	BLUE.anim.PushBack({ 78, 2, 31, 20 });
+	BLUE.anim.PushBack({ 118, 0, 31, 20 });
+	BLUE.anim.PushBack({ 159, 2, 31, 22 });
+	BLUE.anim.PushBack({ 197, 1, 31, 22 });
+	BLUE.anim.PushBack({ 242, 1, 31, 21 });
+	BLUE.anim.PushBack({ 283, 1, 31, 21 });
+	BLUE.anim.PushBack({ 325, 1, 31, 20 });
+	BLUE.anim.PushBack({ 365, 0, 31, 20 });
+	BLUE.anim.PushBack({ 408, 1, 31, 20 });
+	BLUE.anim.PushBack({ 448, 1, 31, 20 });
+	BLUE.anim.speed = 0.1f;
+	BLUE.type = Blue;
+	BLUE.enabled = false;
 	
 	
 }
