@@ -139,14 +139,14 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::FISH:
 			enemies[i] = new Fish(info.x, info.y);
 			break;
-<<<<<<< HEAD
+
 			case ENEMY_TYPES::GREEN:
 				enemies[i] = new Green(info.x, info.y);
-=======
+
 
 			case ENEMY_TYPES::ORIENTAL_GENIUS:
 				enemies[i] = new OrientalGenius(info.x, info.y);
->>>>>>> f04c0275bee4bbb3c70729dc29b6c7783690dbc0
+
 				break;
 		}
 

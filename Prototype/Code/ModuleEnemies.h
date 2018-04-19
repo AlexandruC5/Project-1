@@ -16,11 +16,9 @@ enum ENEMY_TYPES
 {
 	NO_TYPE,
 	FISH,
-<<<<<<< HEAD
-	GREEN
-=======
+	GREEN,
 	ORIENTAL_GENIUS
->>>>>>> f04c0275bee4bbb3c70729dc29b6c7783690dbc0
+
 };
 
 class Enemy;

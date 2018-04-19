@@ -192,6 +192,7 @@ ModuleSceneWater::ModuleSceneWater()
 	Geniusjump.PushBack({ 334, 308, 46, 70 });
 	Geniusjump.PushBack({ 396, 327, 48, 45 });
 	Geniusjump.speed = 0.1f;
+	Geniusjump.loop = false;
 
 
 
@@ -236,27 +237,27 @@ bool ModuleSceneWater::Start()
 	//Fish
 
 
-<<<<<<< HEAD
+
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 128);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 150, 138);
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 350, 148);
 	jump = false;
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
-=======
+
 	
-<<<<<<< HEAD
-	
-=======
+
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 50);
->>>>>>> 46d5441c1fe1a99223eaf4cdf7bcd7b398f248f4
->>>>>>> f04c0275bee4bbb3c70729dc29b6c7783690dbc0
+
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 450, 138);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 1500, 528);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 1550, 538);
 	
 
 	//Green
+
+	//orientalGenius
+
 
 	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 500, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 600, 200);
@@ -265,12 +266,13 @@ bool ModuleSceneWater::Start()
 
 	//PowerUps
 	App->powerup->AddPowerUp(App->powerup->RED, 300, 60, COLLIDER_POWER_UP);
-<<<<<<< HEAD
+
+	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 350, 148);
+	jump = false;
 	
-	//orientalGenius
-=======
+
 	App->powerup->AddPowerUp(App->powerup->BLUE, 500, 40, COLLIDER_POWER_UP);
->>>>>>> 46d5441c1fe1a99223eaf4cdf7bcd7b398f248f4
+
 
 
 	return true;
