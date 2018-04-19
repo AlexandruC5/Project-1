@@ -143,7 +143,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 			case ENEMY_TYPES::GREEN:
 				enemies[i] = new Green(info.x, info.y);
-
+				break;
 
 			case ENEMY_TYPES::ORIENTAL_GENIUS:
 				enemies[i] = new OrientalGenius(info.x, info.y);

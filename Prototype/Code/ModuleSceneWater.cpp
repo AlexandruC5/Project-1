@@ -265,13 +265,13 @@ bool ModuleSceneWater::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 700, 400);
 
 	//PowerUps
-	App->powerup->AddPowerUp(App->powerup->RED, 300, 60, COLLIDER_POWER_UP);
+	//App->powerup->AddPowerUp(App->powerup->BLUE, 300, 60, COLLIDER_POWER_UP);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 350, 148);
 	jump = false;
 	
 
-	App->powerup->AddPowerUp(App->powerup->BLUE, 400, 40, COLLIDER_POWER_UP);
+	App->powerup->AddPowerUp(App->powerup->RED, 400, 40, COLLIDER_POWER_UP);
 
 
 

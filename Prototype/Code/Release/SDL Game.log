@@ -13,12 +13,12 @@ ModuleAudio.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\pr
 ModuleFadeToBlack.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleInput.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleParticles.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-ModulePlayer.obj : warning LNK4205: 'C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\vc141.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+ModulePlayer.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModulePowerUPS.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleRender.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleBackground.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleSceneAir.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleTextures.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-ModuleWelcomeScreen.obj : warning LNK4205: 'C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\vc141.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+ModuleWelcomeScreen.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleWindow.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
   SDL Game.vcxproj -> C:\Users\alexa\Documents\Project-1\Prototype\Code\Release\SDL6 Handout.exe
