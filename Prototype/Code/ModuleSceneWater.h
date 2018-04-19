@@ -24,13 +24,14 @@ public:
 public:
 
 	bool right, left, up, down,down_right, waterfall, stop;
+	bool jump;
 	int timer;
 	float scroll,scroll2;
 	SDL_Texture * graphics1 = nullptr;
 	SDL_Texture * graphics2 = nullptr;
 	SDL_Texture * graphics3 = nullptr;
 	SDL_Texture * graphics4 = nullptr;
-
+	SDL_Texture* orientaljump = nullptr;
 	SDL_Rect BG_Mountain;
 	SDL_Rect layer_ocean_1;
 	SDL_Rect layer_ocean_2;
@@ -58,7 +59,7 @@ public:
 	Animation candle3;
 	Animation wave;
 	Animation big_waterfall;
-	
+	Animation Geniusjump;
 	
 	
 

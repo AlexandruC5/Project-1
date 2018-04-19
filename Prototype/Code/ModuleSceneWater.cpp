@@ -183,6 +183,17 @@ ModuleSceneWater::ModuleSceneWater()
 	big_waterfall.speed = 0.02f;
 
 	
+	//enemy jump
+	Geniusjump.PushBack({ 10, 366, 32, 12 });
+	Geniusjump.PushBack({ 60, 353, 48, 27 });
+	Geniusjump.PushBack({ 132, 336, 47, 42 });
+	Geniusjump.PushBack({ 203, 305, 45, 73 });
+	Geniusjump.PushBack({ 265, 308, 46, 73 });
+	Geniusjump.PushBack({ 334, 308, 46, 70 });
+	Geniusjump.PushBack({ 396, 327, 48, 45 });
+	Geniusjump.speed = 0.1f;
+
+
 
 }
 
@@ -216,7 +227,7 @@ bool ModuleSceneWater::Start()
 	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Water/waterfall.png");
 	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Water/background_waterfall.png");
 	graphics4 = App->textures->Load("assets/sprites/Scenes/Scene_Water/lateral_scroll&loop.png");
-
+	orientaljump = App->textures->Load("assets/sprites/enemies/tengai_enemies.png");
 	SceneWater = App->audio->LoadMusic("assets/audio/music/06_Torn_silence.ogg");
 	Mix_PlayMusic(SceneWater, -1);
 
@@ -225,8 +236,21 @@ bool ModuleSceneWater::Start()
 	//Fish
 
 
+<<<<<<< HEAD
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 128);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 150, 138);
 	
+	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 350, 148);
+	jump = false;
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
+=======
 	
+<<<<<<< HEAD
+	
+=======
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 50);
+>>>>>>> 46d5441c1fe1a99223eaf4cdf7bcd7b398f248f4
+>>>>>>> f04c0275bee4bbb3c70729dc29b6c7783690dbc0
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 450, 138);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 1500, 528);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 1550, 538);
@@ -241,7 +265,12 @@ bool ModuleSceneWater::Start()
 
 	//PowerUps
 	App->powerup->AddPowerUp(App->powerup->RED, 300, 60, COLLIDER_POWER_UP);
+<<<<<<< HEAD
+	
+	//orientalGenius
+=======
 	App->powerup->AddPowerUp(App->powerup->BLUE, 500, 40, COLLIDER_POWER_UP);
+>>>>>>> 46d5441c1fe1a99223eaf4cdf7bcd7b398f248f4
 
 
 	return true;
@@ -278,10 +307,11 @@ update_status ModuleSceneWater::Update()
 	App->render->Blit(graphics1, 156, 44, &(waterfall1.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics1, 510, 44, &(waterfall2.GetCurrentFrame()), 0.55F);
 	//App->render->Blit(graphics1, 509, 106, &(under_waterfall.GetCurrentFrame()), 0.55F);
+
 	App->render->Blit(graphics1, 710, 55, &(waterfall3.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics1, 693, 110, &(under_waterfall.GetCurrentFrame()), 0.55F);
 	App->render->Blit(graphics4, 430, 875, &(wave.GetCurrentFrame()), 0.55F);
-	
+
 	
 	//App->render->Blit(graphics1, 697, 107, &(under_waterfall.GetCurrentFrame()), 0.55F);
 
@@ -327,7 +357,8 @@ update_status ModuleSceneWater::Update()
 
 	
 	App->render->Blit(graphics2, 580, 232, &(big_waterfall.GetCurrentFrame()), 0.55F);
-
+		App->render->Blit(orientaljump, 100, 150, &(Geniusjump.GetCurrentFrame()));
+	
 	return UPDATE_CONTINUE;
 }
 

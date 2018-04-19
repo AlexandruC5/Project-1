@@ -89,8 +89,13 @@
     <ClInclude Include="ModulePowerUPS.h">
       <Filter>Modules</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="GREEN.h">
       <Filter>Modules</Filter>
+=======
+    <ClInclude Include="OrientalGenius.h">
+      <Filter>Modules\Enemies</Filter>
+>>>>>>> f04c0275bee4bbb3c70729dc29b6c7783690dbc0
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="ModulePowerUPS.cpp">
       <Filter>Modules</Filter>
+<<<<<<< HEAD
+    </ClCompile>
+    <ClCompile Include="OrientalGenius.cpp">
+      <Filter>Modules\Enemies</Filter>
+=======
+>>>>>>> 46d5441c1fe1a99223eaf4cdf7bcd7b398f248f4
     </ClCompile>
     <ClCompile Include="GREEN.cpp">
       <Filter>Modules</Filter>

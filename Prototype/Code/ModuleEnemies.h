@@ -3,7 +3,7 @@
 
 #include "Module.h"
 #include "Fish.h"
-
+#include "OrientalGenius.h"
 #define MAX_ENEMIES 100
 
 // TODO 2: Add a new enemy: Brown Cookies!
@@ -16,7 +16,11 @@ enum ENEMY_TYPES
 {
 	NO_TYPE,
 	FISH,
+<<<<<<< HEAD
 	GREEN
+=======
+	ORIENTAL_GENIUS
+>>>>>>> f04c0275bee4bbb3c70729dc29b6c7783690dbc0
 };
 
 class Enemy;
