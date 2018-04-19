@@ -55,14 +55,14 @@ update_status ModuleEnemies::Update()
 		if (enemies[i] != nullptr)
 		{
 			enemies[i]->Move();
-			LOG("HEY2");
+			
 		}
 	}
 	
 	for (uint i = 0; i < MAX_ENEMIES; ++i) {
 		if (enemies[i] != nullptr)  {
 			enemies[i]->Draw(sprites);
-			LOG("HEY");
+			
 		}
 	}
 	return UPDATE_CONTINUE;

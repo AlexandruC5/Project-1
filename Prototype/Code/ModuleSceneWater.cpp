@@ -11,7 +11,11 @@
 #include "ModuleSceneWater.h"
 #include "ModuleWelcomeScreen.h"
 #include "ModuleEnemies.h"
+<<<<<<< HEAD
 #include "ModuleSceneAir.h"
+=======
+#include "ModulePowerUPS.h"
+>>>>>>> 135e46b2e2a0f576175636f7b113d85a4a91b8e2
 
 ModuleSceneWater::ModuleSceneWater()
 {
@@ -227,8 +231,15 @@ bool ModuleSceneWater::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 128);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 150, 138);
+<<<<<<< HEAD
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
 	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 450, 138);
+=======
+
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 450, 138);
+	App->powerup->AddPowerUp(App->powerup->RED, 300, 60, COLLIDER_POWER_UP);
+>>>>>>> 135e46b2e2a0f576175636f7b113d85a4a91b8e2
 	
 
 

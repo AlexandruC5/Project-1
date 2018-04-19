@@ -18,7 +18,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-
+	bool activePU[2];
 public:
 
 	int aux;
