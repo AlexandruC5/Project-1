@@ -15,6 +15,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = true;
+	matrix[COLLIDER_PLAYER][COLLIDER_POWER_UP] = false;
 
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY] = false;
@@ -182,6 +183,9 @@ void ModuleCollision::GodMode() {
 	matrix[COLLIDER_PLAYER][COLLIDER_WALL] = god_mode;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = god_mode;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = god_mode;
+	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = god_mode;
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER] = god_mode;
+
 	god_mode = !god_mode;
 
 }

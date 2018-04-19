@@ -200,7 +200,6 @@ update_status ModulePlayer::Update()
 
 			App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			if (activePU[Red] == true)App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			//App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			break;
 
 		case 3:
