@@ -43,7 +43,7 @@ ModulePowerUPS::ModulePowerUPS()
 	BLUE.anim.PushBack({ 448, 1, 31, 20 });
 	BLUE.anim.speed = 0.1f;
 	BLUE.type = Blue;
-	BLUE.enabled = false;
+	BLUE.enabled = true;
 	
 	
 }

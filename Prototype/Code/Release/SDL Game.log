@@ -1,9 +1,8 @@
-﻿  ModuleSceneWater.cpp
-ModuleSceneWater.cpp(142): warning C4305: '=': truncation from 'double' to 'float'
+﻿  ModulePowerUPS.cpp
   Generating code
-  1 of 205 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+  16 of 205 functions ( 7.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    8 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 Enemy.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 Fish.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
@@ -14,7 +13,6 @@ ModuleFadeToBlack.obj : warning LNK4020: a type record in 'c:\users\alexa\docume
 ModuleInput.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleParticles.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModulePlayer.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-ModulePowerUPS.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleRender.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleBackground.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ModuleSceneAir.obj : warning LNK4020: a type record in 'c:\users\alexa\documents\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
