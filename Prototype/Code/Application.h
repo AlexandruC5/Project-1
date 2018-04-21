@@ -17,13 +17,16 @@ class ModuleSceneWater;
 //class ModuleBackground;
 class ModuleFadeToBlack;
 class ModulePlayer;
-class ModulePlayer2;
 class ModuleParticles;
 class Module;
 class ModuleCollision;
 class ModuleEnemies;
 class ModulePowerUPS;
 class ModuleFonts;
+class ModulePlayer2;
+
+
+
 class Application
 {
 public:
@@ -39,13 +42,13 @@ public:
 	ModuleSceneWater* scene_water;
 	//ModuleBackground* scene_background;
 	ModulePlayer* player;
-	ModulePlayer2* player2;
 	ModuleFadeToBlack* fade;
 	ModuleParticles* particles;
 	ModuleCollision* collision;
 	ModuleEnemies* enemies;
 	ModulePowerUPS* powerup;
 	ModuleFonts* fonts;
+	ModulePlayer2* player2;
 
 public:
 

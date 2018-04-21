@@ -28,6 +28,8 @@ public:
 	SDL_Texture* graphics = nullptr;
 	Animation* current_animation = nullptr;
 	Mix_Chunk* basic = nullptr;
+	Animation idle;
+	Animation stayback;
 	Animation forward;
 	Animation backward;
 	Animation mid;

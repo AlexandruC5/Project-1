@@ -4,7 +4,7 @@
 #include "ModuleRender.h"
 #include "ModuleFonts.h"
 #include "ModulePlayer.h"
-#include<stdio.h>
+
 #include<string.h>
 
 // Constructor
@@ -47,22 +47,18 @@ int ModuleFonts::Load(const char* texture_path, const char* characters, uint row
 
 	fonts[id].graphic = tex; // graphic: pointer to the texture
 	fonts[id].rows = rows; // rows: rows of characters in the texture
-	fonts[id].len = strlen(characters); // len: length of the table
+	fonts[id].len = 0; // len: length of the table
 
 					   // TODO 1: Finish storing font data
 
 					   // table: array of chars to have the list of characters
-	uint width, height;
-	App->textures->GetSize(tex, width, height);
-
-
-	fonts[id].graphic = tex; // graphic: pointer to the texture
-	fonts[id].rows = rows; // rows: rows of characters in the texture
-	fonts[id].len = strlen(characters);
-	fonts[id].row_chars = fonts[id].len / rows;
-	fonts[id].char_w = width / fonts[id].row_chars;
-	fonts[id].char_h = height / rows;
 	strcpy_s(fonts[id].table, characters);
+	// row_chars: amount of chars per row of the texture
+	fonts[id].row_chars = strlen(characters) / fonts[id].rows;
+	// char_w: width of each character
+	App->textures->GetSize(fonts[id].graphic, fonts[id].char_w, fonts[id].char_h);
+	fonts[id].char_w /= fonts[id].row_chars;
+	fonts[id].char_h /= rows;
 	// char_h: height of each character
 
 	LOG("Successfully loaded BMP font from %s", texture_path);
@@ -99,17 +95,16 @@ void ModuleFonts::BlitText(int x, int y, int font_id, const char* text) const
 
 	for (uint i = 0; i < len; ++i)
 	{
-		// TODO 2: Find the character in the table and its position in the texture, then Blit
-		for (int j = 0; j < font->len; ++j) {
-			
+
+		int aux = 0;
+		for (uint j = 0; j < fonts[font_id].row_chars; ++j) {
 			if (fonts[font_id].table[j] == text[i]) {
-				int row = 0;
-				int x = 0;
-				
+				aux = j;
 			}
 		}
-		SDL_Rect rect = {0, font->char_w , font->char_h, font};
-		App->render->Blit(fonts->graphic, x + aux1*rect.w, y, &rect, 0.00f, false); //, false|| at the end
+		rect.x = aux * fonts[font_id].char_w;
+		rect.y = 0;
+		App->render->Blit(fonts[font_id].graphic, x + aux1 * rect.w, y, &rect, 0.00f);
 		aux1++;
 	}
 }

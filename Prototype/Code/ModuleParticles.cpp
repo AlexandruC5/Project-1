@@ -22,24 +22,14 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	graphics = App->textures->Load("assets/sprites/miko.png");
 	graphics1 = App->textures->Load("assets/sprites/explosions/fish_explosions2.png");
-
+	graphics2 = App->textures->Load("assets/sprites/sho.png");
 
 	card1.anim.PushBack({ 26, 136, 11, 13 });
 	card2.anim.PushBack({ 49, 136, 12, 12 });
 	card3.anim.PushBack({ 73, 137, 12, 11 });
 	card4.anim.PushBack({ 97, 137, 13, 11 });
 	card5.anim.PushBack({ 121, 139, 12, 7 });
-	/*laser.anim.PushBack({ 144, 135, 13, 15 });
-	laser.anim.PushBack({ 168, 135, 15, 15 });
-	laser.anim.PushBack({ 192, 135, 15, 14 });
-	laser.anim.PushBack({ 216, 136, 15, 13 });
-	laser.anim.PushBack({ 240, 138, 14, 8 });
-	laser.anim.PushBack({ 264, 135, 13, 15 });
-	laser.anim.PushBack({ 288, 135, 15, 15 });
-	laser.anim.PushBack({ 312, 135, 15, 14 });
-	laser.anim.PushBack({ 336, 136, 15, 13 });
-	laser.anim.PushBack({ 360, 138, 14, 8 });
-	*/
+
 	card1.anim.loop = false;
 	card1.anim.speed = 1;
 	card1.speed = { 5,0 };
@@ -64,6 +54,18 @@ bool ModuleParticles::Start()
 	card5.anim.speed = 1;
 	card5.speed = { 5,0 };
 	card5.life = 5 * 500;
+
+	//Sho shots
+	sword1.anim.PushBack({ 108, 151, 32, 4 });
+	sword1.anim.loop = false;
+	sword1.speed = { 5,0 };
+	sword1.life = 5 * 500;
+
+	sword2.anim.PushBack({ 149, 151, 32, 3 });
+	sword2.anim.loop = false;
+	sword2.speed = { 5,0 };
+	sword2.life = 5 * 500;
+
 
 
 	//Enemy explosions on Water Stage
@@ -140,6 +142,7 @@ update_status ModuleParticles::Update()
 		else if(SDL_GetTicks() >= p->born)
 		{
 			App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
  
 			if(p->fx_played == false)
 			{

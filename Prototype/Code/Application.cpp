@@ -13,10 +13,11 @@
 #include "ModuleSceneWater.h"
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
-#include "ModulePowerUPS.h"
 #include "ModuleFonts.h"
-#include "ModuleUI.h"
+#include "ModulePowerUPS.h"
 #include "ModulePlayer2.h"
+
+
 Application::Application()
 {
 	

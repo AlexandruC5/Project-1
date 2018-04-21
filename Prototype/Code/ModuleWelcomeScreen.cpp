@@ -11,6 +11,7 @@
 #include "SDL/include/SDL.h"
 #include "ModuleWelcomeScreen.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 
 
 ModuleWelcomeScreen::ModuleWelcomeScreen()
@@ -69,7 +70,7 @@ bool ModuleWelcomeScreen::Init() {
 }
 bool ModuleWelcomeScreen::Start()
 {
-
+	App->player2->Disable();
 
 	//Reseting camera positions
 	App->render->camera.x = 0;

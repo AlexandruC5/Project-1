@@ -268,7 +268,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == player_collider && destroyed == false) //&& App->fade->IsFading() == false)
 	{
-		App->fade->FadeToBlack((Module*)App->scene_water, (Module*)App->scene_start);
+		App->player->Disable();
 		destroyed = true;
 	}
 }

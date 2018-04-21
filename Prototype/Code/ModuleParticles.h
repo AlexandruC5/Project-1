@@ -46,6 +46,7 @@ private:
 
 	SDL_Texture * graphics = nullptr;
 	SDL_Texture * graphics1 = nullptr;
+	SDL_Texture * graphics2 = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
 
@@ -54,6 +55,7 @@ public:
 	Particle explosion;
 	Particle card1, card2, card3, card4, card5;
 	Particle waterExplosion;
+	Particle sword1, sword2;
 };
 
 #endif // __MODULEPARTICLES_H__

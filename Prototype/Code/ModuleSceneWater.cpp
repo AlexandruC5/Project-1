@@ -12,6 +12,7 @@
 #include "ModuleWelcomeScreen.h"
 #include "ModuleEnemies.h"
 #include "ModulePowerUPS.h"
+#include "ModulePlayer2.h"
 
 ModuleSceneWater::ModuleSceneWater()
 {
@@ -208,10 +209,14 @@ bool ModuleSceneWater::Start()
 
 	
 
+
+	
 	App->player->Enable();
+	App->player2->Enable();
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
+
 
 	scroll = 1417.0;
 	scroll2 = 1417.0;
@@ -346,7 +351,8 @@ update_status ModuleSceneWater::Update()
 		App->render->Blit(graphics1, 436, 631, &transition, 0.55f);
 		//App->render->Blit(graphics1, 436, 407, &transition, 0.55f);
 	}
-
+	
+	
 	
 	App->render->Blit(graphics2, 580, 232, &(big_waterfall.GetCurrentFrame()), 0.55F);
 		App->render->Blit(orientaljump, 100, 150, &(Geniusjump.GetCurrentFrame()));
@@ -434,6 +440,7 @@ void ModuleSceneWater::CameraStates()
 	if (right) {
 		App->render->camera.x += speed;
 		App->player->position.x += 1;
+		App->player2->position.x += 1;
 	}
 
 	if (left) {
@@ -446,6 +453,7 @@ void ModuleSceneWater::CameraStates()
 	if (down) {
 			App->render->camera.y += speed;
 			App->player->position.y += 1;
+			App->player2->position.y += 1;
 	}
 	
 	if (stop) {
