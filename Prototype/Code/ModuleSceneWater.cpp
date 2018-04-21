@@ -212,7 +212,7 @@ bool ModuleSceneWater::Start()
 
 	
 	App->player->Enable();
-	App->player2->Enable();
+	
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
@@ -352,6 +352,15 @@ update_status ModuleSceneWater::Update()
 		//App->render->Blit(graphics1, 436, 407, &transition, 0.55f);
 	}
 	
+
+
+
+	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN) {
+		if (!App->player2->IsEnabled()) {
+			App->player2->Enable();
+		}
+	}
+
 	
 	
 	App->render->Blit(graphics2, 580, 232, &(big_waterfall.GetCurrentFrame()), 0.55F);

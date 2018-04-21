@@ -5,6 +5,7 @@
 #include "ModuleInput.h"
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
+#include "ModulePlayer.h"
 #include "ModulePLayer2.h"
 #include "ModuleSceneWater.h"
 #include "ModuleAudio.h"
@@ -62,7 +63,7 @@ bool ModulePlayer2::Start() {
 	LOG("Loading player2");
 	graphics = App->textures->Load("assets/sprites/sho.png");
 
-	position.x = 10;
+	position.x = App->player->position.x;
 	position.y = 100;
 	destroyed = false;
 	player_collider = App->collision->AddCollider({ position.x, position.y, 32, 32 }, COLLIDER_PLAYER, this);
