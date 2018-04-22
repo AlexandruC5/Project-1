@@ -197,7 +197,10 @@ update_status ModulePlayer::Update()
 		case 1:
 
 			if (activePU[Red] == false)App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			if (activePU[Red] == true)App->particles->AddParticle(App->particles->BigC2, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == true) {
+				App->particles->AddParticle(App->particles->BigC2, position.x, position.y, COLLIDER_PLAYER_SHOT);
+	
+			}
 			break;
 
 		case 2:
@@ -280,6 +283,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == player_collider && destroyed == false) //&& App->fade->IsFading() == false)
 	{
+		App->particles->AddParticle(App->particles->waterExplosion, App->player->position.x, App->player->position.y);
 		current_animation = &death;
 		App->player->Disable();
 		destroyed = true;

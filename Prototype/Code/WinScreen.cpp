@@ -62,7 +62,7 @@ update_status ModuleWinScreen::Update() {
 	 }*/
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
 		
-		App->fade->FadeToBlack(this, App->scene_water, 2);
+		App->fade->FadeToBlack(this, App->scene_start, 2);
 
 	}
 	return update_status::UPDATE_CONTINUE;

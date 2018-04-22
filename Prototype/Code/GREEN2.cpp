@@ -8,14 +8,15 @@ GREEN2::GREEN2(int x, int y) : Enemy(x, y)
 {
 
 
-	backward.PushBack({ 39,  34, 30, 30 });
-	backward.PushBack({ 86, 34, 30, 30 });
-	backward.PushBack({ 132, 34, 30, 30 });
-	backward.PushBack({ 177,34,30,30 });
+	backward.PushBack({ 315,  36, 30, 30 });
+	backward.PushBack({ 362, 36, 30, 30 });
+	backward.PushBack({ 408 ,36, 30, 30 });
+	backward.PushBack({ 453,36,30,30 });
 
 
 
-	path.PushBack({ -0.5f, 0 }, 250, &backward);
+	path.PushBack({ -1, 0 }, 250, &backward);
+
 
 
 

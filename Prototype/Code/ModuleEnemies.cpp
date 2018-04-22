@@ -29,7 +29,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
-	sprites = App->textures->Load("enemies2.png");
+	sprites = App->textures->Load("assets/enemies2.png");
 
 	return true;
 }
@@ -149,7 +149,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				enemies[i] = new GREEN(info.x, info.y);
 				break;
 			case ENEMY_TYPES::Green2:
-				enemies[i] = new GREEN(info.x, info.y);
+				enemies[i] = new GREEN2(info.x, info.y);
 				break;
 
 			case ENEMY_TYPES::ORIENTAL_GENIUS:

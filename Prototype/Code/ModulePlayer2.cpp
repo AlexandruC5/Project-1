@@ -214,6 +214,7 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider*c2)
 {
 	if (c1 == player_collider && destroyed == false) //&& App->fade->IsFading() == false)
 	{
+		App->particles->AddParticle(App->particles->waterExplosion, App->player->position.x, App->player->position.y);
 		App->player2->Disable();
 		destroyed = true;
 	}

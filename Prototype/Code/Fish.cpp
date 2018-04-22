@@ -17,7 +17,7 @@ Fish::Fish(int x, int y) : Enemy(x, y)
 
 
 
-	path.PushBack({ -0.5f, 0 }, 500, &backward);
+	path.PushBack({ -0.5f, 0 }, 200, &backward);
 
 
 	backward.speed = 0.1f;

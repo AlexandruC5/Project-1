@@ -23,7 +23,7 @@ bool ModuleParticles::Start()
 	graphics = App->textures->Load("assets/sprites/miko.png");
 	graphics1 = App->textures->Load("assets/sprites/explosions/fish_explosions2.png");
 	graphics2 = App->textures->Load("assets/sprites/sho.png");
-	graphics3 = App->textures->Load("enemies2.png");
+	graphics3 = App->textures->Load("assets/enemies2.png");
 
 	card1.anim.PushBack({ 26, 136, 11, 13 });
 	card2.anim.PushBack({ 49, 136, 12, 12 });
@@ -33,62 +33,62 @@ bool ModuleParticles::Start()
 
 	card1.anim.loop = false;
 	card1.anim.speed = 1;
-	card1.speed = { 5,0 };
+	card1.speed = { 10,0 };
 	card1.life = 5 *500;
 	
 	card2.anim.loop = false;
 	card2.anim.speed = 1;
-	card2.speed = { 5,0 };
+	card2.speed = { 10,0 };
 	card2.life = 5 * 500;
 	
 	card3.anim.loop = false;
 	card3.anim.speed = 1;
-	card3.speed = { 5,0 };
+	card3.speed = { 10,0 };
 	card3.life = 5 * 500;
 	
 	card4.anim.loop = false;
 	card4.anim.speed = 1;
-	card4.speed = { 5,0 };
+	card4.speed = { 10,0 };
 	card4.life = 5 * 500;
 
 	card5.anim.loop = false;
 	card5.anim.speed = 1;
-	card5.speed = { 5,0 };
+	card5.speed = { 10,0 };
 	card5.life = 5 * 500;
 
 	BigC1.anim.PushBack({ 144,135,13 ,15 });
 	BigC1.anim.loop = false;
-	BigC1.speed = { 5,0 };
+	BigC1.speed = { 15,0 };
 	BigC1.life = 5 * 500;
 
 	BigC2.anim.PushBack({ 168,135,15 ,15 });
 	BigC2.anim.loop = false;
-	BigC2.speed = { 5,0 };
+	BigC2.speed = { 15,0 };
 	BigC2.life = 5 * 500;
 
 	BigC3.anim.PushBack({ 192,135, 15 ,14 });
 	BigC3.anim.loop = false;
-	BigC3.speed = { 5,0 };
+	BigC3.speed = { 15,0 };
 	BigC3.life = 5 * 500;
 
 	BigC4.anim.PushBack({ 216,136,15 ,13 });
 	BigC4.anim.loop = false;
-	BigC4.speed = { 5,0 };
+	BigC4.speed = { 15,0 };
 	BigC4.life = 5 * 500;
 
 	BigC5.anim.PushBack({ 240,138,14 ,8 });
 	BigC5.anim.loop = false;
-	BigC5.speed = { 5,0 };
+	BigC5.speed = { 15,0 };
 	BigC5.life = 5 * 500;
 	//Sho shots
 	sword1.anim.PushBack({ 108, 151, 32, 4 });
 	sword1.anim.loop = false;
-	sword1.speed = { 5,0 };
+	sword1.speed = { 10,0 };
 	sword1.life = 5 * 500;
 
 	sword2.anim.PushBack({ 149, 151, 32, 3 });
 	sword2.anim.loop = false;
-	sword2.speed = { 5,0 };
+	sword2.speed = { 10,0 };
 	sword2.life = 5 * 500;
 
 
@@ -127,13 +127,13 @@ bool ModuleParticles::Start()
 	waterExplosion.life = 360;
 	waterExplosion.speed = { 0,0 };
 
-	enemyattack.anim.PushBack({ 11,140,6,6 });
-	enemyattack.anim.PushBack({ 22, 140, 6,6 });
-	enemyattack.anim.PushBack({ 34, 140, 6,6 });
+	enemyattack.anim.PushBack({ 288,107,6,6 });
+	enemyattack.anim.PushBack({ 299, 107, 6,6 });
+	enemyattack.anim.PushBack({ 311, 107, 6,6 });
 	enemyattack.anim.loop = true;
 	enemyattack.anim.speed = 0.5f;
 	enemyattack.life = 1200;
-	enemyattack.speed.x = -4;
+	enemyattack.speed.x = -3;
 
 	return true;
 }

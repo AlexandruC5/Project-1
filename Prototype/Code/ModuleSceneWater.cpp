@@ -214,7 +214,7 @@ bool ModuleSceneWater::Start()
 
 	
 	App->player->Enable();
-	
+	App->powerup->Enable();
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
@@ -246,31 +246,66 @@ bool ModuleSceneWater::Start()
 	//Fish
 
 
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1400, 210);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1450, 220);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1480, 225);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1490, 230);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1490, 250);
 
-    /*App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green, 630, 80);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green, 630, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 160);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1500, 250);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1550, 270);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1600, 280);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1650, 300);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1700, 320);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 40);
-	
-	
-	
-	
-	
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1750, 550);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1800, 680);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1830, 720);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1870, 850);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 1900, 970);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 600, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 700, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 800, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 900, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 200);
 
-
+	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 1900, 1000);
+	
 	
 
 	//Green
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 170);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 170);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 800, 170);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 900, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1000, 60);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 75);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 50);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 25);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 125);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 175);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 200);
+	
+
 
 	//orientalGenius
 
 
 	//PowerUps
-	App->powerup->AddPowerUp(App->powerup->BLUE, 300, 60, COLLIDER_POWER_UP);
-	App->powerup->AddPowerUp(App->powerup->RED, 300, 40, COLLIDER_POWER_UP);
+	
+	App->powerup->AddPowerUp(App->powerup->RED, 300, 50, COLLIDER_POWER_UP);
+
 
 
 
@@ -444,6 +479,8 @@ void ModuleSceneWater::CameraPosition()
 			
 			
 			App->fade->FadeToBlack(this, App->scene_win, 2);
+
+
 		}
 	}
 

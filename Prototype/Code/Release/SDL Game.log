@@ -1,8 +1,9 @@
-﻿  ModuleParticles.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  ModuleEnemies.cpp
+  ModuleParticles.cpp
 ModuleParticles.cpp(126): warning C4305: '=': truncation from 'double' to 'float'
   Generating code
-  1 of 238 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+d:\project-1\prototype\code\modulesceneair.cpp(332): warning C4715: 'ModuleSceneAir::loadMapTextures': not all control paths return a value
+  All 241 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  SDL Game.vcxproj -> D:\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\alexa\Desktop\Tengai0.5\SDL6 Handout.exe
