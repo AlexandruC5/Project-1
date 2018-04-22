@@ -11,6 +11,7 @@
 #include "ModuleWelcomeScreen.h"
 #include "ModuleSceneAir.h"
 #include "ModuleSceneWater.h"
+#include "ModuleUI.h"
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
 #include "ModuleFonts.h"
@@ -39,7 +40,11 @@ Application::Application()
 	modules[13] = powerup = new ModulePowerUPS();
 	modules[14] = fonts = new ModuleFonts();
 	modules[15] = player2 = new ModulePlayer2();
+<<<<<<< HEAD
 	modules[16] = scene_win = new ModuleWinScreen();
+=======
+	//modules[16] = UI = new ModuleUI();
+>>>>>>> 54aa95bf156168005b3390bae710e2762880e5c4
 }
 	
 

@@ -24,7 +24,12 @@ class ModuleEnemies;
 class ModulePowerUPS;
 class ModuleFonts;
 class ModulePlayer2;
+<<<<<<< HEAD
 class ModuleWinScreen;
+=======
+class ModuleUI;
+
+>>>>>>> 54aa95bf156168005b3390bae710e2762880e5c4
 
 
 class Application
@@ -49,7 +54,12 @@ public:
 	ModulePowerUPS* powerup;
 	ModuleFonts* fonts;
 	ModulePlayer2* player2;
+<<<<<<< HEAD
 	ModuleWinScreen* scene_win;
+=======
+	//ModuleUI* UI;
+
+>>>>>>> 54aa95bf156168005b3390bae710e2762880e5c4
 public:
 
 	Application();

@@ -25,7 +25,11 @@
     <ClCompile Include="OrientalGenius.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModulePlayer2.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="WinScreen.cpp" />
+=======
+    <ClCompile Include="GREEN2.cpp" />
+>>>>>>> 54aa95bf156168005b3390bae710e2762880e5c4
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -57,7 +61,11 @@
     <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModulePlayer2.h" />
     <ClInclude Include="ModuleUI.h" />
+<<<<<<< HEAD
     <ClInclude Include="WinScreen.h" />
+=======
+    <ClInclude Include="GREEN2.h" />
+>>>>>>> 54aa95bf156168005b3390bae710e2762880e5c4
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

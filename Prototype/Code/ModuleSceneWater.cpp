@@ -243,20 +243,18 @@ bool ModuleSceneWater::Start()
 
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 100, 128);
-	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 150, 138);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 40);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 630, 80);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 630, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 160);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 500, 50);
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 350, 130);
-	jump = false;
-	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 128);
-
+	
+	
 	
 
-	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 400, 50);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::FISH, 450, 138);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 1500, 528);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREEN, 1550, 538);
+
 	
 
 	//Green

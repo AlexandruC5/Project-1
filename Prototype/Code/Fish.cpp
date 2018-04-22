@@ -11,6 +11,7 @@ Fish::Fish(int x, int y) : Enemy(x, y)
 	backward.PushBack({ 34,  99, 30, 24 });
 	backward.PushBack({ 85, 99, 31, 24 });
 	backward.PushBack({ 133, 99, 31, 24 });
+	
 
 
 
