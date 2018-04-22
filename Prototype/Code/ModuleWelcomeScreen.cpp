@@ -12,7 +12,7 @@
 #include "ModuleWelcomeScreen.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
-
+#include"WinScreen.h"
 
 ModuleWelcomeScreen::ModuleWelcomeScreen()
 {
@@ -75,7 +75,7 @@ bool ModuleWelcomeScreen::Start()
 	//Reseting camera positions
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-
+	App->scene_win->Disable();
 	//Loading main sprites
 	graphics = App->textures->Load("assets/sprites/UI/WelcomeScreen/button_start.png");
 	graphics2 = App->textures->Load("assets/sprites/UI/WelcomeScreen/background.png");

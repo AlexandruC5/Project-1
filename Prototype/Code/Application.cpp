@@ -16,7 +16,7 @@
 #include "ModuleFonts.h"
 #include "ModulePowerUPS.h"
 #include "ModulePlayer2.h"
-
+#include "WinScreen.h"
 
 Application::Application()
 {
@@ -39,6 +39,7 @@ Application::Application()
 	modules[13] = powerup = new ModulePowerUPS();
 	modules[14] = fonts = new ModuleFonts();
 	modules[15] = player2 = new ModulePlayer2();
+	modules[16] = scene_win = new ModuleWinScreen();
 }
 	
 

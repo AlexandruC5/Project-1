@@ -45,7 +45,7 @@ ModulePlayer2::ModulePlayer2()
 	stayback.PushBack({ 149,9,24,27 }); //keep goind up & back
 	stayback.PushBack({ 281,10,24,27 });
 	stayback.PushBack({ 266, 55, 24, 27 });
-	stayback.speed = 0.5f;
+	stayback.speed = 0.1f;
 	// move upwards-backwards animation
 	/*backward.PushBack({ 193, 53, 26, 29 });
 	backward.PushBack({ 233, 54, 27, 28 });
@@ -143,8 +143,27 @@ update_status ModulePlayer2::Update() {
 			position.y += speed;
 		}
 
-	}
+	}//here
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN) {
+		Mix_PlayChannel(-1, basic, 0);
+		switch (aux) {
+		case 0:
+			App->particles->AddParticle(App->particles->sword1, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == true)App->particles->AddParticle(App->particles->sword1, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			//firerate = 10;
+			//isShooting = true;
+			aux = 1;
+			break;
 
+		case 1:
+			App->particles->AddParticle(App->particles->sword2, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == true)App->particles->AddParticle(App->particles->sword2, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			aux = 0;
+
+			break;
+		}
+
+	}
 	else if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP) {
 		mid.Reset();
 		current_animation = &mid2;
@@ -173,26 +192,7 @@ update_status ModulePlayer2::Update() {
 
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN) {
-		Mix_PlayChannel(-1, basic, 0);
-		switch (aux) {
-		case 0:
-			App->particles->AddParticle(App->particles->sword1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			if (activePU[Red] == true)App->particles->AddParticle(App->particles->sword1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			//firerate = 10;
-			//isShooting = true;
-			aux = 1;
-			break;
-
-		case 1:
-			App->particles->AddParticle(App->particles->sword2, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			if (activePU[Red] == true)App->particles->AddParticle(App->particles->sword2, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			aux = 0;
-
-			break;
-		}
-
-	}
+	
 	player_collider->SetPos(position.x, position.y);
 	// Draw everything --------------------------------------
 	if (destroyed == false)

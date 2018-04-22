@@ -8,7 +8,7 @@
 #include "GREEN.h"
 
 
-#define SPAWN_MARGIN 80
+#define SPAWN_MARGIN 50
 #define SCREEN_SIZE2 3
 
 ModuleEnemies::ModuleEnemies()

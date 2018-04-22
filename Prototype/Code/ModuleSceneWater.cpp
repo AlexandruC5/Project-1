@@ -13,7 +13,7 @@
 #include "ModuleEnemies.h"
 #include "ModulePowerUPS.h"
 #include "ModulePlayer2.h"
-
+#include "WinScreen.h"
 ModuleSceneWater::ModuleSceneWater()
 {
 
@@ -373,6 +373,7 @@ update_status ModuleSceneWater::Update()
 bool ModuleSceneWater::CleanUp()
 {
 	App->player->Disable();
+	App->player2->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
 	App->enemies->Disable();
@@ -389,7 +390,10 @@ bool ModuleSceneWater::CleanUp()
 		App->textures->Unload(graphics4);
 		graphics4 = nullptr;
 	
-
+		App->textures->Unload(orientaljump);
+		orientaljump = nullptr;
+		App->audio->UnloadMusic(SceneWater);
+		SceneWater = nullptr;
 	return true;
 }
 
@@ -409,6 +413,16 @@ void ModuleSceneWater::CameraPosition()
 
 		down = false;
 		//right = true;		
+	}
+	if (App->render->camera.x >= 3300) {
+		stop = true;
+		
+		App->player->position.x += 2;
+		App->player2->position.x += 2;
+		if (App->player->position.x >= 3303 && App->player2->position.y >= 3303
+			|| App->player->position.x >= 3303 || App->player2->position.y >= 3303) {
+			App->fade->FadeToBlack(this, App->scene_win, 2);
+		}
 	}
 
 	/*
