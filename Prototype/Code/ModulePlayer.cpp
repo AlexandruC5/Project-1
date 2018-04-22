@@ -49,7 +49,7 @@ ModulePlayer::ModulePlayer()
 	backward.speed = 0.1f;
 
 
-
+	death.PushBack( { 308,54,30,25 });
 }
 
 ModulePlayer::~ModulePlayer()
@@ -256,9 +256,10 @@ update_status ModulePlayer::Update()
 	
 	player_collider->SetPos(position.x, position.y);
 	// Draw everything --------------------------------------
+	if (destroyed == true) current_animation = &death;
+
 if(destroyed == false)
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-
 	
 	return UPDATE_CONTINUE;
 }

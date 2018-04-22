@@ -8,6 +8,7 @@
 struct SDL_Texture;
 struct Collider;
 struct Mix_Chunk;
+struct SDL_Rect;
 class ModulePlayer : public Module
 {
 public:
@@ -32,6 +33,7 @@ public:
 	Animation backward;
 	Animation mid;
 	Animation mid2;
+	Animation death;
 	iPoint position;
 	Collider* player_collider;
 	bool destroyed = false;
