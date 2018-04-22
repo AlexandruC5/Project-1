@@ -32,12 +32,15 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
  * Player2 controls:
 
  Up, left, down, right     
-up, left, down, right arrow keys
+ up, left, down, right arrow keys
 
  Shoot  right control
  
  P to join player 2
-
+F1 = Collissions view
+F5 = GOD MODE
+F6 = DIRECT WIN 
+F7 = DIRECT LOSE
 
 ## Previous Versions:
 
