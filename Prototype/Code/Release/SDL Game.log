@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Application.cpp
   ModuleFonts.cpp
   ModulePlayer.cpp
@@ -13,3 +14,14 @@ ModuleSceneWater.cpp(145): warning C4305: '=': truncamiento de 'double' a 'float
     1 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\entrega\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+=======
+﻿  ModulePlayer2.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.12.25827\include\xlocale(313): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+ModulePlayer2.cpp(208): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating code
+  1 of 238 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SDL Game.vcxproj -> D:\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+>>>>>>> 230896446f25389403892c24cc30f805933e06c2

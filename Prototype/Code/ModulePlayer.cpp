@@ -5,11 +5,13 @@
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleFonts.h"
 #include "ModuleSceneWater.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModulePowerUPS.h"
 #include "SDL_mixer/include/SDL_mixer.h"
+#include <string>
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 ModulePlayer::ModulePlayer()
@@ -61,6 +63,8 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	graphics = App->textures->Load("assets/sprites/miko.png");
+	font_score = App->fonts->Load("assets/sprites/UI/score_fonts.png", "0123456789", 1);
+	font_players = App->fonts->Load("assets/sprites/UI/players.png", "12", 1);
 
 	position.x = 10;
 	position.y = 60;
@@ -260,6 +264,13 @@ update_status ModulePlayer::Update()
 
 if(destroyed == false)
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+<<<<<<< HEAD
+=======
+
+App->fonts->BlitText(score_x - 25, 5, font_players, "1");
+sprintf_s(score_text, 10, "%1d",score);
+App->fonts->BlitText(74, 6.5f, font_score, score_text);
+>>>>>>> 230896446f25389403892c24cc30f805933e06c2
 	
 	return UPDATE_CONTINUE;
 }

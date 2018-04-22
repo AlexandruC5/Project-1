@@ -7,6 +7,8 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModulePLayer2.h"
+#include "ModuleFonts.h"
+#include <string>
 #include "ModuleSceneWater.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
@@ -62,6 +64,8 @@ ModulePlayer2::~ModulePlayer2() {}
 bool ModulePlayer2::Start() {
 	LOG("Loading player2");
 	graphics = App->textures->Load("assets/sprites/sho.png");
+	font_score = App->fonts->Load("assets/sprites/UI/score_fonts.png", "0123456789", 1);
+	font_players = App->fonts->Load("assets/sprites/UI/players.png", "12", 1);
 
 	position.x = App->player->position.x;
 	position.y = 100;
@@ -198,6 +202,10 @@ update_status ModulePlayer2::Update() {
 	if (destroyed == false)
 		App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
+	//UI
+	App->fonts->BlitText(200 , 5, font_players, "2");
+	sprintf_s(score_text, 10, "%1d", score);
+	App->fonts->BlitText(240, 6.5f, font_score, score_text);
 
 	return UPDATE_CONTINUE;
 }

@@ -24,6 +24,11 @@ public:
 public:
 
 	int aux;
+	int score_x = 60;
+	int font_score = -1;
+	int font_players = -1;
+	char score_text[10];
+	uint score = 0;
 	//int firerate;
 	bool isShooting;
 	SDL_Texture* graphics = nullptr;
