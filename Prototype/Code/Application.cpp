@@ -40,11 +40,11 @@ Application::Application()
 	modules[13] = powerup = new ModulePowerUPS();
 	modules[14] = fonts = new ModuleFonts();
 	modules[15] = player2 = new ModulePlayer2();
-<<<<<<< HEAD
+
 	modules[16] = scene_win = new ModuleWinScreen();
-=======
+
 	//modules[16] = UI = new ModuleUI();
->>>>>>> 54aa95bf156168005b3390bae710e2762880e5c4
+
 }
 	
 
