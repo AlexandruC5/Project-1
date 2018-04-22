@@ -7,6 +7,8 @@
 #include "Enemy.h"
 #include "GREEN.h"
 #include "Green2.h"
+#include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "OrientalGenius.h"
 
 
@@ -167,7 +169,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		{
 			App->particles->AddParticle(App->particles->waterExplosion, enemies[i]->position.x, enemies[i]->position.y,COLLIDER_NONE);
 			enemies[i]->OnCollision(c2);
-
+			App->player->score += 200;
+			App->player2->score += 200;
+			
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;

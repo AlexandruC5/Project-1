@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
+#include <string.h>
 
 #include "SDL/include/SDL.h"
 #include "SDL_image/include/SDL_image.h"
@@ -98,6 +99,30 @@ bool ModuleTextures::Unload(SDL_Texture * texture)
 	}
 
 	return ret;
+}
+
+// Translate a surface into a texture
+SDL_Texture* ModuleTextures::LoadSurface(SDL_Surface* surface)
+{
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(App->render->renderer, surface);
+
+	if (texture == NULL)
+	{
+		LOG("Unable to create texture from surface! SDL Error: %s\n", SDL_GetError());
+	}
+	else
+	{
+		for (uint i = 0; i < MAX_TEXTURES; ++i)
+		{
+			if (textures[i] == nullptr)
+			{
+				textures[i] = texture;
+				break;
+			}
+		}
+	}
+
+	return texture;
 }
 
 void ModuleTextures::GetSize(const SDL_Texture* texture, uint& width, uint& height) const
