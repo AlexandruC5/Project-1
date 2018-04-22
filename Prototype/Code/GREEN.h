@@ -12,10 +12,12 @@ private:
 	Animation fly;
 	Animation forward;
 	Animation backward;
+	Animation shoot;
+
 public:
 
 	GREEN(int x, int y);
-
+	void Shoot();
 	void Move();
 };
 #endif

@@ -51,6 +51,7 @@ private:
 	void SpawnEnemy(const EnemyInfo& info);
 
 private:
+	bool shoot = true;
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];

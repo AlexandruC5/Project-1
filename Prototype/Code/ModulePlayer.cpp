@@ -264,13 +264,13 @@ update_status ModulePlayer::Update()
 
 if(destroyed == false)
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-<<<<<<< HEAD
-=======
+
+
 
 App->fonts->BlitText(score_x - 25, 5, font_players, "1");
 sprintf_s(score_text, 10, "%1d",score);
 App->fonts->BlitText(74, 6.5f, font_score, score_text);
->>>>>>> 230896446f25389403892c24cc30f805933e06c2
+
 	
 	return UPDATE_CONTINUE;
 }
@@ -280,6 +280,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == player_collider && destroyed == false) //&& App->fade->IsFading() == false)
 	{
+		current_animation = &death;
 		App->player->Disable();
 		destroyed = true;
 	}

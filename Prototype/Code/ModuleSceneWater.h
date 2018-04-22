@@ -47,6 +47,7 @@ public:
 	SDL_Rect stone2;
 	SDL_Rect stone3;
 	SDL_Rect transition;
+	Collider * colliderbig;
 
 
 

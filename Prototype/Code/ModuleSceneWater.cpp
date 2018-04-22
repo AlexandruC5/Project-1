@@ -231,6 +231,8 @@ bool ModuleSceneWater::Start()
 	waterfall = false;
 	stop = false;
 
+	colliderbig = App->collision->AddCollider({ 0, 0, 200, 230 }, COLLIDER_SHOOT);
+
 	graphics1 = App->textures->Load("assets/sprites/Scenes/Scene_Water/mountain&waterfall.png");
 	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Water/waterfall.png");
 	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Water/background_waterfall.png");
@@ -245,11 +247,13 @@ bool ModuleSceneWater::Start()
 
 
 
-    App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 40);
+    /*App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::Green, 630, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::Green, 630, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 160);
-	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 500, 50);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 160);*/
+
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 40);
+	
 	
 	
 	
@@ -360,16 +364,27 @@ update_status ModuleSceneWater::Update()
 			App->player2->Enable();
 		}
 	}
+	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
+		App->fade->FadeToBlack(this, App->scene_win, 2);
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		App->fade->FadeToBlack(this, App->scene_loose, 2);
+	}
+
 	//Loose
 	if (!App->player2->IsEnabled()) {
-		if (App->player->destroyed == true)  App->fade->FadeToBlack(this, App->scene_loose, 1);
+		if (App->player->destroyed == true)  App->fade->FadeToBlack(this, App->scene_loose, 0.5f);
 	}
 	else if (App->player->destroyed == true && App->player2->destroyed==true) {
-		App->fade->FadeToBlack(this, App->scene_loose, 1);
+		App->fade->FadeToBlack(this, App->scene_loose, 0.5f);
 	}
 	
 	App->render->Blit(graphics2, 580, 232, &(big_waterfall.GetCurrentFrame()), 0.55F);
 		App->render->Blit(orientaljump, 100, 150, &(Geniusjump.GetCurrentFrame()));
+
+		//Enemy SHoot
+
+		colliderbig->SetPos((App->render->camera.x/SCREEN_SIZE) + 120, 0);
 	
 	return UPDATE_CONTINUE;
 }

@@ -15,7 +15,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = true;
-
+	matrix[COLLIDER_PLAYER][COLLIDER_SHOOT] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_POWER_UP] = true;
 
 
@@ -27,6 +27,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER_SHOT] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_POWER_UP] = false;
+	matrix[COLLIDER_ENEMY][COLLIDER_SHOOT] = true;
 
 
 
@@ -36,13 +37,14 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_POWER_UP] = false;
+	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_SHOOT] = false;
 
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_POWER_UP] = false;
-
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_SHOOT] = false;
 
 	matrix[COLLIDER_POWER_UP][COLLIDER_WALL] = false;
 	matrix[COLLIDER_POWER_UP][COLLIDER_PLAYER] = true;
@@ -50,6 +52,12 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_POWER_UP][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_POWER_UP][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_POWER_UP][COLLIDER_POWER_UP] = false;
+
+	matrix[COLLIDER_SHOOT][COLLIDER_PLAYER] = false;
+	matrix[COLLIDER_SHOOT][COLLIDER_ENEMY] = true;
+	matrix[COLLIDER_SHOOT][COLLIDER_PLAYER_SHOT] = false;
+	matrix[COLLIDER_SHOOT][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_SHOOT][COLLIDER_POWER_UP] = false;
 }
 
 // Destructor
@@ -140,6 +148,9 @@ void ModuleCollision::DebugDraw()
 			break;
 		case COLLIDER_ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
+			break;
+		case COLLIDER_SHOOT: // magenta
+			App->render->DrawQuad(colliders[i]->rect, 255, 190, 255, alpha);
 			break;
 		}
 	}

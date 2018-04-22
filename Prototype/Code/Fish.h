@@ -12,6 +12,7 @@ private:
 	Animation fly;
 	Animation forward;
 	Animation backward;
+	
 public:
 
 	Fish(int x, int y);

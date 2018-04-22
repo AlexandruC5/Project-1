@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "GREEN.h"
+#include "ModuleParticles.h"
 #include "ModuleCollision.h"
 
 
@@ -8,10 +9,11 @@ GREEN::GREEN(int x, int y) : Enemy(x, y)
 {
 
 
-	backward.PushBack({ 39,  34, 30, 30 });
-	backward.PushBack({ 86, 34, 30, 30 });
-	backward.PushBack({ 132, 34, 30, 30 });
-	backward.PushBack({ 177,34,30,30 });
+	backward.PushBack({ 24,  37, 32, 31 });
+	backward.PushBack({ 80, 37, 32, 32 });
+	backward.PushBack({ 137, 37, 32, 31 });
+	backward.PushBack({ 189,37,32,31 });
+	backward.PushBack({ 236,36,32,32 });
 
 
 
@@ -32,8 +34,10 @@ GREEN::GREEN(int x, int y) : Enemy(x, y)
 
 }
 
+
 void GREEN::Move()
 {
+	
 	position = original_pos + path.GetCurrentPosition(&animation);
 
 

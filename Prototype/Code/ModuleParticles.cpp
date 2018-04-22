@@ -23,6 +23,7 @@ bool ModuleParticles::Start()
 	graphics = App->textures->Load("assets/sprites/miko.png");
 	graphics1 = App->textures->Load("assets/sprites/explosions/fish_explosions2.png");
 	graphics2 = App->textures->Load("assets/sprites/sho.png");
+	graphics3 = App->textures->Load("enemies2.png");
 
 	card1.anim.PushBack({ 26, 136, 11, 13 });
 	card2.anim.PushBack({ 49, 136, 12, 12 });
@@ -126,6 +127,14 @@ bool ModuleParticles::Start()
 	waterExplosion.life = 360;
 	waterExplosion.speed = { 0,0 };
 
+	enemyattack.anim.PushBack({ 11,140,6,6 });
+	enemyattack.anim.PushBack({ 22, 140, 6,6 });
+	enemyattack.anim.PushBack({ 34, 140, 6,6 });
+	enemyattack.anim.loop = true;
+	enemyattack.anim.speed = 0.5f;
+	enemyattack.life = 1200;
+	enemyattack.speed.x = -4;
+
 	return true;
 }
 
@@ -136,6 +145,7 @@ bool ModuleParticles::CleanUp()
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics1);
 	App->textures->Unload(graphics2);
+	App->textures->Unload(graphics3);
 
 	for(uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -168,7 +178,8 @@ update_status ModuleParticles::Update()
 		{
 			App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 			App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
- 
+			App->render->Blit(graphics3, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+
 			if(p->fx_played == false)
 			{
 				p->fx_played = true;

@@ -123,7 +123,7 @@ update_status ModulePlayer2::Update() {
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) {
 		current_animation = &idle;
 		position.y += speed;
-		if (((position.y + 32)* SCREEN_SIZE) > (App->render->camera.y + SCREEN_WIDTH + 224)) {
+		if (((position.y + 28)* SCREEN_SIZE) > (App->render->camera.y + SCREEN_HEIGHT + 224)) {
 			position.y -= speed;
 		}
 	}

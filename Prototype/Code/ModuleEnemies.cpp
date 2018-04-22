@@ -167,14 +167,30 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
-			App->particles->AddParticle(App->particles->waterExplosion, enemies[i]->position.x, enemies[i]->position.y,COLLIDER_NONE);
-			enemies[i]->OnCollision(c2);
-			App->player->score += 200;
-			App->player2->score += 200;
+			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY && c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT) {
+
+
+				App->particles->AddParticle(App->particles->waterExplosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
+				enemies[i]->OnCollision(c2);
+				App->player->score += 200;
+				App->player2->score += 200;
+
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
+			}
 			
-			delete enemies[i];
-			enemies[i] = nullptr;
-			break;
+
+			if (c2->type == COLLIDER_TYPE::COLLIDER_SHOOT && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY) {
+				//App->particles->AddParticle(App->particles->enemyattack, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_ENEMY_SHOT);
+				if (shoot) {
+					App->particles->AddParticle(App->particles->enemyattack, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_ENEMY_SHOT);
+					shoot = false;
+				}
+			}
+			
 		}
+		
+
 	}
 }
