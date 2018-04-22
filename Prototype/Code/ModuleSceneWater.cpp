@@ -14,6 +14,8 @@
 #include "ModulePowerUPS.h"
 #include "ModulePlayer2.h"
 #include "WinScreen.h"
+#include "ModuleSceneLoose.h"
+
 ModuleSceneWater::ModuleSceneWater()
 {
 
@@ -243,10 +245,10 @@ bool ModuleSceneWater::Start()
 
 
 
-	/*App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 40);
+    App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::Green, 630, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::Green, 630, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 160);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::Green, 600, 160);
 	App->enemies->AddEnemy(ENEMY_TYPES::ORIENTAL_GENIUS, 500, 50);
 	
 	
@@ -358,8 +360,13 @@ update_status ModuleSceneWater::Update()
 			App->player2->Enable();
 		}
 	}
-
-	
+	//Loose
+	if (!App->player2->IsEnabled()) {
+		if (App->player->destroyed == true)  App->fade->FadeToBlack(this, App->scene_loose, 1);
+	}
+	else if (App->player->destroyed == true && App->player2->destroyed==true) {
+		App->fade->FadeToBlack(this, App->scene_loose, 1);
+	}
 	
 	App->render->Blit(graphics2, 580, 232, &(big_waterfall.GetCurrentFrame()), 0.55F);
 		App->render->Blit(orientaljump, 100, 150, &(Geniusjump.GetCurrentFrame()));
@@ -419,6 +426,8 @@ void ModuleSceneWater::CameraPosition()
 		App->player2->position.x += 2;
 		if (App->player->position.x >= 3303 && App->player2->position.y >= 3303
 			|| App->player->position.x >= 3303 || App->player2->position.y >= 3303) {
+			
+			
 			App->fade->FadeToBlack(this, App->scene_win, 2);
 		}
 	}

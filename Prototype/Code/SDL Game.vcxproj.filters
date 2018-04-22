@@ -6,14 +6,17 @@
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="GREEN.cpp" />
+    <ClCompile Include="GREEN2.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleCollision.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
+    <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
+    <ClCompile Include="ModulePlayer2.cpp" />
     <ClCompile Include="ModulePowerUPS.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleBackground.cpp" />
@@ -23,13 +26,8 @@
     <ClCompile Include="ModuleWelcomeScreen.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="OrientalGenius.cpp" />
-    <ClCompile Include="ModuleFonts.cpp" />
-    <ClCompile Include="ModulePlayer2.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="WinScreen.cpp" />
-=======
-    <ClCompile Include="GREEN2.cpp" />
->>>>>>> 54aa95bf156168005b3390bae710e2762880e5c4
+    <ClCompile Include="ModuleSceneLoose.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -38,34 +36,32 @@
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="GREEN.h" />
+    <ClInclude Include="GREEN2.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleCollision.h" />
     <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleFadeToBlack.h" />
+    <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer.h" />
+    <ClInclude Include="ModulePlayer2.h" />
     <ClInclude Include="ModulePowerUPS.h" />
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleBackground.h" />
     <ClInclude Include="ModuleSceneAir.h" />
     <ClInclude Include="ModuleSceneWater.h" />
     <ClInclude Include="ModuleTextures.h" />
+    <ClInclude Include="ModuleUI.h" />
     <ClInclude Include="ModuleWelcomeScreen.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="OrientalGenius.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
-    <ClInclude Include="ModuleFonts.h" />
-    <ClInclude Include="ModulePlayer2.h" />
-    <ClInclude Include="ModuleUI.h" />
-<<<<<<< HEAD
     <ClInclude Include="WinScreen.h" />
-=======
-    <ClInclude Include="GREEN2.h" />
->>>>>>> 54aa95bf156168005b3390bae710e2762880e5c4
+    <ClInclude Include="ModuleSceneLoose.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

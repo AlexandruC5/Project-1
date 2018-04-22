@@ -54,6 +54,7 @@ public:
 	int time;
 	Particle explosion;
 	Particle card1, card2, card3, card4, card5;
+	Particle BigC1, BigC2, BigC3, BigC4, BigC5;
 	Particle waterExplosion;
 	Particle sword1, sword2;
 };

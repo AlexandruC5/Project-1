@@ -6,6 +6,25 @@
 
 
 
+* control list:
 
+ Escape to exit game
+ 
+ Space to start/play again
+
+ Payer1 controls:
+ 
+ up, left,down, right  W,A,S,D
+ 
+ shoot Enter
+
+ Player2 controls:
+
+ Up, left, down, right     
+up, left, down, right arrow keys
+
+ Shoot  right control
+ 
+P to join
 
 

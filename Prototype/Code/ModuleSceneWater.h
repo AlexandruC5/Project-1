@@ -64,7 +64,6 @@ public:
 	
 
 	Mix_Music* SceneWater = nullptr;
-
 };
 
 #endif // __ModuleSceneWater_H__

@@ -2,7 +2,7 @@
 #define __MODULEPOWERUPS_H__
 
 #include "Module.h"
-
+#include"ModuleCollision.h"
 #define MAX_POWERUPS 20
 
 

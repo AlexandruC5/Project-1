@@ -22,8 +22,8 @@ private:
 	SDL_Rect up;
 	SDL_Rect down;
 	SDL_Rect sky;
-
-	_Mix_Music* music = nullptr;
+	SDL_Rect background;
+	_Mix_Music* Winfade = nullptr;
 
 public:
 

@@ -94,6 +94,7 @@
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleBackground.h" />
     <ClInclude Include="ModuleSceneAir.h" />
+    <ClInclude Include="ModuleSceneLoose.h" />
     <ClInclude Include="ModuleSceneWater.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleUI.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleBackground.cpp" />
     <ClCompile Include="ModuleSceneAir.cpp" />
+    <ClCompile Include="ModuleSceneLoose.cpp" />
     <ClCompile Include="ModuleSceneWater.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWelcomeScreen.cpp" />

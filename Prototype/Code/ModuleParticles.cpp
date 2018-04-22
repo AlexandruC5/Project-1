@@ -55,6 +55,30 @@ bool ModuleParticles::Start()
 	card5.speed = { 5,0 };
 	card5.life = 5 * 500;
 
+	BigC1.anim.PushBack({ 144,135,13 ,15 });
+	BigC1.anim.loop = false;
+	BigC1.speed = { 5,0 };
+	BigC1.life = 5 * 500;
+
+	BigC2.anim.PushBack({ 168,135,15 ,15 });
+	BigC2.anim.loop = false;
+	BigC2.speed = { 5,0 };
+	BigC2.life = 5 * 500;
+
+	BigC3.anim.PushBack({ 192,135, 15 ,14 });
+	BigC3.anim.loop = false;
+	BigC3.speed = { 5,0 };
+	BigC3.life = 5 * 500;
+
+	BigC4.anim.PushBack({ 216,136,15 ,13 });
+	BigC4.anim.loop = false;
+	BigC4.speed = { 5,0 };
+	BigC4.life = 5 * 500;
+
+	BigC5.anim.PushBack({ 240,138,14 ,8 });
+	BigC5.anim.loop = false;
+	BigC5.speed = { 5,0 };
+	BigC5.life = 5 * 500;
 	//Sho shots
 	sword1.anim.PushBack({ 108, 151, 32, 4 });
 	sword1.anim.loop = false;

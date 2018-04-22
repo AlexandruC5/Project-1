@@ -18,6 +18,7 @@
 #include "ModulePowerUPS.h"
 #include "ModulePlayer2.h"
 #include "WinScreen.h"
+#include "ModuleSceneLoose.h"
 
 Application::Application()
 {
@@ -42,7 +43,7 @@ Application::Application()
 	modules[15] = player2 = new ModulePlayer2();
 
 	modules[16] = scene_win = new ModuleWinScreen();
-
+	modules[17] = scene_loose = new ModuleLooseScreen();
 	//modules[16] = UI = new ModuleUI();
 
 }

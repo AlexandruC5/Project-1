@@ -184,34 +184,34 @@ update_status ModulePlayer::Update()
 		switch (aux) {
 		case 0:
 
-			App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			if (activePU[Red] == true)App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == false)App->particles->AddParticle(App->particles->card1, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == true)App->particles->AddParticle(App->particles->BigC1, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			//firerate = 10;
 			//isShooting = true;
 			break;
 
 		case 1:
 
-			App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			if (activePU[Red] == true)App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == false)App->particles->AddParticle(App->particles->card2, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == true)App->particles->AddParticle(App->particles->BigC2, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			break;
 
 		case 2:
 
-			App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			if (activePU[Red] == true)App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == false)App->particles->AddParticle(App->particles->card3, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == true)App->particles->AddParticle(App->particles->BigC3, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			break;
 
 		case 3:
 
-			App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			if (activePU[Red] == true)App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == false)App->particles->AddParticle(App->particles->card4, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == true)App->particles->AddParticle(App->particles->BigC4, position.x, position.y, COLLIDER_PLAYER_SHOT);
 		
 			break;
 		case 4:
 
-			App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
-			if (activePU[Red] == true)App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == false)App->particles->AddParticle(App->particles->card5, position.x, position.y, COLLIDER_PLAYER_SHOT);
+			if (activePU[Red] == true)App->particles->AddParticle(App->particles->BigC5, position.x, position.y, COLLIDER_PLAYER_SHOT);
 			aux = 0;
 			break;
 		
@@ -271,4 +271,5 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->player->Disable();
 		destroyed = true;
 	}
+	
 }
