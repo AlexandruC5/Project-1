@@ -5,16 +5,17 @@
 #include "Enemy.h"
 #include "Path.h"
 
-class Green : public Enemy {
+class GREEN : public Enemy {
 private:
 	iPoint original_pos;
 	Path path;
 	Animation fly;
-	
+	Animation forward;
+	Animation backward;
 public:
 
-	Green(int x, int y);
+	GREEN(int x, int y);
 
 	void Move();
 };
-#endif//GREEN
+#endif

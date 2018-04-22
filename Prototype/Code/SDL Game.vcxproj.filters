@@ -25,6 +25,7 @@
     <ClCompile Include="OrientalGenius.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModulePlayer2.cpp" />
+    <ClCompile Include="GREEN2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -56,6 +57,7 @@
     <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModulePlayer2.h" />
     <ClInclude Include="ModuleUI.h" />
+    <ClInclude Include="GREEN2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

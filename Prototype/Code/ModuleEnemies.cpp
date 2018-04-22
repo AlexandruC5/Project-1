@@ -6,6 +6,8 @@
 #include "ModuleTextures.h"
 #include "Enemy.h"
 #include "GREEN.h"
+#include "Green2.h"
+#include "OrientalGenius.h"
 
 
 #define SPAWN_MARGIN 80
@@ -141,8 +143,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Fish(info.x, info.y);
 			break;
 
-			case ENEMY_TYPES::GREEN:
-				enemies[i] = new Green(info.x, info.y);
+			case ENEMY_TYPES::Green:
+				enemies[i] = new GREEN(info.x, info.y);
+				break;
+			case ENEMY_TYPES::Green2:
+				enemies[i] = new GREEN(info.x, info.y);
 				break;
 
 			case ENEMY_TYPES::ORIENTAL_GENIUS:

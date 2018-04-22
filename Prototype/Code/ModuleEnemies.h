@@ -16,7 +16,8 @@ enum ENEMY_TYPES
 {
 	NO_TYPE,
 	FISH,
-	GREEN,
+	Green,
+	Green2,
 	ORIENTAL_GENIUS
 
 };

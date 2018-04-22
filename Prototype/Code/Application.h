@@ -24,6 +24,7 @@ class ModuleEnemies;
 class ModulePowerUPS;
 class ModuleFonts;
 class ModulePlayer2;
+class ModuleUI;
 
 
 
@@ -49,6 +50,7 @@ public:
 	ModulePowerUPS* powerup;
 	ModuleFonts* fonts;
 	ModulePlayer2* player2;
+	//ModuleUI* UI;
 
 public:
 
