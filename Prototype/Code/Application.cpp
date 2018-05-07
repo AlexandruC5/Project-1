@@ -19,6 +19,7 @@
 #include "ModulePlayer2.h"
 #include "WinScreen.h"
 #include "ModuleSceneLoose.h"
+#include "ModuleSceneTemple.h"
 
 Application::Application()
 {
@@ -44,6 +45,7 @@ Application::Application()
 
 	modules[16] = scene_win = new ModuleWinScreen();
 	modules[17] = scene_loose = new ModuleLooseScreen();
+	modules[18] = scene_temple = new ModuleSceneTemple();
 	//modules[16] = UI = new ModuleUI();
 
 }
@@ -64,6 +66,7 @@ bool Application::Init()
 	scene_water->Disable();
 	collision->Disable();
 	enemies->Disable();
+	scene_temple->Disable();
 	
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)

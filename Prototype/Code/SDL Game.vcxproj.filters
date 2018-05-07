@@ -28,6 +28,7 @@
     <ClCompile Include="OrientalGenius.cpp" />
     <ClCompile Include="WinScreen.cpp" />
     <ClCompile Include="ModuleSceneLoose.cpp" />
+    <ClCompile Include="ModuleSceneTemple.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -62,6 +63,7 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="WinScreen.h" />
     <ClInclude Include="ModuleSceneLoose.h" />
+    <ClInclude Include="ModuleSceneTemple.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

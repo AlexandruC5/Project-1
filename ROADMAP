@@ -1,4 +1,4 @@
-3th assignment:
+﻿3th assignment: SUDDEN DEATH - 34 DAYS REMAINING
 
 
 0.6
@@ -21,8 +21,19 @@
 -Implementar enemics (tots menys els bosses) / moviment i velocitat / explosió al morir / tirs (si tenim temps) / vida /Highlight(si el fa?)
 -implementar power-ups de Ayin (2-4)/mascota (noves animacions i tirs)
 -Afegir tots els power-ups + ulti del personatge
+-Pulir la UI
+-GameOver screen
 
 0.9
 -Implementar audio (intentar afegir tot)
--Implementar bosses (canvis en les velocitats del background)
--
+-Implementar bosses (canvis en les velocitats del background)/vida / tirs
+-Pulir power-ups/mascota dels personatges
+-Pulir ulti del personatge
+
+1.0
+-events principi del level i final del level
+-canvis de pantalles: menu screen/stage clear
+-Pulir bosses
+-revisar que tot funcioni: god mode, colliders, gamepads, fullscreen, etc
+-corregir futurs bugs despres del testeig
+

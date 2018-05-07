@@ -15,6 +15,7 @@
 #include"ModulePowerUPS.h"
 #include"WinScreen.h"
 #include"ModuleSceneLoose.h"
+#include "ModuleSceneTemple.h"
 
 ModuleWelcomeScreen::ModuleWelcomeScreen()
 {
@@ -97,7 +98,7 @@ bool ModuleWelcomeScreen::Start()
 update_status ModuleWelcomeScreen::Update()
 {
 	// Switching between scenes
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) App->fade->FadeToBlack(this, App->scene_water, 2);
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) App->fade->FadeToBlack(this, App->scene_temple, 2);
 
 	//Draw Background
 	App->render->Blit(graphics2, 0, 0, &background);
