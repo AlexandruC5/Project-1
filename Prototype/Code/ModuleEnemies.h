@@ -18,7 +18,10 @@ enum ENEMY_TYPES
 	FISH,
 	Green,
 	Green2,
-	ORIENTAL_GENIUS
+	ORIENTAL_GENIUS,
+	RED,
+	DemonPegTop,
+	DemonWheel
 
 };
 
@@ -52,10 +55,12 @@ private:
 
 private:
 	bool shoot = true;
+	bool spritec;
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
+	SDL_Texture* sprites2;
 };
 
 #endif // __ModuleEnemies_H__

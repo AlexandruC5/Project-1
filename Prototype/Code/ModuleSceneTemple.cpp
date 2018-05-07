@@ -69,11 +69,13 @@ bool ModuleSceneTemple::Start()
 
 	//App->player->Enable();
 	//App->powerup->Enable();
-	//App->enemies->Enable();
+	App->enemies->Enable();
 	//App->particles->Enable();
 	//App->collision->Enable();
 
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
+
+	App->enemies->AddEnemy(ENEMY_TYPES::RED, 450, 50);
 	
 	return true;
 

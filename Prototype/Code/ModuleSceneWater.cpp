@@ -275,27 +275,29 @@ bool ModuleSceneWater::Start()
 	
 
 	//Green
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 170);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 0);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 170);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 0);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 800, 170);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 900, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1000, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED, 600, 170);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 800, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1000, 100);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 100);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 60);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 0);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 170);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 100);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 60);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 700, 0);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 800, 170);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 900, 100);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1000, 60);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 75);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 50);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 25);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 0);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 125);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 175);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 200);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 100);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 75);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 50);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 25);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 0);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 125);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 150);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 175);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Green2, 750, 200);
 	
 
 
