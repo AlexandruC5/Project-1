@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Application.cpp
   Enemy.cpp
   Fish.cpp
@@ -47,8 +48,14 @@ ModuleSceneWater.cpp(145): warning C4305: '=': truncamiento de 'double' a 'float
 WinScreen.cpp(47): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   Generando código
   23 of 248 functions ( 9.3%) were compiled, the rest were copied from previous compilation.
+=======
+﻿  ModuleSceneWater.cpp
+ModuleSceneWater.cpp(145): warning C4305: '=': truncamiento de 'double' a 'float'
+  Generando código
+  1 of 263 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+>>>>>>> 2a0e343b85d2f822158e212e32bd53c0af6cdc0c
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\PCCom\Desktop\UNI CITM\PROJECTE I\repositori project1\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> Release\SDL6 Handout.pdb (Full PDB)

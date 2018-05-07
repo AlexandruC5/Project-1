@@ -29,6 +29,9 @@
     <ClCompile Include="WinScreen.cpp" />
     <ClCompile Include="ModuleSceneLoose.cpp" />
     <ClCompile Include="ModuleSceneTemple.cpp" />
+    <ClCompile Include="red.cpp" />
+    <ClCompile Include="DEMONPEGTOP.cpp" />
+    <ClCompile Include="DEMONWHEEL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -64,6 +67,9 @@
     <ClInclude Include="WinScreen.h" />
     <ClInclude Include="ModuleSceneLoose.h" />
     <ClInclude Include="ModuleSceneTemple.h" />
+    <ClInclude Include="red.h" />
+    <ClInclude Include="DEMONPEGTOP.h" />
+    <ClInclude Include="DEMONWHEEL.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

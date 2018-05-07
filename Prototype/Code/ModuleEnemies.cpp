@@ -7,6 +7,9 @@
 #include "Enemy.h"
 #include "GREEN.h"
 #include "Green2.h"
+#include "red.h"
+#include "DEMONPEGTOP.h"
+#include "DEMONWHEEL.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "OrientalGenius.h"
@@ -29,8 +32,12 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
-	sprites = App->textures->Load("assets/enemies2.png");
+	
+	//sprites = App->textures->Load("assets/enemies2.png");
+	sprites = App -> textures->Load("assets/enemiestemple.png");
 
+
+	
 	return true;
 }
 
@@ -68,8 +75,11 @@ update_status ModuleEnemies::Update()
 		if (enemies[i] != nullptr)  {
 			enemies[i]->Draw(sprites);
 			
+			
 		}
 	}
+
+
 	return UPDATE_CONTINUE;
 }
 
@@ -151,9 +161,22 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::Green2:
 				enemies[i] = new GREEN2(info.x, info.y);
 				break;
+			case ENEMY_TYPES::RED:
+				enemies[i] = new red(info.x, info.y);
+
+				break;
 
 			case ENEMY_TYPES::ORIENTAL_GENIUS:
 				enemies[i] = new OrientalGenius(info.x, info.y);
+
+				break;
+
+			case ENEMY_TYPES::DemonPegTop:
+				enemies[i] = new DEMONPEGTOP(info.x, info.y);
+
+				break;
+			case ENEMY_TYPES::DemonWheel:
+				enemies[i] = new DEMONWHEEL(info.x, info.y);
 
 				break;
 		}
