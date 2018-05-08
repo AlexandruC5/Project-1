@@ -13,55 +13,87 @@
 
 ModuleWinScreen::ModuleWinScreen() {
 	up = { 193,0,319,112 };
-	down = {187, 268, 325, 114};
+	down = { 187, 268, 325, 114 };
 	sky = { 196, 132, 316, 98 };
-	
-	background = { 0,0,320,224 };
+	letters = { 196,228,81,16 };
+	katana = { 31,18,278,161 };
+	//katana =  { 381,18,286,161 };
 
+
+	//path.PushBack{0,155}
 }
 
-ModuleWinScreen::~ModuleWinScreen(){}
+ModuleWinScreen::~ModuleWinScreen() {}
 
 
 bool ModuleWinScreen::Init() {
-	goUP = -0.5f;
-	goDown = 0.5f;
-	MaxUp -= goUP;
-	MaxDown += goDown;
+	goUP = 0.0f;
+	goDown = 100.0f;
+	MaxDown = 155;
+	MaxUp = -47;
+	U = -2.0f;
+	M = 0.0f;
+	goright = -100;
+	maxr = 10;
 	return true;
 }
 bool ModuleWinScreen::Start() {
-	
+
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	graphics1 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Background2.png");
-	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Win/mikospritesheet.png");
-	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Allin.png");
+	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Katanawinsheet.png");
 	Winfade = App->audio->LoadMusic("assets/audio/music/Level_Completed.ogg");
 	Mix_PlayMusic(Winfade, 1);
 
 	return true;
 }
 
+void ModuleWinScreen::move() {
+
+}
+
+
 update_status ModuleWinScreen::Update() {
+
+
 	App->render->Blit(graphics1, 1.5f, 60, &sky);
-	App->render->Blit(graphics3, 0, 0, &background);
-	
-	//App->render->Blit(graphics1, 0, -47, &up);
-	//App->render->Blit(graphics1, 0, 155, &down);
-		//App->render->Blit(graphics1, 0, 0, &up);
-		//App->render->Blit(graphics1, 0, 109, &down);
-	
-	/*if(MaxUp<=-10 && MaxDown >=10){
-		 App->render->Blit(graphics1, 0, goUP, &up);
-		 App->render->Blit(graphics1, 0,109+ goDown, &down);
-	//}
-	 else {
-		 App->render->Blit(graphics1, 0, MaxUp, &up);
-		 App->render->Blit(graphics1, 0, MaxDown, &down);
-	 }*/
+
+	if (goUP >= MaxUp) {
+		goUP -= 0.4f;
+	}
+	if (goDown <= MaxDown) {
+		goDown += 0.4f;
+	}
+	if (goUP <= MaxUp / 2 && goDown >= MaxDown / 2) {
+		if (M <= (up.h) / 5.0) { //katana down
+			U += 0.4f;
+			M += 0.4f;
+		}
+
+		else if (M >= (up.h) / 5.0) {//up
+			U -= 0.4f;
+			if (U < up.h / 5.0) { M = 0.0f; }
+		}
+	}
+	App->render->Blit(graphics1, 0, (int)goUP, &up); //0, -47
+
+
+
+	if (goUP <= MaxUp / 2 && goDown >= MaxDown / 2) {
+		App->render->Blit(graphics2, 15, (int)U, &katana, 0.45f);
+	}
+	if (goUP <= MaxUp / 1.1 && goDown >= MaxDown / 1.1) {
+		if (goright <= maxr) { goright += 2.0; }
+	}
+	App->render->Blit(graphics1, 0, (int)goDown, &down); //0,155
+	App->render->Blit(graphics2, (int)goright, 170, &letters);//10,170
+
+
+
+
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-		
+
 		App->fade->FadeToBlack(this, App->scene_start, 2);
 
 	}
@@ -75,6 +107,5 @@ bool ModuleWinScreen::CleanUp() {
 	graphics2 = nullptr;
 	App->audio->UnloadMusic(Winfade);
 	Winfade = nullptr;
-	App->textures->Unload(graphics3);
 	return true;
 }
