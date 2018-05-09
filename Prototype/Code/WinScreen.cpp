@@ -14,7 +14,8 @@
 ModuleWinScreen::ModuleWinScreen() {
 	up = { 193,0,319,112 };
 	down = { 187, 268, 325, 114 };
-	sky = { 196, 132, 316, 98 };
+	sky = { 54, 132, 458, 98 };
+	sky2 = { 54,402,458,98 };
 	letters = { 196,228,81,16 };
 	katana = { 31,18,278,161 };
 	//katana =  { 381,18,286,161 };
@@ -35,6 +36,11 @@ bool ModuleWinScreen::Init() {
 	M = 0.0f;
 	goright = -100;
 	maxr = 10;
+	goleft1 = 0;
+	goleft2 = sky2.w;//distancia2
+	maxleft1 = -sky.w;
+	maxleft2 = -sky2.w - sky2.w;
+	Welcome = false;
 	return true;
 }
 bool ModuleWinScreen::Start() {
@@ -56,8 +62,21 @@ void ModuleWinScreen::move() {
 
 update_status ModuleWinScreen::Update() {
 
+	if (goleft1 >= maxleft1) goleft1 -= 1;
 
-	App->render->Blit(graphics1, 1.5f, 60, &sky);
+	else if (goleft1 <= maxleft1) {
+		goleft1 = sky2.w;
+		Welcome = true;
+	}
+
+
+	if (goleft2 >= maxleft2) goleft2 -= 1;
+	/*else if (goleft2 <= maxleft2) {
+	goleft2 = sky2.w;
+	}*/
+
+	App->render->Blit(graphics1, (int)goleft1, 60, &sky);
+	App->render->Blit(graphics1, (int)goleft2, 60, &sky2);
 
 	if (goUP >= MaxUp) {
 		goUP -= 0.4f;
@@ -91,7 +110,7 @@ update_status ModuleWinScreen::Update() {
 
 
 
-
+	if (Welcome == true) App->fade->FadeToBlack(this, App->scene_start, 1);
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
 
 		App->fade->FadeToBlack(this, App->scene_start, 2);

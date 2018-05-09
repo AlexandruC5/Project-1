@@ -15,7 +15,8 @@ private:
 
 	float goUP, goDown, MaxUp, MaxDown;
 	float U, M, goright, maxr;
-	bool now;
+	float goleft1, maxleft1, goleft2, maxleft2;
+	bool Welcome;
 	SDL_Texture* graphics1 = nullptr;
 	SDL_Texture* graphics2 = nullptr;
 	//SDL_Texture* graphics3 = nullptr;
@@ -25,6 +26,7 @@ private:
 	SDL_Rect up;
 	SDL_Rect down;
 	SDL_Rect sky;
+	SDL_Rect sky2;
 	SDL_Rect letters;
 	_Mix_Music* Winfade = nullptr;
 
