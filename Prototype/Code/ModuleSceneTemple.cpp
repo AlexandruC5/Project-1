@@ -15,8 +15,9 @@
 #include "ModulePlayer2.h"
 #include "WinScreen.h"
 #include "ModuleSceneLoose.h"
-
+#include "ModuleKatana.h"
 #include "ModuleSceneTemple.h"
+
 
 ModuleSceneTemple::ModuleSceneTemple()
 {
@@ -71,11 +72,11 @@ bool ModuleSceneTemple::Start()
 	//App->powerup->Enable();
 	App->enemies->Enable();
 	//App->particles->Enable();
-	//App->collision->Enable();
-
+	App->collision->Enable();
+	App->katana->Enable();
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RED, 450, 50);
+	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,200,50);
 	
 	return true;
 
@@ -132,7 +133,10 @@ update_status ModuleSceneTemple::Update()
 	}
 
 	if (App->render->camera.x > 3800 && App->render->camera.x <= 11500) {
-		speed = 16.5;
+		//App->katana->speed = 10;
+		speed = 10;
+		
+	
 	}
 	
 	if (App->render->camera.x > 11500) {
@@ -156,9 +160,11 @@ update_status ModuleSceneTemple::Update()
 	}
 	
 	//Camera movement
-	App->render->camera.x += speed;
+	
+		App->katana->position.x += speed / SCREEN_SIZE;
+		App->render->camera.x += speed;
 
-
+	
 	
 	return UPDATE_CONTINUE;
 }
@@ -168,10 +174,10 @@ bool ModuleSceneTemple::CleanUp()
 {
 	//App->player->Disable();
 	//App->player2->Disable();
-	//App->collision->Disable();
-	//App->particles->Disable();
+	App->collision->Disable();
+	App->particles->Disable();
 	//App->enemies->Disable();
-
+	App->katana->Disable();
 	App->textures->Unload(graphics);
 	
 	return true;

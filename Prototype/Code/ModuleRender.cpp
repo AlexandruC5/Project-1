@@ -60,7 +60,7 @@ update_status ModuleRender::Update()
 update_status ModuleRender::PostUpdate()
 {
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-	SDL_RenderPresent(renderer);
+   	SDL_RenderPresent(renderer);
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -120,9 +120,15 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	{
 		rec.x = (int)(-camera.x + rect.x * SCREEN_SIZE);
 		rec.y = (int)(-camera.y + rect.y * SCREEN_SIZE);
-		rec.w *= SCREEN_SIZE;
-		rec.h *= SCREEN_SIZE;
 	}
+	else
+	{
+		rec.x *= SCREEN_SIZE;
+		rec.y *= SCREEN_SIZE;
+	}
+
+	rec.w *= SCREEN_SIZE;
+	rec.h *= SCREEN_SIZE;
 
 	if (SDL_RenderFillRect(renderer, &rec) != 0)
 	{

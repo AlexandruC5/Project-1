@@ -11,6 +11,8 @@ ModuleParticles::ModuleParticles()
 {
 	for(uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
+
+	
 }
 
 ModuleParticles::~ModuleParticles()
@@ -20,10 +22,11 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	graphics = App->textures->Load("assets/sprites/miko.png");
-	graphics1 = App->textures->Load("assets/sprites/explosions/fish_explosions2.png");
-	graphics2 = App->textures->Load("assets/sprites/sho.png");
-	graphics3 = App->textures->Load("assets/enemies2.png");
+	//graphics = App->textures->Load("assets/sprites/miko.png");
+	//graphics1 = App->textures->Load("assets/sprites/explosions/fish_explosions2.png");
+	//graphics2 = App->textures->Load("assets/sprites/sho.png");
+	//graphics3 = App->textures->Load("assets/enemies2.png");
+	    graphics4 = App->textures->Load("assets/sprites/characters/katana/Katana_Spritesheet.png");
 
 	card1.anim.PushBack({ 26, 136, 11, 13 });
 	card2.anim.PushBack({ 49, 136, 12, 12 });
@@ -91,6 +94,22 @@ bool ModuleParticles::Start()
 	sword2.speed = { 10,0 };
 	sword2.life = 5 * 500;
 
+	//Katana shoots
+	shoot1.anim.PushBack({444, 165, 15, 8});
+	shoot1.anim.loop = true;
+    shoot1.life = 1400;
+	shoot1.speed.x = 12;
+
+	shoot2.anim.PushBack({396, 164, 15, 10});
+	shoot2.anim.loop = true;
+	shoot2.life = 1400;
+	shoot2.speed.x = 12;
+
+	shoot3.anim.PushBack({348, 164, 15, 10});
+	shoot3.anim.loop = true;
+	shoot3.life = 1400;
+	shoot3.speed.x = 12;
+
 
 
 	//Enemy explosions on Water Stage
@@ -142,10 +161,12 @@ bool ModuleParticles::Start()
 bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
-	App->textures->Unload(graphics);
-	App->textures->Unload(graphics1);
-	App->textures->Unload(graphics2);
-	App->textures->Unload(graphics3);
+	//App->textures->Unload(graphics);
+	//App->textures->Unload(graphics1);
+	//App->textures->Unload(graphics2);
+	//App->textures->Unload(graphics3);
+	App->textures->Unload(graphics4);
+
 
 	for(uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -176,9 +197,10 @@ update_status ModuleParticles::Update()
 		}
 		else if(SDL_GetTicks() >= p->born)
 		{
-			App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-			App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-			App->render->Blit(graphics3, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			//App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			//App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			//App->render->Blit(graphics3, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			App->render->Blit(graphics4, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 
 			if(p->fx_played == false)
 			{
@@ -203,7 +225,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32
 	active[last_particle++] = p;
 }
 */
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, PARTICLE_TYPE particle_type, Uint32 delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -215,6 +237,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 			p->position.y = y;
 			if (collider_type != COLLIDER_NONE)
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+
 			active[i] = p;
 			break;
 		}
@@ -230,7 +253,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
 
-			AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
 			delete active[i];
 			active[i] = nullptr;
 			break;

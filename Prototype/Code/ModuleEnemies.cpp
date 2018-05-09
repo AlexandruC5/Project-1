@@ -13,6 +13,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "OrientalGenius.h"
+#include "ModuleSceneTemple.h"
 
 
 #define SPAWN_MARGIN 50
@@ -186,6 +187,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
+	
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
@@ -216,4 +218,5 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		
 
 	}
+	
 }

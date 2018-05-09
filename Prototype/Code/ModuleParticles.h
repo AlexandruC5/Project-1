@@ -12,6 +12,15 @@
 struct SDL_Texture;
 struct Collider;
 enum COLLIDER_TYPE;
+
+enum PARTICLE_TYPE
+{
+	PARTICLE_NONE,
+	PARTICLE_SHOT,
+	PARTICLE_SHOT_KATANA,
+	PLAYER_ENEMY,
+
+};
 struct Particle
 {
 	Collider* collider = nullptr;
@@ -39,15 +48,16 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
+	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, PARTICLE_TYPE particle_type = PARTICLE_NONE, Uint32 delay = 0);
 	
 
 private:
 
-	SDL_Texture * graphics = nullptr;
-	SDL_Texture * graphics1 = nullptr;
-	SDL_Texture * graphics2 = nullptr;
-	SDL_Texture * graphics3 = nullptr;
+	//SDL_Texture * graphics = nullptr;
+	//SDL_Texture * graphics1 = nullptr;
+	//SDL_Texture * graphics2 = nullptr;
+	//SDL_Texture * graphics3 = nullptr;
+	SDL_Texture * graphics4 = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
 
@@ -59,6 +69,7 @@ public:
 	Particle waterExplosion;
 	Particle sword1, sword2;
 	Particle enemyattack;
+	Particle shoot1, shoot2, shoot3;
 };
 
 #endif // __MODULEPARTICLES_H__

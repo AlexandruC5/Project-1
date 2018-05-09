@@ -32,6 +32,7 @@
     <ClCompile Include="red.cpp" />
     <ClCompile Include="DEMONPEGTOP.cpp" />
     <ClCompile Include="DEMONWHEEL.cpp" />
+    <ClCompile Include="ModuleKatana.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -70,6 +71,7 @@
     <ClInclude Include="red.h" />
     <ClInclude Include="DEMONPEGTOP.h" />
     <ClInclude Include="DEMONWHEEL.h" />
+    <ClInclude Include="ModuleKatana.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

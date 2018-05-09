@@ -20,6 +20,7 @@
 #include "WinScreen.h"
 #include "ModuleSceneLoose.h"
 #include "ModuleSceneTemple.h"
+#include "ModuleKatana.h"
 
 Application::Application()
 {
@@ -37,15 +38,18 @@ Application::Application()
 	modules[8] = enemies = new ModuleEnemies();
 	modules[9] = player = new ModulePlayer();
 	modules[10] = fade = new ModuleFadeToBlack();
-	modules[11] = particles = new ModuleParticles();
-	modules[12] = collision = new ModuleCollision();
-	modules[13] = powerup = new ModulePowerUPS();
-	modules[14] = fonts = new ModuleFonts();
-	modules[15] = player2 = new ModulePlayer2();
+	
+	modules[11] = collision = new ModuleCollision();
+	modules[12] = powerup = new ModulePowerUPS();
+	modules[13] = fonts = new ModuleFonts();
+	modules[14] = player2 = new ModulePlayer2();
 
-	modules[16] = scene_win = new ModuleWinScreen();
-	modules[17] = scene_loose = new ModuleLooseScreen();
-	modules[18] = scene_temple = new ModuleSceneTemple();
+	modules[15] = scene_win = new ModuleWinScreen();
+	modules[16] = scene_loose = new ModuleLooseScreen();
+	modules[17] = scene_temple = new ModuleSceneTemple();
+	modules[18] = katana = new ModuleKatana();
+	modules[19] = particles = new ModuleParticles();
+
 	//modules[16] = UI = new ModuleUI();
 
 }
@@ -67,6 +71,7 @@ bool Application::Init()
 	collision->Disable();
 	enemies->Disable();
 	scene_temple->Disable();
+	katana->Disable();
 	
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)

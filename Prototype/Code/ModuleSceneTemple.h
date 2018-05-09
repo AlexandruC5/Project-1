@@ -37,6 +37,7 @@ public:
 	bool transition = false;
 	bool change = true;
 	
+	
 	SDL_Texture* graphics = nullptr;
 
 	SDL_Rect Mountains;

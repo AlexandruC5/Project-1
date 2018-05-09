@@ -2,6 +2,7 @@
 #include "DEMONPEGTOP.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
+#include "ModuleEnemies.h"
 
 
 

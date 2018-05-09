@@ -50,12 +50,18 @@ public:
 
 	void Reset()
 	{
+		loops = 0;
 		current_frame = 0.0f;
 	}
 
 	bool isDone() {
 		if (current_frame == last_frame - 1) return true; 
 		else return false;
+	}
+
+	int GetCurrentLoop() const
+	{
+		return loops;
 	}
 	
 };

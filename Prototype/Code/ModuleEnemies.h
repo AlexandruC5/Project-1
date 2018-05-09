@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Fish.h"
 #include "OrientalGenius.h"
+#include "DEMONPEGTOP.h"
 #define MAX_ENEMIES 100
 
 // TODO 2: Add a new enemy: Brown Cookies!

@@ -76,6 +76,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="DEMONPEGTOP.h" />
     <ClInclude Include="DEMONWHEEL.h" />
+    <ClInclude Include="ModuleKatana.h" />
     <ClInclude Include="red.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Fish.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="DEMONPEGTOP.cpp" />
     <ClCompile Include="DEMONWHEEL.cpp" />
+    <ClCompile Include="ModuleKatana.cpp" />
     <ClCompile Include="red.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fish.cpp" />

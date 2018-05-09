@@ -30,6 +30,18 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY][COLLIDER_SHOOT] = true;
 
 
+	COLLIDER_PLAYER_KATANA_SHOT;
+
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_WALL] = true;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_ENEMY] = true;
+	//matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_HITBOX] = false;
+	//matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_HITBOX_2] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER_SHOT] = false;
+	//matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER_2_SHOT] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_POWER_UP] = false;
+
 
 
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER] = false;
@@ -152,6 +164,10 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_SHOOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 255, 190, 255, alpha);
 			break;
+		case COLLIDER_PLAYER_KATANA_SHOT: // yellow
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
+			break;
+
 		}
 	}
 }

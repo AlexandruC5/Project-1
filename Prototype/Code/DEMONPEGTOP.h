@@ -4,6 +4,7 @@
 
 #include "Enemy.h"
 #include "Path.h"
+#include "Globals.h"
 
 class DEMONPEGTOP : public Enemy {
 private:
