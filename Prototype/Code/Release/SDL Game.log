@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  ModuleRender.cpp
   Generando código
   0 of 272 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
@@ -8,3 +9,42 @@ Globals.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\d
 ModuleBackground.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\release\vc141.pdb' está dañado; puede que algunos símbolos y tipos no sean accesibles desde el depurador
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> Release\SDL6 Handout.pdb (Full PDB)
+=======
+﻿  Application.cpp
+c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+  ModuleSceneTemple.cpp
+c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+ModuleSceneTemple.cpp(90): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(91): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(95): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(96): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(103): warning C4305: '-=': truncamiento de 'double' a 'float'
+ModuleSceneTemple.cpp(104): warning C4305: '-=': truncamiento de 'double' a 'float'
+ModuleSceneTemple.cpp(125): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(126): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(128): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(129): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(159): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleSceneWater.cpp
+c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+ModuleSceneWater.cpp(145): warning C4305: '=': truncamiento de 'double' a 'float'
+  ModuleWelcomeScreen.cpp
+c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+  WinScreen.cpp
+c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+WinScreen.cpp(40): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(41): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(42): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(68): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Generando código
+  9 of 263 functions ( 3.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    5 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\0.6\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+>>>>>>> bb1a1fb6378b4272cc2cf6fe35b16280dd521633
