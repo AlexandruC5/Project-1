@@ -1,15 +1,11 @@
-﻿  ModuleKatana.cpp
-ModuleKatana.cpp(69): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-ModuleKatana.cpp(70): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-ModuleKatana.cpp(130): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-ModuleKatana.cpp(134): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-ModuleKatana.cpp(137): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-ModuleKatana.cpp(158): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Application.cpp
+c:\users\carlosph3\documents\github\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': type name first seen using 'class' now seen using 'struct'
+  c:\users\carlosph3\documents\github\project-1\prototype\code\Path.h(15): note: see declaration of 'Path'
   Generating code
-  1 of 272 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 ModuleBackground.obj : warning LNK4020: a type record in 'c:\users\carlosph3\documents\github\project-1\prototype\code\release\vc141.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+  2 of 272 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   SDL Game.vcxproj -> C:\Users\carlosph3\Documents\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
   SDL Game.vcxproj -> Release\SDL6 Handout.pdb (Full PDB)
