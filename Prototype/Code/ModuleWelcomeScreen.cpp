@@ -98,12 +98,12 @@ bool ModuleWelcomeScreen::Start()
 update_status ModuleWelcomeScreen::Update()
 {
 	// Switching between scenes
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) App->fade->FadeToBlack(this, App->scene_temple, 2);
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1 || SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_A) == 1) App->fade->FadeToBlack(this, App->scene_temple, 2);
 
 	if (App->input->keyboard[SDL_SCANCODE_RETURN] == 1) App->fade->FadeToBlack(this, App->scene_water, 2);
 
 
-	if (App->input->keyboard[SDL_SCANCODE_F9] == 1) App->fade->FadeToBlack(this, App->scene_water, 2);
+	
 	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) App->fade->FadeToBlack(this, App->scene_win, 1);
 
 	//Draw Background

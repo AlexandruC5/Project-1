@@ -91,10 +91,15 @@ update_status ModuleKatana::Update()
 {
 
 	//Create bool variables
-	bool pressed_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT;
-	bool pressed_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT;
-	bool pressed_S = App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT;
-	bool pressed_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT;
+	bool pressed_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT ;
+	bool pressed_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT ;
+	bool pressed_S = App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT ;
+	bool pressed_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT ;
+	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
+	bool gamepad_DOWN = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
+	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
+	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
+
 
 	bool shot_space = App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN;
 
@@ -109,20 +114,20 @@ update_status ModuleKatana::Update()
 
 	//Inputs
 	if (input) {
-		if (pressed_A) {
+		if (pressed_A || gamepad_LEFT) {
 			position.x -= speed;
 		}
-		if (pressed_W) {
+		if (pressed_W || gamepad_UP) {
 			position.y -= speed;
 		}
-		if (pressed_D) {
+		if (pressed_D || gamepad_RIGHT) {
 			position.x += speed;
 		}
-		if (pressed_S) {
+		if (pressed_S || gamepad_DOWN) {
 			position.y += speed;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1) {
 			LOG("Shooting bullets");
 
 			current_bullet_time = SDL_GetTicks() - bullet_on_entry;
@@ -197,6 +202,9 @@ void ModuleKatana::CheckState()
 	bool press_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN;
 	bool press_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN;
 	bool press_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN;
+	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
+	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
+	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
 
 	switch (state)
 	{
@@ -213,7 +221,7 @@ void ModuleKatana::CheckState()
 		break;
 
 	case IDLE:
-		if (press_W || press_A) {
+		if (press_W || press_A || gamepad_UP || gamepad_LEFT) {
 			state = GO_BACKWARD;
 		}
 
@@ -221,10 +229,10 @@ void ModuleKatana::CheckState()
 
 	case GO_BACKWARD:
 
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP  ) {
 			state = BACK_IDLE;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP) {
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
 			state = BACK_IDLE;
 		}
 		if (current_animation->Finished()) {
@@ -234,23 +242,23 @@ void ModuleKatana::CheckState()
 		break;
 
 	case BACKWARD:
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) {
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
 				state = BACK_IDLE;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP) {
-			if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE) {
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
+			if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
 				state = BACK_IDLE;
 			}
 		}
 		break;
 
 	case BACK_IDLE:
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || gamepad_UP) {
 			state = BACK_IDLE;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || gamepad_LEFT) {
 			state = BACK_IDLE;
 		}
 		if (current_animation->Finished()) {
