@@ -76,5 +76,8 @@ public:
 	bool death_pos = false;
 	bool explosion = false;
 
+	int current_bullet_time = 0;
+	int bullet_on_entry = 0;
+
 };
 #endif 

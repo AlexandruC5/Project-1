@@ -122,25 +122,32 @@ update_status ModuleKatana::Update()
 			position.y += speed;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN ) {
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) {
 			LOG("Shooting bullets");
-			aux1++;
-			switch (aux1) {
-			case 0:
-   				App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
-				LOG("Shoot 1");
-				break;
-			case 1:
-				App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
-				break;
-			case 2:
-				App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
-				aux1 = 0;
-				break;
+
+			current_bullet_time = SDL_GetTicks() - bullet_on_entry;
+
+			if (current_bullet_time > 100) {
+
+				bullet_on_entry = SDL_GetTicks();
+				aux1++;
+				switch (aux1) {
+				case 0:
+					App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+					LOG("Shoot 1");
+					break;
+				case 1:
+					App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+					break;
+				case 2:
+					App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+					aux1 = 0;
+					break;
+				}
 			}
 
 		}
-		
+
 	}
 
 	/*if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) {
