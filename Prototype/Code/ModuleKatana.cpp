@@ -98,7 +98,7 @@ update_status ModuleKatana::Update()
 
 	bool shot_space = App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN;
 
-	 speed = 1.5;
+	 speed = 1.25;
 
 
 	//check state

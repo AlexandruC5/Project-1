@@ -1,34 +1,28 @@
-﻿  Application.cpp
+﻿  ModuleSceneTemple.cpp
 c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
   c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
-  ModuleKatana.cpp
-ModuleKatana.cpp(69): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-ModuleKatana.cpp(70): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-ModuleKatana.cpp(136): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatana.cpp(140): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatana.cpp(143): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatana.cpp(187): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  ModuleParticles.cpp
-ModuleParticles.cpp(145): warning C4305: '=': truncamiento de 'double' a 'float'
-  ModuleSceneTemple.cpp
-c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(50): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(51): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(91): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 ModuleSceneTemple.cpp(91): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(92): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 ModuleSceneTemple.cpp(92): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(96): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 ModuleSceneTemple.cpp(96): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(97): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 ModuleSceneTemple.cpp(97): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 ModuleSceneTemple.cpp(104): warning C4305: '-=': truncamiento de 'double' a 'float'
 ModuleSceneTemple.cpp(105): warning C4305: '-=': truncamiento de 'double' a 'float'
-ModuleSceneTemple.cpp(126): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-ModuleSceneTemple.cpp(127): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
 ModuleSceneTemple.cpp(129): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
 ModuleSceneTemple.cpp(130): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-ModuleSceneTemple.cpp(165): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(132): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(133): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(181): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(184): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
   Generando código
-c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\modulesceneair.cpp(332): warning C4715: 'ModuleSceneAir::loadMapTextures': no todas las rutas de acceso de control devuelven un valor
-  265 of 272 functions (97.4%) were compiled, the rest were copied from previous compilation.
+  1 of 272 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    6 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
 ModuleBackground.obj : warning LNK4020: un registro de tipo de 'c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\release\vc141.pdb' está dañado; puede que algunos símbolos y tipos no sean accesibles desde el depurador
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe

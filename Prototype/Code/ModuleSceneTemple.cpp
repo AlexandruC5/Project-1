@@ -85,16 +85,16 @@ bool ModuleSceneTemple::Start()
 update_status ModuleSceneTemple::Update()
 {
 	
-	int aux = 1168;
+	int aux = 1171;
 
-	App->render->Blit(graphics, 0, 0, &Mountains, 0.30f);
-	App->render->Blit(graphics, posx2, posy2, &Statue, 0.35F);
-	App->render->Blit(graphics, posx, posy, &Gateway, 0.45f);
+	App->render->Blit(graphics, 0, 0, &Mountains,bg_speed*3/* 0.30f*/);
+	App->render->Blit(graphics, posx2, posy2, &Statue, bg_speed*3.5/*0.35F*/);
+	App->render->Blit(graphics, posx, posy, &Gateway, bg_speed*4.5/*0.45f*/);
 	
 
-	for (int i = 0; i < 8; i++) {
-		App->render->Blit(graphics, aux, posy3, &scroll_bg, 0.45f);
-		App->render->Blit(graphics, aux, pos4, &scroll_down, 0.45f);
+	for (int i = 0; i < 15; i++) {
+		App->render->Blit(graphics, aux, posy3, &scroll_bg, bg_speed*4.5/*0.45f*/);
+		App->render->Blit(graphics, aux, pos4, &scroll_down, bg_speed*4.5/*0.45f*/);
 
 		aux += scroll_bg.w;
 
@@ -104,6 +104,7 @@ update_status ModuleSceneTemple::Update()
 				posy3 -= 0.3;
 				pos4 -= 0.3;
 				aux_time2++;
+				
 			}
 
 			else {
@@ -111,7 +112,7 @@ update_status ModuleSceneTemple::Update()
 				if (aux_time3 < 300) {
 					aux_time3++;
 				}
-				else speed = 2;
+				else speed = 1.5;
 			}
 			
 			
@@ -121,25 +122,41 @@ update_status ModuleSceneTemple::Update()
 	
 	//Camera Events
 
-	if (App->render->camera.x > 2180 && App->render->camera.x < 3202) {
+	if (App->render->camera.x > 1090 && App->render->camera.x < 1591) {
+
 		
-		posx -= 0.0025*speed;
+		
+		posx -= 0.0020*speed;
+		posy -= 0.3*speed;
+
+		posx2 -= 0.0020*speed;
+		posy2 -= 0.3*speed;
+
+		speed = 1.5;
+
+
+
+
+
+		/*posx -= 0.0025*speed;
 		posy -= 0.22*speed;
 
 		posx2 -= 0.0025*speed;
 		posy2 -= 0.22*speed;
 
-		speed = 2;
+		speed = 2;*/
 	}
 
-	if (App->render->camera.x > 3800 && App->render->camera.x <= 11500) {
+	if (App->render->camera.x > 1750 && App->render->camera.x <= 9500) {
 		//App->katana->speed = 10;
-		speed = 10;
+		speed = 6;
+		speed_activation = true;
+		//katana_speed = 10.0;
 		
 	
 	}
 	
-	if (App->render->camera.x > 11500) {
+	if (App->render->camera.x > 9500) {
 
 		if (aux_time < 120)
 		{
@@ -160,12 +177,16 @@ update_status ModuleSceneTemple::Update()
 	}
 	
 	//Camera movement
-	
-		App->katana->position.x += speed / SCREEN_SIZE;
+	if (!speed_activation) {
+		App->katana->position.x += speed / 1.5;
+	}
+	else App->katana->position.x += speed;
 		App->render->camera.x += speed;
 
-	
-	
+		if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+
+			App->fade->FadeToBlack(this, App->scene_win, 2);
+		}
 	return UPDATE_CONTINUE;
 }
 

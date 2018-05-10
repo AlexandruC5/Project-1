@@ -22,7 +22,7 @@ public:
 public:
 
 	
-	float speed = 2;
+	float speed = 1.5;
 
 	float posx = 0, posy = 0;
 	float posx2 = 390, posy2 = 2;
@@ -47,6 +47,9 @@ public:
 	SDL_Rect scroll_down;
 	SDL_Rect scroll_final;
 	
+	float bg_speed = 0.10;
+	float katana_speed = speed / 1.5;
+	bool speed_activation = false;
 };
 
 #endif // __ModuleSceneTemple_H__
