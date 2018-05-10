@@ -122,12 +122,12 @@ update_status ModuleKatana::Update()
 			position.y += speed;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN ) {
 			LOG("Shooting bullets");
 			aux1++;
 			switch (aux1) {
 			case 0:
-				App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+   				App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
 				LOG("Shoot 1");
 				break;
 			case 1:
@@ -142,6 +142,28 @@ update_status ModuleKatana::Update()
 		}
 		
 	}
+
+	/*if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) {
+
+		App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+
+		if (time) {
+			time_on_entry = SDL_GetTicks();
+			time = false;
+		}
+		current_time = SDL_GetTicks() - time_on_entry;
+		if (current_time > 1500) {
+			App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+			time = true;
+		}
+
+	}*/
+
+
+
+
+
+
 	//Fade
 	SDL_SetTextureAlphaMod(graphics, alpha_player);
 
