@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
+#include "ModuleSceneTemple.h"
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -110,6 +111,18 @@ bool ModuleParticles::Start()
 	shoot3.life = 1400;
 	shoot3.speed.x = 12;
 
+	//Arrow Katana shoot
+	arrow_shoot.anim.PushBack({462, 453, 16, 3});
+	arrow_shoot.anim.loop = true;
+	arrow_shoot.life = 1400;
+	arrow_shoot.speed.x = 12;
+
+	//Charged Katana shoot
+	charged_arrow_shoot.anim.PushBack({308, 427, 35, 18});
+	charged_arrow_shoot.anim.loop = false;
+	charged_arrow_shoot.life = 800;
+	charged_arrow_shoot.speed.x = App->scene_temple->speed;
+	//charged_arrow_shoot.speed.y = 2;
 
 
 	//Enemy explosions on Water Stage

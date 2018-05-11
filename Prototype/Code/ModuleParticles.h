@@ -69,7 +69,9 @@ public:
 	Particle waterExplosion;
 	Particle sword1, sword2;
 	Particle enemyattack;
+	//Katana
 	Particle shoot1, shoot2, shoot3;
+	Particle arrow_shoot, charged_arrow_shoot;
 };
 
 #endif // __MODULEPARTICLES_H__

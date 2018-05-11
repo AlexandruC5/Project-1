@@ -79,5 +79,7 @@ public:
 	int current_bullet_time = 0;
 	int bullet_on_entry = 0;
 
+	int power_up = 0;
+
 };
 #endif 

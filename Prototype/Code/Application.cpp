@@ -21,6 +21,7 @@
 #include "ModuleSceneLoose.h"
 #include "ModuleSceneTemple.h"
 #include "ModuleKatana.h"
+#include "ModuleKatanaArrow.h"
 
 Application::Application()
 {
@@ -51,8 +52,10 @@ Application::Application()
 	modules[16] = scene_loose = new ModuleLooseScreen();
 	modules[17] = scene_temple = new ModuleSceneTemple();
 	
+	//modules[18] = katana_arrow = new ModuleKatanaArrow();
 	modules[18] = katana = new ModuleKatana();
-	modules[19] = particles = new ModuleParticles();
+	modules[19] = katana_arrow = new ModuleKatanaArrow();
+	modules[20] = particles = new ModuleParticles();
 
 	//modules[16] = UI = new ModuleUI();
 

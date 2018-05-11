@@ -9,7 +9,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 
-
+#include "ModuleKatanaArrow.h"
 #include "ModuleEnemies.h"
 
 #include "SDL\include\SDL_timer.h"
@@ -70,7 +70,7 @@ bool ModuleKatana::Start()
 	position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
 
 	state = SPAWN_PLAYER;
-
+	App->katana_arrow->Enable();
 	time = true;
 	destroyed = false;
 
@@ -83,6 +83,7 @@ bool ModuleKatana::CleanUp()
 	LOG("Unloading player");
 
 	App->textures->Unload(graphics);
+	App->katana_arrow->Disable();
 	
 	return true;
 }
@@ -105,6 +106,13 @@ update_status ModuleKatana::Update()
 
 	 speed = 1.25;
 
+	 //Power Up Limits
+	 if (power_up < 0) {
+		 power_up = 0;
+	 }
+	 if (power_up > 2) {
+		 power_up = 2;
+	 }
 
 	//check state
 	CheckState();
@@ -127,14 +135,14 @@ update_status ModuleKatana::Update()
 			position.y += speed;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1) {
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1) {
 			LOG("Shooting bullets");
 
-			current_bullet_time = SDL_GetTicks() - bullet_on_entry;
+			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
 
 			if (current_bullet_time > 100) {
 
-				bullet_on_entry = SDL_GetTicks();
+				bullet_on_entry = SDL_GetTicks();*/
 				aux1++;
 				switch (aux1) {
 				case 0:
@@ -148,7 +156,7 @@ update_status ModuleKatana::Update()
 					App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
 					aux1 = 0;
 					break;
-				}
+				
 			}
 
 		}
@@ -217,6 +225,7 @@ void ModuleKatana::CheckState()
 		if (current_time > 1500) {
 			state = IDLE;
 		}
+		power_up = 0;
 		
 		break;
 

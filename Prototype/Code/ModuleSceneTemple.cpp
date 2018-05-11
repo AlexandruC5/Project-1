@@ -16,6 +16,7 @@
 #include "WinScreen.h"
 #include "ModuleSceneLoose.h"
 #include "ModuleKatana.h"
+#include "ModuleKatanaArrow.h"
 #include "ModuleSceneTemple.h"
 
 
