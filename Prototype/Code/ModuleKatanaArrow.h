@@ -35,6 +35,7 @@ public:
 private:
 	void CheckState();
 	void PerformActions();
+	void ArrowBehaviour();
 
 public:
 
@@ -56,9 +57,10 @@ public:
 	arrow_state state = NOT_EXISTING;
 	Path shot_movement;
 
+	int arrow_position = 0;
 	int aux;
 	bool time_shoot = true, exist = false, time_cat = true;
-
+	bool arrow_behaviour = false;
 	bool shot_delay = true;
 	int shot_current = 0;
 	int shot_entry = 0;

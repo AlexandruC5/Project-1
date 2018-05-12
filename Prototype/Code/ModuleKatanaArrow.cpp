@@ -118,12 +118,17 @@ update_status ModuleKatanaArrow::Update()
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
 	//Set position
-	position.x = App->katana->position.x - 20;
-	position.y = App->katana->position.y - 20;
-
+	
+		position.x = App->katana->position.x - 20;
+		position.y = App->katana->position.y - 20 + arrow_position;
+	
 	if (exist) {
 
-		if(state == SPAWN || state == LEVEL_ONE) App->render->Blit(graphics, position.x + 22 , position.y - 15 - r.h, &r);
+		if(state == SPAWN /*|| state == LEVEL_ONE*/) App->render->Blit(graphics, position.x + 22 , position.y - 15 - r.h, &r);
+		else if (state == LEVEL_ONE) {
+			ArrowBehaviour();
+			App->render->Blit(graphics, position.x + 22, position.y - 15 - r.h, &r);
+		}
 		else if (state == LEVEL_ONE_CHARGING) App->render->Blit(graphics, position.x + 22, position.y - 15 - r.h, &r);
 		else if (state == LEVEL_ONE_CHARGE) App->render->Blit(graphics, position.x + 12, position.y - 7 - r.h, &r);
 		else if (state == ARROW_SHOT) App->render->Blit(graphics, position.x + 15, position.y - 8 - r.h, &r);
@@ -241,6 +246,7 @@ void ModuleKatanaArrow::PerformActions()
 		break;
 
 	case LEVEL_ONE:
+		//ArrowBehaviour();
 		
 		current_animation = &iddle;
 		
@@ -278,4 +284,46 @@ void ModuleKatanaArrow::PerformActions()
 
 		break;
 	}
+}
+
+
+void ModuleKatanaArrow::ArrowBehaviour() {
+
+	
+
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT) {
+		arrow_position++;
+		//position.y += arrow_position;
+		if (arrow_position >= 47) arrow_position = 47;
+
+
+		//App->render->Blit(graphics, position.x + 22, position.y - 15 - m.h, &m);
+	}
+	
+	
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT) {
+
+		arrow_position--;
+		//position.y += arrow_position;
+		if (arrow_position <= 0) arrow_position = 0;
+
+
+		//App->render->Blit(graphics, position.x + 22, position.y - 15 - m.h, &m);
+
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
+		position.y += arrow_position;
+
+	}
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
+
+	}
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT) {
+
+	}
+
+
+
+
 }
