@@ -12,10 +12,14 @@
 #include "SDL/include/SDL.h"
 
 ModuleWinScreen::ModuleWinScreen() {
-	up = { 193,0,319,112 };
+	up = { 185,0,327,112 };
+	down = { 185, 268, 327, 114 };
+	sky = { 55, 132, 457, 98 };
+	sky2 = { 55,402,457,98 };
+	/*up = { 193,0,319,112 };
 	down = { 187, 268, 325, 114 };
 	sky = { 54, 132, 458, 98 };
-	sky2 = { 54,402,458,98 };
+	sky2 = { 54,402,458,98 };*/
 	letters = { 196,228,81,16 };
 	katana = { 31,18,278,161 };
 	//katana =  { 381,18,286,161 };
@@ -41,13 +45,14 @@ bool ModuleWinScreen::Init() {
 	maxleft1 = -sky.w;
 	maxleft2 = -sky2.w - sky2.w;
 	Welcome = false;
+	fade = false;
 	return true;
 }
 bool ModuleWinScreen::Start() {
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-	graphics1 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Background2.png");
+	graphics1 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Background.png");
 	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Katanawinsheet.png");
 	Winfade = App->audio->LoadMusic("assets/audio/music/Level_Completed.ogg");
 	Mix_PlayMusic(Winfade, 1);
@@ -61,14 +66,34 @@ void ModuleWinScreen::move() {
 
 
 update_status ModuleWinScreen::Update() {
+	fade = false;
+	if (goleft1 >= maxleft1) {
+		goleft1 -= 1;
+		if (goleft1 <= maxleft1/2.0) Welcome = true;
+	}
 
-	if (goleft1 >= maxleft1) goleft1 -= 1;
-
-	else if (goleft1 <= maxleft1) {
+	else if (goleft1 <= maxleft1/5.0) {
 		goleft1 = sky2.w;
 		Welcome = true;
 	}
 
+	if (Welcome == true) {
+		goUP = 0.0f;
+		goDown = 100.0f;
+		MaxDown = 155;
+		MaxUp = -47;
+		U = -2.0f;
+		M = 0.0f;
+		goright = -100;
+		maxr = 10;
+		goleft1 = 0;
+		goleft2 = sky2.w;
+		maxleft1 = -sky.w;
+		maxleft2 = -sky2.w - sky2.w;
+		Welcome = false; //no fa el fade pero es reinicia tot
+		fade = true;
+	}
+	if (fade == true)  App->fade->FadeToBlack(this, App->scene_start, 0.1);
 
 	if (goleft2 >= maxleft2) goleft2 -= 1;
 	/*else if (goleft2 <= maxleft2) {
@@ -95,7 +120,7 @@ update_status ModuleWinScreen::Update() {
 			if (U < up.h / 5.0) { M = 0.0f; }
 		}
 	}
-	App->render->Blit(graphics1, 0, (int)goUP, &up); //0, -47
+	App->render->Blit(graphics1, -5, (int)goUP, &up); //0, -47
 
 
 
@@ -105,12 +130,11 @@ update_status ModuleWinScreen::Update() {
 	if (goUP <= MaxUp / 1.1 && goDown >= MaxDown / 1.1) {
 		if (goright <= maxr) { goright += 2.0; }
 	}
-	App->render->Blit(graphics1, 0, (int)goDown, &down); //0,155
+	App->render->Blit(graphics1, -3, (int)goDown, &down); //0,155
 	App->render->Blit(graphics2, (int)goright, 170, &letters);//10,170
 
 
 
-	if (Welcome == true) App->fade->FadeToBlack(this, App->scene_start, 1);
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
 
 		App->fade->FadeToBlack(this, App->scene_start, 2);
