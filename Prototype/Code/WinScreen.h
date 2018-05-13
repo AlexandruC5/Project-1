@@ -17,6 +17,7 @@ private:
 	float U, M, goright, maxr;
 	float goleft1, maxleft1, goleft2, maxleft2;
 	bool Welcome;
+	bool fade;
 	SDL_Texture* graphics1 = nullptr;
 	SDL_Texture* graphics2 = nullptr;
 	//SDL_Texture* graphics3 = nullptr;

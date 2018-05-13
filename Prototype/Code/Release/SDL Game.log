@@ -1,19 +1,17 @@
-﻿  ModuleKatanaArrow.cpp
-c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(50): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(51): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-ModuleKatanaArrow.cpp(127): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatanaArrow.cpp(130): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatanaArrow.cpp(132): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatanaArrow.cpp(133): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatanaArrow.cpp(134): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatanaArrow.cpp(135): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatanaArrow.cpp(147): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatanaArrow.cpp(150): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-ModuleKatanaArrow.cpp(281): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+﻿  WinScreen.cpp
+c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+WinScreen.cpp(44): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(45): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(46): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(76): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(90): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(91): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(92): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+WinScreen.cpp(96): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   Generando código
-  2 of 283 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+  1 of 283 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
-  SDL Game.vcxproj -> Release\SDL6 Handout.pdb (Full PDB)
+  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\0.6\Project-1\Prototype\Code\Release\SDL6 Handout.exe
