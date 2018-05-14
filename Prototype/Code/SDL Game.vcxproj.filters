@@ -34,6 +34,7 @@
     <ClCompile Include="DEMONWHEEL.cpp" />
     <ClCompile Include="ModuleKatana.cpp" />
     <ClCompile Include="ModuleKatanaArrow.cpp" />
+    <ClCompile Include="ModuleAyin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -74,6 +75,7 @@
     <ClInclude Include="DEMONWHEEL.h" />
     <ClInclude Include="ModuleKatana.h" />
     <ClInclude Include="ModuleKatanaArrow.h" />
+    <ClInclude Include="ModuleAyin.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />
