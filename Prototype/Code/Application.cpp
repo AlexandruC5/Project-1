@@ -22,6 +22,7 @@
 #include "ModuleSceneTemple.h"
 #include "ModuleKatana.h"
 #include "ModuleKatanaArrow.h"
+#include "CharSelec.h"
 
 Application::Application()
 {
@@ -56,9 +57,9 @@ Application::Application()
 	modules[18] = katana = new ModuleKatana();
 	modules[19] = katana_arrow = new ModuleKatanaArrow();
 	modules[20] = particles = new ModuleParticles();
-
+	modules[21] = charmenu = new ModuleCharSelec();
 	//modules[16] = UI = new ModuleUI();
-
+	
 }
 	
 

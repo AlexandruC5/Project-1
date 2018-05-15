@@ -74,6 +74,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="CharSelec.h" />
     <ClInclude Include="DEMONPEGTOP.h" />
     <ClInclude Include="DEMONWHEEL.h" />
     <ClInclude Include="ModuleAyin.h" />
@@ -114,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="CharSelec.cpp" />
     <ClCompile Include="DEMONPEGTOP.cpp" />
     <ClCompile Include="DEMONWHEEL.cpp" />
     <ClCompile Include="ModuleAyin.cpp" />

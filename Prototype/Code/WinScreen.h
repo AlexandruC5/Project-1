@@ -23,6 +23,7 @@ private:
 	//SDL_Texture* graphics3 = nullptr;
 	Path path;
 	SDL_Rect katana;
+
 	int i = 0;
 	SDL_Rect up;
 	SDL_Rect down;
@@ -32,13 +33,13 @@ private:
 	_Mix_Music* Winfade = nullptr;
 
 public:
-
-	ModuleWinScreen();
+ModuleWinScreen();
 	~ModuleWinScreen();
 	update_status Update();
 	bool Init();
 	bool CleanUp();
 	bool Start();
 	void move();
+	
 };
 #endif // !_WIN_SCREEN_H
