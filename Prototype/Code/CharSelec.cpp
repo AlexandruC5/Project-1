@@ -15,7 +15,8 @@
 
 ModuleCharSelec:: ModuleCharSelec()
 {
-	
+	sky = { 0,56,322,115 };
+
 	background = { 0,0,322,226 };
 	background2 = { 0,0,322,226 };
     headkatana = { 43,33,112,128 };
@@ -24,6 +25,7 @@ ModuleCharSelec:: ModuleCharSelec()
 	ayin = { 16,238,130,199 };
 	headayin = { 337,267,112,122 };
 	lettersA = { 203,419,80,31 };
+	blueline = { 0,464, 336,48 };
 
 	square1 = { 4,94,46,53 };
 	square2 = { 52,93,46,54 };
@@ -64,13 +66,14 @@ bool ModuleCharSelec::Start() {
 	frames = 0;
 	s = 0;
 	state = KATANAP1;
+	players = ONEPLAYER;
 	graphics1 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Background.png");
 	graphics2 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Characters.png");
 	graphics3 = App->textures->Load("assets/sprites/UI/UI.png");
 	graphics4 = App->textures->Load("assets/sprites/characters/katana/Katana_Spritesheet.png");
 	graphics5 = App->textures->Load("assets/sprites/characters/ayin/Ayin_Spritesheet2.png");
 	graphics6 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Background2.png");
-
+	graphics7 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/sky.png");
 	return true;
 
 }
@@ -82,7 +85,7 @@ update_status ModuleCharSelec::Update() {
 	bool press_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN;
 	bool press_L = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN;
 	bool press_R = App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN;
-	
+	App->render->Blit(graphics7, 0, 31, &sky);
 	
 	if (clock == 0) state = OUTOFTIME;
 	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
@@ -106,24 +109,27 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics2, 16, 17, &headkatana);
 			App->render->Blit(graphics2, 135, -3, &katana);
+			App->render->Blit(graphics2, 35, 127, &lettersK);
 			break;
 
 		case AYINP1:
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics2, 160, -4, &ayin);
 			App->render->Blit(graphics2, 16, 23, &headayin);
-			
+			App->render->Blit(graphics2, 35, 127, &lettersA);
 			break;
 		case RANDOMP1:
 			App->render->Blit(graphics3, 143, 157, &square1);
 			if (rand <= 5) {
 				App->render->Blit(graphics2, 160, -4, &ayin,55);
 				App->render->Blit(graphics2, 16, 23, &headayin,55);
+				App->render->Blit(graphics2, 35, 127, &lettersA);
 				rand+=1.5f;
 			}
 			else if (rand >5 &&rand <= 11) {
 				App->render->Blit(graphics2, 16, 17, &headkatana,55);
 				App->render->Blit(graphics2, 135, -3, &katana,55);
+				App->render->Blit(graphics2, 35, 127, &lettersK);
 				rand+=1.5f;
 			}
 			if (rand > 11) rand = 0;
@@ -150,7 +156,7 @@ update_status ModuleCharSelec::Update() {
 		else if (press_D&& state == KATANARANDOM) state = AYINRANDOM;
 		else if (press_A&& state == KATANARANDOM) state = AYINRANDOM;
 
-		if (press_R && state == KATANAAYIN) state = KATANARANDOM; //2 players
+		if (press_R && state == KATANAAYIN) state = KATANARANDOM; //2 player
 		else if (press_L && state == KATANAAYIN) state = KATANARANDOM;
 		else if (press_L && state == AYINKATANA) state = AYINRANDOM;
 		else if (press_R && state == AYINKATANA) state = AYINRANDOM;
@@ -252,6 +258,7 @@ update_status ModuleCharSelec::Update() {
 		}
 		break;
 	}
+	App->render->Blit(graphics2, 0, 161, &blueline);
 	App->render->Blit(graphics3, 135, 213, &time);
 	App->render->Blit(graphics4, 30, 167, &(Kidle.GetCurrentFrame()));
 	App->render->Blit(graphics5, 90, 167, &(Aidle.GetCurrentFrame()));
@@ -290,10 +297,14 @@ bool ModuleCharSelec::CleanUp() {
 	App->textures->Unload(graphics4);
 	App->textures->Unload(graphics5);
 	App->textures->Unload(graphics6);
+	App->textures->Unload(graphics7);
+
 	graphics1 = nullptr;
 	graphics2 = nullptr;
 	graphics3 = nullptr;
 	graphics4 = nullptr;
 	graphics5 = nullptr;
+	graphics6 = nullptr;
+	graphics7 = nullptr;
 	return true;
 }

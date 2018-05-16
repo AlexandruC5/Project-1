@@ -33,6 +33,8 @@ class ModuleCharSelec  : public Module
 private:
 	float left, right, bgmove;
 	int rand, clock,frames,s;
+	SDL_Rect blueline;
+	SDL_Rect sky;
 	SDL_Rect background;
 	SDL_Rect background2;
 	SDL_Rect square1;
@@ -62,6 +64,7 @@ private:
 	SDL_Texture* graphics4 = nullptr;
 	SDL_Texture* graphics5 = nullptr;
 	SDL_Texture* graphics6 = nullptr;
+	SDL_Texture* graphics7 = nullptr;
 	Animation Kidle;
 	Animation Aidle;
 
