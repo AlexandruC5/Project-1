@@ -29,7 +29,16 @@ ModuleCharSelec:: ModuleCharSelec()
 	square2 = { 52,93,46,54 };
 	random = { 9,149,26,22 };
 	time = { 6,72,29,9 };
-	numbers = { 45,19,95,11 };
+	n0 = { 45,19,8,11 };
+	n1 = { 55,19,5,11 };
+	n2 = { 55,19,5,11 };
+	n3 = { 72,19,8,11 };
+	n4 = { 82,19,8,11 };
+	n5 = { 92,19,8,11 };
+	n6 = { 102,19,8,11 };
+	n7 = { 112,19,8,11 };
+	n8 = { 122,19,8,11 };
+	n9 = { 132,19,8,11 };
 
 	Kidle.PushBack({ 87, 4, 32, 33 });
 	Kidle.PushBack({ 152, 5, 32, 33 });
@@ -44,13 +53,16 @@ ModuleCharSelec:: ModuleCharSelec()
 ModuleCharSelec::~ModuleCharSelec() {}
 bool ModuleCharSelec::Init() {
 	left = 0, right = 0, bgmove = 0;
-	rand = 0;
+	rand = 0, clock=9;
 
 	return true;
 }
 bool ModuleCharSelec::Start() {
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
+	clock = 9;
+	frames = 0;
+	s = 0;
 	state = KATANAP1;
 	graphics1 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Background.png");
 	graphics2 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Characters.png");
@@ -70,13 +82,15 @@ update_status ModuleCharSelec::Update() {
 	bool press_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN;
 	bool press_L = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN;
 	bool press_R = App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN;
-
+	
+	
+	if (clock == 0) state = OUTOFTIME;
 	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
 		players = TWOPLAYERS;
 		state = KATANAAYIN;
 	}
-	
-	switch (players) {
+
+	switch (players && state) {
 	case ONEPLAYER:
 
 		if (press_D&& state == KATANAP1) state = AYINP1;
@@ -98,6 +112,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics2, 160, -4, &ayin);
 			App->render->Blit(graphics2, 16, 23, &headayin);
+			
 			break;
 		case RANDOMP1:
 			App->render->Blit(graphics3, 143, 157, &square1);
@@ -113,12 +128,16 @@ update_status ModuleCharSelec::Update() {
 			}
 			if (rand > 11) rand = 0;
 			break;
+		case OUTOFTIME:
+			App->fade->FadeToBlack(this, App->scene_start, 3);
+			break;
 		}
 	
 		break;
 
 	case TWOPLAYERS:
-		if (press_D && state == KATANAAYIN) state = RANDOMAYIN; //1P
+		
+		if (press_D && state == KATANAAYIN) state = RANDOMAYIN; //1 player 
 		else if (press_A  && state == KATANAAYIN) state = RANDOMAYIN;
 		else if (press_A  && state == AYINKATANA) state = RANDOMKATANA;
 		else if (press_D  && state == AYINKATANA) state = RANDOMKATANA;
@@ -131,7 +150,7 @@ update_status ModuleCharSelec::Update() {
 		else if (press_D&& state == KATANARANDOM) state = AYINRANDOM;
 		else if (press_A&& state == KATANARANDOM) state = AYINRANDOM;
 
-		if (press_R && state == KATANAAYIN) state = KATANARANDOM; //2P
+		if (press_R && state == KATANAAYIN) state = KATANARANDOM; //2 players
 		else if (press_L && state == KATANAAYIN) state = KATANARANDOM;
 		else if (press_L && state == AYINKATANA) state = AYINRANDOM;
 		else if (press_R && state == AYINKATANA) state = AYINRANDOM;
@@ -226,6 +245,10 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 143, 157, &square1);
 			App->render->Blit(graphics3, 83, 157, &square2);
 			break;
+
+		case OUTOFTIME:
+			App->fade->FadeToBlack(this, App->scene_start, 3);
+			break;
 		}
 		break;
 	}
@@ -233,6 +256,21 @@ update_status ModuleCharSelec::Update() {
 	App->render->Blit(graphics4, 30, 167, &(Kidle.GetCurrentFrame()));
 	App->render->Blit(graphics5, 90, 167, &(Aidle.GetCurrentFrame()));
 	App->render->Blit(graphics3, 153, 170, &random);
+	frames++;
+	if (s == 1 && state == TWOPLAYERS) frames = 0, s = 0;
+	
+	if (frames <= 50) App->render->Blit(graphics3, 166, 211, &n9), clock = 9;
+	else if(frames>=57&&frames<=100)App->render->Blit(graphics3, 166, 211, &n8), clock = 8;
+	else if (frames > 107 && frames <= 200)App->render->Blit(graphics3, 166, 211, &n7), clock = 7;
+	else if (frames >= 207 && frames <= 300)App->render->Blit(graphics3, 166, 211, &n6), clock = 6;
+	else if (frames >= 307 && frames <= 400)App->render->Blit(graphics3, 166, 211, &n5), clock = 5;
+	else if (frames >= 407 && frames <= 500)App->render->Blit(graphics3, 166, 211, &n4), clock = 4;
+	else if (frames >= 507 && frames <= 600)App->render->Blit(graphics3, 166, 211, &n3), clock = 3;
+	else if (frames >= 607 && frames <= 710)App->render->Blit(graphics3, 166, 211, &n2), clock = 2;
+	else if (frames >= 707 && frames <= 800)App->render->Blit(graphics3, 166, 211, &n1), clock = 1;
+	else if (frames >= 807 && frames <= 900)App->render->Blit(graphics3, 166, 211, &n0), clock = 0;
+	else if (players == TWOPLAYERS && s == 0) frames = 0;
+	s = 1;
 	return update_status:: UPDATE_CONTINUE;
 }
 

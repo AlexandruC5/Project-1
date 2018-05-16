@@ -1,19 +1,20 @@
 ﻿  CharSelec.cpp
 c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\ModuleSceneTemple.h(50): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\ModuleSceneTemple.h(51): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-CharSelec.cpp(107): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(112): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(162): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(166): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(184): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(188): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(202): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(206): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(219): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-CharSelec.cpp(223): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(93): warning C4145: '&&': expresión relacional como expresión switch; posible confusión con '&'
+CharSelec.cpp(122): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(127): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(181): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(185): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(203): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(207): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(221): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(225): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(238): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+CharSelec.cpp(242): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
   Generando código
-  1 of 298 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  7 of 298 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\0.6\Project-1\Prototype\Code\Release\SDL6 Handout.exe

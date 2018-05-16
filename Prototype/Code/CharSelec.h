@@ -4,7 +4,6 @@
 #include"Module.h"
 #include"Animation.h"
 #include"Path.h"
-
 struct SDL_Rect;
 struct SDL_Texture;
 struct _Mix_Music;
@@ -22,6 +21,7 @@ enum menu_state {
 	RANDOMAYIN,
 	AYINRANDOM,
 	KATANARANDOM,
+	OUTOFTIME,
 };
 enum players_state{
 	ONEPLAYER,
@@ -32,12 +32,21 @@ class ModuleCharSelec  : public Module
 {
 private:
 	float left, right, bgmove;
-	int rand;
+	int rand, clock,frames,s;
 	SDL_Rect background;
 	SDL_Rect background2;
 	SDL_Rect square1;
 	SDL_Rect square2;
-	
+	SDL_Rect n0;
+	SDL_Rect n1;
+	SDL_Rect n2;
+	SDL_Rect n3;
+	SDL_Rect n4;
+	SDL_Rect n5;
+	SDL_Rect n6;
+	SDL_Rect n7;
+	SDL_Rect n8;
+	SDL_Rect n9;
 	SDL_Rect katana;
 	SDL_Rect headkatana;
 	SDL_Rect lettersK;
@@ -46,7 +55,7 @@ private:
 	SDL_Rect lettersA;
 	SDL_Rect time;
 	SDL_Rect random;
-	SDL_Rect numbers;
+	
 	SDL_Texture* graphics1 = nullptr;
 	SDL_Texture* graphics2 = nullptr;
 	SDL_Texture* graphics3 = nullptr;
