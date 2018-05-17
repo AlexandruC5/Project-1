@@ -104,6 +104,7 @@ update_status ModuleKatana::Update()
 	bool pressed_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT ;
 	bool pressed_S = App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT ;
 	bool pressed_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT ;
+
 	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
 	bool gamepad_DOWN = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
@@ -143,7 +144,7 @@ update_status ModuleKatana::Update()
 			position.y += speed;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1) {
+		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1) {
 			LOG("Shooting bullets");
 
 			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
@@ -239,9 +240,18 @@ update_status ModuleKatana::Update()
 void ModuleKatana::CheckState()
 {
 	//Create Input Bools
-	bool press_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN;
+	bool pressed_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT;
+	bool pressed_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT;
+
 	bool press_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN;
-	bool press_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN;
+	bool press_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN;
+
+	bool release_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP;
+	bool release_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP;
+
+	bool released_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE;
+	bool released_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE;
+
 	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
 	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
@@ -270,10 +280,10 @@ void ModuleKatana::CheckState()
 
 	case GO_BACKWARD:
 
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP  ) {
+		if (release_W || gamepad_UP  ) {
 			state = BACK_IDLE;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
+		if (release_A || gamepad_LEFT) {
 			state = BACK_IDLE;
 		}
 		if (current_animation->Finished()) {
@@ -283,23 +293,20 @@ void ModuleKatana::CheckState()
 		break;
 
 	case BACKWARD:
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
+
+		if (release_W || release_A || gamepad_UP || gamepad_LEFT) {
+			if (released_W || released_A || gamepad_UP || gamepad_LEFT) {
 				state = BACK_IDLE;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
-			if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
-				state = BACK_IDLE;
-			}
-		}
+		
 		break;
 
 	case BACK_IDLE:
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || gamepad_UP) {
+		if (pressed_W || gamepad_UP) {
 			state = BACK_IDLE;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || gamepad_LEFT) {
+		if (pressed_A || gamepad_LEFT) {
 			state = BACK_IDLE;
 		}
 		if (current_animation->Finished()) {
@@ -335,10 +342,10 @@ void ModuleKatana::PerformActions()
 		break;
 
 	case IDLE:
-		if (App->render->camera.x > 4000) {
+		if (App->render->camera.x > 40000) {
 			input = false;
 		}
-		if (App->render->camera.x < 4000) {
+		if (App->render->camera.x < 40000) {
 			input = true;
 		}
 		death_pos = true;
