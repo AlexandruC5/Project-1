@@ -51,6 +51,72 @@ ModuleKatana::ModuleKatana()
 	intermediate_return.PushBack({ 389,7,30,33 });
 	intermediate_return.speed = 0.10f;
 
+	//Spin
+	spin.PushBack({ 123, 4, 25, 33 });
+	spin.PushBack({ 38, 4, 28, 33 });
+	spin.PushBack({ 7, 5, 24, 33 });
+	spin.PushBack({ 470, 49, 27, 32 });
+
+	spin.PushBack({ 123, 4, 25, 33 });
+	spin.PushBack({ 38, 4, 28, 33 });
+	spin.PushBack({ 7, 5, 24, 33 });
+	spin.PushBack({ 470, 49, 27, 32 });
+
+	spin.PushBack({ 123, 4, 25, 33 });
+	spin.PushBack({ 38, 4, 28, 33 });
+	spin.PushBack({ 7, 5, 24, 33 });
+	spin.PushBack({ 470, 49, 27, 32 });
+
+	spin.PushBack({ 123, 4, 25, 33 });
+	spin.PushBack({ 38, 4, 28, 33 });
+	spin.PushBack({ 7, 5, 24, 33 });
+
+	spin.speed = 0.15f;
+
+	//Spin Circle
+	spin_circle.PushBack({ 5,330,32,31 });
+	spin_circle.PushBack({ 43,331,31,30 });
+	spin_circle.PushBack({ 83,330,32,32 });
+	spin_circle.PushBack({ 116,329,32,33 });
+	spin_circle.PushBack({ 149,330,32,32 });
+	spin_circle.PushBack({ 183,330,32,32 });
+	spin_circle.PushBack({ 217,330,33,32 });
+	spin_circle.PushBack({ 251,330,33,32 });
+	//spin_circle.PushBack({ 214,192,32,32 });
+	spin_circle.speed = 0.3f;
+
+	//Death Circle
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({ 298,0, 130, 130 });
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({ 298,0, 130, 130 });
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({ 298,0, 130, 130 });
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({ 1,0, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 1,0, 130, 130 });
+	death_circle.PushBack({ 1,0, 130, 130 });
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 2,153, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 143,153, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 143,153, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 300,153, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 2,292, 130, 130 });
+	death_circle.speed = 0.8f;
+
+	//Death Player
+	death.x = 224;
+	death.y = 5;
+	death.w = 32;
+	death.h = 32;
+
+
 	
 }
 
@@ -64,7 +130,7 @@ bool ModuleKatana::Start()
 	LOG("Loading player textures");
 
 	graphics = App->textures->Load("assets/sprites/characters/katana/Katana_Spritesheet.png"); 
-	
+	player_death = App->textures->Load("assets/sprites/characters/death_player/Death_Player.png");
 
 	position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 	position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
@@ -87,12 +153,14 @@ bool ModuleKatana::CleanUp()
 
 	App->textures->Unload(graphics);
 	App->katana_arrow->Disable();
+	App->textures->Unload(player_death);
 
 	if (coll != nullptr)
 		coll->to_delete = true;
 
 	if (hitbox != nullptr)
 		hitbox->to_delete = true;
+
 	return true;
 }
 
@@ -196,6 +264,18 @@ update_status ModuleKatana::Update()
 	//Fade
 	SDL_SetTextureAlphaMod(graphics, alpha_player);
 
+	//Set spin position
+	if (spin_pos) {
+		aux_spin.x = position.x + 5;
+		aux_spin.y = position.y - 32;
+		spin_pos = false;
+	}
+
+	if (death_pos) {
+		aux_death.x = position.x - 40;
+		aux_death.y = position.y - 70;
+		death_pos = false;
+	}
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
@@ -315,6 +395,30 @@ void ModuleKatana::CheckState()
 		}
 		break;
 
+	case SPIN:
+		if (spin.Finished()) {
+			spin.Reset();
+			spin_circle.Reset();
+			state = IDLE;
+		}
+		break;
+
+	case DEATH:
+		if (position.y > SCREEN_HEIGHT + 80) {
+			state = POST_DEATH;
+		}
+		break;
+
+	case POST_DEATH:
+		/*if (App->ui->num_life_koyori > 0) {
+		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+		time = true;
+		state = SPAWN_PLAYER_2;*/
+		state = SPAWN_PLAYER;
+		//}
+		break;
+
 	}
 }
 
@@ -351,7 +455,7 @@ void ModuleKatana::PerformActions()
 		death_pos = true;
 		check_spawn = false;
 		alpha_player = 255;
-		
+		spin.Reset();
 		current_animation = &idle;
 		break;
 
@@ -376,6 +480,37 @@ void ModuleKatana::PerformActions()
 		if (intermediate_return.Finished())
 			intermediate_return.Reset();
 		current_animation = &intermediate_return;
+		break;
+
+	case SPIN:
+		SDL_Rect spin_rect = spin_circle.GetCurrentFrame();
+		App->render->Blit(graphics, aux_spin.x, aux_spin.y, &spin_rect);
+		current_animation = &spin;
+		break;
+
+	case DEATH:
+		SDL_Rect death_rect = death_circle.GetCurrentFrame();
+		power_up = 0;
+		check_death = true;
+		input = false;
+		App->render->Blit(player_death, aux_death.x, aux_death.y, &death_rect, 1.0f);
+		/*if (explosion) {
+		App->particles->AddParticle(App->particles->explosion, position.x - 8, position.y - 8);
+		explosion = false;*/
+		//}
+		alpha_player = 255;
+		break;
+
+	case POST_DEATH:
+		/*if (App->ui->num_life_sho == 0) {
+		if (App->ui->score_sho > 1000) {
+		App->ui->score_sho -= 1000;
+		}*/
+		App->katana->Disable();
+		/*}
+		else {
+		check_death = false;
+		}*/
 		break;
 
 	}
