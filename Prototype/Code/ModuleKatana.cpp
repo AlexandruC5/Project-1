@@ -69,6 +69,9 @@ bool ModuleKatana::Start()
 	position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 	position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
 
+	coll = App->collision->AddCollider({ (int)position.x, (int)position.y, 32, 32 }, COLLIDER_PLAYER);
+	hitbox = App->collision->AddCollider({ (int)position.x, (int)position.y,16,16 }, COLLIDER_HITBOX_KATANA);
+
 	state = SPAWN_PLAYER;
 	App->katana_arrow->Enable();
 	time = true;
@@ -84,7 +87,12 @@ bool ModuleKatana::CleanUp()
 
 	App->textures->Unload(graphics);
 	App->katana_arrow->Disable();
-	
+
+	if (coll != nullptr)
+		coll->to_delete = true;
+
+	if (hitbox != nullptr)
+		hitbox->to_delete = true;
 	return true;
 }
 
@@ -194,12 +202,36 @@ update_status ModuleKatana::Update()
 	if (!check_death) {
 		if (check_spawn) {
 			position.x++;
-			
+			coll->SetPos(App->render->camera.x, App->render->camera.y - 32);
+		}
+		else {
+			coll->SetPos(position.x, position.y - 32);
+			hitbox->SetPos(position.x + 8, position.y - 25);
 		}
 		
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	}
-	
+	else {
+		App->render->Blit(graphics, position.x, position.y - 32, &death);
+		coll->SetPos(App->render->camera.x, App->render->camera.y - 32);
+
+		position.x -= 1;
+		position.y += 3;
+	}
+
+	if (coll->CheckCollision(App->scene_temple->coll_left->rect)) {
+		position.x = (App->render->camera.x / SCREEN_SIZE);
+	}
+	if (coll->CheckCollision(App->scene_temple->coll_right->rect)) {
+		position.x = (SCREEN_WIDTH + App->render->camera.x / SCREEN_SIZE) - 33;
+	}
+	if (coll->CheckCollision(App->scene_temple->coll_up->rect)) {
+		position.y = 35;
+	}
+	if (coll->CheckCollision(App->scene_temple->coll_down->rect)) {
+		position.y = SCREEN_HEIGHT - 4;
+	}
+
 	
 	return UPDATE_CONTINUE;
 }

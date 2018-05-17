@@ -78,13 +78,20 @@ bool ModuleSceneTemple::Start()
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,200,50);
-	
+	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
+	coll_down = App->collision->AddCollider({ 0, SCREEN_HEIGHT - 4, 990000, 16 }, COLLIDER_WALL);
+	coll_left = App->collision->AddCollider({ 0,0,0,SCREEN_HEIGHT }, COLLIDER_WALL);
+	coll_right = App->collision->AddCollider({ SCREEN_WIDTH,0, 0,SCREEN_HEIGHT }, COLLIDER_WALL);
+
 	return true;
 
 }
 
 update_status ModuleSceneTemple::Update()
 {
+	//Update Collision
+	coll_left->SetPos(App->render->camera.x / SCREEN_SIZE, 0);
+	coll_right->SetPos(SCREEN_WIDTH + App->render->camera.x / SCREEN_SIZE, 0);
 	
 	int aux = 1171;
 

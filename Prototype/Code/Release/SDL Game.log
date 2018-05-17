@@ -1,6 +1,11 @@
-﻿  CharSelec.cpp
-c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\ModuleSceneTemple.h(50): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-c:\users\gerard clotet\documents\github\0.6\project-1\prototype\code\ModuleSceneTemple.h(51): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+﻿  Application.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  CharSelec.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 CharSelec.cpp(96): warning C4145: '&&': expresión relacional como expresión switch; posible confusión con '&'
 CharSelec.cpp(127): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
 CharSelec.cpp(133): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -12,9 +17,79 @@ CharSelec.cpp(227): warning C4244: '+=': conversión de 'float' a 'int'; posible
 CharSelec.cpp(231): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
 CharSelec.cpp(244): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
 CharSelec.cpp(248): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleAyin.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleAyin.cpp(123): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+ModuleAyin.cpp(124): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+ModuleAyin.cpp(203): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleAyin.cpp(207): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleAyin.cpp(210): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleAyin.cpp(254): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleEnemies.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  ModuleKatana.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleKatana.cpp(69): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+ModuleKatana.cpp(70): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+ModuleKatana.cpp(157): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatana.cpp(161): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatana.cpp(164): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatana.cpp(208): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatana.cpp(209): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatana.cpp(212): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatana.cpp(215): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatana.cpp(222): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+ModuleKatana.cpp(225): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  ModuleKatanaArrow.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleKatanaArrow.cpp(127): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatanaArrow.cpp(130): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatanaArrow.cpp(132): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatanaArrow.cpp(133): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatanaArrow.cpp(134): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatanaArrow.cpp(135): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatanaArrow.cpp(147): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatanaArrow.cpp(150): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleKatanaArrow.cpp(281): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleParticles.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleParticles.cpp(124): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleParticles.cpp(158): warning C4305: '=': truncamiento de 'double' a 'float'
+  ModuleSceneTemple.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(99): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(99): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(100): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(100): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(104): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(104): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(105): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(105): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+ModuleSceneTemple.cpp(112): warning C4305: '-=': truncamiento de 'double' a 'float'
+ModuleSceneTemple.cpp(113): warning C4305: '-=': truncamiento de 'double' a 'float'
+ModuleSceneTemple.cpp(137): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(138): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(140): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(141): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(189): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+ModuleSceneTemple.cpp(192): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleWelcomeScreen.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\WinScreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\Path.h(15): note: vea la declaración de 'Path'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\prototype\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   Generando código
-  1 of 298 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  9 of 298 functions ( 3.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    20 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\0.6\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Release\SDL6 Handout.exe
+  SDL Game.vcxproj -> Release\SDL6 Handout.pdb (Full PDB)

@@ -18,6 +18,9 @@ enum player_state {
 	BACKWARD,
 	GO_BACKWARD,
 	BACK_IDLE,
+	SPIN,
+	DEATH,
+	POST_DEATH
 	
 };
 
@@ -41,10 +44,13 @@ public:
 	int aux = 0;
 	int aux1 = 0;
 	int alpha_player = 255;
-	
+
+	Collider* coll = nullptr;
+	Collider* hitbox = nullptr;
 
 	SDL_Texture* graphics = nullptr;
-	
+	SDL_Texture* player_death = nullptr;
+
 
 	Animation* current_animation = nullptr;
 
@@ -53,7 +59,15 @@ public:
 	Animation backward;
 	Animation intermediate;
 	Animation intermediate_return;
+
+	Animation spin;
+	Animation spin_circle;
+	Animation death_circle;
+
+	SDL_Rect death;
 	
+	fPoint aux_spin;
+	fPoint aux_death;
 
 	fPoint position;
 	

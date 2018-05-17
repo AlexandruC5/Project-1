@@ -38,25 +38,26 @@ Application::Application()
 	modules[6] = scene_air = new ModuleSceneAir();
 	//modules[7] = scene_temple = new ModuleSceneTemple();
 	modules[7] = scene_water = new ModuleSceneWater();
-	//modules[8] = scene_temple = new ModuleSceneTemple();
+	modules[8] = scene_temple = new ModuleSceneTemple();
 	//modules[8] = katana = new ModuleKatana();
-	modules[8] = enemies = new ModuleEnemies();
-	modules[9] = player = new ModulePlayer();
-	modules[10] = fade = new ModuleFadeToBlack();
+	modules[9] = enemies = new ModuleEnemies();
+	modules[10] = player = new ModulePlayer();
+	modules[11] = fade = new ModuleFadeToBlack();
 	
-	modules[11] = collision = new ModuleCollision();
+	//modules[12] = collision = new ModuleCollision();
 	modules[12] = powerup = new ModulePowerUPS();
 	modules[13] = fonts = new ModuleFonts();
 	modules[14] = player2 = new ModulePlayer2();
 
 	modules[15] = scene_win = new ModuleWinScreen();
 	modules[16] = scene_loose = new ModuleLooseScreen();
-	modules[17] = scene_temple = new ModuleSceneTemple();
+	//modules[18] = scene_temple = new ModuleSceneTemple();
 	
 	//modules[18] = katana_arrow = new ModuleKatanaArrow();
-	modules[18] = katana = new ModuleKatana();
-	modules[19] = katana_arrow = new ModuleKatanaArrow();
-	modules[20] = particles = new ModuleParticles();
+	modules[17] = katana = new ModuleKatana();
+	modules[18] = katana_arrow = new ModuleKatanaArrow();
+	modules[19] = particles = new ModuleParticles();
+	modules[20] = collision = new ModuleCollision();
 	modules[21] = charmenu = new ModuleCharSelec();
 	//modules[16] = UI = new ModuleUI();
 	

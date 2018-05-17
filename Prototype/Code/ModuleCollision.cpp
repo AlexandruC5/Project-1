@@ -11,6 +11,20 @@ ModuleCollision::ModuleCollision()
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 		colliders[i] = nullptr;
 
+	matrix[COLLIDER_WALL][COLLIDER_WALL] = false;
+	matrix[COLLIDER_WALL][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_WALL][COLLIDER_ENEMY] = false;
+	//matrix[COLLIDER_WALL][COLLIDER_REDOVNI] = false;
+	//matrix[COLLIDER_WALL][COLLIDER_NINJA] = false;
+	matrix[COLLIDER_WALL][COLLIDER_HITBOX_KATANA] = false;
+	matrix[COLLIDER_WALL][COLLIDER_HITBOX_AYIN] = false;
+	matrix[COLLIDER_WALL][COLLIDER_PLAYER_KATANA_SHOT] = true;
+	matrix[COLLIDER_WALL][COLLIDER_PLAYER_AYIN_SHOT] = true;
+	matrix[COLLIDER_WALL][COLLIDER_ENEMY_SHOT] = true;
+	matrix[COLLIDER_WALL][COLLIDER_POWER_UP] = true;
+	//matrix[COLLIDER_WALL][COLLIDER_COIN] = true;
+	//matrix[COLLIDER_WALL][COLLIDER_TRIGGER] = false;
+
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER_SHOT] = false;
@@ -20,7 +34,10 @@ ModuleCollision::ModuleCollision()
 
 
 	matrix[COLLIDER_PLAYER][COLLIDER_POWER_UP] = false;
-
+	//Colliders hitbox with player
+	matrix[COLLIDER_PLAYER][COLLIDER_HITBOX_KATANA] = false;
+	matrix[COLLIDER_PLAYER][COLLIDER_HITBOX_AYIN] = false;
+	matrix[COLLIDER_HITBOX_KATANA][COLLIDER_PLAYER] = false;
 
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY] = false;
@@ -28,21 +45,27 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_POWER_UP] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_SHOOT] = true;
+	//Colliders hitbox with enemy
+	matrix[COLLIDER_ENEMY][COLLIDER_HITBOX_KATANA] = true;
+	matrix[COLLIDER_ENEMY][COLLIDER_HITBOX_AYIN] = true;
 
 
-	COLLIDER_PLAYER_KATANA_SHOT;
+
 
 	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_WALL] = true;
 	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_ENEMY] = true;
-	//matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_HITBOX] = false;
-	//matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_HITBOX_2] = false;
+
 	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	//matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER_2_SHOT] = false;
 	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_POWER_UP] = false;
 
-
+	//Colliders hitbox with katana/ayin shots
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_HITBOX_KATANA] = false;
+	matrix[COLLIDER_PLAYER_AYIN_SHOT][COLLIDER_HITBOX_AYIN] = false;
+	matrix[COLLIDER_PLAYER_AYIN_SHOT][COLLIDER_HITBOX_KATANA] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_HITBOX_AYIN] = false;
 
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_ENEMY] = true;
@@ -51,12 +74,23 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_POWER_UP] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_SHOOT] = false;
 
+	//Katana shot
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_ENEMY] = true;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER_SHOT] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_POWER_UP] = false;
+	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_SHOOT] = false;
+
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_POWER_UP] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_SHOOT] = false;
+	//Enemy shots on katana/ayin
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_HITBOX_KATANA] = false;
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_HITBOX_AYIN] = false;
 
 	matrix[COLLIDER_POWER_UP][COLLIDER_WALL] = false;
 	matrix[COLLIDER_POWER_UP][COLLIDER_PLAYER] = true;
@@ -166,6 +200,12 @@ void ModuleCollision::DebugDraw()
 			break;
 		case COLLIDER_PLAYER_KATANA_SHOT: // yellow
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
+			break;
+		case COLLIDER_HITBOX_KATANA: //cyan
+			App->render->DrawQuad(colliders[i]->rect, 0, 255, 232, alpha);
+			break;
+		case COLLIDER_HITBOX_AYIN: //purple
+			App->render->DrawQuad(colliders[i]->rect, 143, 0, 255, alpha);
 			break;
 
 		}

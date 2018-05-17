@@ -47,6 +47,11 @@ public:
 	SDL_Rect scroll_down;
 	SDL_Rect scroll_final;
 	
+	Collider* coll_left = nullptr;
+	Collider* coll_right = nullptr;
+	Collider* coll_up = nullptr;
+	Collider* coll_down = nullptr;
+
 	float bg_speed = 0.10;
 	float katana_speed = speed / 1.5;
 	bool speed_activation = false;
