@@ -33,6 +33,7 @@ class ModuleCharSelec  : public Module
 private:
 	float left, right, bgmove;
 	int rand, clock,frames,s;
+	bool reset,player1,player2;
 	SDL_Rect blueline;
 	SDL_Rect sky;
 	SDL_Rect background;

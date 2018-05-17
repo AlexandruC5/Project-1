@@ -7,6 +7,8 @@
 #include "ModuleWelcomeScreen.h"
 #include "ModuleFadeToBlack.h"
 #include "CharSelec.h"
+#include "ModuleKatana.h"
+#include "ModuleKatanaArrow.h"
 #include "ModuleSceneTemple.h"
 
 #include "SDL_mixer/include/SDL_mixer.h"
@@ -65,6 +67,9 @@ bool ModuleCharSelec::Start() {
 	clock = 9;
 	frames = 0;
 	s = 0;
+	reset = false;
+	player1 = false;
+	player2 = false;
 	state = KATANAP1;
 	players = ONEPLAYER;
 	graphics1 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Background.png");
@@ -91,6 +96,7 @@ update_status ModuleCharSelec::Update() {
 	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
 		players = TWOPLAYERS;
 		state = KATANAAYIN;
+		reset = true;
 	}
 
 	switch (players && state) {
@@ -103,23 +109,36 @@ update_status ModuleCharSelec::Update() {
 		else if (press_D && state == RANDOMP1) state = KATANAP1;
 		else if (press_A && state == RANDOMP1) state = AYINP1;
 
+		if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) {
+			player1 = true;
+		}
+
 		App->render->Blit(graphics1, 0, 0, &background);
 		switch (state) {
 		case KATANAP1:
-			App->render->Blit(graphics3, 23, 157, &square1);
+
 			App->render->Blit(graphics2, 16, 17, &headkatana);
 			App->render->Blit(graphics2, 135, -3, &katana);
+			App->render->Blit(graphics2, 0, 161, &blueline);
+			App->render->Blit(graphics3, 23, 157, &square1);
+
 			App->render->Blit(graphics2, 35, 127, &lettersK);
+			if (player1) {
+				App->katana->Enable();
+				App->fade->FadeToBlack(this, App->scene_temple, 2);
+			}
 			break;
 
 		case AYINP1:
-			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics2, 160, -4, &ayin);
 			App->render->Blit(graphics2, 16, 23, &headayin);
 			App->render->Blit(graphics2, 35, 127, &lettersA);
+			App->render->Blit(graphics2, 0, 161, &blueline);
+
+			App->render->Blit(graphics3, 83, 157, &square1);
+
 			break;
 		case RANDOMP1:
-			App->render->Blit(graphics3, 143, 157, &square1);
 			if (rand <= 5) {
 				App->render->Blit(graphics2, 160, -4, &ayin,55);
 				App->render->Blit(graphics2, 16, 23, &headayin,55);
@@ -133,7 +152,10 @@ update_status ModuleCharSelec::Update() {
 				rand+=1.5f;
 			}
 			if (rand > 11) rand = 0;
+			App->render->Blit(graphics2, 0, 161, &blueline);
+			App->render->Blit(graphics3, 143, 157, &square1);
 			break;
+
 		case OUTOFTIME:
 			App->fade->FadeToBlack(this, App->scene_start, 3);
 			break;
@@ -142,7 +164,7 @@ update_status ModuleCharSelec::Update() {
 		break;
 
 	case TWOPLAYERS:
-		
+
 		if (press_D && state == KATANAAYIN) state = RANDOMAYIN; //1 player 
 		else if (press_A  && state == KATANAAYIN) state = RANDOMAYIN;
 		else if (press_A  && state == AYINKATANA) state = RANDOMKATANA;
@@ -175,8 +197,10 @@ update_status ModuleCharSelec::Update() {
 		switch (state) {
 		case KATANAAYIN:
 			App->render->Blit(graphics2, 145, -3, &katana);
-			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics2, 10, -4, &ayin);
+			App->render->Blit(graphics2, 0, 161, &blueline);
+
+			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics3, 83, 157, &square2);
 			break;
 		case KATANARANDOM:
@@ -191,6 +215,7 @@ update_status ModuleCharSelec::Update() {
 				rand += 1.5f;
 			}
 			if (rand > 11) rand = 0;
+			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics3, 143, 157, &square2);
 			break;
@@ -198,6 +223,7 @@ update_status ModuleCharSelec::Update() {
 
 			App->render->Blit(graphics2, 160, -4, &ayin);
 			App->render->Blit(graphics2, -15, -3, &katana, 55);
+			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics3, 23, 157, &square2);
 			break;
@@ -213,6 +239,7 @@ update_status ModuleCharSelec::Update() {
 				rand += 1.5f;
 			}
 			if (rand > 11) rand = 0;
+			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics3, 143, 157, &square2);
 
@@ -231,6 +258,7 @@ update_status ModuleCharSelec::Update() {
 				rand += 1.5f;
 			}
 			if (rand > 11) rand = 0;
+			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 143, 157, &square1);
 			App->render->Blit(graphics3, 23, 157, &square2);
 			break;
@@ -248,6 +276,7 @@ update_status ModuleCharSelec::Update() {
 				rand += 1.5f;
 			}
 			if (rand > 11) rand = 0;
+			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 143, 157, &square1);
 			App->render->Blit(graphics3, 83, 157, &square2);
 			break;
@@ -258,13 +287,14 @@ update_status ModuleCharSelec::Update() {
 		}
 		break;
 	}
-	App->render->Blit(graphics2, 0, 161, &blueline);
 	App->render->Blit(graphics3, 135, 213, &time);
 	App->render->Blit(graphics4, 30, 167, &(Kidle.GetCurrentFrame()));
 	App->render->Blit(graphics5, 90, 167, &(Aidle.GetCurrentFrame()));
 	App->render->Blit(graphics3, 153, 170, &random);
 	frames++;
-	if (s == 1 && state == TWOPLAYERS) frames = 0, s = 0;
+	if (state == TWOPLAYERS && reset ==true) { 
+		s = 0; 
+	}
 	
 	if (frames <= 50) App->render->Blit(graphics3, 166, 211, &n9), clock = 9;
 	else if(frames>=57&&frames<=100)App->render->Blit(graphics3, 166, 211, &n8), clock = 8;
@@ -276,8 +306,9 @@ update_status ModuleCharSelec::Update() {
 	else if (frames >= 607 && frames <= 710)App->render->Blit(graphics3, 166, 211, &n2), clock = 2;
 	else if (frames >= 707 && frames <= 800)App->render->Blit(graphics3, 166, 211, &n1), clock = 1;
 	else if (frames >= 807 && frames <= 900)App->render->Blit(graphics3, 166, 211, &n0), clock = 0;
-	else if (players == TWOPLAYERS && s == 0) frames = 0;
-	s = 1;
+	else if (players == TWOPLAYERS && s == 0) frames = 0, s = 1;
+	
+	reset = false;
 	return update_status:: UPDATE_CONTINUE;
 }
 

@@ -74,7 +74,7 @@ bool ModuleSceneTemple::Start()
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
-	App->katana->Enable();
+	//App->katana->Enable();
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,200,50);
