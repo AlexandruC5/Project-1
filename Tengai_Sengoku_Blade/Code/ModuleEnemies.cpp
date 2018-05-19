@@ -15,7 +15,7 @@
 #include "OrientalGenius.h"
 #include "ModuleSceneTemple.h"
 #include "ModuleKatana.h"
-
+#include "ModuleInterface.h"
 #include "time.h"
 #include "stdlib.h"
 
@@ -245,7 +245,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
 					{
-						//App->ui->score_koyori += 200;
+						App->inter->score_katana += 200;
 					}
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
 					{

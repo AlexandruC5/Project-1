@@ -20,6 +20,8 @@
 #include "ModuleSceneTemple.h"
 #include "CharSelec.h"
 
+#include "ModuleInterface.h"
+
 
 ModuleSceneTemple::ModuleSceneTemple()
 {
@@ -75,6 +77,10 @@ bool ModuleSceneTemple::Start()
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
+	App->inter->Enable();
+
+	App->inter->score_katana = 0;
+	App->inter->score_ayin = 0;
 
 	if (App->charmenu->player1) {
 		App->katana->Enable();
@@ -82,6 +88,7 @@ bool ModuleSceneTemple::Start()
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,400,50);
+
 	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
 	coll_down = App->collision->AddCollider({ 0, SCREEN_HEIGHT - 4, 990000, 16 }, COLLIDER_WALL);
 	coll_left = App->collision->AddCollider({ 0,0,0,SCREEN_HEIGHT }, COLLIDER_WALL);
@@ -199,6 +206,10 @@ update_status ModuleSceneTemple::Update()
 
 			App->fade->FadeToBlack(this, App->scene_win, 2);
 		}
+
+		/*if (App->input->keyboard[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN) {
+			App->inter->num_life_katana--;
+		}*/
 	return UPDATE_CONTINUE;
 }
 
@@ -209,9 +220,10 @@ bool ModuleSceneTemple::CleanUp()
 	//App->player2->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
-	//App->enemies->Disable();
+	App->enemies->Disable();
 	App->katana->Disable();
 	App->textures->Unload(graphics);
+	App->inter->Disable();
 	
 	return true;
 }

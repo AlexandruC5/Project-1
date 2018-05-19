@@ -4,6 +4,7 @@
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
 #include "ModuleKatana.h"
+#include "ModuleInterface.h"
 
 
 DEMONPEGTOP::DEMONPEGTOP(int x, int y) : Enemy(x, y)
@@ -51,27 +52,28 @@ DEMONPEGTOP::DEMONPEGTOP(int x, int y) : Enemy(x, y)
 
 void DEMONPEGTOP::Move()
 {
+	if (App->inter->enemies_movement) {
+		position = original_pos + path.GetCurrentPosition(&animation);
 
-	position = original_pos + path.GetCurrentPosition(&animation);
+		shootTimer++;
 
-	shootTimer++;
+		if (shootTimer == 100) {
+			if (App->katana->position.x < position.x && App->katana->position.y < position.y)
+			{
+				App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
+			}
+			else if (App->katana->position.x < position.x && App->katana->position.y > position.y) {
+				App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
+			}
+			else if (App->katana->position.x > position.x && App->katana->position.y < position.y) {
+				App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
+			}
+			else if (App->katana->position.x > position.x && App->katana->position.y > position.y) {
+				App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
+			}
+			//shootTimer = 0;
+		}
 
-	if (shootTimer == 100) {
-		if (App->katana->position.x < position.x && App->katana->position.y < position.y)
-		{
-			App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y +10, COLLIDER_ENEMY_SHOT);
-		}
-		else if (App->katana->position.x < position.x && App->katana->position.y > position.y) {
-			App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
-		}
-		else if (App->katana->position.x > position.x && App->katana->position.y < position.y) {
-			App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
-		}
-		else if (App->katana->position.x > position.x && App->katana->position.y > position.y) {
-			App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
-		}
-		//shootTimer = 0;
+
 	}
-
-
 }

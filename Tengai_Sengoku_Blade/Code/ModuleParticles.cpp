@@ -8,6 +8,7 @@
 #include "ModuleSceneTemple.h"
 #include "ModuleKatana.h"
 #include "ModuleEnemies.h"
+#include "ModuleInterface.h"
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -294,7 +295,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 						//App->audio->PlaySoundEffects(App->enemies->fx_death);
 						//App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
 						//App->audio->PlaySoundEffects(koyori_death);
-						//App->ui->num_life_koyori--;
+						App->inter->num_life_katana--;
 						timer = true;
 					}
 					App->katana->state = DEATH;

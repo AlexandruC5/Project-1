@@ -23,6 +23,7 @@
 #include "ModuleKatana.h"
 #include "ModuleKatanaArrow.h"
 #include "CharSelec.h"
+#include "ModuleInterface.h"
 
 Application::Application()
 {
@@ -58,11 +59,12 @@ Application::Application()
 	modules[18] = katana = new ModuleKatana();
 	modules[19] = katana_arrow = new ModuleKatanaArrow();
 	//modules[19] = collision = new ModuleCollision();
-
+	
 	modules[20] = particles = new ModuleParticles();
-	modules[21] = collision = new ModuleCollision();
+	modules[21] = inter = new ModuleInterface();
+	modules[22] = collision = new ModuleCollision();
 	//modules[21] = charmenu = new ModuleCharSelec();
-	//modules[16] = UI = new ModuleUI();
+	
 	
 }
 	
@@ -77,6 +79,7 @@ bool Application::Init()
 {
 	bool ret = true;
 
+	App->inter->Disable();
 	player->Disable();
 	scene_air->Disable();
 	scene_water->Disable();

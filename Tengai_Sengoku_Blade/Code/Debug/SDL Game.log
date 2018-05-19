@@ -1,13 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (SDL6 Handout.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  ModuleCollision.cpp
-  Generando código...
-  Omitiendo... (no se detectaron cambios relevantes)
-  ModuleSceneWater.cpp
-  ModulePlayer.cpp
-  ModuleParticles.cpp
-  ModuleEnemies.cpp
-  Fish.cpp
-  Enemy.cpp
-  Application.cpp
-  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Debug\SDL6 Handout.exe
-  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Prototype\Code\Debug\SDL6 Handout.pdb (Partial PDB)
+  ModuleWelcomeScreen.cpp
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\winscreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\path.h(15): note: vea la declaración de 'Path'
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\modulescenetemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.pdb (Partial PDB)

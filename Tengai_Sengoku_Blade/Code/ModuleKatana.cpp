@@ -11,7 +11,7 @@
 
 #include "ModuleKatanaArrow.h"
 #include "ModuleEnemies.h"
-
+#include "ModuleInterface.h"
 #include "SDL\include\SDL_timer.h"
 #include "SDL\include\SDL_render.h"
 #include "ModuleKatana.h"
@@ -140,6 +140,9 @@ bool ModuleKatana::Start()
 
 	state = SPAWN_PLAYER;
 	App->katana_arrow->Enable();
+
+	App->inter->num_life_katana = 3;
+
 	time = true;
 	destroyed = false;
 
@@ -158,9 +161,11 @@ bool ModuleKatana::CleanUp()
 	if (coll != nullptr)
 		 coll->to_delete = true;
 	
-		if (hitbox != nullptr)
+	if (hitbox != nullptr)
 		 hitbox->to_delete = true;
-	
+
+	App->inter->game_over_katana = true;
+
 	return true;
 }
 
@@ -432,13 +437,12 @@ void ModuleKatana::CheckState()
 		break;
 				
 	case POST_DEATH:
-		//if (App->ui->num_life_koyori > 0) {
+		if (App->inter->num_life_katana > 0) {
 			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 			position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
 			time = true;
-			//state = SPAWN_PLAYER_2;
-		state = SPAWN_PLAYER;
-		//}
+		    state = SPAWN_PLAYER;
+		}
 	break;
 	}
 }
@@ -447,7 +451,7 @@ void ModuleKatana::PerformActions()
 {
 	switch (state) {
 	case SPAWN_PLAYER:
-		
+		App->inter->game_over_katana = false;
 		check_spawn = true;
 		current_animation = &idle;
 		blink_time = SDL_GetTicks() - blink_on_entry;
@@ -523,16 +527,19 @@ void ModuleKatana::PerformActions()
 		break;
 				
      case POST_DEATH:
-		  /*if (App->ui->num_life_sho == 0) {
-			if (App->ui->score_sho > 1000) {
-			     App->ui->score_sho -= 1000;
-					}*/
-		//App->katana->Disable();
-		 check_death = false;
-				/*}
-						else {
-						check_death = false;
-						}*/
+		 if (App->inter->num_life_katana == 0) {
+
+			 if (App->inter->score_katana > 1000) {
+				 App->inter->score_katana -= 1000;
+
+			 }
+			 App->katana->Disable();
+		 }
+
+		 else {
+			 check_death = false;
+			 //App->inter->game_over_katana = true;
+		 }
 		break;
 	}
 	

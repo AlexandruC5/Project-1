@@ -78,6 +78,7 @@
     <ClInclude Include="DEMONPEGTOP.h" />
     <ClInclude Include="DEMONWHEEL.h" />
     <ClInclude Include="ModuleAyin.h" />
+    <ClInclude Include="ModuleInterface.h" />
     <ClInclude Include="ModuleKatana.h" />
     <ClInclude Include="ModuleKatanaArrow.h" />
     <ClInclude Include="red.h" />
@@ -119,6 +120,7 @@
     <ClCompile Include="DEMONPEGTOP.cpp" />
     <ClCompile Include="DEMONWHEEL.cpp" />
     <ClCompile Include="ModuleAyin.cpp" />
+    <ClCompile Include="ModuleInterface.cpp" />
     <ClCompile Include="ModuleKatana.cpp" />
     <ClCompile Include="ModuleKatanaArrow.cpp" />
     <ClCompile Include="red.cpp" />
