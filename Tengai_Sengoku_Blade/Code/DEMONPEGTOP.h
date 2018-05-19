@@ -15,7 +15,7 @@ private:
 	Animation backward;
 	Animation shoot;
 	Animation death;
-
+	int shootTimer = 0;
 public:
 
 	DEMONPEGTOP(int x, int y);

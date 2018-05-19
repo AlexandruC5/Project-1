@@ -3,7 +3,7 @@
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
-
+#include "ModuleKatana.h"
 
 
 DEMONPEGTOP::DEMONPEGTOP(int x, int y) : Enemy(x, y)
@@ -31,7 +31,7 @@ DEMONPEGTOP::DEMONPEGTOP(int x, int y) : Enemy(x, y)
 
 
 
-	path.PushBack({ -0.5f, 0 }, 250, &backward);
+	path.PushBack({ -0.2f, 0 }, 250, &backward);
 	//path.PushBack({ -0.5f, 0.5f }, 200, &backward);
 
 
@@ -41,7 +41,7 @@ DEMONPEGTOP::DEMONPEGTOP(int x, int y) : Enemy(x, y)
 
 	animation = &backward;
 
-	collider = App->collision->AddCollider({ 0, 0, 48, 48 }, COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 32, 32 }, COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP, (Module*)App->enemies);
 
 	original_pos = { x,y };
 
@@ -53,6 +53,25 @@ void DEMONPEGTOP::Move()
 {
 
 	position = original_pos + path.GetCurrentPosition(&animation);
+
+	shootTimer++;
+
+	if (shootTimer == 100) {
+		if (App->katana->position.x < position.x && App->katana->position.y < position.y)
+		{
+			App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y +10, COLLIDER_ENEMY_SHOT);
+		}
+		else if (App->katana->position.x < position.x && App->katana->position.y > position.y) {
+			App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
+		}
+		else if (App->katana->position.x > position.x && App->katana->position.y < position.y) {
+			App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
+		}
+		else if (App->katana->position.x > position.x && App->katana->position.y > position.y) {
+			App->particles->AddParticle(App->particles->enemy_bullet, position.x, position.y + 10, COLLIDER_ENEMY_SHOT);
+		}
+		//shootTimer = 0;
+	}
 
 
 }

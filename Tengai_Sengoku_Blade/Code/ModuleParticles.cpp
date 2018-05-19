@@ -6,6 +6,8 @@
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
 #include "ModuleSceneTemple.h"
+#include "ModuleKatana.h"
+#include "ModuleEnemies.h"
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -167,6 +169,17 @@ bool ModuleParticles::Start()
 	enemyattack.life = 1200;
 	enemyattack.speed.x = -3;
 
+	enemy_bullet.anim.PushBack({40, 489, 6, 6});
+	enemy_bullet.anim.PushBack({ 51, 489, 6, 6 });
+	enemy_bullet.anim.PushBack({ 63, 489, 6, 6 });
+	enemy_bullet.anim.PushBack({ 75, 489, 6, 6 });
+	enemy_bullet.anim.PushBack({ 75, 489, 6, 6 });
+	enemy_bullet.anim.PushBack({ 88, 489, 6, 6 });
+	enemy_bullet.anim.PushBack({ 101, 489, 6, 6 });
+	enemy_bullet.speed.x = -7;
+	enemy_bullet.anim.loop = true;
+	enemy_bullet.life = 1400;
+
 	return true;
 }
 
@@ -265,6 +278,31 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
+
+			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHOT)
+			{
+				if (c2 == App->katana->coll) {
+
+					if (timer) {
+						time_on_entry = SDL_GetTicks();
+						timer = false;
+					}
+					current_time = SDL_GetTicks() - time_on_entry;
+
+					if (current_time > 1000) {
+						App->katana->explosion = true;
+						//App->audio->PlaySoundEffects(App->enemies->fx_death);
+						//App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
+						//App->audio->PlaySoundEffects(koyori_death);
+						//App->ui->num_life_koyori--;
+						timer = true;
+					}
+					App->katana->state = DEATH;
+				}
+				
+			}
+
+
 
 			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
 			delete active[i];

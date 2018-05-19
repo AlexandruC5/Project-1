@@ -68,6 +68,7 @@ private:
 	SDL_Texture* sprites2;
 
 	int num_pegtop = 0;
+	int pegtop_life = 0;
 };
 
 #endif // __ModuleEnemies_H__

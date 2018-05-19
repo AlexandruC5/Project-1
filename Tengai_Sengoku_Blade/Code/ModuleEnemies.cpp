@@ -232,29 +232,52 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
 				LOG("FIRE");
-				num_pegtop++;
+				pegtop_life++;
 
-				//App->audio->PlaySoundEffects(fx_death);
-				//App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
-				if (num_pegtop >= 4) {
-					//AddEnemy(ENEMY_TYPES::COIN, enemies[i]->position.x, enemies[i]->position.y);
-					num_pegtop = 0;
+				if (pegtop_life == 1) {
+					//App->particles->AddParticle(App->particles->spark, enemies[i]->position.x, enemies[i]->position.y);
+					//App->particles->spark.speed.x = speed;
 				}
-				delete enemies[i];
-				enemies[i] = nullptr;
+				if (pegtop_life == 10) {
+					//App->audio->PlaySoundEffects(fx_death);
+					//App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
-				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
-				{
-					//App->ui->score_koyori += 200;
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+					{
+						//App->ui->score_koyori += 200;
+					}
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+					{
+						//App->ui->score_sho += 200;
+					}
+					
+					delete enemies[i];
+					enemies[i] = nullptr;
+					pegtop_life = 0;
 				}
-				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
-				{
-					//App->ui->score_sho += 200;
-				}
-
-
 			}
+			//	//App->audio->PlaySoundEffects(fx_death);
+			//	//App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+			//	if (num_pegtop >= 4) {
+			//		//AddEnemy(ENEMY_TYPES::COIN, enemies[i]->position.x, enemies[i]->position.y);
+			//		num_pegtop = 0;
+			//	}
+			//	delete enemies[i];
+			//	enemies[i] = nullptr;
+
+			//	if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+			//	{
+			//		//App->ui->score_koyori += 200;
+			//	}
+			//	if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+			//	{
+			//		//App->ui->score_sho += 200;
+			//	}
+
+
+			//}
 
 
 

@@ -19,6 +19,7 @@ enum PARTICLE_TYPE
 	PARTICLE_SHOT,
 	PARTICLE_SHOT_KATANA,
 	PLAYER_ENEMY,
+	PARTICLE_ENEMY_SHOT
 
 };
 struct Particle
@@ -72,6 +73,10 @@ public:
 	//Katana
 	Particle shoot1, shoot2, shoot3;
 	Particle arrow_shoot, charged_arrow_shoot;
+	Particle enemy_bullet;
+	bool timer = false;
+	int current_time = 1200, time_on_entry = 0;
+
 };
 
 #endif // __MODULEPARTICLES_H__

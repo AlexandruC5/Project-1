@@ -425,18 +425,18 @@ void ModuleKatana::CheckState()
 		break;
 		
 	case DEATH:
-		if (position.y > SCREEN_HEIGHT + 80) {
+		if (position.y > SCREEN_HEIGHT + 130) {
 			state = POST_DEATH;
 					
 		}
 		break;
 				
 	case POST_DEATH:
-		/*if (App->ui->num_life_koyori > 0) {
+		//if (App->ui->num_life_koyori > 0) {
 			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 			position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
 			time = true;
-			state = SPAWN_PLAYER_2;*/
+			//state = SPAWN_PLAYER_2;
 		state = SPAWN_PLAYER;
 		//}
 	break;
@@ -527,7 +527,8 @@ void ModuleKatana::PerformActions()
 			if (App->ui->score_sho > 1000) {
 			     App->ui->score_sho -= 1000;
 					}*/
-		App->katana->Disable();
+		//App->katana->Disable();
+		 check_death = false;
 				/*}
 						else {
 						check_death = false;
