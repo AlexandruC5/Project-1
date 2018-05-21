@@ -32,6 +32,7 @@ class ModuleCharSelec  : public Module
 {
 public:
 	bool reset, player1, player2, P1katana, P2katana;
+	bool P2ayin, P1ayin;
 private:
 	float left, right, bgmove;
 	int rand, clock,frames,s;

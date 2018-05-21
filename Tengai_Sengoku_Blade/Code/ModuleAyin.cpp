@@ -14,6 +14,7 @@
 #include "SDL\include\SDL_render.h"
 #include "ModuleAyin.h"
 #include "ModuleSceneTemple.h"
+#include "CharSelec.h"
 
 
 
@@ -122,10 +123,14 @@ bool ModuleAyin::Start()
 	player_death = App->textures->Load("assets/sprites/characters/death_player/Death_Player.png");
 
 	coll = App->collision->AddCollider({ (int)position.x, (int)position.y, 32, 32 }, COLLIDER_PLAYER);
-
+	if (App->charmenu->P1ayin) {
+		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+	}
+	else if (App->charmenu->P2ayin) {
 	position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
-	position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
-
+	position.y = (App->render->camera.y) / SCREEN_SIZE + 155;
+	}
 	state = SPAWN_PLAYER_2;
 	
 	time = true;
@@ -159,7 +164,7 @@ update_status ModuleAyin::Update()
 
 
 	
-
+	
 	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
 	bool gamepad_DOWN = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;

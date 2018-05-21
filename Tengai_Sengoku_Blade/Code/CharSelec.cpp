@@ -72,6 +72,8 @@ bool ModuleCharSelec::Start() {
 	player2 = false;
 	P1katana = false;
 	P2katana = false;
+	P1ayin = false;
+	P2ayin = false;
 	state = KATANAP1;
 	players = ONEPLAYER;
 	graphics1 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Background.png");
@@ -138,6 +140,8 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 35, 127, &lettersA);
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 83, 157, &square1);
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN)P1ayin = true;
+			if (P1ayin) App->fade->FadeToBlack(this, App->scene_temple, 2);
 			break;
 		case RANDOMP1:
 			//App->render->Blit(graphics3, 143, 157, &square1);
@@ -155,7 +159,10 @@ update_status ModuleCharSelec::Update() {
 			}
 
 			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && rand <=5) P1katana = true;
-			if (P1katana) {
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && rand > 5 && rand <=11 ) P1ayin = true;
+				
+			
+			if (P1katana || P1ayin) {
 				App->fade->FadeToBlack(this, App->scene_temple, 2);
 			}
 			
@@ -211,7 +218,8 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics3, 83, 157, &square2);
 			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1katana = true;
-			if (P1katana) {
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) P2ayin= true;
+			if (P1katana && P2ayin) {
 				App->fade->FadeToBlack(this, App->scene_temple, 2);
 			}
 			break;
@@ -231,7 +239,8 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics3, 143, 157, &square2);
 			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1katana = true;
-			if (P1katana) {
+			P2ayin = true;
+			if (P1katana && P2ayin) {
 				App->fade->FadeToBlack(this, App->scene_temple, 2);
 			}
 			break;
@@ -243,8 +252,9 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics3, 23, 157, &square2);
 
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P2katana = true;
-			if (P2katana) {
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1ayin = true;
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) P2katana = true;
+			if (P1ayin && P2katana) {
 				App->fade->FadeToBlack(this, App->scene_temple, 2);
 			}
 			break;
@@ -264,7 +274,11 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics3, 143, 157, &square2);
 
-
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1ayin = true;
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) P2katana = true;
+			if (P1ayin && P2katana) {
+				App->fade->FadeToBlack(this, App->scene_temple, 2);
+			}
 			break;
 		case RANDOMKATANA:
 			
@@ -283,8 +297,9 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 143, 157, &square1);
 			App->render->Blit(graphics3, 23, 157, &square2);
 
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P2katana = true;
-			if (P2katana) {
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1ayin = true;
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) P2katana = true;
+			if ( P1ayin && P2katana) {
 				App->fade->FadeToBlack(this, App->scene_temple, 2);
 			}
 			break;
@@ -305,6 +320,11 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 143, 157, &square1);
 			App->render->Blit(graphics3, 83, 157, &square2);
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1katana = true;
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) P2ayin = true;
+			if (P2ayin && P1katana) {
+				App->fade->FadeToBlack(this, App->scene_temple, 2);
+			}
 			break;
 
 		case OUTOFTIME:
