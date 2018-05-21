@@ -8,8 +8,6 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
-
-//#include "ModuleKatanaArrow.h"
 #include "ModuleEnemies.h"
 
 #include "SDL\include\SDL_timer.h"
@@ -27,84 +25,87 @@ ModuleAyin::ModuleAyin()
 	position.x = 10;
 	position.y = 20;
 
-	// idle animation (ayin sprite sheet)
-	idle.PushBack({ 29, 1, 33, 33 });
+	// idle animation 
 	idle.PushBack({ 63, 1, 33, 33 });
 	idle.PushBack({ 101, 1, 33, 33 });
+	idle.PushBack({ 29, 1, 33, 33 });
 	idle.speed = 0.20f;
 
-	// walk backward animation (ayin sprite sheet)
+	// walk backward animation 
 	backward.PushBack({ 88, 37, 21, 33 });
 	backward.PushBack({ 114, 37, 20, 33 });
 	backward.PushBack({ 139, 37, 20, 33 });
-	backward.speed = 0.15f;
+	backward.speed = 0.10f;
 
-	//On recive one hit INTERMEDIATE
-	intermediate.PushBack({ 145, 2, 23, 32 });
-	intermediate.PushBack({ 171, 2, 14, 32 });
-	intermediate.PushBack({ 189, 2, 21, 32 });
-	intermediate.PushBack({ 212, 2, 15, 32 });
-	intermediate.speed = 0.15f;
-
-	//INTERMEDIATE RETURN
-	intermediate.PushBack({ 212, 2, 15, 32 });
-	intermediate.PushBack({ 189, 2, 21, 32 });
-	intermediate.PushBack({ 171, 2, 14, 32 });
-	intermediate.PushBack({ 145, 2, 23, 32 });
-	intermediate.speed = 0.15f;
-
-	// from idle to backward
-	idle_to_backward.PushBack({ 4, 39, 31, 33 });
-	idle_to_backward.PushBack({ 38, 39, 24, 32 });
-	idle_to_backward.PushBack({ 64, 37, 19, 32 });
-	idle_to_backward.speed = 0.15f;
-
-	// falling
-	falling.PushBack({ 4, 39, 31, 33 });
-	falling.speed = 0.15f;
-
-	// starting sword attack
-	starting_sword_attack.PushBack({ 3, 108, 21, 32 });
-	starting_sword_attack.PushBack({ 27, 110, 17, 32 });
-	starting_sword_attack.PushBack({ 47, 110, 21, 32 });
-	starting_sword_attack.speed = 0.15f;
-
-	// catching sword attack
-	catching_sword_attack.PushBack({ 79, 108, 20, 32 });
-	catching_sword_attack.PushBack({ 100, 108, 21, 32 });
-	catching_sword_attack.PushBack({ 124, 108, 21, 32 });
-	catching_sword_attack.PushBack({ 147, 108, 22, 32 });
-	catching_sword_attack.speed = 0.15f;
-
-	// hitting sword attack
-	hitting_sword_attack.PushBack({ 171, 107, 29, 32 });
-	hitting_sword_attack.PushBack({ 204, 108, 17, 32 });
-	hitting_sword_attack.PushBack({ 225, 109, 34, 31 });
-	hitting_sword_attack.speed = 0.15f;
-
-	// final attack
-	final_attack.PushBack({ 3, 148, 33, 30 });
-	final_attack.PushBack({ 39, 149, 33, 30 });
-	final_attack.PushBack({ 76, 148, 31, 31 });
-	final_attack.PushBack({ 109, 149, 28, 30 });
-	final_attack.PushBack({ 141, 149, 26, 30 });
-	final_attack.PushBack({ 170, 149, 28, 30 });
-	final_attack.PushBack({ 202, 148, 27, 30 });
-	final_attack.PushBack({ 233, 148, 26, 30 });
-	final_attack.speed = 0.15f;
-
-
-	/*   //Intermediate
-	intermediate.PushBack({ 389,7,30,33 });
-	intermediate.PushBack({ 365,6,24,33 });
-	intermediate.PushBack({ 260,7,22,33 });
+	//Intermediate
+	intermediate.PushBack({ 4, 39, 31, 33 });
+	intermediate.PushBack({ 38, 39, 24, 32 });
+	intermediate.PushBack({ 64, 37, 19, 32 });
 	intermediate.speed = 0.10f;
 
 	//Intermediate return
-	intermediate_return.PushBack({ 260,7,22,33 });
-	intermediate_return.PushBack({ 365,6,24,33 });
-	intermediate_return.PushBack({ 389,7,30,33 });
-	intermediate_return.speed = 0.10f;               */
+	intermediate.PushBack({ 64, 37, 19, 32 });
+	intermediate.PushBack({ 38, 39, 24, 32 });
+	intermediate.PushBack({ 4, 39, 31, 33 });
+	intermediate_return.speed = 0.10f;
+
+	//Spin
+	spin.PushBack({ 145,2,23,32 });
+	spin.PushBack({ 172,2,15,32 });
+	spin.PushBack({ 189,1,21,33 });
+	spin.PushBack({ 212,2,15,32 });
+
+	spin.PushBack({ 145,2,23,32 });
+	spin.PushBack({ 172,2,15,32 });
+	spin.PushBack({ 189,1,21,33 });
+	spin.PushBack({ 212,2,15,32 });
+	spin.speed = 0.15f;
+
+
+	//Spin Circle
+	spin_circle.PushBack({ 91,342,22,23 });
+	spin_circle.PushBack({ 114,338,30,31 });
+	spin_circle.PushBack({ 145,338,32,32 });
+	spin_circle.PushBack({ 178,338,32,32 });
+	spin_circle.PushBack({ 211,338,32,32 });
+	spin_circle.PushBack({ 245,338,32,32 });
+	spin_circle.PushBack({ 279,338,32,32 });
+	spin_circle.PushBack({ 313,338,32,32 });
+	spin_circle.speed = 0.3f;
+
+	//Death
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({ 298,0, 130, 130 });
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({ 298,0, 130, 130 });
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({ 298,0, 130, 130 });
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({ 1,0, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 1,0, 130, 130 });
+	death_circle.PushBack({ 1,0, 130, 130 });
+	death_circle.PushBack({ 153,0, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 2,153, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 143,153, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 143,153, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 300,153, 130, 130 });
+	death_circle.PushBack({});
+	death_circle.PushBack({ 2,292, 130, 130 });
+	death_circle.speed = 0.8f;
+
+
+	//Death Player
+	death.x = 323;
+	death.y = 56;
+	death.w = 27;
+	death.h = 26;
+
+	
 
 }
 
@@ -118,13 +119,15 @@ bool ModuleAyin::Start()
 	LOG("Loading player textures");
 
 	graphics = App->textures->Load("assets/sprites/characters/ayin/Ayin_Spritesheet2.png");
+	player_death = App->textures->Load("assets/sprites/characters/death_player/Death_Player.png");
 
+	coll = App->collision->AddCollider({ (int)position.x, (int)position.y, 32, 32 }, COLLIDER_PLAYER);
 
 	position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 	position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
 
-	state = SPAWN_PLAYER;
-	//App->katana_arrow->Enable();
+	state = SPAWN_PLAYER_2;
+	
 	time = true;
 	destroyed = false;
 
@@ -136,8 +139,11 @@ bool ModuleAyin::CleanUp()
 {
 	LOG("Unloading player");
 
+	if (coll != nullptr)
+		coll->to_delete = true;
+
 	App->textures->Unload(graphics);
-	//App->katana_arrow->Disable();
+	App->textures->Unload(player_death);
 
 	return true;
 }
@@ -146,17 +152,21 @@ update_status ModuleAyin::Update()
 {
 
 	//Create bool variables
-	bool pressed_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT;
-	bool pressed_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT;
-	bool pressed_S = App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT;
-	bool pressed_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT;
+	bool pressed_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT;
+	bool pressed_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT;
+	bool pressed_Down = App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT;
+	bool pressed_Right = App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT;
+
+
+	
+
 	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
 	bool gamepad_DOWN = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
 
 
-	bool shot_space = App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN;
+	bool shot_space = App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN;
 
 	speed = 1.25;
 
@@ -176,20 +186,20 @@ update_status ModuleAyin::Update()
 
 	//Inputs
 	if (input) {
-		if (pressed_A || gamepad_LEFT) {
+		if (pressed_Left || gamepad_LEFT) {
 			position.x -= speed;
 		}
-		if (pressed_W || gamepad_UP) {
+		if (pressed_Up || gamepad_UP) {
 			position.y -= speed;
 		}
-		if (pressed_D || gamepad_RIGHT) {
+		if (pressed_Right || gamepad_RIGHT) {
 			position.x += speed;
 		}
-		if (pressed_S || gamepad_DOWN) {
+		if (pressed_Down || gamepad_DOWN) {
 			position.y += speed;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1) {
+		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ /*|| SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1*/) {
 			LOG("Shooting bullets");
 
 			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
@@ -241,6 +251,19 @@ update_status ModuleAyin::Update()
 	//Fade
 	SDL_SetTextureAlphaMod(graphics, alpha_player);
 
+	//Set spin posotion
+	if (spin_pos) {
+		aux_spin.x = position.x + 5;
+		aux_spin.y = position.y - 32;
+		spin_pos = false;
+	}
+
+	if (death_pos) {
+		aux_death.x = position.x - 40;
+		aux_death.y = position.y - 70;
+		death_pos = false;
+	}
+
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
@@ -248,12 +271,38 @@ update_status ModuleAyin::Update()
 	if (!check_death) {
 		if (check_spawn) {
 			position.x++;
-
+			coll->SetPos(App->render->camera.x, App->render->camera.y - 32);
+		}
+		else {
+			coll->SetPos(position.x, position.y - 32);
 		}
 
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	}
 
+	else {
+		App->render->Blit(graphics, position.x, position.y - 32, &death);
+		coll->SetPos(App->render->camera.x, App->render->camera.y - 32);
+
+		position.x -= 1;
+		position.y += 3;
+	}
+
+	if (coll->CheckCollision(App->scene_temple->coll_left->rect)) {
+		position.x = (App->render->camera.x / SCREEN_SIZE);
+
+	}
+	if (coll->CheckCollision(App->scene_temple->coll_right->rect)) {
+		position.x = (SCREEN_WIDTH + App->render->camera.x / SCREEN_SIZE) - 33;
+
+	}
+	if (coll->CheckCollision(App->scene_temple->coll_up->rect)) {
+		position.y = 35;
+
+	}
+	if (coll->CheckCollision(App->scene_temple->coll_down->rect)) {
+		position.y = SCREEN_HEIGHT - 4;
+	}
 
 	return UPDATE_CONTINUE;
 }
@@ -261,97 +310,127 @@ update_status ModuleAyin::Update()
 void ModuleAyin::CheckState()
 {
 	//Create Input Bools
-	bool press_W = App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN;
-	bool press_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN;
-	bool press_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN;
+	bool pressed_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT;
+	bool pressed_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT;
+
+	bool press_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN;
+	bool press_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_DOWN;
+
+	bool release_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_UP;
+	bool release_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP;
+
+	bool released_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_IDLE;
+	bool released_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE;
+
+
 	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
 	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
-	/* NUEVOS NOMBRES DE LAS ANIMACIONES EN EL ENUM:
 	
-		SPAWN_PLAYER,
-		IDLE,
-		//BACKWARD,
-		//GO_BACKWARD,
-		//BACK_IDLE,
-		IDLE_TO_BACKWARD,
-		FALLING,
-		STARTING_SWORD_ATTACK,
-		CATCHING_SWORD_ATTACK,
-		HITTING_SWORD_ATTACK,
-		FINAL_ATTACK   
-		
-		*/
+
 	switch (state)
 	{
-	case SPAWN_PLAYER:
+	case SPAWN_PLAYER_2:
 		if (time) {
 			time_on_entry = SDL_GetTicks();
 			time = false;
 		}
 		current_time = SDL_GetTicks() - time_on_entry;
 		if (current_time > 1500) {
-			state = IDLE;
+			state = IDLE_2;
 		}
 		power_up = 0;
 
 		break;
 
-	case IDLE:
-		if (press_W || press_A || gamepad_UP || gamepad_LEFT) {
-			state = GO_BACKWARD;
+	case IDLE_2:
+		if (press_Up || press_Left || gamepad_UP || gamepad_LEFT) {
+			state = GO_BACKWARD_2;
 		}
 
 		break;
 
-	case GO_BACKWARD:
+	case GO_BACKWARD_2:
 
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
-			state = BACK_IDLE;
+		if (release_Up || gamepad_UP) {
+			state = BACK_IDLE_2;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
-			state = BACK_IDLE;
+		if (release_Left || gamepad_LEFT) {
+			state = BACK_IDLE_2;
 		}
 		if (current_animation->Finished()) {
 			intermediate.Reset();
-			state = BACKWARD;
+			state = BACKWARD_2;
 		}
 		break;
 
-	case BACKWARD:
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
+	case BACKWARD_2:
+
+		if (release_Up || release_Left || gamepad_UP || gamepad_LEFT) {
+			if (released_Up || released_Left || gamepad_UP || gamepad_LEFT) {
+
+				state = BACK_IDLE_2;
+
+
+				/*if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
+				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
 				state = BACK_IDLE;
-			}
-		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
-			if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
-				state = BACK_IDLE;
+				}
+				}
+				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
+				if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
+				state = BACK_IDLE;*/
 			}
 		}
 		break;
 
-	case BACK_IDLE:
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || gamepad_UP) {
-			state = BACK_IDLE;
+	case BACK_IDLE_2:
+		if (pressed_Up || gamepad_UP) {
+			state = BACK_IDLE_2;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || gamepad_LEFT) {
-			state = BACK_IDLE;
+		if (pressed_Up || gamepad_LEFT) {
+			state = BACK_IDLE_2;
 		}
 		if (current_animation->Finished()) {
 			intermediate.Reset();
-			state = IDLE;
+			state = IDLE_2;
 		}
 		break;
 
+	case SPIN_2:
+		if (spin.Finished()) {
+			spin.Reset();
+			spin_circle.Reset();
+			state = IDLE_2;
+		}
+		break;
+
+	case DEATH_2:
+		if (position.y > SCREEN_HEIGHT + 80) {
+			state = POST_DEATH_2;
+		}
+		break;
+
+	case POST_DEATH_2:
+		/*if (App->ui->num_life_koyori > 0) {
+			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+			position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+			time = true;
+			state = SPAWN_PLAYER_2;
+		}*/
+		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+		state = SPAWN_PLAYER_2;
+		break;
 	}
 }
 
 void ModuleAyin::PerformActions()
 {
 	switch (state) {
-	case SPAWN_PLAYER:
 
+	case SPAWN_PLAYER_2:
+		//App->inter->game_over_katana = false;
 		check_spawn = true;
 		current_animation = &idle;
 		blink_time = SDL_GetTicks() - blink_on_entry;
@@ -370,21 +449,21 @@ void ModuleAyin::PerformActions()
 		check_death = false;
 		break;
 
-	case IDLE:
-		if (App->render->camera.x > 4000) {
+	case IDLE_2:
+		if (App->render->camera.x > 40000) {
 			input = false;
 		}
-		if (App->render->camera.x < 4000) {
+		if (App->render->camera.x < 40000) {
 			input = true;
 		}
 		death_pos = true;
 		check_spawn = false;
 		alpha_player = 255;
-
+		spin.Reset();
 		current_animation = &idle;
 		break;
 
-	case GO_BACKWARD:
+	case GO_BACKWARD_2:
 
 		if (intermediate.Finished())
 		{
@@ -393,20 +472,48 @@ void ModuleAyin::PerformActions()
 		current_animation = &intermediate;
 		break;
 
-	case BACKWARD:
+	case BACKWARD_2:
 
 		if (backward.Finished())
 			backward.Reset();
 		current_animation = &backward;
 		break;
 
-	case BACK_IDLE:
+	case BACK_IDLE_2:
 
 		if (intermediate_return.Finished())
 			intermediate_return.Reset();
 		current_animation = &intermediate_return;
 		break;
 
+	case SPIN_2:
+		SDL_Rect spin_rect = spin_circle.GetCurrentFrame();
+		App->render->Blit(graphics, aux_spin.x, aux_spin.y, &spin_rect);
+		current_animation = &spin;
+		break;
+
+	case DEATH_2:
+		SDL_Rect death_rect = death_circle.GetCurrentFrame();
+		power_up = 0;
+		check_death = true;
+		input = false;
+		App->render->Blit(player_death, aux_death.x, aux_death.y, &death_rect, 1.0f);
+		/*if (explosion) {
+			App->particles->AddParticle(App->particles->explosion, position.x - 8, position.y - 8);
+			explosion = false;*/
+		//}
+		alpha_player = 255;
+		break;
+	case POST_DEATH_2:
+		/*if (App->ui->num_life_sho == 0) {
+			if (App->ui->score_sho > 1000) {
+				App->ui->score_sho -= 1000;
+			}
+			App->player2->Disable();
+		}
+		else {*/
+			check_death = false;
+		//}
 	}
 
 }

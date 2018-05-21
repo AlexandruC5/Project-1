@@ -21,6 +21,7 @@
 #include "ModuleSceneLoose.h"
 #include "ModuleSceneTemple.h"
 #include "ModuleKatana.h"
+#include "ModuleAyin.h"
 #include "ModuleKatanaArrow.h"
 #include "CharSelec.h"
 #include "ModuleInterface.h"
@@ -57,12 +58,13 @@ Application::Application()
 	
 	//modules[18] = katana_arrow = new ModuleKatanaArrow();
 	modules[18] = katana = new ModuleKatana();
-	modules[19] = katana_arrow = new ModuleKatanaArrow();
+	modules[19] = ayin = new ModuleAyin();
+	modules[20] = katana_arrow = new ModuleKatanaArrow();
 	//modules[19] = collision = new ModuleCollision();
 	
-	modules[20] = particles = new ModuleParticles();
-	modules[21] = inter = new ModuleInterface();
-	modules[22] = collision = new ModuleCollision();
+	modules[21] = particles = new ModuleParticles();
+	modules[22] = inter = new ModuleInterface();
+	modules[23] = collision = new ModuleCollision();
 	//modules[21] = charmenu = new ModuleCharSelec();
 	
 	
@@ -87,6 +89,7 @@ bool Application::Init()
 	enemies->Disable();
 	scene_temple->Disable();
 	katana->Disable();
+	ayin->Disable();
 	
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)

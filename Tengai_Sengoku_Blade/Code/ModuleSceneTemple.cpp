@@ -16,6 +16,7 @@
 #include "WinScreen.h"
 #include "ModuleSceneLoose.h"
 #include "ModuleKatana.h"
+#include "ModuleAyin.h"
 #include "ModuleKatanaArrow.h"
 #include "ModuleSceneTemple.h"
 #include "CharSelec.h"
@@ -81,7 +82,7 @@ bool ModuleSceneTemple::Start()
 
 	App->inter->score_katana = 0;
 	App->inter->score_ayin = 0;
-
+	//App->ayin->Enable();
 	if (App->charmenu->player1) {
 		App->katana->Enable();
 	}
@@ -198,11 +199,23 @@ update_status ModuleSceneTemple::Update()
 	//Camera movement
 	if (!speed_activation) {
 		App->katana->position.x += speed / 1.5;
+		App->ayin->position.x += speed / 1.5;
 	}
-	else App->katana->position.x += speed;
+	else {
+		App->katana->position.x += speed;
+		App->ayin->position.x += speed;
+	}
 		App->render->camera.x += speed;
 
-		if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		//Enable Players
+		if (App->input->keyboard[SDL_SCANCODE_E] == KEY_STATE::KEY_DOWN) {
+			if (!App->ayin->IsEnabled()) {
+				//App->audio->PlaySoundEffects(select_sho);
+				App->ayin->Enable();
+			}
+		}
+
+     if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 
 			App->fade->FadeToBlack(this, App->scene_win, 2);
 		}
@@ -225,6 +238,9 @@ bool ModuleSceneTemple::CleanUp()
 	App->textures->Unload(graphics);
 	App->inter->Disable();
 	
+	if (App->ayin->IsEnabled()) {
+		App->ayin->Disable();
+	}
 	return true;
 }
 
