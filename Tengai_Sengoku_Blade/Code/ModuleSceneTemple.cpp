@@ -83,14 +83,22 @@ bool ModuleSceneTemple::Start()
 	App->inter->score_katana = 0;
 	App->inter->score_ayin = 0;
 
+<<<<<<< HEAD
 	//App->ayin->Enable();
 	//if (App->charmenu->player1) {
 
+=======
+	
+>>>>>>> 71a85fc18b13ca706ee468064e31a8023a6bd783
 
 	if (App->charmenu->P1katana) {
 		App->katana->Enable();
 	}
 	if (App->charmenu->P2katana) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 71a85fc18b13ca706ee468064e31a8023a6bd783
 		App->katana->Enable();
 	}
 	if (App->charmenu->P1ayin) {
