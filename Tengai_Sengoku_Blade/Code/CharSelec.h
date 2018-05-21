@@ -31,7 +31,7 @@ enum players_state{
 class ModuleCharSelec  : public Module
 {
 public:
-	bool reset, player1, player2;
+	bool reset, player1, player2, P1katana, P2katana;
 private:
 	float left, right, bgmove;
 	int rand, clock,frames,s;

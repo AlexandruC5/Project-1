@@ -16,7 +16,7 @@
 #include "SDL\include\SDL_render.h"
 #include "ModuleKatana.h"
 #include "ModuleSceneTemple.h"
-
+#include "CharSelec.h"
 
 
 ModuleKatana::ModuleKatana()
@@ -131,10 +131,14 @@ bool ModuleKatana::Start()
 
 	graphics = App->textures->Load("assets/sprites/characters/katana/Katana_Spritesheet.png"); 
 	player_death = App->textures->Load("assets/sprites/characters/death_player/Death_Player.png");
-
-	position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
-	position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
-
+	if (App->charmenu->P1katana) {
+		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+	}
+	else if (App->charmenu->P2katana) {
+		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+		position.y = (App->render->camera.y) / SCREEN_SIZE + 155;
+	}
 	coll = App->collision->AddCollider({ (int)position.x, (int)position.y, 32, 32 }, COLLIDER_PLAYER);
 	hitbox = App->collision->AddCollider({ (int)position.x, (int)position.y,16,16 }, COLLIDER_HITBOX_KATANA);
 
