@@ -70,6 +70,8 @@ bool ModuleCharSelec::Start() {
 	reset = false;
 	player1 = false;
 	player2 = false;
+	P1katana = false;
+	P2katana = false;
 	state = KATANAP1;
 	players = ONEPLAYER;
 	graphics1 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Background.png");
@@ -109,9 +111,7 @@ update_status ModuleCharSelec::Update() {
 		else if (press_D && state == RANDOMP1) state = KATANAP1;
 		else if (press_A && state == RANDOMP1) state = AYINP1;
 
-		if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) {
-			player1 = true;
-		}
+		
 
 
 
@@ -125,11 +125,9 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 23, 157, &square1);
 			
 			App->render->Blit(graphics2, 35, 127, &lettersK);
-
-			if (player1) {
-				//App->katana->Enable();
-				App->fade->FadeToBlack(this, App->scene_temple, 2);
-				
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1katana = true;
+			if (P1katana) {
+				App->fade->FadeToBlack(this, App->scene_temple, 2);	
 			}
 			break;
 
@@ -155,6 +153,12 @@ update_status ModuleCharSelec::Update() {
 				App->render->Blit(graphics2, 35, 127, &lettersK);
 				rand+=1.5f;
 			}
+
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && rand <=5) P1katana = true;
+			if (P1katana) {
+				App->fade->FadeToBlack(this, App->scene_temple, 2);
+			}
+			
 			if (rand > 11) rand = 0;
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 143, 157, &square1);
@@ -206,6 +210,10 @@ update_status ModuleCharSelec::Update() {
 			
 			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics3, 83, 157, &square2);
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1katana = true;
+			if (P1katana) {
+				App->fade->FadeToBlack(this, App->scene_temple, 2);
+			}
 			break;
 		case KATANARANDOM:
 			App->render->Blit(graphics2, 145, -3, &katana);
@@ -222,6 +230,10 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics3, 143, 157, &square2);
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1katana = true;
+			if (P1katana) {
+				App->fade->FadeToBlack(this, App->scene_temple, 2);
+			}
 			break;
 		case AYINKATANA:
 
@@ -230,6 +242,11 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics3, 23, 157, &square2);
+
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P2katana = true;
+			if (P2katana) {
+				App->fade->FadeToBlack(this, App->scene_temple, 2);
+			}
 			break;
 		case AYINRANDOM:
 			App->render->Blit(graphics2, 160, -4, &ayin);
@@ -265,6 +282,11 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 143, 157, &square1);
 			App->render->Blit(graphics3, 23, 157, &square2);
+
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P2katana = true;
+			if (P2katana) {
+				App->fade->FadeToBlack(this, App->scene_temple, 2);
+			}
 			break;
 			
 		case RANDOMAYIN:

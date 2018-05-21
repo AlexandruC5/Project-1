@@ -36,7 +36,7 @@ public:
 
 	bool transition = false;
 	bool change = true;
-	
+	bool player2 = false;
 	
 	SDL_Texture* graphics = nullptr;
 

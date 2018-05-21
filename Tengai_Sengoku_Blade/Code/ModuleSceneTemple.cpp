@@ -71,7 +71,7 @@ ModuleSceneTemple::~ModuleSceneTemple()
 bool ModuleSceneTemple::Start()
 {
 	LOG("Loading Temple Scene");
-
+	player2 = false;
 	//App->player->Enable();
 	//App->powerup->Enable();
 	App->enemies->Enable();
@@ -82,8 +82,12 @@ bool ModuleSceneTemple::Start()
 	App->inter->score_katana = 0;
 	App->inter->score_ayin = 0;
 
-	if (App->charmenu->player1) {
+	if (App->charmenu->P1katana) {
 		App->katana->Enable();
+	}
+	if (App->charmenu->P2katana) {
+		App->katana->Enable();
+		player2 = true;
 	}
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
