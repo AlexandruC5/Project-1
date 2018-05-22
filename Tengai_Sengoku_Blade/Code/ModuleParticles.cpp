@@ -127,6 +127,28 @@ bool ModuleParticles::Start()
 	charged_arrow_shoot.speed.x = App->scene_temple->speed;
 	//charged_arrow_shoot.speed.y = 2;
 
+	//Ayin shoots
+
+	ayin_shoot1.anim.PushBack({6, 516, 21, 5});
+	ayin_shoot1.anim.loop = true;
+	ayin_shoot1.life = 1400;
+	ayin_shoot1.speed.x = 12;
+
+	ayin_shoot2.anim.PushBack({31, 516, 21, 5});
+	ayin_shoot2.anim.loop = true;
+	ayin_shoot2.life = 1400;
+	ayin_shoot2.speed.x = 12;
+
+	ayin_shoot3.anim.PushBack({58, 516, 21, 5});
+	ayin_shoot3.anim.loop = true;
+	ayin_shoot3.life = 1400;
+	ayin_shoot3.speed.x = 12;
+
+	//Ayin wave
+	ayin_wave.anim.PushBack({11, 529, 16, 23});
+	ayin_wave.anim.loop = true;
+	ayin_wave.life = 1400;
+	ayin_wave.speed.x = 12;
 
 	//Enemy explosions on Water Stage
 	/*

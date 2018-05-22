@@ -37,6 +37,7 @@
     <ClCompile Include="ModuleAyin.cpp" />
     <ClCompile Include="CharSelec.cpp" />
     <ClCompile Include="ModuleInterface.cpp" />
+    <ClCompile Include="ModuleAyinArrow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -80,6 +81,7 @@
     <ClInclude Include="ModuleAyin.h" />
     <ClInclude Include="CharSelec.h" />
     <ClInclude Include="ModuleInterface.h" />
+    <ClInclude Include="ModuleAyinArrow.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

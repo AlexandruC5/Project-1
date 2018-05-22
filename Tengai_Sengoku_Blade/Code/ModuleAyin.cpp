@@ -9,10 +9,11 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
-
+#include "ModuleUI.h"
 #include "SDL\include\SDL_timer.h"
 #include "SDL\include\SDL_render.h"
 #include "ModuleAyin.h"
+#include "ModuleAyinArrow.h"
 #include "ModuleSceneTemple.h"
 #include "CharSelec.h"
 
@@ -45,9 +46,9 @@ ModuleAyin::ModuleAyin()
 	intermediate.speed = 0.10f;
 
 	//Intermediate return
-	intermediate.PushBack({ 64, 37, 19, 32 });
-	intermediate.PushBack({ 38, 39, 24, 32 });
-	intermediate.PushBack({ 4, 39, 31, 33 });
+	intermediate_return.PushBack({ 64, 37, 19, 32 });
+	intermediate_return.PushBack({ 38, 39, 24, 32 });
+	intermediate_return.PushBack({ 4, 39, 31, 33 });
 	intermediate_return.speed = 0.10f;
 
 	//Spin
@@ -106,8 +107,38 @@ ModuleAyin::ModuleAyin()
 	death.w = 27;
 	death.h = 26;
 
-	
+	//Charging
+	charging.PushBack({ 3, 108, 22, 32 });
+	charging.PushBack({ 27, 110, 18, 32 });
+	charging.PushBack({ 47, 110, 21, 32 });
+	charging.speed = 0.10f;
 
+	//Charge
+	charge.PushBack({ 79, 108, 21, 32 });
+	charge.PushBack({ 100, 108, 21, 32 });
+	charge.PushBack({ 124, 108, 21, 32 });
+	charge.PushBack({ 147, 108, 21, 32 });
+	charge.speed = 0.10f;
+
+	//Spin Decharging
+	spin_decharging.PushBack({ 171, 107, 29, 32 });
+	spin_decharging.PushBack({ 204, 108, 17, 32 });
+	spin_decharging.speed = 0.15f;
+	/*spin_decharging.loop = false;*/
+
+	//Decharging
+	decharging.PushBack({ 225, 110, 35, 30 });
+	decharging.PushBack({ 3, 148, 34, 30 });
+	decharging.PushBack({ 39, 149, 33, 30 });
+	decharging.speed = 0.15f;
+
+	return_idle.PushBack({ 76, 149, 31, 30 });
+	return_idle.PushBack({ 109, 149, 28, 30 });
+	return_idle.PushBack({ 141, 149, 27, 30 });
+	return_idle.PushBack({ 170, 149, 28, 30 });
+	return_idle.PushBack({ 202, 148, 28, 30 });
+	return_idle.PushBack({ 233, 148, 26, 30 });
+	return_idle.speed = 0.20f;
 }
 
 
@@ -123,6 +154,7 @@ bool ModuleAyin::Start()
 	player_death = App->textures->Load("assets/sprites/characters/death_player/Death_Player.png");
 
 	coll = App->collision->AddCollider({ (int)position.x, (int)position.y, 32, 32 }, COLLIDER_PLAYER);
+
 	if (App->charmenu->P1ayin) {
 		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
@@ -131,10 +163,13 @@ bool ModuleAyin::Start()
 	position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 	position.y = (App->render->camera.y) / SCREEN_SIZE + 155;
 	}
+
 	state = SPAWN_PLAYER_2;
 	
 	time = true;
 	destroyed = false;
+
+	App->ayin_arrow->Enable();
 
 	return true;
 }
@@ -149,6 +184,7 @@ bool ModuleAyin::CleanUp()
 
 	App->textures->Unload(graphics);
 	App->textures->Unload(player_death);
+	App->ayin_arrow->Disable();
 
 	return true;
 }
@@ -157,10 +193,10 @@ update_status ModuleAyin::Update()
 {
 
 	//Create bool variables
-	bool pressed_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT;
-	bool pressed_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT;
-	bool pressed_Down = App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT;
-	bool pressed_Right = App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT;
+	bool pressed_I = App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_REPEAT;
+	bool pressed_J = App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT;
+	bool pressed_K = App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT;
+	bool pressed_L = App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_REPEAT;
 
 
 	
@@ -191,16 +227,16 @@ update_status ModuleAyin::Update()
 
 	//Inputs
 	if (input) {
-		if (pressed_Left || gamepad_LEFT) {
+		if (pressed_J || gamepad_LEFT) {
 			position.x -= speed;
 		}
-		if (pressed_Up || gamepad_UP) {
+		if (pressed_I || gamepad_UP) {
 			position.y -= speed;
 		}
-		if (pressed_Right || gamepad_RIGHT) {
+		if (pressed_L || gamepad_RIGHT) {
 			position.x += speed;
 		}
-		if (pressed_Down || gamepad_DOWN) {
+		if (pressed_K || gamepad_DOWN) {
 			position.y += speed;
 		}
 
@@ -215,14 +251,14 @@ update_status ModuleAyin::Update()
 			aux1++;
 			switch (aux1) {
 			case 0:
-				App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
 				LOG("Shoot 1");
 				break;
 			case 1:
-				App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
 				break;
 			case 2:
-				App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
 				aux1 = 0;
 				break;
 
@@ -315,17 +351,17 @@ update_status ModuleAyin::Update()
 void ModuleAyin::CheckState()
 {
 	//Create Input Bools
-	bool pressed_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT;
-	bool pressed_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT;
+	bool pressed_J = App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT;
+	bool pressed_I = App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_REPEAT;
 
-	bool press_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN;
-	bool press_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_DOWN;
+	bool press_J = App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN;
+	bool press_I = App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_DOWN;
 
-	bool release_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_UP;
-	bool release_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP;
+	bool release_J = App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_UP;
+	bool release_I = App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_UP;
 
-	bool released_Up = App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_IDLE;
-	bool released_Left = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE;
+	bool released_I = App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_IDLE;
+	bool released_J = App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_IDLE;
 
 
 	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
@@ -349,7 +385,7 @@ void ModuleAyin::CheckState()
 		break;
 
 	case IDLE_2:
-		if (press_Up || press_Left || gamepad_UP || gamepad_LEFT) {
+		if (press_I || press_J || gamepad_UP || gamepad_LEFT) {
 			state = GO_BACKWARD_2;
 		}
 
@@ -357,10 +393,10 @@ void ModuleAyin::CheckState()
 
 	case GO_BACKWARD_2:
 
-		if (release_Up || gamepad_UP) {
+		if (release_I || gamepad_UP) {
 			state = BACK_IDLE_2;
 		}
-		if (release_Left || gamepad_LEFT) {
+		if (release_J || gamepad_LEFT) {
 			state = BACK_IDLE_2;
 		}
 		if (current_animation->Finished()) {
@@ -371,8 +407,8 @@ void ModuleAyin::CheckState()
 
 	case BACKWARD_2:
 
-		if (release_Up || release_Left || gamepad_UP || gamepad_LEFT) {
-			if (released_Up || released_Left || gamepad_UP || gamepad_LEFT) {
+		if (release_I || release_J || gamepad_UP || gamepad_LEFT) {
+			if (released_I || released_J || gamepad_UP || gamepad_LEFT) {
 
 				state = BACK_IDLE_2;
 
@@ -390,10 +426,10 @@ void ModuleAyin::CheckState()
 		break;
 
 	case BACK_IDLE_2:
-		if (pressed_Up || gamepad_UP) {
+		if (pressed_I || gamepad_UP) {
 			state = BACK_IDLE_2;
 		}
-		if (pressed_Up || gamepad_LEFT) {
+		if (pressed_J || gamepad_LEFT) {
 			state = BACK_IDLE_2;
 		}
 		if (current_animation->Finished()) {
@@ -416,6 +452,11 @@ void ModuleAyin::CheckState()
 		}
 		break;
 
+	/*case SPIN_DECHARGING_AYIN:
+		if (spin_decharging.Finished()) {
+			state = DECHARGING_AYIN;
+		}*/
+
 	case POST_DEATH_2:
 		/*if (App->ui->num_life_koyori > 0) {
 			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
@@ -425,6 +466,7 @@ void ModuleAyin::CheckState()
 		}*/
 		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+		time = true;
 		state = SPAWN_PLAYER_2;
 		break;
 	}
@@ -489,6 +531,34 @@ void ModuleAyin::PerformActions()
 		if (intermediate_return.Finished())
 			intermediate_return.Reset();
 		current_animation = &intermediate_return;
+		break;
+
+	case CHARGING_AYIN:
+		if (charging.Finished())
+			charging.Reset();
+		current_animation = &charging;
+		break;
+
+	case CHARGE_AYIN:
+		current_animation = &charge;
+		break;
+		
+	case SPIN_DECHARGING_AYIN:
+		if (spin_decharging.Finished())
+			spin_decharging.Reset();
+		current_animation = &spin_decharging;
+		break;
+
+	case DECHARGING_AYIN:
+		if (decharging.Finished())
+			decharging.Reset();
+		current_animation = &decharging;
+		break;
+
+	case RETURN_IDLE_AYIN:
+		if (return_idle.Finished())
+			return_idle.Reset();
+		current_animation = &return_idle;
 		break;
 
 	case SPIN_2:

@@ -21,7 +21,14 @@ enum player_state_2 {
 	WALK_2,
 	SPIN_2,
 	DEATH_2,
-	POST_DEATH_2
+	POST_DEATH_2,
+
+	CHARGING_AYIN,
+	CHARGE_AYIN,
+	SPIN_DECHARGING_AYIN,
+	DECHARGING_AYIN,
+	
+	RETURN_IDLE_AYIN,
 
 
 };
@@ -64,6 +71,13 @@ public:
 	Animation spin;
 	Animation spin_circle;
 	Animation death_circle;
+
+	Animation charging;
+	Animation charge;
+	Animation spin_decharging;
+	Animation decharging;
+
+	Animation return_idle;
 
 	SDL_Rect death;
 	

@@ -18,6 +18,7 @@ enum PARTICLE_TYPE
 	PARTICLE_NONE,
 	PARTICLE_SHOT,
 	PARTICLE_SHOT_KATANA,
+	PARTICLE_SHOT_AYIN,
 	PLAYER_ENEMY,
 	PARTICLE_ENEMY_SHOT
 
@@ -72,6 +73,8 @@ public:
 	Particle enemyattack;
 	//Katana
 	Particle shoot1, shoot2, shoot3;
+	Particle ayin_shoot1, ayin_shoot2, ayin_shoot3;
+	Particle ayin_wave;
 	Particle arrow_shoot, charged_arrow_shoot;
 	Particle enemy_bullet;
 	bool timer = false;

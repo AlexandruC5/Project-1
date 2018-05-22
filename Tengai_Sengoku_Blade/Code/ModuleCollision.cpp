@@ -191,6 +191,9 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_PLAYER_KATANA_SHOT: // yellow
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
 			break;
+		case COLLIDER_PLAYER_AYIN_SHOT: // yellow
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
+			break;
 		case COLLIDER_HITBOX_KATANA: //cyan
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 232, alpha);
 			break;

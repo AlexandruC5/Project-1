@@ -23,6 +23,7 @@
 #include "ModuleKatana.h"
 #include "ModuleAyin.h"
 #include "ModuleKatanaArrow.h"
+#include "ModuleAyinArrow.h"
 #include "CharSelec.h"
 #include "ModuleInterface.h"
 
@@ -60,11 +61,12 @@ Application::Application()
 	modules[18] = katana = new ModuleKatana();
 	modules[19] = ayin = new ModuleAyin();
 	modules[20] = katana_arrow = new ModuleKatanaArrow();
+	modules[21] = ayin_arrow = new ModuleAyinArrow();
 	//modules[19] = collision = new ModuleCollision();
 	
-	modules[21] = particles = new ModuleParticles();
-	modules[22] = inter = new ModuleInterface();
-	modules[23] = collision = new ModuleCollision();
+	modules[22] = particles = new ModuleParticles();
+	modules[23] = inter = new ModuleInterface();
+	modules[24] = collision = new ModuleCollision();
 	//modules[21] = charmenu = new ModuleCharSelec();
 	
 	
@@ -90,6 +92,7 @@ bool Application::Init()
 	scene_temple->Disable();
 	katana->Disable();
 	ayin->Disable();
+	
 	
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)

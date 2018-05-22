@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 24
+#define NUM_MODULES 25
 
 class ModuleWindow;
 class ModuleInput;
@@ -31,6 +31,7 @@ class ModuleSceneTemple;
 class ModuleKatana;
 class ModuleAyin;
 class ModuleKatanaArrow;
+class ModuleAyinArrow;
 class ModuleCharSelec;
 class ModuleInterface;
 
@@ -62,6 +63,7 @@ public:
 	ModuleKatana* katana;
 	ModuleAyin* ayin;
 	ModuleKatanaArrow* katana_arrow;
+	ModuleAyinArrow* ayin_arrow;
 	ModuleCharSelec* charmenu;
 	
 	ModuleInterface* inter;
