@@ -49,9 +49,13 @@ ModuleAyinArrow::ModuleAyinArrow()
 	//Return sword
 	return_sword.PushBack({12, 464, 22, 11});
 	return_sword.PushBack({ 44, 458, 4, 21});
-	return_sword.PushBack({ 58, 465, 21, 11 });
+	//return_sword.PushBack({ 58, 465, 21, 11 });
 	return_sword.loop = false;
 	return_sword.speed = 0.20f;
+
+	//Last return sword
+	last_return_sword.PushBack({ 58, 465, 21, 11 });
+	last_return_sword.speed = 0.20f;
 	////Last decharging animation
 	//last_descharging.PushBack({ 395, 387, 112, 41 });
 	//last_descharging.speed = 0.10f;
@@ -132,10 +136,11 @@ update_status ModuleAyinArrow::Update()
 		if (state == SPAWN_2) App->render->Blit(graphics, position.x + 23, position.y +5 - r.h, &r);
 		else if (state == LEVEL_ONE_2) App->render->Blit(graphics, position.x + 23, position.y +5 - r.h, &r);
 		else if (state == LEVEL_ONE_CHARGING_2) App->render->Blit(graphics, position.x + 23, position.y +4- r.h, &r);
-		else if (state == LEVEL_ONE_CHARGE_2) App->render->Blit(graphics, position.x + 12, position.y - 2 - r.h, &r);
+		else if (state == LEVEL_ONE_CHARGE_2) App->render->Blit(graphics, position.x + 12, position.y +4 - r.h, &r);
 		//else if (state == WAVE_SHOT_2) App->render->Blit(graphics, position.x + 25, position.y + 9 - r.h, &r);
 		else if (state == SWORD_WAVE) App->render->Blit(graphics, position.x + 40, position.y + 2 - r.h, &r);
 		else if (state == AYIN_COMEBACK) App->render->Blit(graphics, position.x + 40, position.y + 2 - r.h, &r);
+		else if (state == LAST_SWORD_ANIM) App->render->Blit(graphics, position.x + 25, position.y + 2 - r.h, &r);
 
 
 		if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN) {
@@ -241,15 +246,27 @@ void ModuleAyinArrow::CheckState() {
 			state = AYIN_COMEBACK;
 		}
 		break;
+    
 
 	case AYIN_COMEBACK:
+
+		if (return_sword.Finished()) {
+			state = LAST_SWORD_ANIM;
+		}
+
+		/*if (App->ayin->return_idle.Finished()) {
+			App->ayin->state = IDLE_2;
+			state = SPAWN_2;
+		}*/
+		break;
+
+	case LAST_SWORD_ANIM:
+
 		if (App->ayin->return_idle.Finished()) {
 			App->ayin->state = IDLE_2;
 			state = SPAWN_2;
 		}
 		break;
-
-
 
 
 	//case LAST_ARROW_SHOT:
@@ -349,12 +366,16 @@ void ModuleAyinArrow::PerformActions()
 
 
 	case  AYIN_COMEBACK:
-		//current_animation = &return_sword;
-		
+	
 		current_animation = &return_sword;
 		
 		App->ayin->state = RETURN_IDLE_AYIN;
 		break;
+
+	case LAST_SWORD_ANIM:
+		current_animation = &last_return_sword;
+		break;
+
 
 	/*case LAST_ARROW_SHOT:
 		current_animation = &last_descharging;

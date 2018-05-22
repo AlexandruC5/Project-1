@@ -59,9 +59,10 @@ Application::Application()
 	
 	//modules[18] = katana_arrow = new ModuleKatanaArrow();
 	modules[18] = katana = new ModuleKatana();
-	modules[19] = ayin = new ModuleAyin();
-	modules[20] = katana_arrow = new ModuleKatanaArrow();
-	modules[21] = ayin_arrow = new ModuleAyinArrow();
+	//modules[19] = ayin = new ModuleAyin();
+	modules[19] = katana_arrow = new ModuleKatanaArrow();
+	modules[20] = ayin_arrow = new ModuleAyinArrow();
+	modules[21] = ayin = new ModuleAyin();
 	//modules[19] = collision = new ModuleCollision();
 	
 	modules[22] = particles = new ModuleParticles();

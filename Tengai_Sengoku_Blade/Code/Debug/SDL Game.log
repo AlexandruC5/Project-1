@@ -2,33 +2,14 @@
   ModuleAyinArrow.cpp
 c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\modulescenetemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(132): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(133): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(134): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(135): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(136): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(137): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(138): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(157): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(163): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  ModuleAyin.cpp
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\modulescenetemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(159): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(160): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(163): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(164): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(254): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(258): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(261): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(318): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(321): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(325): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(333): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(337): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(467): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(468): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(566): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayin.cpp(575): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  Generando código...
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(139): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(141): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(142): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(143): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(162): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(168): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.pdb (Partial PDB)

@@ -138,7 +138,7 @@ ModuleAyin::ModuleAyin()
 	return_idle.PushBack({ 170, 149, 28, 30 });
 	return_idle.PushBack({ 202, 148, 28, 30 });
 	return_idle.PushBack({ 233, 148, 26, 30 });
-	return_idle.speed = 0.20f;
+	return_idle.speed = 0.17f;
 }
 
 

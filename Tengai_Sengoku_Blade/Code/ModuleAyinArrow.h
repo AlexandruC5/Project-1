@@ -22,8 +22,8 @@ enum arrow_state_2 {
 	SWORD_WAVE,
 	AYIN_KEEP_DECHARGING,
 	AYIN_COMEBACK,
-	LAST_ARROW_SHOT_2,
-	CAT_SHOT_2,
+	LAST_SWORD_ANIM,
+	
 };
 
 class ModuleAyinArrow : public Module
@@ -51,6 +51,7 @@ public:
 	Animation charged;
 	Animation decharging;
 	Animation return_sword;
+	Animation last_return_sword;
 
 	
 	Animation arrow_shot;
