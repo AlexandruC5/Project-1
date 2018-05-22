@@ -133,9 +133,9 @@ update_status ModuleAyinArrow::Update()
 
 	if (exist) {
 
-		if (state == SPAWN_2) App->render->Blit(graphics, position.x + 23, position.y +5 - r.h, &r);
-		else if (state == LEVEL_ONE_2) App->render->Blit(graphics, position.x + 23, position.y +5 - r.h, &r);
-		else if (state == LEVEL_ONE_CHARGING_2) App->render->Blit(graphics, position.x + 23, position.y +4- r.h, &r);
+		if (state == SPAWN_2) App->render->Blit(graphics, position.x + 16, position.y +5 - r.h, &r);
+		else if (state == LEVEL_ONE_2) App->render->Blit(graphics, position.x + 16, position.y + 5 - r.h, &r);
+		else if (state == LEVEL_ONE_CHARGING_2) App->render->Blit(graphics, position.x + 16, position.y +4- r.h, &r);
 		else if (state == LEVEL_ONE_CHARGE_2) App->render->Blit(graphics, position.x + 12, position.y +4 - r.h, &r);
 		//else if (state == WAVE_SHOT_2) App->render->Blit(graphics, position.x + 25, position.y + 9 - r.h, &r);
 		else if (state == SWORD_WAVE) App->render->Blit(graphics, position.x + 40, position.y + 2 - r.h, &r);
@@ -387,3 +387,5 @@ void ModuleAyinArrow::PerformActions()
 		break;*/
 	}
 }
+
+

@@ -38,7 +38,7 @@ public:
 private:
 	void CheckState();
 	void PerformActions();
-	//void ArrowBehaviour();
+	void SwordBehaviour();
 
 public:
 
@@ -63,7 +63,7 @@ public:
 	arrow_state_2 state = NOT_EXISTING_2;
 	Path shot_movement;
 
-	int arrow_position = 0;
+	
 	int aux, aux1;
 	bool time_shoot = true, exist = false, time_cat = true;
 	bool time_shoot2 = false, time_shoot3 = false;
