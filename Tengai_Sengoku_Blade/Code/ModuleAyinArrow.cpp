@@ -217,6 +217,7 @@ void ModuleAyinArrow::CheckState() {
 		}
 		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP) {
 			time_shoot = true;
+			
 		}
 		break;
 
@@ -229,6 +230,7 @@ void ModuleAyinArrow::CheckState() {
 	case LEVEL_ONE_CHARGE_2:
 		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP) {
 			state = WAVE_SHOT_2;
+			create_wave = true;
 		}
 		break;
 
@@ -315,6 +317,8 @@ void ModuleAyinArrow::PerformActions()
 
 		current_animation = &charging;
 		App->ayin->state = CHARGING_AYIN;
+		
+		
 		break;
 
 	case LEVEL_ONE_CHARGE_2:
@@ -332,7 +336,6 @@ void ModuleAyinArrow::PerformActions()
 		
 		App->ayin->state = SPIN_DECHARGING_AYIN;
 
-		
 		/*if (App->ayin->spin_decharging.Finished()) {
 			current_animation = &decharging;
 		}*/
@@ -360,6 +363,43 @@ void ModuleAyinArrow::PerformActions()
 
 		if (return_sword.Finished()) {
 			return_sword.Reset();
+		}
+
+		if (create_wave) {
+			switch (state_wave) {
+			case 0:
+				App->particles->AddParticle(App->particles->wave1, position.x - 20, position.y + 2, COLLIDER_PLAYER_AYIN_SHOT);
+				state_wave++;
+				break;
+			case 1:
+				App->particles->AddParticle(App->particles->wave2, position.x - 7, position.y + 2, COLLIDER_PLAYER_AYIN_SHOT);
+				state_wave++;
+				break;
+			case 2:
+				App->particles->AddParticle(App->particles->wave3, position.x + 15 , position.y - 16, COLLIDER_PLAYER_AYIN_SHOT);
+				state_wave++;
+				break;
+			case 3:
+				App->particles->AddParticle(App->particles->wave4, position.x + 16, position.y - 16, COLLIDER_PLAYER_AYIN_SHOT);
+			
+				state_wave++;
+				break;
+			case 4:
+				App->particles->AddParticle(App->particles->wave5, position.x + 50, position.y - 16, COLLIDER_PLAYER_AYIN_SHOT);
+				state_wave++;
+				break;
+		    case 5:
+				App->particles->AddParticle(App->particles->wave6, position.x + 50, position.y - 16, COLLIDER_PLAYER_AYIN_SHOT);
+				state_wave++;
+				
+				break;
+			case 6:
+				App->particles->AddParticle(App->particles->wave7, position.x + 50, position.y - 16, COLLIDER_PLAYER_AYIN_SHOT);
+				state_wave = 0;
+				create_wave = false;
+				break;
+			}
+
 		}
 		break;
 		

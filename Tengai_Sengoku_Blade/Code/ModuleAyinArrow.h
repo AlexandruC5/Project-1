@@ -84,7 +84,8 @@ public:
 	int charging_time = 0;
 	int charge_on_entry = 0;
 
-	bool create_bullet = true, update_bullet = false;
+	bool create_wave = true, update_bullet = false;
+	int state_wave = 0;
 };
 
 #endif

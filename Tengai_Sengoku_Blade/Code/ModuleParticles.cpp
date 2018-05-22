@@ -150,6 +150,49 @@ bool ModuleParticles::Start()
 	ayin_wave.life = 1400;
 	ayin_wave.speed.x = 12;
 
+	//Ayin charged shot wave (w1)
+	wave1.anim.PushBack({14, 568, 139, 24});
+	wave1.anim.loop = true;
+	wave1.life = 150;
+	wave1.speed.x = App->scene_temple->speed;
+
+	//Ayin charged shot wave (w2)
+	wave2.anim.PushBack({ 174, 572, 147, 15 });
+	wave2.anim.loop = true;
+	wave2.life = 150;
+	wave2.speed.x = App->scene_temple->speed;
+
+	//Ayin charged shot wave (w3)
+	wave3.anim.PushBack({ 332, 560, 127, 26 });
+	wave3.anim.loop = true;
+	wave3.life = 150;
+	wave3.speed.x = App->scene_temple->speed;
+
+	//Ayin charged shot wave (w4)
+	wave4.anim.PushBack({ 11, 603, 112, 26 });
+	wave4.anim.loop = true;
+	wave4.life = 150;
+	wave4.speed.x = App->scene_temple->speed;
+
+	//Ayin charged shot wave (w5)
+	wave5.anim.PushBack({ 139, 602, 104, 27 });
+	wave5.anim.loop = true;
+	wave5.life = 150;
+	wave5.speed.x = App->scene_temple->speed;
+
+	//Ayin charged shot wave (w6)
+	wave6.anim.PushBack({ 269, 605, 98, 17 });
+	wave6.anim.loop = true;
+	wave6.life = 150;
+	wave6.speed.x = App->scene_temple->speed;
+
+
+	//Ayin charged shot wave (w7)
+	wave7.anim.PushBack({ 376, 608, 88, 12 });
+	wave7.anim.loop = true;
+	wave7.life = 30;
+	wave7.speed.x = App->scene_temple->speed;
+
 	//Enemy explosions on Water Stage
 	/*
 	waterExplosion.anim.PushBack({15, 9, 47, 44});
