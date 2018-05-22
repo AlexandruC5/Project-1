@@ -139,6 +139,16 @@ ModuleAyin::ModuleAyin()
 	return_idle.PushBack({ 202, 148, 28, 30 });
 	return_idle.PushBack({ 233, 148, 26, 30 });
 	return_idle.speed = 0.17f;
+
+	//Ultimate Ayin
+	ulti_ayin.PushBack({ 187, 444, 20, 33 });
+	ulti_ayin.PushBack({ 213, 444, 16, 32 });
+	ulti_ayin.PushBack({ 234, 445, 22, 32 });
+	ulti_ayin.PushBack({ 259, 444, 30, 33 });
+	ulti_ayin.PushBack({ 292, 445, 18, 33 });
+	ulti_ayin.PushBack({ 313, 448, 35, 30 });
+	ulti_ayin.loop = false;
+	ulti_ayin.speed = 0.12f;
 }
 
 
@@ -438,6 +448,12 @@ void ModuleAyin::CheckState()
 		}
 		break;
 
+	case ULTI_AYIN:
+		if (ulti_ayin.Finished()) {
+			ulti_ayin.Reset();
+			state = IDLE_2;
+		}
+
 	case SPIN_2:
 		if (spin.Finished()) {
 			spin.Reset();
@@ -559,6 +575,12 @@ void ModuleAyin::PerformActions()
 		if (return_idle.Finished())
 			return_idle.Reset();
 		current_animation = &return_idle;
+		break;
+
+	case ULTI_AYIN:
+		/*if (ulti_ayin.Finished())
+			ulti_ayin.Reset();*/
+		current_animation = &ulti_ayin;
 		break;
 
 	case SPIN_2:

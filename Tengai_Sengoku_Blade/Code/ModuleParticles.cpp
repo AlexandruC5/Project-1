@@ -193,6 +193,13 @@ bool ModuleParticles::Start()
 	wave7.life = 30;
 	wave7.speed.x = App->scene_temple->speed;
 
+
+	//Ayin ultimate
+	ulti_ayin.anim.PushBack({15, 644, 117, 66 });
+	ulti_ayin.anim.loop = true;
+	ulti_ayin.life = 1400;
+	ulti_ayin.speed.x = App->scene_temple->speed + 1.5;
+
 	//Enemy explosions on Water Stage
 	/*
 	waterExplosion.anim.PushBack({15, 9, 47, 44});

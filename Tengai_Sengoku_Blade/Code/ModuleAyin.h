@@ -27,8 +27,9 @@ enum player_state_2 {
 	CHARGE_AYIN,
 	SPIN_DECHARGING_AYIN,
 	DECHARGING_AYIN,
-	
 	RETURN_IDLE_AYIN,
+
+	ULTI_AYIN,
 
 
 };
@@ -78,6 +79,7 @@ public:
 	Animation decharging;
 
 	Animation return_idle;
+	Animation ulti_ayin;
 
 	SDL_Rect death;
 	
@@ -108,6 +110,7 @@ public:
 	int bullet_on_entry = 0;*/
 
 	int power_up = 0;
+	int ulti = 0;
 
 };
 #endif 

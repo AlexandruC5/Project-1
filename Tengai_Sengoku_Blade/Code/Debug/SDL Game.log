@@ -1,15 +1,10 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (SDL6 Handout.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  ModuleParticles.cpp
+  ModuleAyinUltimate.cpp
 c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\modulescenetemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(127): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(157): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(163): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(169): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(175): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(181): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(187): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(194): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(226): warning C4305: '=': truncamiento de 'double' a 'float'
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinultimate.cpp(104): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinultimate.cpp(105): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinultimate.cpp(106): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\wolfs\onedrive\documentos\github\project-1\tengai_sengoku_blade\code\moduleayinultimate.cpp(202): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
   SDL Game.vcxproj -> C:\Users\wolfs\OneDrive\Documentos\GitHub\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.pdb (Partial PDB)

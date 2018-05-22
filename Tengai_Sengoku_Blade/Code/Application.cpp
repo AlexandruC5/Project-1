@@ -26,6 +26,7 @@
 #include "ModuleAyinArrow.h"
 #include "CharSelec.h"
 #include "ModuleInterface.h"
+#include "ModuleAyinUltimate.h"
 
 Application::Application()
 {
@@ -63,11 +64,12 @@ Application::Application()
 	modules[19] = katana_arrow = new ModuleKatanaArrow();
 	modules[20] = ayin_arrow = new ModuleAyinArrow();
 	modules[21] = ayin = new ModuleAyin();
+	modules[22] = ulti_ayin = new ModuleAyinUltimate();
 	//modules[19] = collision = new ModuleCollision();
 	
-	modules[22] = particles = new ModuleParticles();
-	modules[23] = inter = new ModuleInterface();
-	modules[24] = collision = new ModuleCollision();
+	modules[23] = particles = new ModuleParticles();
+	modules[24] = inter = new ModuleInterface();
+	modules[25] = collision = new ModuleCollision();
 	//modules[21] = charmenu = new ModuleCharSelec();
 	
 	

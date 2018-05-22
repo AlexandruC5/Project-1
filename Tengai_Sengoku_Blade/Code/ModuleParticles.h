@@ -19,6 +19,7 @@ enum PARTICLE_TYPE
 	PARTICLE_SHOT,
 	PARTICLE_SHOT_KATANA,
 	PARTICLE_SHOT_AYIN,
+	PARTICLE_ULTI_AYIN,
 	PLAYER_ENEMY,
 	PARTICLE_ENEMY_SHOT
 
@@ -78,6 +79,7 @@ public:
 	Particle arrow_shoot, charged_arrow_shoot;
 	Particle enemy_bullet;
 	Particle wave1, wave2, wave3, wave4, wave5, wave6, wave7;
+	Particle ulti_ayin;
 	bool timer = false;
 	int current_time = 1200, time_on_entry = 0;
 
