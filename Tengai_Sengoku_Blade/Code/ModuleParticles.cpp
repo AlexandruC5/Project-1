@@ -127,8 +127,9 @@ bool ModuleParticles::Start()
 	charged_arrow_shoot.speed.x = App->scene_temple->speed;
 	//charged_arrow_shoot.speed.y = 2;
 
-	//Ayin shoots
+	//Ayin shoots  (pu 0 - 4)
 
+	//Power up 0 & 1
 	ayin_shoot1.anim.PushBack({6, 516, 21, 5});
 	ayin_shoot1.anim.loop = true;
 	ayin_shoot1.life = 1400;
@@ -144,11 +145,65 @@ bool ModuleParticles::Start()
 	ayin_shoot3.life = 1400;
 	ayin_shoot3.speed.x = 12;
 
-	//Ayin wave
+	//Power up 2
+	ayin_shoot1_2.anim.PushBack({ 88, 516, 27, 7 });
+	ayin_shoot1_2.anim.loop = true;
+	ayin_shoot1_2.life = 1400;
+	ayin_shoot1_2.speed.x = 12;
+
+	ayin_shoot2_2.anim.PushBack({ 121, 515, 27, 7 });
+	ayin_shoot2_2.anim.loop = true;
+	ayin_shoot2_2.life = 1400;
+	ayin_shoot2_2.speed.x = 12;
+
+	ayin_shoot3_2.anim.PushBack({ 154, 515, 27, 7 });
+	ayin_shoot3_2.anim.loop = true;
+	ayin_shoot3_2.life = 1400;
+	ayin_shoot3_2.speed.x = 12;
+
+	//Power up 3 & 4
+	ayin_shoot1_3.anim.PushBack({ 187, 514, 33, 7 });
+	ayin_shoot1_3.anim.loop = true;
+	ayin_shoot1_3.life = 1400;
+	ayin_shoot1_3.speed.x = 12;
+
+	ayin_shoot2_3.anim.PushBack({ 222, 515, 33, 7 });
+	ayin_shoot2_3.anim.loop = true;
+	ayin_shoot2_3.life = 1400;
+	ayin_shoot2_3.speed.x = 12;
+
+	ayin_shoot3_3.anim.PushBack({ 259, 515, 33, 7 });
+	ayin_shoot3_3.anim.loop = true;
+	ayin_shoot3_3.life = 1400;
+	ayin_shoot3_3.speed.x = 12;
+
+	//Ayin wave (pu 1-4)
+
+	//Power up 1
 	ayin_wave.anim.PushBack({11, 529, 16, 23});
 	ayin_wave.anim.loop = true;
 	ayin_wave.life = 1400;
 	ayin_wave.speed.x = 12;
+
+	//Power up 2
+	ayin_wave_2.anim.PushBack({ 315, 505, 17, 32 });
+	ayin_wave_2.anim.loop = true;
+	ayin_wave_2.life = 1400;
+	ayin_wave_2.speed.x = 12;
+
+	//Power up 3
+	ayin_wave_3.anim.PushBack({ 337, 499, 17, 40 });
+	ayin_wave_3.anim.loop = true;
+	ayin_wave_3.life = 1400;
+	ayin_wave_3.speed.x = 12;
+
+	//Power up 4
+	ayin_wave_4.anim.PushBack({ 363, 496, 27, 48 });
+	ayin_wave_4.anim.loop = true;
+	ayin_wave_4.life = 1400;
+	ayin_wave_4.speed.x = 12;
+
+
 
 	//Ayin charged shot wave (w1)
 	wave1.anim.PushBack({14, 568, 139, 24});

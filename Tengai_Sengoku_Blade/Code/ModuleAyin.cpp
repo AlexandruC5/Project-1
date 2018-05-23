@@ -231,8 +231,8 @@ update_status ModuleAyin::Update()
 	if (power_up < 0) {
 		power_up = 0;
 	}
-	if (power_up > 2) {
-		power_up = 2;
+	if (power_up > 4) {
+		power_up = 4;
 	}
 
 	//check state
@@ -267,14 +267,38 @@ update_status ModuleAyin::Update()
 			aux1++;
 			switch (aux1) {
 			case 0:
-				App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				if (power_up == 0 || power_up == 1) {
+					App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 2) {
+					App->particles->AddParticle(App->particles->ayin_shoot1_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 3 || power_up == 4) {
+					App->particles->AddParticle(App->particles->ayin_shoot1_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
 				LOG("Shoot 1");
 				break;
 			case 1:
-				App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				if (power_up == 0 || power_up == 1) {
+					App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 2) {
+					App->particles->AddParticle(App->particles->ayin_shoot2_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 3 || power_up == 4) {
+					App->particles->AddParticle(App->particles->ayin_shoot2_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
 				break;
 			case 2:
-				App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				if (power_up == 0 || power_up == 1) {
+					App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 2) {
+					App->particles->AddParticle(App->particles->ayin_shoot3_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 3 || power_up == 4) {
+					App->particles->AddParticle(App->particles->ayin_shoot3_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
 				aux1 = 0;
 				break;
 
