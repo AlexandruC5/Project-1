@@ -159,14 +159,43 @@ update_status ModuleAyinArrow::Update()
 				
 				switch (aux1) {
 				case 0:
-					App->particles->AddParticle(App->particles->ayin_wave, position.x, position.y-7, COLLIDER_PLAYER_AYIN_SHOT);
-					shot_delay = true;
+					if (App->ayin->power_up == 1) {
+						App->particles->AddParticle(App->particles->ayin_wave, position.x, position.y - 7, COLLIDER_PLAYER_AYIN_SHOT);
+						shot_delay = true;
+					}
+					else if (App->ayin->power_up == 2) {
+						App->particles->AddParticle(App->particles->ayin_wave_2, position.x, position.y - 7, COLLIDER_PLAYER_AYIN_SHOT);
+						shot_delay = true;
+					}
+					else if (App->ayin->power_up == 3) {
+						App->particles->AddParticle(App->particles->ayin_wave_3, position.x, position.y - 7, COLLIDER_PLAYER_AYIN_SHOT);
+						shot_delay = true;
+					}
+					else if (App->ayin->power_up == 4) {
+						App->particles->AddParticle(App->particles->ayin_wave_4, position.x , position.y - 7, COLLIDER_PLAYER_AYIN_SHOT);
+						shot_delay = true;
+					}
 					LOG("Shoot 1");
 					aux1++;
 					break;
+
 				case 1:
-					App->particles->AddParticle(App->particles->ayin_wave, position.x, position.y - 25, COLLIDER_PLAYER_AYIN_SHOT);
-					shot_delay = true;
+					if (App->ayin->power_up == 1) {
+						App->particles->AddParticle(App->particles->ayin_wave, position.x, position.y - 25, COLLIDER_PLAYER_AYIN_SHOT);
+						shot_delay = true;
+					}
+					else if (App->ayin->power_up == 2) {
+						App->particles->AddParticle(App->particles->ayin_wave_2, position.x, position.y - 25, COLLIDER_PLAYER_AYIN_SHOT);
+						shot_delay = true;
+					}
+					else if (App->ayin->power_up == 3) {
+						App->particles->AddParticle(App->particles->ayin_wave_3, position.x, position.y - 25, COLLIDER_PLAYER_AYIN_SHOT);
+						shot_delay = true;
+					}
+					else if (App->ayin->power_up == 4) {
+						App->particles->AddParticle(App->particles->ayin_wave_4, position.x , position.y - 25, COLLIDER_PLAYER_AYIN_SHOT);
+						shot_delay = true;
+					}
 					aux1 = 0;
 					break;
 				}
@@ -201,8 +230,8 @@ void ModuleAyinArrow::CheckState() {
 			exist = false;
 			state = NOT_EXISTING_2;
 		}
-		if (App->ayin->power_up == 2) {
-			state = LEVEL_FOUR_2;
+		if (App->ayin->power_up == 2 || App->ayin->power_up == 3 || App->ayin->power_up == 4) {
+			state = LEVEL_ONE_2;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_REPEAT) {
 			if (time_shoot) {

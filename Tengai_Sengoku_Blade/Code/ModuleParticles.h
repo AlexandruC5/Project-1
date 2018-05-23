@@ -75,8 +75,12 @@ public:
 	//Katana
 	Particle shoot1, shoot2, shoot3;
 	Particle ayin_shoot1, ayin_shoot2, ayin_shoot3;
-	Particle ayin_wave;
+
+	
+	Particle ayin_wave, ayin_wave_2, ayin_wave_3, ayin_wave_4;
 	Particle arrow_shoot, charged_arrow_shoot;
+	Particle ayin_shoot1_2, ayin_shoot2_2, ayin_shoot3_2;
+	Particle ayin_shoot1_3, ayin_shoot2_3, ayin_shoot3_3;
 	Particle enemy_bullet;
 	Particle wave1, wave2, wave3, wave4, wave5, wave6, wave7;
 	Particle ulti_ayin;
