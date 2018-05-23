@@ -17,6 +17,7 @@
 #include "SDL\include\SDL_timer.h"
 #include "ModuleSceneTemple.h"
 #include "ModuleKatana.h"
+#include "ModuleAyin.h"
 #include "ModuleInterface.h"
 #include <string>
 
@@ -105,7 +106,7 @@ update_status ModuleInterface::Update()
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
 	//Player1: katana
-	if (!game_over_katana) {
+	if (!game_over_katana && App->katana->IsEnabled()) {
 		App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
 		App->fonts->BlitText(55, 5, font_score, player1_score);
 
@@ -119,25 +120,24 @@ update_status ModuleInterface::Update()
 	}
 
 	//Player2: ayin
-	//if (!game_over_ayin && App->ayin->IsEnabled()) {
-	//	App->render->Blit(graphics, 170, 5, &player2, 0.00f, 0.00f);
-	//	App->fonts->BlitText(180, 5, font_score, player2_score);
+	if (!game_over_ayin && App->ayin->IsEnabled()) {
+		App->render->Blit(graphics, 170, 5, &player2, 0.00f, 0.00f);
+		App->fonts->BlitText(180, 5, font_score, player2_score);
 
-	//	//Life Sho
-	//	for (int i = 1; i <= num_life_ayin - 1; i++) {
-	//		App->render->Blit(graphics, 236 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);
-	//	}
-	//}
-	//else {
-	//	App->render->Blit(graphics, 210, 10, &r, 0.00f, 0.00f);
-	//}
-
-	//
+		//Life ayin
+		for (int i = 1; i <= num_life_ayin - 1; i++) {
+			App->render->Blit(graphics, 236 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);
+		}
+	}
+        else {
+		App->render->Blit(graphics, 210, 10, &r, 0.00f, 0.00f);
+	}
+	
 
 	//Game over
 	SDL_SetTextureAlphaMod(black, alpha);
 
-	if (game_over_katana /*&& game_over_ayin*/) {
+	if (game_over_katana && game_over_ayin || game_over_katana &&  !App->ayin->IsEnabled() || game_over_ayin &&  !App->katana->IsEnabled()) {
 		//Time countdown
 		App->scene_temple->speed = 0;
 

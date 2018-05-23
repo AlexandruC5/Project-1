@@ -44,21 +44,22 @@ public:
 	Animation phase1;
 	Animation phase2;
 	Animation phase3;
-	
+
+
 
 	
 
 
 	fPoint position;
-	ulti_state state = NO_ULTI;
+	ulti_state state = NO_ULTI,  state2 = NO_ULTI,  state3 = NO_ULTI,  state4 = NO_ULTI;
 	Path shot_movement;
-
+	bool active = false, active2 = false;
 
 	int spot1 = 0, spot2 = 0, spot3 = 0, spot4 = 0;
-	bool ulti = true;
+	bool ulti = true,  ulti2 = true;
 
 	int aux, aux1;
-	bool time_shoot = true, exist = false, time_cat = true;
+	bool time_shoot = true, exist = false, time_cat = true, exist2 = false;
 	bool time_shoot2 = false, time_shoot3 = false;
 	bool arrow_behaviour = false;
 	bool shot_delay = true;

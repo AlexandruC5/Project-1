@@ -226,12 +226,12 @@ update_status ModuleSceneTemple::Update()
 		App->render->camera.x += speed;
 
 		//Enable Players
-		if (App->input->keyboard[SDL_SCANCODE_E] == KEY_STATE::KEY_DOWN) {
-			if (!App->ayin->IsEnabled()) {
-				//App->audio->PlaySoundEffects(select_sho);
-				App->ayin->Enable();
-			}
-		}
+		//if (App->input->keyboard[SDL_SCANCODE_E] == KEY_STATE::KEY_DOWN) {
+		//	if (!App->ayin->IsEnabled()) {
+		//		//App->audio->PlaySoundEffects(select_sho);
+		//		App->ayin->Enable();
+		//	}
+		//}
 
      if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 
@@ -252,10 +252,14 @@ bool ModuleSceneTemple::CleanUp()
 	App->collision->Disable();
 	App->particles->Disable();
 	App->enemies->Disable();
-	App->katana->Disable();
+	//App->katana->Disable();
 	App->textures->Unload(graphics);
 	App->inter->Disable();
-	
+
+	if (App->ayin->IsEnabled()) {
+		App->katana->Disable();
+	}
+
 	if (App->ayin->IsEnabled()) {
 		App->ayin->Disable();
 	}

@@ -168,7 +168,7 @@ bool ModuleKatana::CleanUp()
 	if (hitbox != nullptr)
 		 hitbox->to_delete = true;
 
-	//App->inter->game_over_katana = true;
+	App->inter->game_over_katana = true;
 
 	return true;
 }
@@ -542,7 +542,7 @@ void ModuleKatana::PerformActions()
 
 		 else {
 			 check_death = false;
-			 //App->inter->game_over_katana = true;
+			 
 		 }
 		break;
 	}

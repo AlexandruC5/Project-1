@@ -14,8 +14,10 @@
 #include "SDL\include\SDL_render.h"
 #include "ModuleAyin.h"
 #include "ModuleAyinArrow.h"
+#include "ModuleAyinUltimate.h"
 #include "ModuleSceneTemple.h"
 #include "CharSelec.h"
+#include "ModuleInterface.h"
 
 
 
@@ -180,7 +182,9 @@ bool ModuleAyin::Start()
 	destroyed = false;
 
 	App->ayin_arrow->Enable();
+	App->ulti_ayin->Enable();
 
+	App->inter->num_life_ayin = 3;
 	return true;
 }
 
@@ -195,7 +199,9 @@ bool ModuleAyin::CleanUp()
 	App->textures->Unload(graphics);
 	App->textures->Unload(player_death);
 	App->ayin_arrow->Disable();
+	App->ulti_ayin->Disable();
 
+	App->inter->game_over_ayin = true;
 	return true;
 }
 
@@ -474,16 +480,13 @@ void ModuleAyin::CheckState()
 		}*/
 
 	case POST_DEATH_2:
-		/*if (App->ui->num_life_koyori > 0) {
+		if (App->inter->num_life_ayin > 0) {
 			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 			position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
 			time = true;
 			state = SPAWN_PLAYER_2;
-		}*/
-		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
-		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
-		time = true;
-		state = SPAWN_PLAYER_2;
+		}
+		
 		break;
 	}
 }
@@ -493,7 +496,7 @@ void ModuleAyin::PerformActions()
 	switch (state) {
 
 	case SPAWN_PLAYER_2:
-		//App->inter->game_over_katana = false;
+		App->inter->game_over_ayin = false;
 		check_spawn = true;
 		current_animation = &idle;
 		blink_time = SDL_GetTicks() - blink_on_entry;
@@ -602,15 +605,16 @@ void ModuleAyin::PerformActions()
 		alpha_player = 255;
 		break;
 	case POST_DEATH_2:
-		/*if (App->ui->num_life_sho == 0) {
-			if (App->ui->score_sho > 1000) {
-				App->ui->score_sho -= 1000;
+		if (App->inter->num_life_ayin == 0) {
+			if (App->inter->score_ayin > 1000) {
+				App->inter->score_ayin -= 1000;
 			}
-			App->player2->Disable();
+			App->ayin->Disable();
 		}
-		else {*/
+		else {
 			check_death = false;
-		//}
+		}
+		break;
 	}
 
 }

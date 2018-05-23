@@ -93,6 +93,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_SHOOT][COLLIDER_POWER_UP] = false;
 
 	matrix[COLLIDER_PLAYER_AYIN_ULTI][COLLIDER_WALL] = false;
+	matrix[COLLIDER_PLAYER_AYIN_ULTI][COLLIDER_PLAYER_AYIN_ULTI] = false;
 }
 
 // Destructor
