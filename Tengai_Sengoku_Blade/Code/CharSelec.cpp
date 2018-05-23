@@ -65,7 +65,7 @@ bool ModuleCharSelec::Start() {
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	clock = 9;
-	frames = 0;
+	frames = -100;
 	s = 0;
 	reset = false;
 	player1 = false;
@@ -345,8 +345,8 @@ update_status ModuleCharSelec::Update() {
 		
 	}
 
-	if (frames <= 50) App->render->Blit(graphics3, 166, 211, &n9), clock = 9;
-	else if(frames>=57&&frames<=100)App->render->Blit(graphics3, 166, 211, &n8), clock = 8;
+	if (frames <= 0) App->render->Blit(graphics3, 166, 211, &n9), clock = 9;
+	else if (frames >= 7 && frames <= 100)App->render->Blit(graphics3, 166, 211, &n8), clock = 8;
 	else if (frames > 107 && frames <= 200)App->render->Blit(graphics3, 166, 211, &n7), clock = 7;
 	else if (frames >= 207 && frames <= 300)App->render->Blit(graphics3, 166, 211, &n6), clock = 6;
 	else if (frames >= 307 && frames <= 400)App->render->Blit(graphics3, 166, 211, &n5), clock = 5;
@@ -357,7 +357,7 @@ update_status ModuleCharSelec::Update() {
 	else if (frames >= 807 && frames <= 900)App->render->Blit(graphics3, 166, 211, &n0), clock = 0;
 	//else if (players == TWOPLAYERS && s == 0) frames = 0;
 	//s = 1;
-	else if (players == TWOPLAYERS && s == 0) frames = 0, s = 1;
+	else if (players == TWOPLAYERS && s == 0) frames = -100, s = 1;
 	reset = false;
 
 	return update_status:: UPDATE_CONTINUE;

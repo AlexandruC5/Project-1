@@ -10,6 +10,7 @@
 #include "ModuleSceneWater.h"
 #include "SDL_mixer/include/SDL_mixer.h"
 #include "SDL/include/SDL.h"
+#include "CharSelec.h"
 
 ModuleWinScreen::ModuleWinScreen() {
 	up = { 185,0,327,112 };
@@ -23,15 +24,18 @@ ModuleWinScreen::ModuleWinScreen() {
 	letters = { 196,228,81,16 };
 	katana = { 31,18,278,161 };
 	//katana =  { 381,18,286,161 };
-
+	Ayin = { 52,99,202,154 };
 
 	//path.PushBack{0,155}
 }
 
-ModuleWinScreen::~ModuleWinScreen() {}
 
 
-bool ModuleWinScreen::Init() {
+
+bool ModuleWinScreen::Start() {
+
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
 	goUP = 0.0f;
 	goDown = 100.0f;
 	MaxDown = 155;
@@ -41,59 +45,45 @@ bool ModuleWinScreen::Init() {
 	goright = -100;
 	maxr = 10;
 	goleft1 = 0;
-	goleft2 = sky2.w;//distancia2
+	goleft2 = sky2.w;
 	maxleft1 = -sky.w;
+
 	maxleft2 = -sky2.w - sky2.w;
 	Welcome = false;
 	fade = false;
-	return true;
-}
-bool ModuleWinScreen::Start() {
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
 	graphics1 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Background.png");
 	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Katanawinsheet.png");
+	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Win/ayinwinsheet.png");
 	Winfade = App->audio->LoadMusic("assets/audio/music/Level_Completed.ogg");
 	Mix_PlayMusic(Winfade, 1);
 
 	return true;
 }
 
-void ModuleWinScreen::move() {
 
-}
 
 
 update_status ModuleWinScreen::Update() {
-	fade = false;
+	//fade = false;
 	if (goleft1 >= maxleft1) {
 		goleft1 -= 1;
-		if (goleft1 <= maxleft1/1.8) Welcome = true;
+		if (goleft1 <= maxleft1 / 1.8) Welcome = true;
 	}
 
-	else if (goleft1 <= maxleft1/5.0) {
+	else if (goleft1 <= maxleft1 / 5.0) {
 		goleft1 = sky2.w;
 		Welcome = true;
 	}
 
-	if (Welcome == true) {
-		goUP = 0.0f;
-		goDown = 100.0f;
-		MaxDown = 155;
-		MaxUp = -47;
-		U = -2.0f;
-		M = 0.0f;
-		goright = -100;
-		maxr = 10;
-		goleft1 = 0;
-		goleft2 = sky2.w;
-		maxleft1 = -sky.w;
-		maxleft2 = -sky2.w - sky2.w;
-		Welcome = false; 
-		fade = true;
-	}
-	if (fade == true)  App->fade->FadeToBlack(this, App->scene_start, 0.1);
+	if (Welcome == true)   App->fade->FadeToBlack(this, App->scene_start, 0.5);
+
+	//CASE SEKECTOR
+	if (App->charmenu->P1katana && App->charmenu->P2ayin) state = KATANA_AYIN;
+	else if (App->charmenu->P1ayin && App->charmenu->P2katana) state = AYIN_KATANA;
+	else if (App->charmenu->P1ayin) state = AYIN;
+	else if (App->charmenu->P1katana) state = KATANA;
+
 
 	if (goleft2 >= maxleft2) goleft2 -= 1;
 	/*else if (goleft2 <= maxleft2) {
@@ -122,11 +112,38 @@ update_status ModuleWinScreen::Update() {
 	}
 	App->render->Blit(graphics1, -5, goUP, &up); //0, -47
 
+												 //CASE KATANA
+	switch (state) {
+	case KATANA:
+		if (goUP <= MaxUp / 2 && goDown >= MaxDown / 2) {
+			App->render->Blit(graphics2, 15, U, &katana, 0.45f);
+		}
+		break;
+	case AYIN:
+		if (goUP <= MaxUp / 2 && goDown >= MaxDown / 2) {
+			App->render->Blit(graphics3, 15, U, &Ayin, 0.45f);
+		}
 
+		break;
 
-	if (goUP <= MaxUp / 2 && goDown >= MaxDown / 2) {
-		App->render->Blit(graphics2, 15, U, &katana, 0.45f);
+	case AYIN_KATANA:
+		if (goUP <= MaxUp / 2 && goDown >= MaxDown / 2) {
+			App->render->Blit(graphics2, 100, U, &katana, 0.45f);
+			App->render->Blit(graphics3, -50, -U + 50, &Ayin, 0.45f);
+
+		}
+		break;
+
+	case KATANA_AYIN:
+		if (goUP <= MaxUp / 2 && goDown >= MaxDown / 2) {
+			App->render->Blit(graphics3, 130, U, &Ayin, 0.45f);
+			App->render->Blit(graphics2, -70, -U + 50, &katana, 0.45f);
+
+		}
+		break;
 	}
+
+
 	if (goUP <= MaxUp / 1.1 && goDown >= MaxDown / 1.1) {
 		if (goright <= maxr) { goright += 2.0; }
 	}
@@ -135,11 +152,7 @@ update_status ModuleWinScreen::Update() {
 
 
 
-	/*if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-
-		//App->fade->FadeToBlack(this, App->scene_start, 2);
-
-	}*/
+															  
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -148,6 +161,8 @@ bool ModuleWinScreen::CleanUp() {
 	graphics1 = nullptr;
 	App->textures->Unload(graphics2);
 	graphics2 = nullptr;
+	App->textures->Unload(graphics3);
+	graphics3 = nullptr;
 	App->audio->UnloadMusic(Winfade);
 	Winfade = nullptr;
 	return true;

@@ -9,6 +9,14 @@ struct SDL_Texture;
 struct _Mix_Music;
 struct Mix_Chunk;
 struct Path;
+
+enum clear_stage {
+	AYIN,
+	KATANA,
+	KATANA_AYIN,
+	AYIN_KATANA,
+};
+
 class ModuleWinScreen : public Module
 {
 private:
@@ -20,9 +28,12 @@ private:
 	bool fade;
 	SDL_Texture* graphics1 = nullptr;
 	SDL_Texture* graphics2 = nullptr;
+	SDL_Texture* graphics3 = nullptr;
+
 	//SDL_Texture* graphics3 = nullptr;
 	Path path;
 	SDL_Rect katana;
+	SDL_Rect Ayin;
 
 	int i = 0;
 	SDL_Rect up;
@@ -33,13 +44,11 @@ private:
 	_Mix_Music* Winfade = nullptr;
 
 public:
-ModuleWinScreen();
-	~ModuleWinScreen();
+    ModuleWinScreen();
 	update_status Update();
-	bool Init();
 	bool CleanUp();
 	bool Start();
-	void move();
-	
+	clear_stage state;
+
 };
 #endif // !_WIN_SCREEN_H
