@@ -10,6 +10,12 @@
 
 struct SDL_Texture;
 
+enum UI {
+	P1AYIN,
+	P1KATANA,
+	P2KATANAAYIN,
+	P2AYINKATANA,
+};
 class ModuleInterface : public Module
 {
 public:
@@ -19,7 +25,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
-
+	UI  UIstate;
 public:
 	int font_score = -1, font_time = 0;
 	int alpha = 0;

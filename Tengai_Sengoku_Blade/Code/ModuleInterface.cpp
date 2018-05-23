@@ -20,7 +20,7 @@
 #include "ModuleAyin.h"
 #include "ModuleInterface.h"
 #include <string>
-
+#include "CharSelec.h"
 
 ModuleInterface::ModuleInterface()
 {
@@ -94,7 +94,10 @@ bool ModuleInterface::CleanUp()
 update_status ModuleInterface::Update()
 {
 	//App->fonts->(0, 0, font_score, "godmode");
-
+	if (App->charmenu->P1katana && App->charmenu->P2ayin) UIstate = P2KATANAAYIN;
+	else if (App->charmenu->P1ayin && App->charmenu->P2katana) UIstate = P2AYINKATANA;
+	else if (App->charmenu->P1katana) UIstate = P1KATANA;
+	else if (App->charmenu->P1ayin) UIstate = P1AYIN;
 	//Draw UI Score
 	sprintf_s(player1_score, 10, "%1d", score_katana);
 	sprintf_s(player2_score, 10, "%1d", score_ayin);
@@ -105,35 +108,90 @@ update_status ModuleInterface::Update()
 	current_animation = &start;
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	//Player1: katana
-	if (!game_over_katana && App->katana->IsEnabled()) {
-		App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
-		App->fonts->BlitText(55, 5, font_score, player1_score);
+	switch (UIstate) {
+	case P1KATANA:
+		//Player1: katana
+		if (!game_over_katana && App->katana->IsEnabled()) {
+			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
+			App->fonts->BlitText(55, 5, font_score, player1_score);
 
-		//Life Katana
-		for (int i = 1; i <= num_life_katana - 1; i++) {
-			App->render->Blit(graphics, 76 + life_katana.w*i, 1, &life_katana, 0.00f, 0.00f);
+			//Life Katana
+			for (int i = 1; i <= num_life_katana - 1; i++) {
+				App->render->Blit(graphics, 76 + life_katana.w*i, 1, &life_katana, 0.00f, 0.00f);
+			}
 		}
-	}
-	else {
-		App->render->Blit(graphics, 35, 10, &r, 0.00f, 0.00f);
-	}
-
-	//Player2: ayin
-	if (!game_over_ayin && App->ayin->IsEnabled()) {
-		App->render->Blit(graphics, 170, 5, &player2, 0.00f, 0.00f);
-		App->fonts->BlitText(180, 5, font_score, player2_score);
-
-		//Life ayin
-		for (int i = 1; i <= num_life_ayin - 1; i++) {
-			App->render->Blit(graphics, 236 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);
-		}
-	}
-        else {
-		App->render->Blit(graphics, 210, 10, &r, 0.00f, 0.00f);
-	}
+		
+			App->render->Blit(graphics, 210, 10, &r, 0.00f, 0.00f); //Can't be possible (start where p1 is APPART!!!!!!! ENRECORDAT GERARD
+		
+		break;
 	
+	
+	case P1AYIN:
 
+		if (!game_over_ayin && App->ayin->IsEnabled()) {
+			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
+			App->fonts->BlitText(55, 5, font_score, player1_score);
+
+			for (int i = 1; i <= num_life_ayin - 1; i++) {
+				App->render->Blit(graphics, 76 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);
+			}
+		}
+
+		App->render->Blit(graphics, 210, 10, &r, 0.00f, 0.00f);
+		break;
+
+		//Player2: ayin
+
+	case P2KATANAAYIN:
+
+		if (!game_over_katana && App->katana->IsEnabled()) {
+			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
+			App->fonts->BlitText(55, 5, font_score, player1_score);
+
+			//Life Katana
+			for (int i = 1; i <= num_life_katana - 1; i++) {
+				App->render->Blit(graphics, 76 + life_katana.w*i, 1, &life_katana, 0.00f, 0.00f);
+			}
+		}
+		if (!game_over_ayin && App->ayin->IsEnabled()) {
+			App->render->Blit(graphics, 170, 5, &player2, 0.00f, 0.00f);
+			App->fonts->BlitText(215, 5, font_score, player2_score);
+
+			//Life ayin
+			for (int i = 1; i <= num_life_ayin - 1; i++) {
+				App->render->Blit(graphics, 236 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);
+			}
+		}
+
+	
+			//App->render->Blit(graphics, 35, 10, &r, 0.00f, 0.00f); //start till p2 is enable
+		
+
+		break;
+
+	case P2AYINKATANA:
+		if (!game_over_ayin && App->ayin->IsEnabled()) {
+			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
+			App->fonts->BlitText(55, 5, font_score, player1_score);
+
+			for (int i = 1; i <= num_life_ayin - 1; i++) {
+				App->render->Blit(graphics, 76 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);
+			}
+		}
+
+		if (!game_over_katana && App->katana->IsEnabled()) {
+			App->render->Blit(graphics, 170, 5, &player2, 0.00f, 0.00f);
+			App->fonts->BlitText(215, 5, font_score, player2_score);
+
+			//Life Katana
+			for (int i = 1; i <= num_life_katana - 1; i++) {
+				App->render->Blit(graphics, 236 + life_katana.w*i, 1, &life_katana, 0.00f, 0.00f);
+			}
+		}
+		break;
+	}
+
+	
 	//Game over
 	SDL_SetTextureAlphaMod(black, alpha);
 

@@ -256,7 +256,7 @@ bool ModuleSceneTemple::CleanUp()
 	App->textures->Unload(graphics);
 	App->inter->Disable();
 
-	if (App->ayin->IsEnabled()) {
+	if (App->katana->IsEnabled()) {
 		App->katana->Disable();
 	}
 
