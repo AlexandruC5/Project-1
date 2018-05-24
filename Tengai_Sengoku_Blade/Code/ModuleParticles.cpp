@@ -36,6 +36,7 @@ bool ModuleParticles::Start()
 	card2.anim.PushBack({ 49, 136, 12, 12 });
 	card3.anim.PushBack({ 73, 137, 12, 11 });
 	card4.anim.PushBack({ 97, 137, 13, 11 });
+	
 	card5.anim.PushBack({ 121, 139, 12, 7 });
 
 	card1.anim.loop = false;
