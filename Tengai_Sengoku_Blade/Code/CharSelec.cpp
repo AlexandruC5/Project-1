@@ -35,7 +35,7 @@ ModuleCharSelec:: ModuleCharSelec()
 	time = { 6,72,29,9 };
 	n0 = { 45,19,8,11 };
 	n1 = { 55,19,5,11 };
-	n2 = { 55,19,5,11 };
+	n2 = { 62,19,8,11 };
 	n3 = { 72,19,8,11 };
 	n4 = { 82,19,8,11 };
 	n5 = { 92,19,8,11 };
@@ -90,14 +90,37 @@ bool ModuleCharSelec::Start() {
 
 
 update_status ModuleCharSelec::Update() {
+	//Keyboard Input
 	bool press_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN;
 	bool press_A = App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN;
 	bool press_L = App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN;
 	bool press_R = App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN;
+
+	//Button input
+
+	 //Player 1
+	bool press_Button_A = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A);
+	bool press_Button_start = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_START);
+
+	//Player 2
+	bool press_Button_A2 = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_A);
+	bool press_Button_start2 = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_START);
+
+	//Dpad input
+
+	 //Player 1
+	bool Dpad_left = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
+	bool Dpad_right = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+
+	 //Player 2
+	bool Dpad_left2 = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
+	bool Dpad_right2 = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+
+
 	App->render->Blit(graphics7, 0, 31, &sky);
 	
 	if (clock == 0) state = OUTOFTIME;
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN || press_Button_start || press_Button_start2) {
 		players = TWOPLAYERS;
 		state = KATANAAYIN;
 		reset = true;
@@ -106,12 +129,12 @@ update_status ModuleCharSelec::Update() {
 	switch (players && state) {
 	case ONEPLAYER:
 
-		if (press_D&& state == KATANAP1) state = AYINP1;
-		else if (press_A && state == KATANAP1) state = RANDOMP1;
-		else if (press_A && state == AYINP1) state = KATANAP1;
-		else if (press_D && state == AYINP1) state = RANDOMP1;
-		else if (press_D && state == RANDOMP1) state = KATANAP1;
-		else if (press_A && state == RANDOMP1) state = AYINP1;
+		if (press_D && state == KATANAP1) state = AYINP1;
+		else if (press_A   && state == KATANAP1) state = RANDOMP1;
+		else if (press_A   && state == AYINP1) state = KATANAP1;
+		else if (press_D   && state == AYINP1) state = RANDOMP1;
+		else if (press_D   && state == RANDOMP1) state = KATANAP1;
+		else if (press_A   && state == RANDOMP1) state = AYINP1;
 
 		
 
@@ -140,7 +163,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 35, 127, &lettersA);
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 83, 157, &square1);
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN)P1ayin = true;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN ] == KEY_STATE::KEY_DOWN ||  App->input->gamepad, SDL_CONTROLLER_BUTTON_A || App->input->gamepad2, SDL_CONTROLLER_BUTTON_A)P1ayin = true;
 			if (P1ayin) App->fade->FadeToBlack(this, App->scene_temple, 2);
 			break;
 		case RANDOMP1:
@@ -158,7 +181,7 @@ update_status ModuleCharSelec::Update() {
 				rand+=1.5f;
 			}
 
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && rand <=5) P1katana = true;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && rand <=5 ) P1katana = true;
 			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && rand > 5 && rand <=11 ) P1ayin = true;
 				
 			
@@ -180,17 +203,17 @@ update_status ModuleCharSelec::Update() {
 	case TWOPLAYERS:
 		
 		if (press_D && state == KATANAAYIN) state = RANDOMAYIN; //1 player 
-		else if (press_A  && state == KATANAAYIN) state = RANDOMAYIN;
+		else if (press_A   && state == KATANAAYIN) state = RANDOMAYIN;
 		else if (press_A  && state == AYINKATANA) state = RANDOMKATANA;
 		else if (press_D  && state == AYINKATANA) state = RANDOMKATANA;
-		else if (press_D && state == AYINRANDOM) state = KATANARANDOM;
-		else if (press_A && state == AYINRANDOM) state = KATANARANDOM;
-		else if (press_D && state == RANDOMKATANA) state = AYINKATANA;
-		else if (press_A && state == RANDOMKATANA) state = AYINKATANA;
-		else if (press_A && state == RANDOMAYIN) state = KATANAAYIN;
-		else if (press_D && state == RANDOMAYIN) state = KATANAAYIN;
-		else if (press_D&& state == KATANARANDOM) state = AYINRANDOM;
-		else if (press_A&& state == KATANARANDOM) state = AYINRANDOM;
+		else if (press_D  && state == AYINRANDOM) state = KATANARANDOM;
+		else if (press_A  && state == AYINRANDOM) state = KATANARANDOM;
+		else if (press_D  && state == RANDOMKATANA) state = AYINKATANA;
+		else if (press_A  && state == RANDOMKATANA) state = AYINKATANA;
+		else if (press_A  && state == RANDOMAYIN) state = KATANAAYIN;
+		else if (press_D  && state == RANDOMAYIN) state = KATANAAYIN;
+		else if (press_D  && state == KATANARANDOM) state = AYINRANDOM;
+		else if (press_A  && state == KATANARANDOM) state = AYINRANDOM;
 
 		if (press_R && state == KATANAAYIN) state = KATANARANDOM; //2 player
 		else if (press_L && state == KATANAAYIN) state = KATANARANDOM;

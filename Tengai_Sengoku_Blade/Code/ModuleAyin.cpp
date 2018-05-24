@@ -222,6 +222,10 @@ update_status ModuleAyin::Update()
 	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
 
+	bool gamepad_UP2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
+	bool gamepad_DOWN2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
+	bool gamepad_RIGHT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
+	bool gamepad_LEFT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
 
 	bool shot_space = App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN;
 
@@ -243,16 +247,16 @@ update_status ModuleAyin::Update()
 
 	//Inputs
 	if (input) {
-		if (pressed_J || gamepad_LEFT) {
+		if (pressed_J || gamepad_LEFT || gamepad_LEFT2) {
 			position.x -= speed;
 		}
-		if (pressed_I || gamepad_UP) {
+		if (pressed_I || gamepad_UP || gamepad_UP2) {
 			position.y -= speed;
 		}
-		if (pressed_L || gamepad_RIGHT) {
+		if (pressed_L || gamepad_RIGHT || gamepad_RIGHT2) {
 			position.x += speed;
 		}
-		if (pressed_K || gamepad_DOWN) {
+		if (pressed_K || gamepad_DOWN || gamepad_DOWN2) {
 			position.y += speed;
 		}
 
@@ -408,7 +412,9 @@ void ModuleAyin::CheckState()
 	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
 	
-
+	bool gamepad_UP2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
+	bool gamepad_RIGHT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
+	bool gamepad_LEFT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
 	switch (state)
 	{
 	case SPAWN_PLAYER_2:
@@ -425,7 +431,7 @@ void ModuleAyin::CheckState()
 		break;
 
 	case IDLE_2:
-		if (press_I || press_J || gamepad_UP || gamepad_LEFT) {
+		if (press_I || press_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
 			state = GO_BACKWARD_2;
 		}
 
@@ -433,10 +439,10 @@ void ModuleAyin::CheckState()
 
 	case GO_BACKWARD_2:
 
-		if (release_I || gamepad_UP) {
+		if (release_I || gamepad_UP || gamepad_UP2) {
 			state = BACK_IDLE_2;
 		}
-		if (release_J || gamepad_LEFT) {
+		if (release_J || gamepad_LEFT || gamepad_LEFT2) {
 			state = BACK_IDLE_2;
 		}
 		if (current_animation->Finished()) {
@@ -447,8 +453,8 @@ void ModuleAyin::CheckState()
 
 	case BACKWARD_2:
 
-		if (release_I || release_J || gamepad_UP || gamepad_LEFT) {
-			if (released_I || released_J || gamepad_UP || gamepad_LEFT) {
+		if (release_I || release_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
+			if (released_I || released_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
 
 				state = BACK_IDLE_2;
 
@@ -466,10 +472,10 @@ void ModuleAyin::CheckState()
 		break;
 
 	case BACK_IDLE_2:
-		if (pressed_I || gamepad_UP) {
+		if (pressed_I || gamepad_UP || gamepad_UP2) {
 			state = BACK_IDLE_2;
 		}
-		if (pressed_J || gamepad_LEFT) {
+		if (pressed_J || gamepad_LEFT || gamepad_LEFT2) {
 			state = BACK_IDLE_2;
 		}
 		if (current_animation->Finished()) {
