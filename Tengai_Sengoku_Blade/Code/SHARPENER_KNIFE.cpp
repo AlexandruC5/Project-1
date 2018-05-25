@@ -85,9 +85,8 @@ void SHARPENER_KNIFE::Move()
 	if (App->inter->enemies_movement) {
 
 
-		void CheckState();
-
-		void PerformActions();
+		 CheckState();
+		 PerformActions();
 
 
 
@@ -145,7 +144,7 @@ void SHARPENER_KNIFE::CheckState() {
 		break;
 
 	case GO_BACKWARD_SHARPENER:
-		position.x = original_pos_x += 1;
+		position.x += 2 /*original_pos_x += 1*/;
 		if(position.x >= App->render->camera.x + (App->render->camera.w) - 80){
 			state = SHOOT_SHARPENER;
 		}
