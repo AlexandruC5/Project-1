@@ -106,7 +106,9 @@ bool ModuleSceneTemple::Start()
 
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
-	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,400,50);
+	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,400,50);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::SharpenerKnife, 400, 50);
 
 	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
 	coll_down = App->collision->AddCollider({ 0, SCREEN_HEIGHT - 4, 990000, 16 }, COLLIDER_WALL);

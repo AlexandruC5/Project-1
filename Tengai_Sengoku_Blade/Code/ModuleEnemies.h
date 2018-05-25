@@ -22,7 +22,8 @@ enum ENEMY_TYPES
 	ORIENTAL_GENIUS,
 	RED,
 	DemonPegTop,
-	DemonWheel
+	DemonWheel,
+	SharpenerKnife,
 
 };
 

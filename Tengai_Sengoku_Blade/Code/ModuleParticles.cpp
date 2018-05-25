@@ -309,6 +309,24 @@ bool ModuleParticles::Start()
 	enemy_bullet.anim.loop = true;
 	enemy_bullet.life = 1400;
 
+
+	//Sharpener bullet
+	sharpener_bullet.anim.PushBack({ 208, 677, 10, 8 });
+	sharpener_bullet.speed.x = -7;
+	sharpener_bullet.anim.loop = true;
+	sharpener_bullet.life = 1400;
+
+	//Sharpener shuriken
+	sharpener_shuriken.anim.PushBack({ 167, 650, 10, 10 });
+	sharpener_shuriken.anim.PushBack({ 180, 650, 10, 10 });
+	sharpener_shuriken.anim.PushBack({ 193, 651, 8, 8 });
+	sharpener_shuriken.anim.PushBack({ 204, 651, 8, 8 });
+	sharpener_shuriken.anim.PushBack({ 215, 650, 10, 10 });
+	sharpener_shuriken.anim.PushBack({ 228, 650, 10, 10 });
+	sharpener_shuriken.speed.x = -7;
+	sharpener_shuriken.anim.loop = true;
+	sharpener_shuriken.life = 1400;
+
 	return true;
 }
 

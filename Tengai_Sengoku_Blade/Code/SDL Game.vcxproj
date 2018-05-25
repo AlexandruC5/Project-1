@@ -114,6 +114,7 @@
     <ClInclude Include="OrientalGenius.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
+    <ClInclude Include="SHARPENER_KNIFE.h" />
     <ClInclude Include="WinScreen.h" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,7 @@
     <ClCompile Include="ModuleWelcomeScreen.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="OrientalGenius.cpp" />
+    <ClCompile Include="SHARPENER_KNIFE.cpp" />
     <ClCompile Include="WinScreen.cpp" />
   </ItemGroup>
   <ItemGroup>

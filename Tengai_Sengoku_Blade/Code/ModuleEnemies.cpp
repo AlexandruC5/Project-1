@@ -10,6 +10,7 @@
 #include "red.h"
 #include "DEMONPEGTOP.h"
 #include "DEMONWHEEL.h"
+#include "SHARPENER_KNIFE.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "OrientalGenius.h"
@@ -53,11 +54,22 @@ update_status ModuleEnemies::PreUpdate()
 	// check camera position to decide what to spawn
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (queue[i].type != ENEMY_TYPES::NO_TYPE)
+		/*if (queue[i].type != ENEMY_TYPES::NO_TYPE)
 		{
 			if (queue[i].x * SCREEN_SIZE > App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
 				SpawnEnemy(queue[i]);
+				queue[i].type = ENEMY_TYPES::NO_TYPE;
+				LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
+			}
+		}*/
+
+		if (queue[i].type == ENEMY_TYPES::SharpenerKnife) {
+
+			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) - 100 )
+			{
+				SpawnEnemy(queue[i]);
+				
 				queue[i].type = ENEMY_TYPES::NO_TYPE;
 				LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
 			}
@@ -184,6 +196,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				break;
 			case ENEMY_TYPES::DemonWheel:
 				enemies[i] = new DEMONWHEEL(info.x, info.y);
+
+				break;
+			case ENEMY_TYPES::SharpenerKnife:
+				enemies[i] = new SHARPENER_KNIFE(info.x, info.y);
 
 				break;
 		}

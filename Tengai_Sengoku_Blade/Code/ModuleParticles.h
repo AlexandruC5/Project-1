@@ -84,6 +84,8 @@ public:
 	Particle enemy_bullet;
 	Particle wave1, wave2, wave3, wave4, wave5, wave6, wave7;
 	Particle ulti_ayin;
+	//Sharpener enemy
+	Particle sharpener_bullet, sharpener_shuriken;
 	bool timer = false;
 	int current_time = 1200, time_on_entry = 0;
 
