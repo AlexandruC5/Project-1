@@ -225,7 +225,7 @@ void SHARPENER_KNIFE::PerformActions()
 	switch (state) {
 
 	case SPAWN_SHARPENER:
-		//animation = &spin;
+		animation = &spin;
 		break;
 
 	case GO_BACKWARD_SHARPENER:
