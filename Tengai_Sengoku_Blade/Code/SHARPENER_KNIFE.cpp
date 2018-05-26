@@ -6,6 +6,7 @@
 #include "ModuleRender.h"
 #include "ModuleKatana.h"
 #include "ModuleAyin.h"
+#include "ModuleSceneTemple.h"
 #include "ModuleInterface.h"
 #include "SDL\include\SDL_timer.h"
 
@@ -138,49 +139,58 @@ void SHARPENER_KNIFE::CheckState() {
 	switch (state)
 	{
 	case SPAWN_SHARPENER:
+		position.x += App->scene_temple->speed;
 		if (spin.Finished()) {
+			spin.Reset();
 			state = GO_BACKWARD_SHARPENER;
 		}
 		break;
 
 	case GO_BACKWARD_SHARPENER:
-		position.x += 2 /*original_pos_x += 1*/;
-		if(position.x >= App->render->camera.x + (App->render->camera.w) - 80){
+		position.x += 2;
+		if(position.x >= App->render->camera.x + (App->render->camera.w) - 90){
 			state = SHOOT_SHARPENER;
 		}
 		break;
 
 	case SHOOT_SHARPENER:
-		
+		position.x += App->scene_temple->speed;
 		if (shoot.Finished()) {
-			App->particles->AddParticle(App->particles->sharpener_bullet, position.x , position.y - 30, COLLIDER_ENEMY_SHOT);
+			shoot.Reset();
+			//App->particles->AddParticle(App->particles->sharpener_bullet, position.x , position.y - 30, COLLIDER_ENEMY_SHOT);
 			state = RETURN_SHOOT_SHARPENER;
 		}
 		break;
 
 	case RETURN_SHOOT_SHARPENER:
-		
+		position.x += App->scene_temple->speed;
 		if (return_shoot.Finished()) {
+			return_shoot.Reset();
 			state = GO_SPIN_SHARPENER;
 		}
 		break;
 	case GO_SPIN_SHARPENER:
 
+		
 	if (going_forward) {
-		if (spot < -20) {
+		if (position.x < App->render->camera.x +(App->render->camera.w)-200) {
 				going_forward = false;
 			}
 			else {
-				position.x = original_pos_x + (spot--);
+				//position.x -= 1;
 			}
 		}
 
 		else {
 
-			if (spot >= 0) {
+			if (position.x >= App->render->camera.x + (App->render->camera.w) - 90) {
 				state = IDLE_SHARPENER;
 			}
-			else position.x = original_pos_x + (spot++);
+			
+			else {
+				position.x += 2;
+			}
+				
 		}
 
 
@@ -188,7 +198,9 @@ void SHARPENER_KNIFE::CheckState() {
 
 	case IDLE_SHARPENER:
 
-		if (time_delay)
+		position.x += App->scene_temple->speed;
+
+	/*	if (time_delay)
 		{
 			time_entry = SDL_GetTicks();
 			time_delay = false;
@@ -197,7 +209,7 @@ void SHARPENER_KNIFE::CheckState() {
 		if (time_current > 400) {
 		state = FULL_SHOOT_SHARPENER;
 			time_delay = true;
-		}
+		}*/
 
 		break;
 

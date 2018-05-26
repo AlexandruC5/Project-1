@@ -66,7 +66,7 @@ update_status ModuleEnemies::PreUpdate()
 
 		if (queue[i].type == ENEMY_TYPES::SharpenerKnife) {
 
-			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) - 100 )
+			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) - 150 )
 			{
 				SpawnEnemy(queue[i]);
 				

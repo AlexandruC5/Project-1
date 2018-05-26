@@ -1,4 +1,10 @@
 ﻿  SHARPENER_KNIFE.cpp
+d:\upc citm\project-1\tengai_sengoku_blade\code\ModuleSceneTemple.h(55): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+d:\upc citm\project-1\tengai_sengoku_blade\code\ModuleSceneTemple.h(56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+SHARPENER_KNIFE.cpp(142): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+SHARPENER_KNIFE.cpp(157): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+SHARPENER_KNIFE.cpp(166): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+SHARPENER_KNIFE.cpp(201): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
   Generando código
   2 of 332 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
