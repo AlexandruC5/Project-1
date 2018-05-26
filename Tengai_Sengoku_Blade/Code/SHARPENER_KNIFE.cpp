@@ -148,7 +148,7 @@ void SHARPENER_KNIFE::CheckState() {
 
 	case GO_BACKWARD_SHARPENER:
 		position.x += 2;
-		if(position.x >= App->render->camera.x + (App->render->camera.w) - 90){
+		if(position.x >= App->render->camera.x + (App->render->camera.w) - 101){
 			state = SHOOT_SHARPENER;
 		}
 		break;
@@ -200,29 +200,41 @@ void SHARPENER_KNIFE::CheckState() {
 
 		position.x += App->scene_temple->speed;
 
-	/*	if (time_delay)
-		{
+		if (time_delay) {
 			time_entry = SDL_GetTicks();
 			time_delay = false;
 		}
+		
 		time_current = SDL_GetTicks() - time_entry;
-		if (time_current > 400) {
-		state = FULL_SHOOT_SHARPENER;
-			time_delay = true;
-		}*/
+
+		if (time_current > 1500) {
+			if (active_shoot) {
+				state = FAREWELL_SHARPENER;
+				time_entry = SDL_GetTicks();
+			}
+			else {
+				state = FULL_SHOOT_SHARPENER;
+				time_entry = SDL_GetTicks();
+			}
+
+		}
 
 		break;
 
 	case FULL_SHOOT_SHARPENER:
+		position.x += App->scene_temple->speed;
+		active_shoot = true;
 		if (shoot.Finished()) {
-			App->particles->AddParticle(App->particles->sharpener_bullet, position.x, position.y - 30, COLLIDER_ENEMY_SHOT);
-			state = FAREWELL_SHARPENER;
+			shoot.Reset();
+			//App->particles->AddParticle(App->particles->sharpener_bullet, position.x, position.y - 30, COLLIDER_ENEMY_SHOT);
+			state = IDLE_SHARPENER;
 		}
 		
 		break;
 
 	case FAREWELL_SHARPENER:
-		position.x -= 1;
+		position.x += 2;
+		position.y -= 2;
 		break;
 
 	}

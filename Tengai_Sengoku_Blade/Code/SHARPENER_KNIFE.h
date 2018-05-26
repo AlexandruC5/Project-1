@@ -29,6 +29,7 @@ private:
 	int original_pos_y;
 	int spot = 0;;
 	bool going_forward = true;
+	bool active_shoot = false;
 	Path path;
 
 	Animation idle;
@@ -40,7 +41,7 @@ public:
 
 	SHARPENER_KNIFE(int x, int y);
 	sharpener_state state = SPAWN_SHARPENER;
-	bool time_delay = false;
+	bool time_delay = true;
 	int time_current = 0;
 	int time_entry = 0;
 	void Move();
