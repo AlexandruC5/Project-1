@@ -185,6 +185,7 @@ bool ModuleAyin::Start()
 	App->ulti_ayin->Enable();
 
 	App->inter->num_life_ayin = 3;
+	App->inter->num_ult_ayin = 2;
 	return true;
 }
 
@@ -338,9 +339,9 @@ update_status ModuleAyin::Update()
 
 	//Set spin posotion
 	if (spin_pos) {
-		aux_spin.x = position.x + 5;
+		aux_spin.x = position.x - 4;
 		aux_spin.y = position.y - 32;
-		spin_pos = false;
+		//spin_pos = false;
 	}
 
 	if (death_pos) {

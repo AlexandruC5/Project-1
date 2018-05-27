@@ -51,6 +51,10 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY_PEGTOP][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY_PEGTOP][COLLIDER_PLAYER_KATANA_SHOT] = true;
 
+	matrix[COLLIDER_ENEMY_SHARPENER_KNIFE][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_ENEMY_SHARPENER_KNIFE][COLLIDER_PLAYER_KATANA_SHOT] = true;
+
+
 
 	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_WALL] = true;
 	matrix[COLLIDER_PLAYER_KATANA_SHOT][COLLIDER_PLAYER] = false;
@@ -85,6 +89,8 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_POWER_UP][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_POWER_UP][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_POWER_UP][COLLIDER_POWER_UP] = false;
+
+	matrix[COLLIDER_ULTI_PARCHMENT][COLLIDER_PLAYER] = true;
 
 	matrix[COLLIDER_SHOOT][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_SHOOT][COLLIDER_ENEMY] = true;
@@ -179,6 +185,12 @@ void ModuleCollision::DebugDraw()
 			break;
 		case COLLIDER_PLAYER: // green
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
+			break;
+		case COLLIDER_POWER_UP: // pink
+			App->render->DrawQuad(colliders[i]->rect, 255, 192, 203, alpha);
+			break;
+		case COLLIDER_ULTI_PARCHMENT: // pink
+			App->render->DrawQuad(colliders[i]->rect, 255, 192, 203, alpha);
 			break;
 		case COLLIDER_ENEMY: // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);

@@ -38,6 +38,7 @@ public:
 	int current_time = 0;
 
 	int num_life_katana, num_life_ayin;
+	int num_ult_katana, num_ult_ayin;
 	bool aux = true, enemies_movement = true, game_over_katana = false, game_over_ayin = false;
 	uint score_katana = 0, score_ayin = 0, time = 9;
 	char player1_score[10], player2_score[10], time_text[2];
@@ -45,9 +46,12 @@ public:
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* black = nullptr;
 	Animation* current_animation;
+	Animation* current_animation_2;
 	Animation start;
+	Animation ulti;
 	SDL_Rect player1, player2, game_over, screen;
 	SDL_Rect life_katana, life_ayin;
+	//SDL_Rect ulti;
 };
 
 #endif // __MODULESCENESTART_H__

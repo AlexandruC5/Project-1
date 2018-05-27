@@ -24,6 +24,8 @@ enum ENEMY_TYPES
 	DemonPegTop,
 	DemonWheel,
 	SharpenerKnife,
+	Power_up,
+	Ulti_parchment,
 
 };
 
@@ -59,6 +61,9 @@ private:
 
 	bool timer = false;
 	int current_time = 700, time_on_entry = 0;
+
+	bool timer_2 = false;
+	int current_time_2 = 700, time_on_entry_2 = 0;
 
 	bool shoot = true;
 	bool spritec;

@@ -12,6 +12,7 @@ enum sharpener_state {
 	GO_BACKWARD_SHARPENER,
 	SHOOT_SHARPENER,
 	RETURN_SHOOT_SHARPENER,
+	IDLE_FORWARD,
 	GO_SPIN_SHARPENER,
 	IDLE_SHARPENER,
 	FULL_SHOOT_SHARPENER,
@@ -36,6 +37,8 @@ private:
 	Animation shoot;
 	Animation return_shoot;
 	Animation spin;
+	Animation spin_forward;
+	Animation spin_backward;
 
 public:
 

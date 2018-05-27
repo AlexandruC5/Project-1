@@ -27,12 +27,12 @@ SHARPENER_KNIFE::SHARPENER_KNIFE(int x, int y) : Enemy(x, y)
 	shoot.PushBack({ 891, 610, 96, 71 });
 	shoot.PushBack({ 793, 610, 98, 74 });
 	shoot.PushBack({ 691, 610, 101, 71 });
-	shoot.speed = 0.15f;
+	shoot.speed = 0.1f;
 	//RETURN SHOOT
 	return_shoot.PushBack({ 691, 610, 101, 71 });
 	return_shoot.PushBack({ 793, 610, 98, 74 });
 	return_shoot.PushBack({ 891, 610, 96, 71 });
-	return_shoot.speed = 0.15f;
+	return_shoot.speed = 0.1f;
 	//START SPIN
 	spin.PushBack({ 1122, 705, 44, 85 });
 	spin.PushBack({ 996, 610, 48, 87 });
@@ -62,13 +62,73 @@ SHARPENER_KNIFE::SHARPENER_KNIFE(int x, int y) : Enemy(x, y)
 	spin.PushBack({ 1009, 702, 106, 89 });
 	spin.PushBack({ 911, 700, 93, 88 });
 	spin.PushBack({ 1047, 610, 76, 88 });
+
 	spin.PushBack({ 996, 610, 48, 87 });
 	spin.PushBack({ 1122, 705, 44, 85 });
-	spin.speed = 0.30f;
+
+	spin.speed = 0.2f;
 	spin.loop = false;
 
-	/*path.PushBack({ -0.2f, 0 }, 250, &idle);*/
 
+	//SPIN FORWARD
+	spin_forward.PushBack({ 1122, 705, 44, 85 });
+	spin_forward.PushBack({ 996, 610, 48, 87 });
+	spin_forward.PushBack({ 1047, 610, 76, 88 });
+	spin_forward.PushBack({ 688, 701, 106, 87 });
+	spin_forward.PushBack({ 798, 700, 107, 88 });
+	spin_forward.PushBack({ 1009, 702, 106, 89 });
+	spin_forward.PushBack({ 911, 700, 93, 88 });
+	spin_forward.PushBack({ 688, 701, 106, 87 });
+	spin_forward.PushBack({ 798, 700, 107, 88 });
+	spin_forward.PushBack({ 1009, 702, 106, 89 });
+	spin_forward.PushBack({ 911, 700, 93, 88 });
+	spin_forward.PushBack({ 688, 701, 106, 87 });
+	spin_forward.PushBack({ 798, 700, 107, 88 });
+	spin_forward.PushBack({ 1009, 702, 106, 89 });
+	spin_forward.PushBack({ 911, 700, 93, 88 });
+	spin_forward.PushBack({ 688, 701, 106, 87 });
+	spin_forward.PushBack({ 798, 700, 107, 88 });
+	spin_forward.PushBack({ 1009, 702, 106, 89 });
+	spin_forward.PushBack({ 911, 700, 93, 88 });
+	spin_forward.PushBack({ 688, 701, 106, 87 });
+	spin_forward.PushBack({ 798, 700, 107, 88 });
+	spin_forward.PushBack({ 1009, 702, 106, 89 });
+	spin_forward.PushBack({ 911, 700, 93, 88 });
+	spin_forward.PushBack({ 688, 701, 106, 87 });
+	spin_forward.PushBack({ 798, 700, 107, 88 });
+	spin_forward.PushBack({ 1009, 702, 106, 89 });
+	spin_forward.PushBack({ 911, 700, 93, 88 });
+	spin_forward.speed = 0.3f;
+	//SPIN BACKWARD
+	spin_backward.PushBack({ 688, 701, 106, 87 });
+	spin_backward.PushBack({ 798, 700, 107, 88 });
+	spin_backward.PushBack({ 1009, 702, 106, 89 });
+	spin_backward.PushBack({ 911, 700, 93, 88 });
+	spin_backward.PushBack({ 688, 701, 106, 87 });
+	spin_backward.PushBack({ 798, 700, 107, 88 });
+	spin_backward.PushBack({ 1009, 702, 106, 89 });
+	spin_backward.PushBack({ 911, 700, 93, 88 });
+	spin_backward.PushBack({ 688, 701, 106, 87 });
+	spin_backward.PushBack({ 798, 700, 107, 88 });
+	spin_backward.PushBack({ 1009, 702, 106, 89 });
+	spin_backward.PushBack({ 911, 700, 93, 88 });
+	spin_backward.PushBack({ 688, 701, 106, 87 });
+	spin_backward.PushBack({ 798, 700, 107, 88 });
+	spin_backward.PushBack({ 1009, 702, 106, 89 });
+	spin_backward.PushBack({ 911, 700, 93, 88 });
+	spin_backward.PushBack({ 688, 701, 106, 87 });
+	spin_backward.PushBack({ 798, 700, 107, 88 });
+	spin_backward.PushBack({ 1009, 702, 106, 89 });
+	spin_backward.PushBack({ 911, 700, 93, 88 });
+	spin_backward.PushBack({ 688, 701, 106, 87 });
+	spin_backward.PushBack({ 798, 700, 107, 88 });
+	spin_backward.PushBack({ 1009, 702, 106, 89 });
+	spin_backward.PushBack({ 911, 700, 93, 88 });
+	spin_backward.PushBack({ 1047, 610, 76, 88 });
+	spin_backward.PushBack({ 996, 610, 48, 87 });
+	spin_backward.PushBack({ 1122, 705, 44, 85 });
+	spin_backward.speed = 0.3f;
+	
 	animation = &spin;
 	//sharpener_state state = SPAWN_SHARPENER;
 
@@ -163,15 +223,28 @@ void SHARPENER_KNIFE::CheckState() {
 		break;
 
 	case RETURN_SHOOT_SHARPENER:
+
 		position.x += App->scene_temple->speed;
 		if (return_shoot.Finished()) {
 			return_shoot.Reset();
+			state = IDLE_FORWARD;
+		}
+		break;
+
+	case IDLE_FORWARD:
+
+		if (position.x < App->render->camera.x + (App->render->camera.w) - 200) {
+			position.x += App->scene_temple->speed;
 			state = GO_SPIN_SHARPENER;
 		}
 		break;
+
 	case GO_SPIN_SHARPENER:
 
-		
+		for (int i = 0; i <= 15; i++) {
+
+			//App->particles->AddParticle(App->particles->sharpener_shuriken, position.x, position.y - 30, lista_shurikens[i]->speed.x, lista_shurikens[i].speed.y, COLLIDER_ENEMY_SHOT);
+		}
 	if (going_forward) {
 		if (position.x < App->render->camera.x +(App->render->camera.w)-200) {
 				going_forward = false;
@@ -183,7 +256,7 @@ void SHARPENER_KNIFE::CheckState() {
 
 		else {
 
-			if (position.x >= App->render->camera.x + (App->render->camera.w) - 90) {
+			if (position.x >= App->render->camera.x + (App->render->camera.w) - 101) {
 				state = IDLE_SHARPENER;
 			}
 			
@@ -265,8 +338,20 @@ void SHARPENER_KNIFE::PerformActions()
 
 		break;
 
+	case IDLE_FORWARD:
+		animation = &idle;
+
+		break;
+
 	case GO_SPIN_SHARPENER:
 		animation = &spin;
+
+		if (spin.Finished()) {
+
+			//spin.Reset();
+			animation = &idle;
+		}
+
 
 		break;
 

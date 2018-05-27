@@ -40,6 +40,8 @@
     <ClCompile Include="ModuleAyinArrow.cpp" />
     <ClCompile Include="ModuleAyinUltimate.cpp" />
     <ClCompile Include="SHARPENER_KNIFE.cpp" />
+    <ClCompile Include="Power_Up.cpp" />
+    <ClCompile Include="Ulti_Parchment.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -86,6 +88,8 @@
     <ClInclude Include="ModuleAyinArrow.h" />
     <ClInclude Include="ModuleAyinUltimate.h" />
     <ClInclude Include="SHARPENER_KNIFE.h" />
+    <ClInclude Include="Power_Up.h" />
+    <ClInclude Include="Ulti_Parchment.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />
