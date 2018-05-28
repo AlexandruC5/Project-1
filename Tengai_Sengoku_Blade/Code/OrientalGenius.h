@@ -15,7 +15,7 @@ private:
 	Animation shoot;
 public:
 
-	OrientalGenius(int x, int y);
+	OrientalGenius(int x, int y, int type);
 
 	void Move();
 };

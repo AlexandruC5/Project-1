@@ -495,6 +495,7 @@ void ModuleAyin::CheckState()
 		if (spin.Finished()) {
 			spin.Reset();
 			spin_circle.Reset();
+			spin_pos = false;
 			state = IDLE_2;
 		}
 		break;

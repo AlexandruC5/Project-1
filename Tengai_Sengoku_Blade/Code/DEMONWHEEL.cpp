@@ -5,7 +5,7 @@
 
 
 
-DEMONWHEEL::DEMONWHEEL(int x, int y) : Enemy(x, y)
+DEMONWHEEL::DEMONWHEEL(int x, int y, int type) : Enemy(x, y,type)
 {
 
 

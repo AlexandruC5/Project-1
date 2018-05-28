@@ -11,7 +11,7 @@
 #include "SDL\include\SDL_timer.h"
 
 
-SHARPENER_KNIFE::SHARPENER_KNIFE(int x, int y) : Enemy(x, y)
+SHARPENER_KNIFE::SHARPENER_KNIFE(int x, int y, int type) : Enemy(x, y, type)
 {
 
 	//IDLE

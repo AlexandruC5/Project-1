@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "Enemy.h"
 #include "GREEN.h"
+#include "Fish.h"
 #include "Green2.h"
 #include "red.h"
 #include "DEMONPEGTOP.h"
@@ -144,7 +145,7 @@ bool ModuleEnemies::CleanUp()
 	return true;
 }
 
-bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
+bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, int path_type)
 {
 	bool ret = false;
 
@@ -155,6 +156,7 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
 			queue[i].type = type;
 			queue[i].x = x;
 			queue[i].y = y;
+			queue[i].path_type = path_type;
 			ret = true;
 			break;
 		}
@@ -174,43 +176,43 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		switch (info.type)
 		{
 			case ENEMY_TYPES::FISH:
-			enemies[i] = new Fish(info.x, info.y);
+			enemies[i] = new Fish(info.x, info.y, info.path_type);
 			break;
 
 			case ENEMY_TYPES::Green:
-				enemies[i] = new GREEN(info.x, info.y);
+				enemies[i] = new GREEN(info.x, info.y, info.path_type);
 				break;
 			case ENEMY_TYPES::Green2:
-				enemies[i] = new GREEN2(info.x, info.y);
+				enemies[i] = new GREEN2(info.x, info.y, info.path_type);
 				break;
 			case ENEMY_TYPES::RED:
-				enemies[i] = new red(info.x, info.y);
+				enemies[i] = new red(info.x, info.y, info.path_type);
 
 				break;
 
 			case ENEMY_TYPES::ORIENTAL_GENIUS:
-				enemies[i] = new OrientalGenius(info.x, info.y);
+				enemies[i] = new OrientalGenius(info.x, info.y, info.path_type);
 
 				break;
 
 			case ENEMY_TYPES::DemonPegTop:
-				enemies[i] = new DEMONPEGTOP(info.x, info.y);
+				enemies[i] = new DEMONPEGTOP(info.x, info.y, info.path_type);
 
 				break;
 			case ENEMY_TYPES::DemonWheel:
-				enemies[i] = new DEMONWHEEL(info.x, info.y);
+				enemies[i] = new DEMONWHEEL(info.x, info.y, info.path_type);
 
 				break;
 			case ENEMY_TYPES::SharpenerKnife:
-				enemies[i] = new SHARPENER_KNIFE(info.x, info.y);
+				enemies[i] = new SHARPENER_KNIFE(info.x, info.y, info.path_type);
 
 				break;
 			case ENEMY_TYPES::Power_up:
-				enemies[i] = new Power_Up(info.x, info.y);
+				enemies[i] = new Power_Up(info.x, info.y, info.path_type);
 
 				break;
 			case ENEMY_TYPES::Ulti_parchment:
-				enemies[i] = new Ulti_Parchment(info.x, info.y);
+				enemies[i] = new Ulti_Parchment(info.x, info.y, info.path_type);
 
 				break;
 		}

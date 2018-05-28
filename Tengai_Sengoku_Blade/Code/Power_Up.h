@@ -14,7 +14,7 @@ private:
 	Path movement;
 public:
 
-	Power_Up(int x, int y);
+	Power_Up(int x, int y, int type);
 
 	void Move();
 };

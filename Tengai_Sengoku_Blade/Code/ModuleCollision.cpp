@@ -41,6 +41,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_HITBOX_KATANA][COLLIDER_PLAYER] = false;*/
 
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = true;
+
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER_SHOT] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY_SHOT] = false;
@@ -50,6 +51,8 @@ ModuleCollision::ModuleCollision()
 	//matrix[COLLIDER_ENEMY_PEGTOP][COLLIDER_HITBOX_KATANA] = true;
 	matrix[COLLIDER_ENEMY_PEGTOP][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY_PEGTOP][COLLIDER_PLAYER_KATANA_SHOT] = true;
+	
+	
 
 	matrix[COLLIDER_ENEMY_SHARPENER_KNIFE][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY_SHARPENER_KNIFE][COLLIDER_PLAYER_KATANA_SHOT] = true;
@@ -82,6 +85,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_POWER_UP] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_SHOOT] = false;
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY_PEGTOP] = false;
 
 	matrix[COLLIDER_POWER_UP][COLLIDER_WALL] = false;
 	matrix[COLLIDER_POWER_UP][COLLIDER_PLAYER] = true;
@@ -267,6 +271,11 @@ bool Collider::CheckCollision(const SDL_Rect& r) const
 		&& (r.y < rect.y + rect.h) && (rect.y < r.y + r.h)) {
 		return true;
 	}
+	/*return (rect.x < r.x + r.w &&
+		rect.x + rect.w > r.x &&
+		rect.y < r.y + r.h &&
+		rect.h + rect.y > r.y);*/
+
 	return false;
 }
 
@@ -278,7 +287,7 @@ void ModuleCollision::GodMode() {
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = god_mode;
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = god_mode;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER] = god_mode;
-
+	matrix[COLLIDER_ENEMY_PEGTOP][COLLIDER_PLAYER] = god_mode;
 	god_mode = !god_mode;
 
 }

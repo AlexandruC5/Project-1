@@ -4,7 +4,7 @@
 
 
 
-OrientalGenius::OrientalGenius(int x, int y) : Enemy(x, y)
+OrientalGenius::OrientalGenius(int x, int y, int type) : Enemy(x, y,type)
 {
 
 

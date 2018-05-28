@@ -305,7 +305,7 @@ bool ModuleParticles::Start()
 	enemy_bullet.anim.PushBack({ 75, 489, 6, 6 });
 	enemy_bullet.anim.PushBack({ 88, 489, 6, 6 });
 	enemy_bullet.anim.PushBack({ 101, 489, 6, 6 });
-	enemy_bullet.speed.x = -7;
+	enemy_bullet.speed.x = -1.5;
 	enemy_bullet.anim.loop = true;
 	enemy_bullet.life = 1400;
 

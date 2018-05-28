@@ -14,7 +14,7 @@ private:
 	Path movement;
 public:
 
-	Ulti_Parchment(int x, int y);
+	Ulti_Parchment(int x, int y, int type);
 
 	void Move();
 };

@@ -4,7 +4,7 @@
 
 
 
-GREEN2::GREEN2(int x, int y) : Enemy(x, y)
+GREEN2::GREEN2(int x, int y, int type) : Enemy(x, y, type)
 {
 
 

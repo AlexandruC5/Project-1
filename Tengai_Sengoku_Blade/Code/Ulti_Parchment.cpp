@@ -6,7 +6,7 @@
 #include "ModuleSceneTemple.h"
 
 
-Ulti_Parchment::Ulti_Parchment(int x, int y) :Enemy(x, y)
+Ulti_Parchment::Ulti_Parchment(int x, int y, int type) :Enemy(x, y, type)
 {
 	iddle.PushBack({ 26, 812, 32, 22 });
 	iddle.PushBack({ 65, 812, 32, 20 });

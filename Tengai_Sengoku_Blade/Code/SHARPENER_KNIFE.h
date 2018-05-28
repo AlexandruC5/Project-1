@@ -42,7 +42,7 @@ private:
 
 public:
 
-	SHARPENER_KNIFE(int x, int y);
+	SHARPENER_KNIFE(int x, int y, int type);
 	sharpener_state state = SPAWN_SHARPENER;
 	bool time_delay = true;
 	int time_current = 0;

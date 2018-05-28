@@ -15,7 +15,7 @@ private:
 	
 public:
 
-	Fish(int x, int y);
+	Fish(int x, int y, int type);
 
 	void Move();
 };

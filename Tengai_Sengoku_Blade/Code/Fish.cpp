@@ -5,7 +5,7 @@
 
 
 
-Fish::Fish(int x, int y) : Enemy(x, y)
+Fish::Fish(int x, int y,int type) : Enemy(x, y, type)
 {
 
 

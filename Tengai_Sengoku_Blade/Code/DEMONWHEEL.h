@@ -17,7 +17,7 @@ private:
 
 public:
 
-	DEMONWHEEL(int x, int y);
+	DEMONWHEEL(int x, int y, int type);
 
 	void Move();
 };

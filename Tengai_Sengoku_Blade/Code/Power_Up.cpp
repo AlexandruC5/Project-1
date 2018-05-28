@@ -6,7 +6,7 @@
 #include "ModuleSceneTemple.h"
 
 
-Power_Up::Power_Up(int x, int y) :Enemy(x, y)
+Power_Up::Power_Up(int x, int y, int type) :Enemy(x, y,type)
 {
 	iddle.PushBack({34, 425, 32, 22 });
 	iddle.PushBack({ 66, 425, 31, 22 });
