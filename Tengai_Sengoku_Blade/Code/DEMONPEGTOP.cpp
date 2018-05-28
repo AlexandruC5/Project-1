@@ -80,9 +80,9 @@ void DEMONPEGTOP::CheckState() {
 	switch (state)
 	{
 	case IDLE_PEGTOP:
-		//position.x -= 0.2;
+		position.x -= 0.2;
 		if(type == 1){
-			if (position.x <= App->render->camera.x + (App->render->camera.w) - 200) 
+			if (position.x <= App->render->camera.x + (App->render->camera.w) - 180) 
 				state = SHOT_PEGTOP;
 			}
 		if (type == 2) {

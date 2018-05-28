@@ -113,9 +113,14 @@ bool ModuleSceneTemple::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::Power_up, 400, 150,1);
 	App->enemies->AddEnemy(ENEMY_TYPES::Ulti_parchment, 400, 50,1);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 380, 100, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 380, 80, 1);
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 810, 30, 2);
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 850, 160, 2);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 15, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 610, 45, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 620, 75, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 630, 105, 1);
 
 	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
 	coll_down = App->collision->AddCollider({ 0, SCREEN_HEIGHT - 4, 990000, 16 }, COLLIDER_WALL);
