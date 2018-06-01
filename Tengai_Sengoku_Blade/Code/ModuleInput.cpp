@@ -72,6 +72,56 @@ update_status ModuleInput::PreUpdate()
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 
+	while (SDL_PollEvent(&e)) {
+		if (e.type == SDL_QUIT)
+			return update_status::UPDATE_STOP;
+		else if (e.type == SDL_CONTROLLERDEVICEADDED) {
+			if (!gamepad) {
+				gamepad = SDL_GameControllerOpen(0);
+				if (gamepad) {
+					LOG("Controller loaded correctly");
+				}
+				else LOG("Could not open gamecontroller: %s", SDL_GetError());
+			}
+		}
+		else if (e.type == SDL_CONTROLLERDEVICEREMOVED) {
+			if (e.cdevice.which == 0) {
+				SDL_GameControllerClose(gamepad);
+				gamepad = nullptr;
+				LOG("Controller removed!\n");
+			}
+		}
+	}
+	Uint8 button_state_A = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_A);
+	Uint8 button_state_Y = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_Y);
+	Uint8 button_state_START = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_START);
+
+	if (button_state_A) {
+		if (controller_A_button == KEY_IDLE) controller_A_button = KEY_DOWN;
+		else controller_A_button = KEY_REPEAT;
+	}
+	else {
+		if (controller_A_button == KEY_REPEAT || controller_A_button == KEY_DOWN) controller_A_button = KEY_UP;
+		else controller_A_button = KEY_IDLE;
+	}
+
+	if (button_state_Y) {
+		if (controller_Y_button == KEY_IDLE) controller_Y_button = KEY_DOWN;
+		else controller_Y_button = KEY_REPEAT;
+	}
+	else {
+		if (controller_Y_button == KEY_REPEAT || controller_Y_button == KEY_DOWN) controller_Y_button = KEY_UP;
+		else controller_Y_button = KEY_IDLE;
+	}
+
+	if (button_state_START) {
+		if (controller_START_button == KEY_IDLE) controller_START_button = KEY_DOWN;
+		else controller_START_button = KEY_REPEAT;
+	}
+	else {
+		if (controller_START_button == KEY_REPEAT || controller_START_button == KEY_DOWN) controller_START_button = KEY_UP;
+		else controller_START_button = KEY_IDLE;
+	}
 	for(int i = 0; i < MAX_KEYS; ++i)
 	{
 		if(keys[i] == 1)
