@@ -56,6 +56,7 @@ bool ModuleWinScreen::Start() {
 	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Katanawinsheet.png");
 	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Win/ayinwinsheet.png");
 	Winfade = App->audio->LoadMusic("assets/audio/music/Level_Completed.ogg");
+
 	Mix_PlayMusic(Winfade, 1);
 
 	return true;
