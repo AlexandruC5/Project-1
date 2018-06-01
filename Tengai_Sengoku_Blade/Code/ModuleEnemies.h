@@ -2,9 +2,7 @@
 #define __ModuleEnemies_H__
 
 #include "Module.h"
-#include "Fish.h"
-#include "OrientalGenius.h"
-#include "DEMONPEGTOP.h"
+
 #define MAX_ENEMIES 100
 
 // TODO 2: Add a new enemy: Brown Cookies!
@@ -22,7 +20,10 @@ enum ENEMY_TYPES
 	ORIENTAL_GENIUS,
 	RED,
 	DemonPegTop,
-	DemonWheel
+	DemonWheel,
+	SharpenerKnife,
+	Power_up,
+	Ulti_parchment,
 
 };
 
@@ -31,7 +32,7 @@ class Enemy;
 struct EnemyInfo
 {
 	ENEMY_TYPES type = ENEMY_TYPES::NO_TYPE;
-	int x, y;
+	int x, y, path_type;
 };
 
 class ModuleEnemies : public Module
@@ -48,7 +49,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
-	bool AddEnemy(ENEMY_TYPES type, int x, int y);
+	bool AddEnemy(ENEMY_TYPES type, int x, int y, int path_type = 0);
 
 private:
 
@@ -58,6 +59,9 @@ private:
 
 	bool timer = false;
 	int current_time = 700, time_on_entry = 0;
+
+	bool timer_2 = false;
+	int current_time_2 = 700, time_on_entry_2 = 0;
 
 	bool shoot = true;
 	bool spritec;

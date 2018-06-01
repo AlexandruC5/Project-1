@@ -60,6 +60,14 @@ ModuleInterface::ModuleInterface()
 	life_ayin.w = 16;
 	life_ayin.h = 17;
 
+	ulti.PushBack({7, 19, 15, 16});
+	ulti.PushBack({23, 19, 15, 16});
+	ulti.speed = 0.12f;
+
+	//ulti.x = 7;
+	//ulti.y = 19;
+	//ulti.w = 15;
+	//ulti.h = 16;
 
 
 }
@@ -106,7 +114,9 @@ update_status ModuleInterface::Update()
 
 	//Draw Top UI Interface
 	current_animation = &start;
+	current_animation_2 = &ulti;
 	SDL_Rect r = current_animation->GetCurrentFrame();
+	SDL_Rect r1 = current_animation_2->GetCurrentFrame();
 
 	switch (UIstate) {
 	case P1KATANA:
@@ -118,6 +128,10 @@ update_status ModuleInterface::Update()
 			//Life Katana
 			for (int i = 1; i <= num_life_katana - 1; i++) {
 				App->render->Blit(graphics, 76 + life_katana.w*i, 1, &life_katana, 0.00f, 0.00f);
+			}
+			//Ulti Katana
+			for (int i = 1; i <= num_ult_katana; i++) {
+				App->render->Blit(graphics, 15*i - 6, 15, &r1, 0.00f, 0.00f);
 			}
 		}
 		
@@ -134,6 +148,10 @@ update_status ModuleInterface::Update()
 
 			for (int i = 1; i <= num_life_ayin - 1; i++) {
 				App->render->Blit(graphics, 76 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);
+			}
+			//Ulti Ayin
+			for (int i = 1; i <= num_ult_ayin; i++) {
+				App->render->Blit(graphics, 15 * i - 6, 15, &r1, 0.00f, 0.00f);
 			}
 		}
 

@@ -14,7 +14,7 @@ private:
 	Animation backward;
 public:
 
-	GREEN2(int x, int y);
+	GREEN2(int x, int y, int type);
 
 	void Move();
 };

@@ -17,7 +17,7 @@ private:
 
 public:
 
-	red(int x, int y);
+	red(int x, int y, int type);
 	
 	void Move();
 };

@@ -146,6 +146,7 @@ bool ModuleKatana::Start()
 	App->katana_arrow->Enable();
 
 	App->inter->num_life_katana = 3;
+	App->inter->num_ult_katana = 2;
 
 	time = true;
 	destroyed = false;

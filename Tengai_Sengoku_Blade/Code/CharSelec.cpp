@@ -168,7 +168,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 35, 127, &lettersA);
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 83, 157, &square1);
-			if (App->input->keyboard[SDL_SCANCODE_RETURN ] == KEY_STATE::KEY_DOWN ||  App->input->gamepad, SDL_CONTROLLER_BUTTON_A || App->input->gamepad2, SDL_CONTROLLER_BUTTON_A)P1ayin = true;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN ] == KEY_STATE::KEY_DOWN /*||  App->input->gamepad, SDL_CONTROLLER_BUTTON_A || App->input->gamepad2, SDL_CONTROLLER_BUTTON_A*/)P1ayin = true;
 			if (P1ayin) App->fade->FadeToBlack(this, App->scene_temple, 2);
 			break;
 		case RANDOMP1:

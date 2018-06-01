@@ -5,7 +5,7 @@
 
 
 
-red::red(int x, int y) : Enemy(x, y)
+red::red(int x, int y, int type) : Enemy(x, y,type)
 {
 
 

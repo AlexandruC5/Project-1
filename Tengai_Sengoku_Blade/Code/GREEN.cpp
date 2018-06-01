@@ -5,7 +5,7 @@
 
 
 
-GREEN::GREEN(int x, int y) : Enemy(x, y)
+GREEN::GREEN(int x, int y, int type) : Enemy(x, y, type)
 {
 
 

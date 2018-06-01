@@ -305,9 +305,46 @@ bool ModuleParticles::Start()
 	enemy_bullet.anim.PushBack({ 75, 489, 6, 6 });
 	enemy_bullet.anim.PushBack({ 88, 489, 6, 6 });
 	enemy_bullet.anim.PushBack({ 101, 489, 6, 6 });
-	enemy_bullet.speed.x = -7;
+	enemy_bullet.speed.x = -1.5;
 	enemy_bullet.anim.loop = true;
 	enemy_bullet.life = 1400;
+
+
+	//Sharpener bullet
+	sharpener_bullet.anim.PushBack({ 208, 677, 10, 8 });
+	sharpener_bullet.speed.x = -7;
+	sharpener_bullet.anim.loop = true;
+	sharpener_bullet.life = 1400;
+
+	//Sharpener shuriken
+	sharpener_shuriken.anim.PushBack({ 167, 650, 10, 10 });
+	sharpener_shuriken.anim.PushBack({ 180, 650, 10, 10 });
+	sharpener_shuriken.anim.PushBack({ 193, 651, 8, 8 });
+	sharpener_shuriken.anim.PushBack({ 204, 651, 8, 8 });
+	sharpener_shuriken.anim.PushBack({ 215, 650, 10, 10 });
+	sharpener_shuriken.anim.PushBack({ 228, 650, 10, 10 });
+	//sharpener_shuriken.speed.x = -7;
+	sharpener_shuriken.anim.loop = true;
+	sharpener_shuriken.life = 1400;
+
+	//Power Up & Power down
+	power_up.anim.PushBack({436, 657, 30, 17 });
+	power_up.anim.PushBack({ 436, 675, 29, 17 });
+	power_up.anim.PushBack({436, 693, 29, 18 });
+	power_up.anim.loop = true;
+	power_up.anim.speed = 0.20f;
+	power_up.life = 800;
+
+	power_down.anim.PushBack({ 467, 675, 31, 17 });
+	power_down.anim.PushBack({ 466, 694, 31, 17 });
+	power_down.anim.loop = true;
+	power_down.anim.speed = 0.10f;
+	power_down.life = 800;
+
+	/*for (int i = 0; i <= 15; i++) {
+		lista_shurikens[i]->speed.x = lista_valores_speed_x[i];
+		lista_shurikens[i]->speed.y = lista_valores_speed_y[i];
+	}*/
 
 	return true;
 }
@@ -380,7 +417,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32
 	active[last_particle++] = p;
 }
 */
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, PARTICLE_TYPE particle_type, Uint32 delay)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, /*int speedx, int speedy,*/ COLLIDER_TYPE collider_type, PARTICLE_TYPE particle_type, Uint32 delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -390,6 +427,8 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
+			/*p->speed.x = speedx;
+			p->speed.y = speedy;*/
 			if (collider_type != COLLIDER_NONE)
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 

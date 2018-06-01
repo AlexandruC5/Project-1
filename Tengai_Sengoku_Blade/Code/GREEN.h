@@ -16,7 +16,7 @@ private:
 
 public:
 
-	GREEN(int x, int y);
+	GREEN(int x, int y, int type);
 	void Shoot();
 	void Move();
 };

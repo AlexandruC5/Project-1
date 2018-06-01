@@ -4,18 +4,19 @@
 
 
 
-GREEN2::GREEN2(int x, int y) : Enemy(x, y)
+GREEN2::GREEN2(int x, int y, int type) : Enemy(x, y, type)
 {
 
 
-	backward.PushBack({ 315,  36, 30, 30 });
-	backward.PushBack({ 362, 36, 30, 30 });
-	backward.PushBack({ 408 ,36, 30, 30 });
-	backward.PushBack({ 453,36,30,30 });
+	backward.PushBack({ 12, 16, 33, 30 });
+	backward.PushBack({58, 16, 35, 30 });
+	backward.PushBack({ 105, 16, 34, 30 });
+	backward.PushBack({ 150, 16, 33, 30 });
+	backward.speed = 0.15f;
 
 
-
-	path.PushBack({ -1, 0 }, 250, &backward);
+	path.PushBack({ -1, 0 }, 100, &backward);
+	path.PushBack({ 2.5, 0 }, 500, &backward);
 
 
 

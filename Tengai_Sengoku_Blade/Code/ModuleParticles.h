@@ -21,7 +21,9 @@ enum PARTICLE_TYPE
 	PARTICLE_SHOT_AYIN,
 	PARTICLE_ULTI_AYIN,
 	PLAYER_ENEMY,
-	PARTICLE_ENEMY_SHOT
+	PARTICLE_ENEMY_SHOT,
+	PARTICLE_POWER_UP_KATANA,
+	PARTICLE_POWER_UP_AYIN,
 
 };
 struct Particle
@@ -51,7 +53,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, PARTICLE_TYPE particle_type = PARTICLE_NONE, Uint32 delay = 0);
+	void AddParticle(const Particle& particle, int x, int y, /*int speedx, int speedy,*/ COLLIDER_TYPE collider_type = COLLIDER_NONE, PARTICLE_TYPE particle_type = PARTICLE_NONE, Uint32 delay = 0);
 	
 
 private:
@@ -62,9 +64,11 @@ private:
 	//SDL_Texture * graphics3 = nullptr;
 	SDL_Texture * graphics4 = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
+	
 	uint last_particle = 0;
 
 public:
+	Particle* lista_shurikens[16];
 	int time;
 	Particle explosion;
 	Particle card1, card2, card3, card4, card5;
@@ -84,8 +88,15 @@ public:
 	Particle enemy_bullet;
 	Particle wave1, wave2, wave3, wave4, wave5, wave6, wave7;
 	Particle ulti_ayin;
+	//Sharpener enemy
+	Particle sharpener_bullet, sharpener_shuriken;
 	bool timer = false;
 	int current_time = 1200, time_on_entry = 0;
+
+	int lista_valores_speed_x[16];
+	int lista_valores_speed_y[16];
+
+	Particle power_up, power_down;
 
 };
 

@@ -19,6 +19,7 @@
 #include "ModuleAyin.h"
 #include "ModuleKatanaArrow.h"
 #include "ModuleSceneTemple.h"
+#include "ModuleCollision.h"
 #include "CharSelec.h"
 
 #include "ModuleInterface.h"
@@ -106,7 +107,20 @@ bool ModuleSceneTemple::Start()
 
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
-	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,400,50);
+	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,400,50);
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::SharpenerKnife, 400, 50);
+	App->enemies->AddEnemy(ENEMY_TYPES::Power_up, 400, 150,1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Ulti_parchment, 400, 50,1);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 380, 80, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 810, 30, 2);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 850, 160, 2);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 15, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 610, 45, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 620, 75, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 630, 105, 1);
 
 	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
 	coll_down = App->collision->AddCollider({ 0, SCREEN_HEIGHT - 4, 990000, 16 }, COLLIDER_WALL);
@@ -236,7 +250,12 @@ update_status ModuleSceneTemple::Update()
      if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 
 			App->fade->FadeToBlack(this, App->scene_win, 2);
+
 		}
+
+	 if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+		 App->collision->GodMode();
+	 }
 
 		/*if (App->input->keyboard[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN) {
 			App->inter->num_life_katana--;
