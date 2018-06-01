@@ -71,6 +71,9 @@ private:
 	Animation Kidle;
 	Animation Aidle;
 
+	Mix_Chunk* squaremove = nullptr;
+
+	_Mix_Music* Music = nullptr;
 	void CheckState();
 public:
 	ModuleCharSelec();

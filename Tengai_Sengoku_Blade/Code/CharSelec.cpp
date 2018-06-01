@@ -74,8 +74,10 @@ bool ModuleCharSelec::Start() {
 	P2katana = false;
 	P1ayin = false;
 	P2ayin = false;
+
 	state = KATANAP1;
 	players = ONEPLAYER;
+
 	graphics1 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Background.png");
 	graphics2 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Characters.png");
 	graphics3 = App->textures->Load("assets/sprites/UI/UI.png");
@@ -83,6 +85,9 @@ bool ModuleCharSelec::Start() {
 	graphics5 = App->textures->Load("assets/sprites/characters/ayin/Ayin_Spritesheet2.png");
 	graphics6 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/Background2.png");
 	graphics7 = App->textures->Load("assets/sprites/Scenes/CharSelecScene/sky.png");
+	squaremove = App->audio->LoadFx("assets/audio/effects/menu/squaremove.wav");
+	Music = App->audio->LoadMusic("assets/audio/music/02_Invitation.ogg");
+	Mix_PlayMusic(Music, 1);
 	return true;
 
 }
@@ -118,7 +123,7 @@ update_status ModuleCharSelec::Update() {
 
 
 	App->render->Blit(graphics7, 0, 31, &sky);
-	
+
 	if (clock == 0) state = OUTOFTIME;
 	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN || press_Button_start || press_Button_start2) {
 		players = TWOPLAYERS;
@@ -129,12 +134,12 @@ update_status ModuleCharSelec::Update() {
 	switch (players && state) {
 	case ONEPLAYER:
 
-		if (press_D && state == KATANAP1) state = AYINP1;
-		else if (press_A   && state == KATANAP1) state = RANDOMP1;
-		else if (press_A   && state == AYINP1) state = KATANAP1;
-		else if (press_D   && state == AYINP1) state = RANDOMP1;
-		else if (press_D   && state == RANDOMP1) state = KATANAP1;
-		else if (press_A   && state == RANDOMP1) state = AYINP1;
+		if (press_D && state == KATANAP1) state = AYINP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A   && state == KATANAP1) state = RANDOMP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A   && state == AYINP1) state = KATANAP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D   && state == AYINP1) state = RANDOMP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D   && state == RANDOMP1) state = KATANAP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A   && state == RANDOMP1) state = AYINP1, Mix_PlayChannel(-1, squaremove, 0);
 
 		
 
@@ -203,32 +208,32 @@ update_status ModuleCharSelec::Update() {
 	case TWOPLAYERS:
 		
 		if (press_D && state == KATANAAYIN) state = RANDOMAYIN; //1 player 
-		else if (press_A   && state == KATANAAYIN) state = RANDOMAYIN;
-		else if (press_A  && state == AYINKATANA) state = RANDOMKATANA;
-		else if (press_D  && state == AYINKATANA) state = RANDOMKATANA;
-		else if (press_D  && state == AYINRANDOM) state = KATANARANDOM;
-		else if (press_A  && state == AYINRANDOM) state = KATANARANDOM;
-		else if (press_D  && state == RANDOMKATANA) state = AYINKATANA;
-		else if (press_A  && state == RANDOMKATANA) state = AYINKATANA;
-		else if (press_A  && state == RANDOMAYIN) state = KATANAAYIN;
-		else if (press_D  && state == RANDOMAYIN) state = KATANAAYIN;
-		else if (press_D  && state == KATANARANDOM) state = AYINRANDOM;
-		else if (press_A  && state == KATANARANDOM) state = AYINRANDOM;
+		else if (press_A   && state == KATANAAYIN) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A  && state == AYINKATANA) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D  && state == AYINKATANA) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D  && state == AYINRANDOM) state = KATANARANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A  && state == AYINRANDOM) state = KATANARANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D  && state == RANDOMKATANA) state = AYINKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A  && state == RANDOMKATANA) state = AYINKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A  && state == RANDOMAYIN) state = KATANAAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D  && state == RANDOMAYIN) state = KATANAAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D  && state == KATANARANDOM) state = AYINRANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A  && state == KATANARANDOM) state = AYINRANDOM, Mix_PlayChannel(-1, squaremove, 0);
 
-		if (press_R && state == KATANAAYIN) state = KATANARANDOM; //2 player
-		else if (press_L && state == KATANAAYIN) state = KATANARANDOM;
-		else if (press_L && state == AYINKATANA) state = AYINRANDOM;
-		else if (press_R && state == AYINKATANA) state = AYINRANDOM;
-		else if (press_R&& state == KATANARANDOM) state = KATANAAYIN;
-		else if (press_L&& state == KATANARANDOM) state = KATANAAYIN;
+		if (press_R && state == KATANAAYIN) state = KATANARANDOM, Mix_PlayChannel(-1, squaremove, 0); //2 player
+		else if (press_L && state == KATANAAYIN) state = KATANARANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == AYINKATANA) state = AYINRANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_R && state == AYINKATANA) state = AYINRANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_R&& state == KATANARANDOM) state = KATANAAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L&& state == KATANARANDOM) state = KATANAAYIN, Mix_PlayChannel(-1, squaremove, 0);
 
-		else if (press_R && state == AYINRANDOM) state = AYINKATANA;
-		else if (press_L && state == AYINRANDOM) state = AYINKATANA;
+		else if (press_R && state == AYINRANDOM) state = AYINKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == AYINRANDOM) state = AYINKATANA, Mix_PlayChannel(-1, squaremove, 0);
 
-		else if (press_R && state == RANDOMKATANA) state = RANDOMAYIN;
-		else if (press_L && state == RANDOMKATANA) state = RANDOMAYIN;
-		else if (press_R && state == RANDOMAYIN) state = RANDOMKATANA;
-		else if (press_L && state == RANDOMAYIN) state = RANDOMKATANA;
+		else if (press_R && state == RANDOMKATANA) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == RANDOMKATANA) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_R && state == RANDOMAYIN) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == RANDOMAYIN) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
 		App->render->Blit(graphics6, 0, 0, &background2);
 
 		switch (state) {
@@ -403,7 +408,11 @@ bool ModuleCharSelec::CleanUp() {
 	App->textures->Unload(graphics5);
 	App->textures->Unload(graphics6);
 	App->textures->Unload(graphics7);
+	App->audio->UnloadMusic(Music);
+	Music = nullptr;
+	App->audio->UnloadSFX(squaremove);
 
+	squaremove = nullptr;
 	graphics1 = nullptr;
 	graphics2 = nullptr;
 	graphics3 = nullptr;
