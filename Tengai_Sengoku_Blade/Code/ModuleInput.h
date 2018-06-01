@@ -42,6 +42,8 @@ public:
 	KEY_STATE controller_A_button;
 	KEY_STATE controller_Y_button;
 	KEY_STATE controller_START_button;
+	KEY_STATE controller_Dpad_LEFT;
+	KEY_STATE controller_Dpad_RIGHT;
 	SDL_GameController * gamepad;
 	SDL_GameController * gamepad2;
 };

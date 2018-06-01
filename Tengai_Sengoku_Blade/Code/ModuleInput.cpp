@@ -95,6 +95,8 @@ update_status ModuleInput::PreUpdate()
 	Uint8 button_state_A = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_A);
 	Uint8 button_state_Y = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_Y);
 	Uint8 button_state_START = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_START);
+	Uint8 button_STATE_Dpad_LEFT = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
+	Uint8 button_STATE_Dpad_RIGHT = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
 
 	if (button_state_A) {
 		if (controller_A_button == KEY_IDLE) controller_A_button = KEY_DOWN;
@@ -121,6 +123,23 @@ update_status ModuleInput::PreUpdate()
 	else {
 		if (controller_START_button == KEY_REPEAT || controller_START_button == KEY_DOWN) controller_START_button = KEY_UP;
 		else controller_START_button = KEY_IDLE;
+	}
+
+	if (button_STATE_Dpad_LEFT) {
+		if (controller_Dpad_LEFT == KEY_IDLE) controller_Dpad_LEFT = KEY_DOWN;
+		else controller_Dpad_LEFT = KEY_REPEAT;
+	}
+	else {
+		if (controller_Dpad_LEFT == KEY_REPEAT || controller_Dpad_LEFT == KEY_DOWN) controller_Dpad_LEFT = KEY_UP;
+		else controller_Dpad_LEFT = KEY_IDLE;
+	}
+	if (button_STATE_Dpad_RIGHT) {
+		if (controller_Dpad_RIGHT == KEY_IDLE) controller_Dpad_RIGHT = KEY_DOWN;
+		else controller_Dpad_RIGHT = KEY_REPEAT;
+	}
+	else {
+		if (controller_Dpad_RIGHT == KEY_REPEAT || controller_Dpad_RIGHT == KEY_DOWN) controller_Dpad_RIGHT = KEY_UP;
+		else controller_Dpad_RIGHT = KEY_IDLE;
 	}
 	for(int i = 0; i < MAX_KEYS; ++i)
 	{
