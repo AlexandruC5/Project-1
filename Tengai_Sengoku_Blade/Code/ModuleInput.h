@@ -39,11 +39,31 @@ public:
 public:
 	KEY_STATE keyboard[MAX_KEYS];
 	BUTTON_STATE button[MAX_BUTTONS];
+
+
 	KEY_STATE controller_A_button;
 	KEY_STATE controller_Y_button;
+	KEY_STATE controller_X_button;
 	KEY_STATE controller_START_button;
 	KEY_STATE controller_Dpad_LEFT;
 	KEY_STATE controller_Dpad_RIGHT;
+	KEY_STATE joystick_UP;
+	KEY_STATE joystick_DOWN;
+	KEY_STATE joystick_LEFT;
+	KEY_STATE joystick_RIGHT;
+	
+
+	KEY_STATE controller2_A_button;
+	KEY_STATE controller2_Y_button;
+	KEY_STATE controller2_X_button;
+	KEY_STATE controller2_START_button;
+	KEY_STATE controller2_Dpad_LEFT;
+	KEY_STATE controller2_Dpad_RIGHT;
+	KEY_STATE joystick2_UP;
+	KEY_STATE joystick2_DOWN;
+	KEY_STATE joystick2_LEFT;
+	KEY_STATE joystick2_RIGHT;
+
 	SDL_GameController * gamepad;
 	SDL_GameController * gamepad2;
 };

@@ -1,17 +1,2 @@
-﻿  CharSelec.cpp
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\modulescenetemple.h(55): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(118): warning C4145: '&&': relational expression as switch expression; possible confusion with '&'
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(125): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'menu_state' can equal the given constant
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(126): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'menu_state' can equal the given constant
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(164): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(170): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(243): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(247): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(278): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(282): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(301): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(305): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(325): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\charselec.cpp(329): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-  SDL Game.vcxproj -> C:\Users\alexa\Desktop\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
+﻿  ModuleInput.cpp
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleinput.cpp : fatal error C1041: cannot open program database 'C:\Users\alexa\Desktop\Project-1\Tengai_Sengoku_Blade\Code\Debug\vc141.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
