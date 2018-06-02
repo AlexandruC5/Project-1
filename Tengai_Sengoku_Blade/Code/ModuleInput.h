@@ -35,6 +35,7 @@ public:
 	bool Init();
 	update_status PreUpdate();
 	bool CleanUp();
+	bool gamepad2_on = false;
 
 public:
 	KEY_STATE keyboard[MAX_KEYS];
