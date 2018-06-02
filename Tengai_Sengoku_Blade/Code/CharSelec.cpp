@@ -74,7 +74,7 @@ bool ModuleCharSelec::Start() {
 	P2katana = false;
 	P1ayin = false;
 	P2ayin = false;
-
+	numberplayers = 1;
 	state = KATANAP1;
 	players = ONEPLAYER;
 
@@ -133,6 +133,8 @@ update_status ModuleCharSelec::Update() {
 
 	switch (players && state) {
 	case ONEPLAYER:
+		
+		numberplayers = 1;
 
 		if (press_D && state == KATANAP1) state = AYINP1, Mix_PlayChannel(-1, squaremove, 0);
 		else if (press_A   && state == KATANAP1) state = RANDOMP1, Mix_PlayChannel(-1, squaremove, 0);
@@ -141,9 +143,7 @@ update_status ModuleCharSelec::Update() {
 		else if (press_D   && state == RANDOMP1) state = KATANAP1, Mix_PlayChannel(-1, squaremove, 0);
 		else if (press_A   && state == RANDOMP1) state = AYINP1, Mix_PlayChannel(-1, squaremove, 0);
 
-		
-
-
+	
 
 		App->render->Blit(graphics1, 0, 0, &background);
 		switch (state) {
@@ -207,6 +207,8 @@ update_status ModuleCharSelec::Update() {
 
 	case TWOPLAYERS:
 		
+		numberplayers = 2;
+
 		if (press_D && state == KATANAAYIN) state = RANDOMAYIN; //1 player 
 		else if (press_A   && state == KATANAAYIN) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
 		else if (press_A  && state == AYINKATANA) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
