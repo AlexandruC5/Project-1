@@ -192,7 +192,10 @@ update_status ModuleCharSelec::Update() {
 	case TWOPLAYERS:
 		
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b101c879898011dd8ab5a8c9a6f95712a3148fa3
 		if (press_D && state == KATANAAYIN || App->input->controller_Dpad_RIGHT && state == KATANAAYIN) state = RANDOMAYIN; //1 player 
 		else if (press_A && state == KATANAAYIN || App->input->controller_Dpad_LEFT==BUTTON_DOWN && state == KATANAAYIN) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
 		else if (press_A && state == AYINKATANA || App->input->controller_Dpad_LEFT == BUTTON_DOWN && state == AYINKATANA) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
@@ -221,9 +224,15 @@ update_status ModuleCharSelec::Update() {
 		else if (press_R && state == RANDOMAYIN || App->input->controller2_Dpad_RIGHT == BUTTON_DOWN && state == RANDOMAYIN) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
 		else if (press_L && state == RANDOMAYIN || App->input->controller2_Dpad_LEFT == BUTTON_DOWN && state == RANDOMAYIN) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
 
+<<<<<<< HEAD
 
 		numberplayers = 2;
 
+=======
+		numberplayers = 2;
+
+		
+>>>>>>> b101c879898011dd8ab5a8c9a6f95712a3148fa3
 
 		App->render->Blit(graphics6, 0, 0, &background2);
 
