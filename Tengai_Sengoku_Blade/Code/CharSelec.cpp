@@ -211,6 +211,41 @@ update_status ModuleCharSelec::Update() {
 		numberplayers = 2;
 
 
+<<<<<<< HEAD
+		numberplayers = 2;
+
+
+
+		if (press_D && state == KATANAAYIN || App->input->controller_Dpad_RIGHT && state == KATANAAYIN) state = RANDOMAYIN; //1 player 
+		else if (press_A && state == KATANAAYIN || App->input->controller_Dpad_LEFT==BUTTON_DOWN && state == KATANAAYIN) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A && state == AYINKATANA || App->input->controller_Dpad_LEFT == BUTTON_DOWN && state == AYINKATANA) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D && state == AYINKATANA || App->input->controller_Dpad_RIGHT == BUTTON_DOWN && state == AYINKATANA) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D && state == AYINRANDOM || App->input->controller_Dpad_RIGHT == BUTTON_DOWN && state == AYINRANDOM) state = KATANARANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A && state == AYINRANDOM || App->input->controller_Dpad_LEFT == BUTTON_DOWN && state == AYINRANDOM) state = KATANARANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D && state == RANDOMKATANA || App->input->controller_Dpad_RIGHT && state == RANDOMKATANA) state = AYINKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A && state == RANDOMKATANA || App->input->controller_Dpad_LEFT == BUTTON_DOWN && state == RANDOMKATANA) state = AYINKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A && state == RANDOMAYIN || App->input->controller_Dpad_LEFT == BUTTON_DOWN && state == RANDOMAYIN) state = KATANAAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D && state == RANDOMAYIN || App->input->controller_Dpad_RIGHT&& state == RANDOMAYIN) state = KATANAAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D && state == KATANARANDOM || App->input->controller_Dpad_RIGHT && state == KATANARANDOM) state = AYINRANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A && state == KATANARANDOM || App->input->controller_Dpad_LEFT == BUTTON_DOWN && state == KATANARANDOM) state = AYINRANDOM, Mix_PlayChannel(-1, squaremove, 0);
+
+		if (press_R && state == KATANAAYIN || App->input->controller2_Dpad_RIGHT && state == KATANAAYIN) state = KATANARANDOM, Mix_PlayChannel(-1, squaremove, 0); //2 player
+		else if (press_L && state == KATANAAYIN || App->input->controller2_Dpad_LEFT==BUTTON_DOWN&& state == KATANAAYIN) state = KATANARANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == AYINKATANA || App->input->controller2_Dpad_LEFT == BUTTON_DOWN && state == AYINKATANA) state = AYINRANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_R && state == AYINKATANA || App->input->controller2_Dpad_RIGHT == BUTTON_DOWN && state == AYINKATANA) state = AYINRANDOM, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_R && state == KATANARANDOM || App->input->controller2_Dpad_RIGHT == BUTTON_DOWN && state == KATANARANDOM) state = KATANAAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == KATANARANDOM || App->input->controller2_Dpad_LEFT == BUTTON_DOWN && state == KATANARANDOM) state = KATANAAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_R && state == AYINRANDOM || App->input->controller2_Dpad_RIGHT == BUTTON_DOWN && state == AYINRANDOM) state = AYINKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == AYINRANDOM || App->input->controller2_Dpad_LEFT == BUTTON_DOWN && state == AYINRANDOM) state = AYINKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_R && state == RANDOMKATANA || App->input->controller2_Dpad_RIGHT == BUTTON_DOWN && state == RANDOMKATANA) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == RANDOMKATANA || App->input->controller2_Dpad_LEFT == BUTTON_DOWN && state == RANDOMKATANA) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_R && state == RANDOMAYIN || App->input->controller2_Dpad_RIGHT == BUTTON_DOWN && state == RANDOMAYIN) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_L && state == RANDOMAYIN || App->input->controller2_Dpad_LEFT == BUTTON_DOWN && state == RANDOMAYIN) state = RANDOMKATANA, Mix_PlayChannel(-1, squaremove, 0);
+
+
+
+		
+=======
 		if (doneP1 == false) {
 			if (press_D && state == KATANAAYIN || App->input->controller_Dpad_RIGHT && state == KATANAAYIN) state = RANDOMAYIN; //1 player 
 			else if (press_A && state == KATANAAYIN || App->input->controller_Dpad_LEFT == BUTTON_DOWN && state == KATANAAYIN) state = RANDOMAYIN, Mix_PlayChannel(-1, squaremove, 0);
@@ -245,9 +280,9 @@ update_status ModuleCharSelec::Update() {
 
 		
 
+>>>>>>> a16c0fe9e59a37b56d1bec0183fa60fb9208f74b
 
 
-		
 
 
 		App->render->Blit(graphics6, 0, 0, &background2);

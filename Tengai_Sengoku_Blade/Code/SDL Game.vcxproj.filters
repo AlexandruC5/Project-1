@@ -46,7 +46,11 @@
     <ClCompile Include="CHARIOT.cpp" />
     <ClCompile Include="PAGODA.cpp" />
     <ClCompile Include="BALL2.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="ModuleSceneIntro.cpp" />
+=======
+    <ClCompile Include="DEMON.cpp" />
+>>>>>>> df2ae51acb72abed5d1b5c7fe712a2ced1c4eb4e
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -99,7 +103,11 @@
     <ClInclude Include="CHARIOT.h" />
     <ClInclude Include="PAGODA.h" />
     <ClInclude Include="BALL2.h" />
+<<<<<<< HEAD
     <ClInclude Include="ModuleSceneIntro.h" />
+=======
+    <ClInclude Include="DEMON.h" />
+>>>>>>> df2ae51acb72abed5d1b5c7fe712a2ced1c4eb4e
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />
