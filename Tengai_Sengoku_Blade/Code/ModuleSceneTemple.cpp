@@ -268,7 +268,7 @@ update_status ModuleSceneTemple::Update()
      if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 
 			App->fade->FadeToBlack(this, App->scene_win, 2);
-
+			
 		}
 
 	 if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
@@ -303,6 +303,19 @@ bool ModuleSceneTemple::CleanUp()
 		App->ayin->Disable();
 	}
 	return true;
+}
+
+void ModuleSceneTemple::ResetPosition() {
+
+	 posx = 0, 
+	 posy = 0;
+	 posx2 = 390, posy2 = 2;
+	 posy3 = 0;
+	 pos4 = 224;
+	 pos5 = 491;
+
+
+
 }
 
 

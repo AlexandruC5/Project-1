@@ -106,8 +106,10 @@ update_status ModuleWelcomeScreen::Update()
 	//if (App->input->keyboard[SDL_SCANCODE_RETURN] == 1) App->fade->FadeToBlack(this, App->scene_water, 2);
 
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) App->fade->FadeToBlack(this, App->charmenu, 1);
-
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+		App->fade->FadeToBlack(this, App->charmenu, 1);
+		App->scene_temple->ResetPosition();
+	}
 	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) App->fade->FadeToBlack(this, App->scene_win, 1);
 	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) App->fade->FadeToBlack(this, App->scene_loose, 1);
 
