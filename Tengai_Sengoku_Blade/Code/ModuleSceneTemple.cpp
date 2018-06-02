@@ -272,6 +272,8 @@ update_status ModuleSceneTemple::Update()
 		/*if (App->input->keyboard[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN) {
 			App->inter->num_life_katana--;
 		}*/
+
+	 if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_STATE::KEY_DOWN) App->fade->FadeToBlack(this, App->scene_loose, 1);
 	return UPDATE_CONTINUE;
 }
 

@@ -33,6 +33,7 @@ class ModuleCharSelec  : public Module
 public:
 	bool reset, player1, player2, P1katana, P2katana;
 	bool P2ayin, P1ayin;
+	int numberplayers = 1;
 private:
 	float left, right, bgmove;
 	int rand, clock,frames,s;
@@ -71,6 +72,9 @@ private:
 	Animation Kidle;
 	Animation Aidle;
 
+	Mix_Chunk* squaremove = nullptr;
+
+	_Mix_Music* Music = nullptr;
 	void CheckState();
 public:
 	ModuleCharSelec();

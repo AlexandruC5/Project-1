@@ -218,15 +218,20 @@ update_status ModuleAyin::Update()
 
 	
 	
-	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
-	bool gamepad_DOWN = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
-	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
-	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
+		bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
+		bool gamepad_DOWN = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
+		bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
+		bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
+	
+		bool gamepad_UP2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
+	
+		bool gamepad_DOWN2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
+		bool gamepad_RIGHT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
+		bool gamepad_LEFT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
+	
+	
 
-	bool gamepad_UP2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
-	bool gamepad_DOWN2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
-	bool gamepad_RIGHT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
-	bool gamepad_LEFT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
+
 
 	bool shot_space = App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN;
 

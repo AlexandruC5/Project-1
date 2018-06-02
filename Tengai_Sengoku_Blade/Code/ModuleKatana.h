@@ -70,6 +70,7 @@ public:
 	
 	bool destroyed = false;
 	bool check_death = false, check_spawn = true;
+	bool fire_rate = false;
 	player_state state = IDLE;
 	
 	bool time = true;
@@ -80,6 +81,7 @@ public:
 
 	int blink_on_entry = 0;
 	int blink_time = 0;
+	int fire_rate_timer = 0;
 	float speed;
 	bool input = true;
 	bool spin_pos = false;

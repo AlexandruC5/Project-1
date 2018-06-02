@@ -191,7 +191,7 @@ update_status ModuleKatana::Update()
 
 
 	bool shot_space = App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN;
-
+	bool shot_button_A = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) ;
 	 speed = 1.25;
 
 	 //Power Up Limits
@@ -223,9 +223,12 @@ update_status ModuleKatana::Update()
 			position.y += speed;
 		}
 
-		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1) {
+		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || shot_button_A && fire_rate ) {
 			LOG("Shooting bullets");
 
+			fire_rate = true;
+
+			
 			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
 
 			if (current_bullet_time > 100) {
@@ -251,6 +254,14 @@ update_status ModuleKatana::Update()
 
 	}
 
+	if (fire_rate) {
+		fire_rate_timer++;
+	}
+
+	if (fire_rate_timer<5) {
+		fire_rate = false;
+		
+	}
 	/*if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) {
 
 		App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);

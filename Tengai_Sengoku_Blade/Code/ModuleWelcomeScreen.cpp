@@ -102,15 +102,16 @@ update_status ModuleWelcomeScreen::Update()
 	// Switching between scenes
 	//if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1 || SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_A) == 1) App->fade->FadeToBlack(this, App->scene_temple, 2);
 	bool press_Button_start = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_START);
-
+	bool press_Button2_start = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_START);
 	//if (App->input->keyboard[SDL_SCANCODE_RETURN] == 1) App->fade->FadeToBlack(this, App->scene_water, 2);
 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) App->fade->FadeToBlack(this, App->charmenu, 1);
 
 	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) App->fade->FadeToBlack(this, App->scene_win, 1);
+	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) App->fade->FadeToBlack(this, App->scene_loose, 1);
 
-	if (press_Button_start) App->fade->FadeToBlack(this, App->charmenu, 1);
+	if (press_Button_start || press_Button2_start) App->fade->FadeToBlack(this, App->charmenu, 1);
 
 	//Draw Background
 	App->render->Blit(graphics2, 0, 0, &background);
