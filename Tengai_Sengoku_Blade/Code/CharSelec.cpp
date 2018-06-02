@@ -103,29 +103,13 @@ update_status ModuleCharSelec::Update() {
 
 	//Button input
 
-	 //Player 1
-	bool press_Button_A = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A);
-	bool press_Button_start = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_START);
 
-	//Player 2
-	bool press_Button_A2 = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_A);
-	bool press_Button_start2 = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_START);
-
-	//Dpad input
-
-	 //Player 1
-	bool Dpad_left = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
-	bool Dpad_right = SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
-
-	 //Player 2
-	bool Dpad_left2 = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
-	bool Dpad_right2 = SDL_GameControllerGetButton(App->input->gamepad2, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
 
 
 	App->render->Blit(graphics7, 0, 31, &sky);
 
 	if (clock == 0) state = OUTOFTIME;
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN || press_Button_start || press_Button_start2) {
+	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN || App->input->controller_START_button ) {
 		players = TWOPLAYERS;
 		state = KATANAAYIN;
 		reset = true;
@@ -136,12 +120,12 @@ update_status ModuleCharSelec::Update() {
 		
 		numberplayers = 1;
 
-		if (press_D && state == KATANAP1) state = AYINP1, Mix_PlayChannel(-1, squaremove, 0);
-		else if (press_A   && state == KATANAP1) state = RANDOMP1, Mix_PlayChannel(-1, squaremove, 0);
-		else if (press_A   && state == AYINP1) state = KATANAP1, Mix_PlayChannel(-1, squaremove, 0);
-		else if (press_D   && state == AYINP1) state = RANDOMP1, Mix_PlayChannel(-1, squaremove, 0);
-		else if (press_D   && state == RANDOMP1) state = KATANAP1, Mix_PlayChannel(-1, squaremove, 0);
-		else if (press_A   && state == RANDOMP1) state = AYINP1, Mix_PlayChannel(-1, squaremove, 0);
+		if (press_D || App->input->controller_Dpad_RIGHT == BUTTON_DOWN && state == KATANAP1) state = AYINP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A  || App->input->controller_Dpad_LEFT==BUTTON_DOWN  && state == KATANAP1) state = RANDOMP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A  || App->input->controller_Dpad_LEFT == BUTTON_DOWN == AYINP1) state = KATANAP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D   || App->input->controller_Dpad_RIGHT == BUTTON_DOWN == AYINP1) state = RANDOMP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_D  || App->input->controller_Dpad_RIGHT == BUTTON_DOWN == RANDOMP1) state = KATANAP1, Mix_PlayChannel(-1, squaremove, 0);
+		else if (press_A || App->input->controller_Dpad_LEFT == BUTTON_DOWN == RANDOMP1) state = AYINP1, Mix_PlayChannel(-1, squaremove, 0);
 
 	
 
@@ -155,7 +139,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 23, 157, &square1);
 			
 			App->render->Blit(graphics2, 35, 127, &lettersK);
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN) P1katana = true;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN || App->input->controller_A_button) P1katana = true;
 			if (P1katana) {
 				App->fade->FadeToBlack(this, App->scene_temple, 2);	
 			}
@@ -168,7 +152,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 35, 127, &lettersA);
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 83, 157, &square1);
-			if (App->input->keyboard[SDL_SCANCODE_RETURN ] == KEY_STATE::KEY_DOWN /*||  App->input->gamepad, SDL_CONTROLLER_BUTTON_A || App->input->gamepad2, SDL_CONTROLLER_BUTTON_A*/)P1ayin = true;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN ] == KEY_STATE::KEY_DOWN || App->input->controller_A_button)P1ayin = true;
 			if (P1ayin) App->fade->FadeToBlack(this, App->scene_temple, 2);
 			break;
 		case RANDOMP1:
