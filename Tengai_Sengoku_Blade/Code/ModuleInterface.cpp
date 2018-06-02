@@ -124,7 +124,7 @@ update_status ModuleInterface::Update()
 
 		if (!game_over_katana && App->katana->IsEnabled()) {
 			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
-			App->fonts->BlitText(100, 5, font_score, player1_score);
+			App->fonts->BlitText(55, 5, font_score, player1_score);
 
 			//Life Katana
 			for (int i = 1; i <= num_life_katana - 1; i++) {
