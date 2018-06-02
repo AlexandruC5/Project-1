@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-#TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.16299.0
-Debug|Win32|C:\Users\Gerard Clotet\Documents\GitHub\entrega\Project-1\Project-1\Tengai_Sengoku_Blade\Code\|
-=======
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.15063.0
-Debug|Win32|C:\Users\alexa\Desktop\Project-1\Tengai_Sengoku_Blade\Code\|
->>>>>>> 3515ce4f2253766010438f93300585f4beb49946
+Debug|Win32|D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\|
