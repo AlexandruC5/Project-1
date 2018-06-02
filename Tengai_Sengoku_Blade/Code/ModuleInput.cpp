@@ -100,6 +100,7 @@ update_status ModuleInput::PreUpdate()
 	Uint8 button_state_A = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_A);
 	Uint8 button_state_Y = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_Y);
 	Uint8 button_state_X = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_X);
+	Uint8 button_state_B = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_B);
 	Uint8 button_state_START = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_START);
 	Uint8 button_STATE_Dpad_LEFT = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
 	Uint8 button_STATE_Dpad_RIGHT = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
@@ -134,6 +135,14 @@ update_status ModuleInput::PreUpdate()
 	else {
 		if (controller_X_button == KEY_REPEAT || controller_X_button == KEY_DOWN) controller_X_button = KEY_UP;
 		else controller_X_button = KEY_IDLE;
+	}
+	if (button_state_B) {
+		if (controller_B_button == KEY_IDLE) controller_B_button = KEY_DOWN;
+		else controller_B_button = KEY_REPEAT;
+	}
+	else {
+		if (controller_B_button == KEY_REPEAT || controller_B_button == KEY_DOWN) controller_B_button = KEY_UP;
+		else controller_B_button = KEY_IDLE;
 	}
 
 	if (button_state_START) {
@@ -219,6 +228,7 @@ update_status ModuleInput::PreUpdate()
 	Uint8 button2_state_A = SDL_GameControllerGetButton(gamepad2, SDL_CONTROLLER_BUTTON_A);
 	Uint8 button2_state_Y = SDL_GameControllerGetButton(gamepad2, SDL_CONTROLLER_BUTTON_Y);
 	Uint8 button2_state_X = SDL_GameControllerGetButton(gamepad2, SDL_CONTROLLER_BUTTON_X);
+	Uint8 button2_state_B = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_B);
 	Uint8 button2_state_START = SDL_GameControllerGetButton(gamepad2, SDL_CONTROLLER_BUTTON_START);
 	Uint8 button2_STATE_Dpad_LEFT = SDL_GameControllerGetButton(gamepad2, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
 	Uint8 button2_STATE_Dpad_RIGHT = SDL_GameControllerGetButton(gamepad2, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
@@ -253,7 +263,15 @@ update_status ModuleInput::PreUpdate()
 	else {
 		if (controller2_X_button == KEY_REPEAT || controller2_X_button == KEY_DOWN) controller2_X_button = KEY_UP;
 		else controller2_X_button = KEY_IDLE;
-
+	}
+		if (button2_state_B) {
+			if (controller2_B_button == KEY_IDLE) controller2_B_button = KEY_DOWN;
+			else controller2_B_button = KEY_REPEAT;
+		}
+		else {
+			if (controller2_B_button == KEY_REPEAT || controller2_B_button == KEY_DOWN) controller2_B_button = KEY_UP;
+			else controller2_B_button = KEY_IDLE;
+		}
 
 		if (button2_state_START) {
 			if (controller2_START_button == KEY_IDLE) controller2_START_button = KEY_DOWN;
@@ -338,7 +356,7 @@ update_status ModuleInput::PreUpdate()
 
 		return update_status::UPDATE_CONTINUE;
 	}
-}
+
 
 // Called before quitting
 bool ModuleInput::CleanUp()
