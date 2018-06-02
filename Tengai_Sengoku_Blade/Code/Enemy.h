@@ -24,6 +24,11 @@ protected:
 	Animation * chariot_face_wolf = nullptr;
 	Collider* collider = nullptr;
 
+	//Final Boss
+	Animation* demon_wheel = nullptr;
+	Animation* demon_up = nullptr;
+	Animation* demon_down = nullptr;
+
 public:
 	fPoint position;
 

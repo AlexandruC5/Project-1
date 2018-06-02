@@ -34,6 +34,12 @@ public:
 	bool reset, player1, player2, P1katana, P2katana;
 	bool P2ayin, P1ayin;
 	int numberplayers = 1;
+	bool done, doneP1,doneP2;
+	Mix_Chunk* squaremove = nullptr;
+	Mix_Chunk* selectkatana = nullptr;
+	Mix_Chunk* selectayin = nullptr;
+	_Mix_Music* Music = nullptr;
+
 private:
 	float left, right, bgmove;
 	int rand, clock,frames,s;
@@ -72,9 +78,7 @@ private:
 	Animation Kidle;
 	Animation Aidle;
 
-	Mix_Chunk* squaremove = nullptr;
-
-	_Mix_Music* Music = nullptr;
+	int stoprand;
 	void CheckState();
 public:
 	ModuleCharSelec();

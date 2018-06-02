@@ -92,6 +92,10 @@ update_status ModuleInput::PreUpdate()
 			}
 		}
 	}
+
+	if (gamepad2){
+		gamepad2_on = true;
+	}
 	//Controller 1
 	Uint8 button_state_A = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_A);
 	Uint8 button_state_Y = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_Y);
@@ -309,7 +313,7 @@ update_status ModuleInput::PreUpdate()
 			}
 		}
 
-		if (keys[SDL_SCANCODE_ESCAPE])
+		if (keys[SDL_SCANCODE_ESCAPE]||SDL_GameControllerGetButton(gamepad,SDL_CONTROLLER_BUTTON_BACK))
 			return update_status::UPDATE_STOP;
 
 		return update_status::UPDATE_CONTINUE;

@@ -27,7 +27,8 @@ enum ENEMY_TYPES
 	Chariot,
 	Ball,
 	Ball2,
-	Pagoda
+	Pagoda,
+	Demon
 
 };
 
@@ -54,7 +55,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y, int path_type = 0);
-
+	
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
@@ -69,6 +70,7 @@ private:
 
 	bool shoot = true;
 	bool spritec;
+	
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];

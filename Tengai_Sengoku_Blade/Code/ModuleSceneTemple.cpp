@@ -133,6 +133,8 @@ bool ModuleSceneTemple::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::Ball2, 430, 90, 2);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 580, 80, 1);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Demon, 450, 300, 1);
+
 
 	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
 	coll_down = App->collision->AddCollider({ 0, SCREEN_HEIGHT - 4, 990000, 16 }, COLLIDER_WALL);
@@ -145,6 +147,8 @@ bool ModuleSceneTemple::Start()
 
 update_status ModuleSceneTemple::Update()
 {
+	
+
 	//Update Collision
 	coll_left->SetPos(App->render->camera.x / SCREEN_SIZE, 0);
 	coll_right->SetPos(SCREEN_WIDTH + App->render->camera.x / SCREEN_SIZE, 0);
@@ -173,6 +177,8 @@ update_status ModuleSceneTemple::Update()
 
 			else {
 				transition = false;
+				//boss = true;
+			
 				if (aux_time3 < 300) {
 					aux_time3++;
 				}
@@ -213,8 +219,8 @@ update_status ModuleSceneTemple::Update()
 
 	if (App->render->camera.x > 1750 && App->render->camera.x <= 9500) {
 		//App->katana->speed = 10;
-		speed = 6;
-		speed_activation = true;
+		//speed = 6;
+		//speed_activation = true;
 		//katana_speed = 10.0;
 		
 	
@@ -262,7 +268,7 @@ update_status ModuleSceneTemple::Update()
      if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 
 			App->fade->FadeToBlack(this, App->scene_win, 2);
-
+			
 		}
 
 	 if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
@@ -297,6 +303,19 @@ bool ModuleSceneTemple::CleanUp()
 		App->ayin->Disable();
 	}
 	return true;
+}
+
+void ModuleSceneTemple::ResetPosition() {
+
+	 posx = 0, 
+	 posy = 0;
+	 posx2 = 390, posy2 = 2;
+	 posy3 = 0;
+	 pos4 = 224;
+	 pos5 = 491;
+
+
+
 }
 
 

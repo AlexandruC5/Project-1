@@ -34,6 +34,14 @@ enum player_state_2 {
 
 };
 
+enum controller_state {
+
+
+	AYN1,
+	AYN2,
+
+};
+
 
 class ModuleAyin : public Module
 {
@@ -86,7 +94,7 @@ public:
 	fPoint position;
 	fPoint aux_spin;
 	fPoint aux_death;
-
+	controller_state controller_state;
 	bool destroyed = false;
 	bool check_death = false, check_spawn = true;
 	player_state_2 state = IDLE_2;
