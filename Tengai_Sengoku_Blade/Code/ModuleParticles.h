@@ -7,7 +7,8 @@
 #include "p2Point.h"
 #include "ModuleCollision.h"
 
-#define MAX_ACTIVE_PARTICLES 100
+#define MAX_ACTIVE_PARTICLES 400
+#define MAX_ACTIVE_EMMITERS 30
 
 struct SDL_Texture;
 struct Collider;
@@ -35,12 +36,24 @@ struct Particle
 	iPoint speed;
 	Uint32 born = 0;
 	Uint32 life = 0;
+	Uint32 actual_life = 0;
 	bool fx_played = false;
 
 	Particle();
 	Particle(const Particle& p);
 	~Particle();
-	bool Update();
+	void Update(SDL_Texture* tex = nullptr);
+	bool Valid();
+	//bool Update();
+};
+
+class ParticleEmmiter;
+
+enum EmmiterType
+{
+	NONE = 0,
+	AJIN_ULT,
+	SHARPENER_BURST
 };
 
 class ModuleParticles : public Module
@@ -54,16 +67,18 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 	void AddParticle(const Particle& particle, int x, int y, /*int speedx, int speedy,*/ COLLIDER_TYPE collider_type = COLLIDER_NONE, PARTICLE_TYPE particle_type = PARTICLE_NONE, Uint32 delay = 0);
-	
+	bool AddParticle(Particle* p = nullptr);
+	bool AddEmmiter(EmmiterType type, fPoint* pos = nullptr);
+	void HandleParticleArray();
+	int GetAvailableStorage(uint wanted) const;
 
 private:
 
-	//SDL_Texture * graphics = nullptr;
-	//SDL_Texture * graphics1 = nullptr;
-	//SDL_Texture * graphics2 = nullptr;
-	//SDL_Texture * graphics3 = nullptr;
+	
 	SDL_Texture * graphics4 = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
+	ParticleEmmiter* emitters_active[MAX_ACTIVE_EMMITERS];
+
 	
 	uint last_particle = 0;
 
@@ -76,11 +91,12 @@ public:
 	Particle waterExplosion;
 	Particle sword1, sword2;
 	Particle enemyattack;
+
 	//Katana
 	Particle shoot1, shoot2, shoot3;
 	Particle ayin_shoot1, ayin_shoot2, ayin_shoot3;
 
-	
+	//Ayin
 	Particle ayin_wave, ayin_wave_2, ayin_wave_3, ayin_wave_4;
 	Particle arrow_shoot, charged_arrow_shoot;
 	Particle ayin_shoot1_2, ayin_shoot2_2, ayin_shoot3_2;
@@ -88,6 +104,7 @@ public:
 	Particle enemy_bullet;
 	Particle wave1, wave2, wave3, wave4, wave5, wave6, wave7;
 	Particle ulti_ayin;
+
 	//Sharpener enemy
 	Particle sharpener_bullet, sharpener_shuriken;
 	bool timer = false;
@@ -99,5 +116,56 @@ public:
 	Particle power_up, power_down;
 
 };
+
+class ParticleEmmiter
+{
+public:
+
+	ParticleEmmiter(Particle* p = nullptr, fPoint* pos = nullptr);
+
+	bool Kill() { return !valid; }
+	virtual void Update() {}
+
+protected:
+
+	bool valid = true;
+
+public:
+
+	Particle* particle_emited;
+	fPoint* position = nullptr;
+	int total_particles = 0;
+
+	// position adjust
+	iPoint offset;
+
+	// timmings
+	Uint32 trigger_time = 0;
+	Uint32 life_time = 0;
+	Uint32 interval = 0;
+	float repetitions_total = 0;
+	float repetitions_current = 0;
+};
+
+class AjinUlt : public ParticleEmmiter
+{
+public:
+
+	AjinUlt(Particle* p = nullptr, fPoint* pos = nullptr);
+	void Update();
+
+	fPoint speed;
+};
+
+class SharpenerBurst : public ParticleEmmiter
+{
+public:
+
+	SharpenerBurst(Particle* p = nullptr, fPoint* pos = nullptr);
+	void Update();
+
+	float speed_multiplier = 1.0f;
+};
+
 
 #endif // __MODULEPARTICLES_H__

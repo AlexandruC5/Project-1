@@ -36,7 +36,7 @@ GREEN2::GREEN2(int x, int y, int type) : Enemy(x, y, type)
 
 void GREEN2::Move()
 {
-	position = original_pos + path.GetCurrentPosition(&animation);
-
-
+	iPoint path_pos = path.GetCurrentPosition(&animation);
+	position.x = float(original_pos.x + path_pos.x);
+	position.y = float(original_pos.y + path_pos.y);
 }

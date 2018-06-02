@@ -42,6 +42,10 @@
     <ClCompile Include="SHARPENER_KNIFE.cpp" />
     <ClCompile Include="Power_Up.cpp" />
     <ClCompile Include="Ulti_Parchment.cpp" />
+    <ClCompile Include="BALL.cpp" />
+    <ClCompile Include="CHARIOT.cpp" />
+    <ClCompile Include="PAGODA.cpp" />
+    <ClCompile Include="BALL2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -90,6 +94,10 @@
     <ClInclude Include="SHARPENER_KNIFE.h" />
     <ClInclude Include="Power_Up.h" />
     <ClInclude Include="Ulti_Parchment.h" />
+    <ClInclude Include="BALL.h" />
+    <ClInclude Include="CHARIOT.h" />
+    <ClInclude Include="PAGODA.h" />
+    <ClInclude Include="BALL2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

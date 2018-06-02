@@ -266,6 +266,12 @@ update_status ModuleAyin::Update()
 			position.y += speed;
 		}
 
+		if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN) {
+			state = ULTI_AYIN;
+			App->inter->num_ult_ayin--;
+			App->particles->AddEmmiter(AJIN_ULT, &position);
+		}
+
 		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ /*|| SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1*/) {
 			LOG("Shooting bullets");
 

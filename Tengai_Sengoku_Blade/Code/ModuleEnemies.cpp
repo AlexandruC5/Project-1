@@ -12,6 +12,10 @@
 #include "DEMONPEGTOP.h"
 #include "DEMONWHEEL.h"
 #include "SHARPENER_KNIFE.h"
+#include "BALL.h"
+#include "BALL2.h"
+#include "CHARIOT.h"
+#include "PAGODA.h"
 #include "Power_Up.h"
 #include "Ulti_Parchment.h"
 #include "ModulePlayer.h"
@@ -58,7 +62,7 @@ update_status ModuleEnemies::PreUpdate()
 	// check camera position to decide what to spawn
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (queue[i].type != ENEMY_TYPES::SharpenerKnife)
+		if (queue[i].type != ENEMY_TYPES::SharpenerKnife && queue[i].type != ENEMY_TYPES::NO_TYPE)
 		{
 			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
@@ -68,7 +72,7 @@ update_status ModuleEnemies::PreUpdate()
 			}
 		}
 
-		if (queue[i].type == ENEMY_TYPES::SharpenerKnife) {
+		if (queue[i].type == ENEMY_TYPES::SharpenerKnife && queue[i].type != ENEMY_TYPES::NO_TYPE) {
 
 			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) - 150 )
 			{
@@ -78,6 +82,20 @@ update_status ModuleEnemies::PreUpdate()
 				LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
 			}
 		}
+
+		/*if (queue[i].type == ENEMY_TYPES::DemonWheel && queue[i].type != ENEMY_TYPES::NO_TYPE) {
+
+			if (queue[i].path_type == 2) {
+
+				if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) - 250)
+				{
+					SpawnEnemy(queue[i]);
+
+					queue[i].type = ENEMY_TYPES::NO_TYPE;
+					LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
+				}
+			}*/
+		//}
 	}
 
 	return UPDATE_CONTINUE;
@@ -213,6 +231,23 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				break;
 			case ENEMY_TYPES::Ulti_parchment:
 				enemies[i] = new Ulti_Parchment(info.x, info.y, info.path_type);
+
+				break;
+
+			case ENEMY_TYPES::Ball:
+				enemies[i] = new BALL(info.x, info.y, info.path_type);
+
+				break;
+			case ENEMY_TYPES::Ball2:
+				enemies[i] = new BALL2(info.x, info.y, info.path_type);
+
+				break;
+			case ENEMY_TYPES::Chariot:
+				enemies[i] = new CHARIOT(info.x, info.y, info.path_type);
+
+				break;
+			case ENEMY_TYPES::Pagoda:
+				enemies[i] = new PAGODA(info.x, info.y, info.path_type);
 
 				break;
 		}
