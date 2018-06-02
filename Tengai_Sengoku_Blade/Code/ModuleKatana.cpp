@@ -210,6 +210,35 @@ update_status ModuleKatana::Update()
 
 	//Inputs
 	if (input) {
+
+		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller_A_button == KEY_STATE::KEY_DOWN) {
+			LOG("Shooting bullets");
+
+
+
+			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
+
+			if (current_bullet_time > 100) {
+
+			bullet_on_entry = SDL_GetTicks();*/
+			aux1++;
+			switch (aux1) {
+			case 0:
+				App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				LOG("Shoot 1");
+				break;
+			case 1:
+				App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				break;
+			case 2:
+				App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				aux1 = 0;
+				break;
+
+			}
+
+		}
+
 		if (pressed_A || App->input->controller_Dpad_LEFT) {
 			position.x -= speed;
 		}
@@ -222,46 +251,36 @@ update_status ModuleKatana::Update()
 		if (pressed_S || App->input->controller_Dpad_DOWN) {
 			position.y += speed;
 		}
-
-		if (SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A)) {
-			fire_rate = true;
-		}
-
 		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller_A_button == KEY_STATE::KEY_DOWN) {
 			LOG("Shooting bullets");
 
-			if (fire_rate_timer == 0) {
-				fire_rate_timer++;
 
-			}
-			
-			if (fire_rate_timer == 30) {
-				fire_rate = false;
-				fire_rate_timer == 0;
-			}
-			
+
 			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
 
 			if (current_bullet_time > 100) {
 
-				bullet_on_entry = SDL_GetTicks();*/
-				aux1++;
-				switch (aux1) {
-				case 0:
-					App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
-					LOG("Shoot 1");
-					break;
-				case 1:
-					App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
-					break;
-				case 2:
-					App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
-					aux1 = 0;
-					break;
-				
+			bullet_on_entry = SDL_GetTicks();*/
+			aux1++;
+			switch (aux1) {
+			case 0:
+				App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				LOG("Shoot 1");
+				break;
+			case 1:
+				App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				break;
+			case 2:
+				App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				aux1 = 0;
+				break;
+
 			}
 
 		}
+		
+
+		
 
 	}
 
