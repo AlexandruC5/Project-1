@@ -107,10 +107,11 @@ bool ModuleSceneTemple::Start()
 
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
+	
 	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,400,50);
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::SharpenerKnife, 400, 50);
-	App->enemies->AddEnemy(ENEMY_TYPES::Power_up, 400, 150,1);
+	//App->enemies->AddEnemy(ENEMY_TYPES::SharpenerKnife, 500, 50);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::Power_up, 400, 150,1);
 	App->enemies->AddEnemy(ENEMY_TYPES::Ulti_parchment, 400, 50,1);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 380, 80, 1);
@@ -120,7 +121,18 @@ bool ModuleSceneTemple::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 15, 1);
 	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 610, 45, 1);
 	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 620, 75, 1);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 630, 105, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED, 630, 105, 1);*/
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::Ball, 430, 50, 1);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Chariot, 430, 50, 1);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Pagoda, 430, 50, 1);
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 630, 105, 1);
+	//App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 430, -40, 2);
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::Ball2, 430, 90, 2);
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 580, 80, 1);
 
 	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
 	coll_down = App->collision->AddCollider({ 0, SCREEN_HEIGHT - 4, 990000, 16 }, COLLIDER_WALL);

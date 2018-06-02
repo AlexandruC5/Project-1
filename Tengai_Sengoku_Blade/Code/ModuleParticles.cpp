@@ -251,9 +251,13 @@ bool ModuleParticles::Start()
 
 
 	//Ayin ultimate
-	ulti_ayin.anim.PushBack({15, 644, 117, 66 });
-	ulti_ayin.anim.loop = true;
+	ulti_ayin.anim.PushBack({17, 737, 33, 41 });
+	ulti_ayin.anim.PushBack({ 52, 727, 47, 59 });
+	ulti_ayin.anim.PushBack({ 110, 718, 57, 67 });
+	ulti_ayin.anim.PushBack({ 15, 644, 117, 66 });
+	ulti_ayin.anim.loop = false;
 	ulti_ayin.life = 1400;
+	ulti_ayin.anim.speed = 0.15f;
 	ulti_ayin.speed.x = App->scene_temple->speed + 1.5;
 
 	//Enemy explosions on Water Stage
@@ -305,7 +309,8 @@ bool ModuleParticles::Start()
 	enemy_bullet.anim.PushBack({ 75, 489, 6, 6 });
 	enemy_bullet.anim.PushBack({ 88, 489, 6, 6 });
 	enemy_bullet.anim.PushBack({ 101, 489, 6, 6 });
-	enemy_bullet.speed.x = -1.5;
+	//enemy_bullet.speed.x = 
+	//enemy_bullet.speed.y = 
 	enemy_bullet.anim.loop = true;
 	enemy_bullet.life = 1400;
 
@@ -375,48 +380,49 @@ bool ModuleParticles::CleanUp()
 // Update: draw background
 update_status ModuleParticles::Update()
 {
-	for(uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	// Update Particle Emmiters
+	ParticleEmmiter* p_emmiter = nullptr;
+
+	for (uint i = 0; i < MAX_ACTIVE_EMMITERS; ++i)
 	{
-		Particle* p = active[i];
+		p_emmiter = emitters_active[i];
 
-		if(p == nullptr)
-			continue;
-
-		if(p->Update() == false)
+		if (p_emmiter != nullptr)
 		{
-			delete p;
-			active[i] = nullptr;
-		}
-		else if(SDL_GetTicks() >= p->born)
-		{
-			//App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-			//App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-			//App->render->Blit(graphics3, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-			App->render->Blit(graphics4, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-
-			if(p->fx_played == false)
+			if (p_emmiter->Kill())
 			{
-				p->fx_played = true;
-				// Play particle fx here
+				delete p_emmiter;
+				emitters_active[i] = nullptr;
+			}
+			else
+			{
+				p_emmiter->Update();
 			}
 		}
 	}
 
+	// Update Particles
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active[i] != nullptr)
+		{
+			active[i]->Update(graphics4);
+
+			if (!active[i]->Valid())
+			{
+				Particle* p = active[i];
+				delete p;
+				active[i] = nullptr;
+			}
+		}
+	}
+
+	//HandleParticleArray();
+
 	return UPDATE_CONTINUE;
 }
-/*
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32 delay)
-{
-	Particle* p = new Particle(particle);
-	p->born = SDL_GetTicks() + delay;
-	p->position.x = x;
-	p->position.y = y;
 
 
-
-	active[last_particle++] = p;
-}
-*/
 void ModuleParticles::AddParticle(const Particle& particle, int x, int y, /*int speedx, int speedy,*/ COLLIDER_TYPE collider_type, PARTICLE_TYPE particle_type, Uint32 delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -439,6 +445,84 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, /*int 
 }
 // -------------------------------------------------------------
 // -------------------------------------------------------------
+
+bool ModuleParticles::AddParticle(Particle* p)
+{
+	bool ret = false;
+
+	if (p != nullptr)
+	{
+		for (uint i = 0; i < MAX_ACTIVE_PARTICLES && !ret; ++i)
+		{
+			if (this->active[i] == nullptr)
+			{
+				this->active[i] = p;
+				ret = true;
+			}
+		}
+	}
+
+	return ret;
+}
+
+
+bool ModuleParticles::AddEmmiter(EmmiterType type, fPoint* pos)
+{
+	if (pos != nullptr)
+	{
+		for (uint i = 0; i < MAX_ACTIVE_EMMITERS; ++i)
+		{
+			ParticleEmmiter* p_emmiter = emitters_active[i];
+
+			if (p_emmiter == nullptr)
+			{
+				switch (type)
+				{
+				case AJIN_ULT:
+					emitters_active[i] = new AjinUlt(&ulti_ayin, pos);
+					break;
+				case SHARPENER_BURST:
+					emitters_active[i] = new SharpenerBurst(&sharpener_shuriken, pos);
+					break;
+				}
+
+				return (emitters_active[i] != nullptr && !emitters_active[i]->Kill());
+			}
+		}
+	}
+}
+
+void ModuleParticles::HandleParticleArray()
+{
+	for (uint i2 = 0; i2 < MAX_ACTIVE_PARTICLES; ++i2)
+	{
+		if (active[i2] != nullptr)
+		{
+			if (i2 > 0 && active[i2 - 1] == nullptr)
+			{
+				active[i2 - 1] = active[i2];
+				active[i2] = nullptr;
+				i2--;
+			}
+		}
+	}
+}
+
+int ModuleParticles::GetAvailableStorage(uint wanted) const
+{
+	int ret = 0;
+
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active[i] == nullptr)
+			ret++;
+	}
+
+	ret = MIN(wanted, ret);
+
+	return ret;
+}
+
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -498,24 +582,134 @@ Particle::~Particle()
 	}
 
 
-bool Particle::Update()
+void Particle::Update(SDL_Texture* tex)
 {
-	bool ret = true;
+	actual_life = SDL_GetTicks() - born;
 
-	if(life > 0)
-	{
-		if((SDL_GetTicks() - born) > life)
-			ret = false;
-	}
-	else
-		if(anim.Finished())
-			ret = false;
+	//LOG("Updating Particle - actual_life: %d", actual_life);
 
-	position.x += speed.x;
+	position.x += speed.x + App->scene_temple->speed;
 	position.y += speed.y;
+
+	if (tex != nullptr)
+	{
+		App->render->Blit(
+			tex,
+			int(position.x),
+			int(position.y),
+			&(anim.GetCurrentFrame()));
+	}
 
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
+}
+
+bool Particle::Valid()
+{
+	bool ret = true;
+
+	if (life > 0)
+	{
+		if (actual_life > life)
+		{
+			LOG("Particle dies after %d", actual_life);
+			ret = false;
+		}
+	}
+	else if (anim.Finished())
+	{
+		ret = false;
+	}
 
 	return ret;
 }
+
+
+ParticleEmmiter::ParticleEmmiter(Particle* p, fPoint* pos)
+	: particle_emited(p), position(pos), life_time(0), repetitions_current(0)
+{
+	trigger_time = SDL_GetTicks();
+	valid = (pos != nullptr);
+	offset.SetToZero();
+}
+
+AjinUlt::AjinUlt(Particle* p, fPoint* pos) : ParticleEmmiter(p, pos)
+{
+	interval = 180;
+	repetitions_total = 4;
+	offset.x = 5;
+	offset.y = -35;
+	speed.x = 5.f;
+	speed.y = 0.f;
+	total_particles = 1;
+}
+
+
+void AjinUlt::Update()
+{
+	life_time = SDL_GetTicks() - trigger_time;
+
+	if (repetitions_current == repetitions_total)
+	{
+		valid = false;
+	}
+	else if (life_time > interval * repetitions_current)
+	{
+		Particle* p = nullptr;
+		p = new Particle(*particle_emited);
+		p->born = SDL_GetTicks();
+		p->position.x = int(position->x) + offset.x;
+		p->position.y = int(position->y) + offset.y;
+		p->speed.x = speed.x;
+		p->speed.y = speed.y;
+		//p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_PLAYER_AYIN_ULTI, App->particles);
+		App->particles->AddParticle(p);
+
+		repetitions_current++;
+	}
+}
+
+SharpenerBurst::SharpenerBurst(Particle* p, fPoint* pos) : ParticleEmmiter(p, pos)
+{
+	interval = 250;
+	repetitions_total = 4;
+	total_particles = 32;
+	speed_multiplier = 6.0f;
+	offset.x = 50;
+	offset.y = 40;
+}
+
+
+void SharpenerBurst::Update()
+{
+	life_time = SDL_GetTicks() - trigger_time;
+
+	if (repetitions_current == repetitions_total)
+	{
+		valid = false;
+	}
+	else if (life_time > interval * repetitions_current)
+	{
+		double angle_interval = 360.f / total_particles;
+
+		// Radius casting using the angle to change speeds
+		for (double angle = 0; angle < 360; angle += angle_interval)
+		{
+			Particle* p = new Particle(*particle_emited);
+			p->born = SDL_GetTicks();
+			p->position.x = int(position->x) + offset.x;
+			p->position.y = int(position->y) + offset.y;
+
+			// Each has different direction
+			p->speed.x = SDL_sin(angle) * speed_multiplier;
+			p->speed.y = SDL_cos(angle) * speed_multiplier;
+
+			//p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHARPENER_KNIFE, App->particles);
+
+			App->particles->AddParticle(p);
+		}
+
+		repetitions_current++;
+	}
+}
+

@@ -24,6 +24,10 @@ enum ENEMY_TYPES
 	SharpenerKnife,
 	Power_up,
 	Ulti_parchment,
+	Chariot,
+	Ball,
+	Ball2,
+	Pagoda
 
 };
 

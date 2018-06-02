@@ -74,6 +74,9 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BALL.h" />
+    <ClInclude Include="BALL2.h" />
+    <ClInclude Include="CHARIOT.h" />
     <ClInclude Include="CharSelec.h" />
     <ClInclude Include="DEMONPEGTOP.h" />
     <ClInclude Include="DEMONWHEEL.h" />
@@ -83,6 +86,7 @@
     <ClInclude Include="ModuleInterface.h" />
     <ClInclude Include="ModuleKatana.h" />
     <ClInclude Include="ModuleKatanaArrow.h" />
+    <ClInclude Include="PAGODA.h" />
     <ClInclude Include="Power_Up.h" />
     <ClInclude Include="red.h" />
     <ClInclude Include="Enemy.h" />
@@ -121,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="BALL.cpp" />
+    <ClCompile Include="BALL2.cpp" />
+    <ClCompile Include="CHARIOT.cpp" />
     <ClCompile Include="CharSelec.cpp" />
     <ClCompile Include="DEMONPEGTOP.cpp" />
     <ClCompile Include="DEMONWHEEL.cpp" />
@@ -130,6 +137,7 @@
     <ClCompile Include="ModuleInterface.cpp" />
     <ClCompile Include="ModuleKatana.cpp" />
     <ClCompile Include="ModuleKatanaArrow.cpp" />
+    <ClCompile Include="PAGODA.cpp" />
     <ClCompile Include="Power_Up.cpp" />
     <ClCompile Include="red.cpp" />
     <ClCompile Include="Enemy.cpp" />
