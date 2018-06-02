@@ -83,6 +83,9 @@ bool ModuleWelcomeScreen::Start()
 	App->scene_loose->Disable();
 	App->powerup->Disable();
 	App->charmenu->Disable();
+	
+	
+
 	//Loading main sprites
 	graphics = App->textures->Load("assets/sprites/UI/WelcomeScreen/button_start.png");
 	graphics2 = App->textures->Load("assets/sprites/UI/WelcomeScreen/background.png");

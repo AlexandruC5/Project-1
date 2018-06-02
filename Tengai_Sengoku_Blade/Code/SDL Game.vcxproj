@@ -86,6 +86,7 @@
     <ClInclude Include="ModuleInterface.h" />
     <ClInclude Include="ModuleKatana.h" />
     <ClInclude Include="ModuleKatanaArrow.h" />
+    <ClInclude Include="ModuleSceneIntro.h" />
     <ClInclude Include="PAGODA.h" />
     <ClInclude Include="Power_Up.h" />
     <ClInclude Include="red.h" />
@@ -137,6 +138,7 @@
     <ClCompile Include="ModuleInterface.cpp" />
     <ClCompile Include="ModuleKatana.cpp" />
     <ClCompile Include="ModuleKatanaArrow.cpp" />
+    <ClCompile Include="ModuleSceneIntro.cpp" />
     <ClCompile Include="PAGODA.cpp" />
     <ClCompile Include="Power_Up.cpp" />
     <ClCompile Include="red.cpp" />
