@@ -16,6 +16,7 @@
 #include "BALL2.h"
 #include "CHARIOT.h"
 #include "PAGODA.h"
+#include "DEMON.h"
 #include "Power_Up.h"
 #include "Ulti_Parchment.h"
 #include "ModulePlayer.h"
@@ -74,13 +75,26 @@ update_status ModuleEnemies::PreUpdate()
 
 		if (queue[i].type == ENEMY_TYPES::SharpenerKnife && queue[i].type != ENEMY_TYPES::NO_TYPE) {
 
-			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) - 150 )
+			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) - 150)
 			{
 				SpawnEnemy(queue[i]);
-				
+
 				queue[i].type = ENEMY_TYPES::NO_TYPE;
 				LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
 			}
+		}
+
+			if (queue[i].type == ENEMY_TYPES::Demon && queue[i].type != ENEMY_TYPES::NO_TYPE) {
+
+				if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) - 210 && queue[i].y * SCREEN_SIZE > App->render->camera.y + (App->render->camera.h * SCREEN_SIZE))
+				{
+					
+						SpawnEnemy(queue[i]);
+						
+						queue[i].type = ENEMY_TYPES::NO_TYPE;
+						LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
+					
+				}
 		}
 
 		/*if (queue[i].type == ENEMY_TYPES::DemonWheel && queue[i].type != ENEMY_TYPES::NO_TYPE) {
@@ -248,6 +262,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				break;
 			case ENEMY_TYPES::Pagoda:
 				enemies[i] = new PAGODA(info.x, info.y, info.path_type);
+
+				break;
+			case ENEMY_TYPES::Demon:
+				enemies[i] = new DEMON(info.x, info.y, info.path_type);
 
 				break;
 		}
