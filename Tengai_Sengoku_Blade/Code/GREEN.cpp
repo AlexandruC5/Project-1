@@ -38,7 +38,8 @@ GREEN::GREEN(int x, int y, int type) : Enemy(x, y, type)
 void GREEN::Move()
 {
 	
-	position = original_pos + path.GetCurrentPosition(&animation);
-
-
+	
+	iPoint path_pos = path.GetCurrentPosition();
+	position.x = float(original_pos.x + path_pos.x);
+	position.y = float(original_pos.y + path_pos.y);
 }

@@ -43,6 +43,9 @@ Power_Up::Power_Up(int x, int y, int type) :Enemy(x, y,type)
 void Power_Up::Move()
 {
 	if (App->inter->enemies_movement) {
-		position = originalposition + movement.GetCurrentPosition();
+		
+		iPoint path_pos = movement.GetCurrentPosition();
+		position.x = float(originalposition.x + path_pos.x);
+		position.y = float(originalposition.y + path_pos.y);
 	}
 }

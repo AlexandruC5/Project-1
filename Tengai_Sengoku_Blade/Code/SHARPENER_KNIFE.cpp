@@ -236,15 +236,12 @@ void SHARPENER_KNIFE::CheckState() {
 		if (position.x < App->render->camera.x + (App->render->camera.w) - 200) {
 			position.x += App->scene_temple->speed;
 			state = GO_SPIN_SHARPENER;
+			App->particles->AddEmmiter(SHARPENER_BURST, &position);
 		}
 		break;
 
 	case GO_SPIN_SHARPENER:
-
-		for (int i = 0; i <= 15; i++) {
-
-			//App->particles->AddParticle(App->particles->sharpener_shuriken, position.x, position.y - 30, lista_shurikens[i]->speed.x, lista_shurikens[i].speed.y, COLLIDER_ENEMY_SHOT);
-		}
+		
 	if (going_forward) {
 		if (position.x < App->render->camera.x +(App->render->camera.w)-200) {
 				going_forward = false;

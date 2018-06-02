@@ -14,11 +14,13 @@ private:
 	Animation backward;
 	Animation shoot;
 	Animation death;
-
+	int timer = 0;
+	void Shoot();
 public:
 
 	DEMONWHEEL(int x, int y, int type);
 
 	void Move();
+	
 };
 #endif

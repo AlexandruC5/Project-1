@@ -82,7 +82,7 @@ void DEMONPEGTOP::CheckState() {
 	case IDLE_PEGTOP:
 		position.x -= 0.2;
 		if(type == 1){
-			if (position.x <= App->render->camera.x + (App->render->camera.w) - 180) 
+			if (position.x <= App->render->camera.x + (App->render->camera.w) - 80) 
 				state = SHOT_PEGTOP;
 			}
 		if (type == 2) {
@@ -96,7 +96,7 @@ void DEMONPEGTOP::CheckState() {
 	case SHOT_PEGTOP:
 		position.x += App->scene_temple->speed;
 		if (shot.Finished()) {
-			ShotActive();
+			Shoot();
 			state = RETURN_SHOT_PEGTOP;
 		}
 		break;
@@ -104,9 +104,14 @@ void DEMONPEGTOP::CheckState() {
 	case RETURN_SHOT_PEGTOP:
 		position.x += App->scene_temple->speed;
 		if (return_shot.Finished()) {
+
+			if (ammo < 5){
+				state = SHOT_PEGTOP;
+			}
+			else state = FAREWELL_PEGTOP;
 			//shoot.Reset();
 			//App->particles->AddParticle(App->particles->sharpener_bullet, position.x , position.y - 30, COLLIDER_ENEMY_SHOT);
-			state = FAREWELL_PEGTOP;
+			
 		}
 		break;
 
@@ -163,26 +168,61 @@ void DEMONPEGTOP::PerformActions()
 
 
 
-	void DEMONPEGTOP::ShotActive() 
+	void DEMONPEGTOP::Shoot() 
 	
 	{
+		for (int i = 0; i < ammo; i++) {
 
-		if (App->katana->position.x < position.x && App->katana->position.y < position.y)
+			Particle* p = new Particle(App->particles->enemy_bullet);
+			p->born = SDL_GetTicks();
+			p->position.x = int(position.x) - i * 5;
+			p->position.y = int(position.y) + i * 5;
+			p->speed.x = (App->katana->position.x - p->position.x) / 60.f;
+			p->speed.y = (App->katana->position.y - p->position.y) / 60.f;
+			p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHOT, App->particles);
+			App->particles->AddParticle(p);
+
+		}
+		ammo++;
+
+
+
+
+		/*App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
+
+		App->particles->enemy_bullet.speed.x = (App->katana->position.x - position.x) * 6;
+		App->particles->enemy_bullet.speed.y = (App->katana->position.y - position.y) * 6;
+
+
+*/
+
+
+
+		/*if (App->katana->position.x < position.x && App->katana->position.y < position.y)
 				{
 					App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
+
+					App->particles->enemy_bullet.speed.x = App->katana->position.x - position.x;
+					App->particles->enemy_bullet.speed.y = App->katana->position.y - position.y;
 				}
 		else if (App->katana->position.x < position.x && App->katana->position.y > position.y)
 		        {
 					App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
+					App->particles->enemy_bullet.speed.x = App->katana->position.x - position.x;
+					App->particles->enemy_bullet.speed.y = App->katana->position.y - position.y;
 				}
 		else if (App->katana->position.x > position.x && App->katana->position.y < position.y) 
 		        {
 					App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
+					App->particles->enemy_bullet.speed.x = App->katana->position.x - position.x;
+					App->particles->enemy_bullet.speed.y = App->katana->position.y - position.y;
 				}
 		else if (App->katana->position.x > position.x && App->katana->position.y > position.y)
 		        {
 					App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
-				}
+					App->particles->enemy_bullet.speed.x = App->katana->position.x - position.x;
+					App->particles->enemy_bullet.speed.y = App->katana->position.y - position.y;
+				}*/
 
 
 

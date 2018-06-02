@@ -10,11 +10,22 @@ struct Collider;
 class Enemy
 {
 protected:
+	int spoty;
+	int wheel_x, wheel_y;
+protected:
 	Animation * animation = nullptr;
+	Animation * animation_chariot = nullptr;
+	Animation * animation_chariot_wheels = nullptr;
+	Animation * animation_chariot_wheels2 = nullptr;
+	Animation * animation_ball = nullptr;
+	Animation * furniture = nullptr;
+	Animation * chariot_robot = nullptr;
+	Animation * chariot_wolf = nullptr;
+	Animation * chariot_face_wolf = nullptr;
 	Collider* collider = nullptr;
 
 public:
-	iPoint position;
+	fPoint position;
 
 public:
 	Enemy(int x, int y, int type);

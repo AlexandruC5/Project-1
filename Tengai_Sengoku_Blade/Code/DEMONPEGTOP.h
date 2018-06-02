@@ -30,13 +30,15 @@ private:
 	state_pegtop state = IDLE_PEGTOP;
 	void CheckState();
 	void PerformActions();
-	void ShotActive();
+	void Shoot();
 public:
 
 	DEMONPEGTOP(int x, int y, int type);
 	bool time_delay = true;
 	int time_current = 0;
 	int time_entry = 0;
+	int ammo = 3;
+	int weapon_timer = 0;
 	void Move();
 };
 #endif
