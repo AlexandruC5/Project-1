@@ -41,9 +41,10 @@ private:
 	SDL_Rect sky;
 	SDL_Rect sky2;
 	SDL_Rect letters;
-	_Mix_Music* Winfade = nullptr;
 
 public:
+	_Mix_Music* Winfade = nullptr;
+
     ModuleWinScreen();
 	update_status Update();
 	bool CleanUp();

@@ -49,7 +49,6 @@ private:
 	SDL_Rect let5;
 
 	SDL_Rect level;
-	_Mix_Music* music = nullptr;
 	int speed = 1;
 	int count;
 	bool down;
@@ -63,6 +62,8 @@ public:
 	~ModuleLooseScreen();
 	update_status Update();
 	mode mode;
+	_Mix_Music* music = nullptr;
+
 	numplayers numplayers;
 	char player1Score[10], player2Score[10];
 	int fontScore = -1;
