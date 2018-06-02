@@ -48,6 +48,8 @@ public:
 	KEY_STATE controller_START_button;
 	KEY_STATE controller_Dpad_LEFT;
 	KEY_STATE controller_Dpad_RIGHT;
+	KEY_STATE controller_Dpad_UP;
+	KEY_STATE controller_Dpad_DOWN;
 	KEY_STATE joystick_UP;
 	KEY_STATE joystick_DOWN;
 	KEY_STATE joystick_LEFT;

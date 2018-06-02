@@ -103,6 +103,8 @@ update_status ModuleInput::PreUpdate()
 	Uint8 button_state_START = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_START);
 	Uint8 button_STATE_Dpad_LEFT = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
 	Uint8 button_STATE_Dpad_RIGHT = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+	Uint8 button_STATE_Dpad_UP = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_DPAD_UP);
+	Uint8 button_STATE_Dpad_DOWN = SDL_GameControllerGetButton(gamepad, SDL_CONTROLLER_BUTTON_DPAD_DOWN);
 	Uint8 joystick_STATE_up = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
 	Uint8 joystick_STATE_down = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
 	Uint8 joystick_STATE_right = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
@@ -159,6 +161,22 @@ update_status ModuleInput::PreUpdate()
 		if (controller_Dpad_RIGHT == KEY_REPEAT || controller_Dpad_RIGHT == KEY_DOWN) controller_Dpad_RIGHT = KEY_UP;
 		else controller_Dpad_RIGHT = KEY_IDLE;
 	}
+	if (button_STATE_Dpad_UP) {
+		if (controller_Dpad_UP == KEY_IDLE) controller_Dpad_UP = KEY_DOWN;
+		else controller_Dpad_UP = KEY_REPEAT;
+	}
+	else {
+		if (controller_Dpad_UP == KEY_REPEAT || controller_Dpad_UP == KEY_DOWN) controller_Dpad_UP = KEY_UP;
+		else controller_Dpad_UP = KEY_IDLE;
+	}
+	if (button_STATE_Dpad_DOWN) {
+		if (controller_Dpad_DOWN == KEY_IDLE) controller_Dpad_DOWN = KEY_DOWN;
+		else controller_Dpad_DOWN = KEY_REPEAT;
+	}
+	else {
+		if (controller_Dpad_DOWN == KEY_REPEAT || controller_Dpad_DOWN == KEY_DOWN) controller_Dpad_DOWN = KEY_UP;
+		else controller_Dpad_DOWN = KEY_IDLE;
+	}
 
 	if (joystick_STATE_up) {
 		if (joystick_UP == KEY_IDLE) joystick_UP = KEY_DOWN;
@@ -193,6 +211,8 @@ update_status ModuleInput::PreUpdate()
 		if (joystick_LEFT == KEY_REPEAT || joystick_LEFT == KEY_DOWN) controller_A_button = KEY_UP;
 		else joystick_LEFT = KEY_IDLE;
 	}
+
+
 
 
 	//Controller 2

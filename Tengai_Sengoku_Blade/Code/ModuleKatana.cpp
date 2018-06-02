@@ -184,10 +184,10 @@ update_status ModuleKatana::Update()
 	bool pressed_D = App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT ;
 
 
-	bool gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
-	bool gamepad_DOWN = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
-	bool gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
-	bool gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
+	Uint8 gamepad_UP = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
+	Uint8 gamepad_DOWN = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTY) > CONTROLLER_DEAD_ZONE;
+	Uint8 gamepad_RIGHT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
+	Uint8 gamepad_LEFT = SDL_GameControllerGetAxis(App->input->gamepad, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
 
 
 	bool shot_space = App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN;
@@ -210,16 +210,16 @@ update_status ModuleKatana::Update()
 
 	//Inputs
 	if (input) {
-		if (pressed_A || gamepad_LEFT) {
+		if (pressed_A || App->input->controller_Dpad_LEFT) {
 			position.x -= speed;
 		}
-		if (pressed_W || gamepad_UP) {
+		if (pressed_W || App->input->controller_Dpad_UP) {
 			position.y -= speed;
 		}
-		if (pressed_D || gamepad_RIGHT) {
+		if (pressed_D || App->input->controller_Dpad_RIGHT) {
 			position.x += speed;
 		}
-		if (pressed_S || gamepad_DOWN) {
+		if (pressed_S || App->input->controller_Dpad_DOWN) {
 			position.y += speed;
 		}
 
@@ -227,7 +227,7 @@ update_status ModuleKatana::Update()
 			fire_rate = true;
 		}
 
-		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) && fire_rate) {
+		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller_A_button == KEY_STATE::KEY_DOWN) {
 			LOG("Shooting bullets");
 
 			if (fire_rate_timer == 0) {
@@ -385,7 +385,7 @@ void ModuleKatana::CheckState()
 		break;
 
 	case IDLE:
-		if (press_W || press_A || gamepad_UP || gamepad_LEFT) {
+		if (press_W || press_A ||App->input->controller_Dpad_UP || App->input->controller_Dpad_LEFT) {
 			state = GO_BACKWARD;
 		}
 
@@ -393,10 +393,10 @@ void ModuleKatana::CheckState()
 
 	case GO_BACKWARD:
 
-		if (release_W || gamepad_UP  ) {
+		if (release_W || App->input->controller_Dpad_UP==BUTTON_UP) {
 			state = BACK_IDLE;
 		}
-		if (release_A || gamepad_LEFT) {
+		if (release_A || App->input->controller_Dpad_LEFT==BUTTON_UP) {
 			state = BACK_IDLE;
 		}
 		if (current_animation->Finished()) {
@@ -407,8 +407,8 @@ void ModuleKatana::CheckState()
 
 	case BACKWARD:
 
-		if (release_W || release_A || gamepad_UP || gamepad_LEFT) {
-			if (released_W || released_A || gamepad_UP || gamepad_LEFT) {
+		if (release_W || release_A || App->input->controller_Dpad_UP == BUTTON_UP || App->input->controller_Dpad_LEFT == BUTTON_UP) {
+			if (released_W || released_A || App->input->controller_Dpad_UP == BUTTON_UP || App->input->controller_Dpad_LEFT == BUTTON_UP) {
 
 				state = BACK_IDLE;
 
@@ -426,10 +426,10 @@ void ModuleKatana::CheckState()
 		break;
 
 	case BACK_IDLE:
-		if (pressed_W || gamepad_UP) {
+		if (pressed_W || App->input->controller_Dpad_UP == BUTTON_REPEAT) {
 			state = BACK_IDLE;
 		}
-		if (pressed_A || gamepad_LEFT) {
+		if (pressed_A || App->input->controller_Dpad_LEFT == BUTTON_REPEAT) {
 			state = BACK_IDLE;
 		}
 		if (current_animation->Finished()) {
