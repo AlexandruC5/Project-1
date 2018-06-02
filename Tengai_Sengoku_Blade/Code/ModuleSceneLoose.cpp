@@ -58,7 +58,8 @@ bool ModuleLooseScreen::Start() {
 	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Loose/bgsprites.png");
 	graphics4 = App->textures->Load("assets/sprites/Scenes/Scene_Loose/RankSprites.png");
 	fontScore = App->fonts->Load("assets/sprites/Scenes/Scene_Loose/scorefonts.png", "0123456789", 1);
-	
+	music = App->audio->LoadMusic("assets/audio/music/20_The_king_is_evil_too1.ogg");
+	Mix_PlayMusic(music, 1);
 	return true;
 }
 
@@ -206,5 +207,8 @@ bool ModuleLooseScreen::CleanUp() {
 	graphics4 = nullptr;
 
 	App->fonts->UnLoad(fontScore);
+
+	App->audio->UnloadMusic(music);
+	music = nullptr;
 	return true;
 }

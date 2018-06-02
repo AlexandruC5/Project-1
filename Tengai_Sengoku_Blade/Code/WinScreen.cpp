@@ -52,7 +52,7 @@ bool ModuleWinScreen::Start() {
 	Welcome = false;
 	fade = false;
 
-	graphics1 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Background.png");
+	graphics1 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Background2.png");
 	graphics2 = App->textures->Load("assets/sprites/Scenes/Scene_Win/Katanawinsheet.png");
 	graphics3 = App->textures->Load("assets/sprites/Scenes/Scene_Win/ayinwinsheet.png");
 	Winfade = App->audio->LoadMusic("assets/audio/music/Level_Completed.ogg");
