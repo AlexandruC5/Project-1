@@ -29,7 +29,7 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
 ## Installation
 
 ### Link to download
-* **[Game](https://github.com/AlexandruC5/Project-1/releases/tag/v1.0)**
+* **[Download Tengai Release](https://github.com/AlexandruC5/Project-1/releases/tag/v1.0)**
 
 Unzip the release folder and execute the Tengai.exe file  
 
