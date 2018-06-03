@@ -21,7 +21,8 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
        Escape to exit game
  
       
-     ## KEYBOARD INPUT
+  
+  ## KEYBOARD INPUT
 
 Player 1 :
 
