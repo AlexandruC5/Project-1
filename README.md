@@ -15,14 +15,15 @@ Sengoku Blade, also popularly known as Tengai, is an horizontal-scrolling shoot'
 Tengai sets in an imaginative and futuristic version of feudal Japan featuring traditional ninjas, demons and magic steam-powered machinery with steam-driven weapons. On gameplay, you can chose five playable characters and two ones who are hidden initially. In addition, game has items include a power-up to increase weapon power level, bombs, and bonus coins to increase score.
 
 
-##Control list:
+## Control list:
 
 
-       Escape to exit game
+
  
       
   
   ## KEYBOARD INPUT
+ESC to exit the game 
 
 Player 1 :
 
