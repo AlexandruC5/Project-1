@@ -1,30 +1,4 @@
-﻿  ModuleEnemies.cpp
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(57): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(304): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(327): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(348): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(349): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(353): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(354): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(379): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(380): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(384): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(409): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(410): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(414): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(440): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(441): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(445): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(468): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(490): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(492): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(512): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(603): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(604): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(621): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(626): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(635): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(640): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-  SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
-  SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.pdb (Partial PDB)
+﻿  ModuleSceneIntro.cpp
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\winscreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\path.h(15): note: vea la declaración de 'Path'
+  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\entrega\Project-1\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
