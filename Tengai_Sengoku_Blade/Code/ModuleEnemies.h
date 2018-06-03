@@ -84,6 +84,10 @@ private:
 
 	int num_pegtop = 0;
 	int pegtop_life = 0;
+	int pagoda_life = 0;
+	int sharpener_life = 0;
+	int ball_life = 0;
+
 };
 
 #endif // __ModuleEnemies_H__

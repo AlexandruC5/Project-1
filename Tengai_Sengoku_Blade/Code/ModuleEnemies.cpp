@@ -337,7 +337,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	
 
 
-			//Kill enemy demon pegtop
+			//Players kill pegtop
 
 			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
 				LOG("FIRE");
@@ -350,7 +350,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 				if (pegtop_life == 10) {
 					//App->audio->PlaySoundEffects(fx_death);
-					//App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
 					{
@@ -367,6 +367,141 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 			}
 
+			//Players kill pagoda
+
+			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PAGODA && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+				LOG("FIRE");
+				pagoda_life++;
+
+
+				if (pagoda_life == 1 || pagoda_life == 15) {
+					//App->particles->AddParticle(App->particles->spark, enemies[i]->position.x, enemies[i]->position.y);
+					//App->particles->spark.speed.x = speed;
+				}
+				if (pagoda_life == 25) {
+					//App->audio->PlaySoundEffects(fx_death);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+					{
+						App->inter->score_katana += 200;
+					}
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+					{
+						App->inter->score_ayin += 200;
+					}
+
+					delete enemies[i];
+					enemies[i] = nullptr;
+					pagoda_life = 0;
+				}
+			}
+
+			//Players kill Sharpener
+
+			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHARPENER_KNIFE && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+				LOG("FIRE");
+				sharpener_life++;
+
+
+				if (sharpener_life == 1 || sharpener_life == 10 || sharpener_life == 20) {
+					//App->particles->AddParticle(App->particles->spark, enemies[i]->position.x, enemies[i]->position.y);
+					//App->particles->spark.speed.x = speed;
+				}
+				if (sharpener_life == 35) {
+					//App->audio->PlaySoundEffects(fx_death);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+					{
+						App->inter->score_katana += 200;
+					}
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+					{
+						App->inter->score_ayin += 200;
+					}
+
+					delete enemies[i];
+					enemies[i] = nullptr;
+					sharpener_life = 0;
+				}
+			}
+
+
+			//Players kill Ball
+
+			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_BALL && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+				LOG("FIRE");
+				ball_life++;
+
+
+				if (ball_life == 1 || ball_life == 10 || ball_life == 20) {
+					//App->particles->AddParticle(App->particles->spark, enemies[i]->position.x, enemies[i]->position.y);
+					//App->particles->spark.speed.x = speed;
+				}
+				if (ball_life == 30) {
+					//App->audio->PlaySoundEffects(fx_death);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+					{
+						App->inter->score_katana += 200;
+					}
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+					{
+						App->inter->score_ayin += 200;
+					}
+
+					delete enemies[i];
+					enemies[i] = nullptr;
+					ball_life = 0;
+				}
+			}
+
+			//Players kill green ovni & demonwheel
+
+			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_DEMONWHEEL && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+
+			
+				//App->audio->PlaySoundEffects(fx_death);
+				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+			
+				delete enemies[i];
+				enemies[i] = nullptr;
+
+				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+				{
+					App->inter->score_katana += 200;
+				}
+				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+				{
+					App->inter->score_ayin += 200;
+				}
+				
+			}
+
+			//Players kill red ovni & drop power up
+
+			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+
+				//App->audio->PlaySoundEffects(fx_death);
+				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+				AddEnemy(ENEMY_TYPES::Power_up, enemies[i]->position.x, enemies[i]->position.y);
+
+				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+				{
+					App->inter->score_katana += 200;
+				}
+				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+				{
+					App->inter->score_ayin += 200;
+				}
+				
+				delete enemies[i];
+				enemies[i] = nullptr;
+			}
 
 
 			//Coin
@@ -501,12 +636,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->power_up, App->katana->position.x, App->katana->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_KATANA);
 						App->katana->power_up++;
 					}
-					/*else {
-						App->particles->coin_2000.speed.x = speed;
-						App->particles->coin_2000.speed.y = -2;
+					else {
+						App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
+						App->particles->coin_2000.speed.y = -1.5;
 						App->particles->AddParticle(App->particles->coin_2000, App->player->position.x, App->player->position.y, COLLIDER_NONE, PARTICLE_COIN);
-						App->ui->score_koyori += 2000;
-					}*/
+						App->inter->score_katana += 2000;
+					}
 				}
 				if (c2 == App->ayin->coll) {
 					if (App->ayin->power_up < 4) {
@@ -515,12 +650,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->power_up, App->ayin->position.x, App->ayin->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_AYIN);
 						App->ayin->power_up++;
 					}
-					/*else {
-						App->particles->coin_2000.speed.x = speed;
-						App->particles->coin_2000.speed.y = -2;
+					else {
+						App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
+						App->particles->coin_2000.speed.y = -1.5;
 						App->particles->AddParticle(App->particles->coin_2000, App->player2->position.x, App->player2->position.y, COLLIDER_NONE, PARTICLE_COIN);
-						App->ui->score_sho += 2000;
-					}*/
+						App->inter->score_ayin += 2000;
+					}
 				}
 
 				delete enemies[i];

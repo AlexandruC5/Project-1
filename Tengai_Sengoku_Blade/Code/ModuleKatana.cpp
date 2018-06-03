@@ -140,7 +140,7 @@ bool ModuleKatana::Start()
 		position.y = (App->render->camera.y) / SCREEN_SIZE + 155;
 	}
 	coll = App->collision->AddCollider({ (int)position.x, (int)position.y, 32, 32 }, COLLIDER_PLAYER);
-	hitbox = App->collision->AddCollider({ (int)position.x, (int)position.y,16,16 }, COLLIDER_HITBOX_KATANA);
+	//hitbox = App->collision->AddCollider({ (int)position.x, (int)position.y,16,16 }, COLLIDER_HITBOX_KATANA);
 
 	state = SPAWN_PLAYER;
 	App->katana_arrow->Enable();
@@ -211,7 +211,7 @@ update_status ModuleKatana::Update()
 	//Inputs
 	if (input) {
 
-		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller_A_button == KEY_STATE::KEY_DOWN) {
+		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ /*|| App->input->controller_A_button == KEY_STATE::KEY_DOWN*/) {
 			LOG("Shooting bullets");
 
 
@@ -251,7 +251,7 @@ update_status ModuleKatana::Update()
 		if (pressed_S || App->input->controller_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
 			position.y += speed;
 		}
-		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller_A_button ==BUTTON_DOWN) {
+		if (shot_space || App->input->controller_A_button ==BUTTON_DOWN) {
 			LOG("Shooting bullets");
 
 
@@ -264,14 +264,14 @@ update_status ModuleKatana::Update()
 			aux1++;
 			switch (aux1) {
 			case 0:
-				App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				App->particles->AddParticle(App->particles->shoot1, position.x , position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
 				LOG("Shoot 1");
 				break;
 			case 1:
-				App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				App->particles->AddParticle(App->particles->shoot2, position.x , position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
 				break;
 			case 2:
-				App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				App->particles->AddParticle(App->particles->shoot3, position.x , position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
 				aux1 = 0;
 				break;
 
@@ -333,7 +333,7 @@ update_status ModuleKatana::Update()
 		}
 		else {
 			coll->SetPos(position.x, position.y - 32);
-			hitbox->SetPos(position.x + 8, position.y - 25);
+			//hitbox->SetPos(position.x + 8, position.y - 25);
 		}
 	
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);

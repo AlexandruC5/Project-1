@@ -135,7 +135,7 @@ update_status ModuleKatanaArrow::Update()
 		else if (state == LAST_ARROW_SHOT) App->render->Blit(graphics, position.x + 18, position.y + 9 - r.h, &r);
 			
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN||App->input->controller_A_button==BUTTON_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->controller_A_button==BUTTON_DOWN) {
 			if (shot_delay)
 			{
 				shot_entry = SDL_GetTicks();
