@@ -169,3 +169,6 @@ Scene changes: menu screen / stage clear
 Improve bosses
 Check that everything works: god mode, colliders, gamepads, fullscreen…
 Fix bugs after testing
+
+
+Link to our repository : https://github.com/AlexandruC5/Project-1
