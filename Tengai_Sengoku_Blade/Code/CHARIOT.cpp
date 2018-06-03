@@ -143,7 +143,7 @@ void CHARIOT::CheckState() {
 
 		
 
-		if (App->enemies->ball_life) {
+		if (App->enemies->ball_life == 100) {
 			state = active;
 		}
 

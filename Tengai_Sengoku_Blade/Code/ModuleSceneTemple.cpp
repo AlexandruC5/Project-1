@@ -279,7 +279,7 @@ update_status ModuleSceneTemple::Update()
 	
 	}
 	
-	if (App->render->camera.x > 9500) {
+	if (App->render->camera.x > 950000) {
 
 		if (aux_time < 120)
 		{

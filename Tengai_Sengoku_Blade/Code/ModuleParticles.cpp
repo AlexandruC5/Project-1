@@ -502,6 +502,9 @@ bool ModuleParticles::CleanUp()
 	//App->textures->Unload(graphics2);
 	//App->textures->Unload(graphics3);
 	App->textures->Unload(graphics4);
+	fx_death = nullptr;
+	Katana_Death = nullptr;
+	Katana_Explosion = nullptr;
 
 
 	for(uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)

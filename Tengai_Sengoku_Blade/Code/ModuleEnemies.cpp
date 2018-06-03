@@ -317,7 +317,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
-	
+
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
@@ -327,9 +327,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if ((c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHARPENER_KNIFE || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PAGODA || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_DEMONWHEEL || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_BALL || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_CHARIOT) {
 				LOG("collider on");
 				//Katana colliders with enemy
-			
+
 				if (c2 == App->katana->coll) {
-					
+
 					if (timer) {
 						time_on_entry = SDL_GetTicks();
 						timer = false;
@@ -337,46 +337,46 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					current_time = SDL_GetTicks() - time_on_entry;
 					if (current_time > 600) {
 						if (App->katana->power_up > 0) {
-							
+
 							App->particles->power_down.speed.x = int(App->scene_temple->speed);
 							App->particles->power_down.speed.y = -1;
 							App->particles->AddParticle(App->particles->power_down, App->katana->position.x, App->katana->position.y);
-							
+
 						}
 						App->katana->power_up--;
 						timer = true;
 					}
-					
+
 					Mix_PlayChannel(-1, katana_pdown, 0);
 					App->katana->spin_pos = true;
 					App->katana->state = SPIN;
 				}
-			
 
-			//Ayin colliders with enemy
-			if (c2 == App->ayin->coll) {
-				
-				
-				if (timer_2) {
-					time_on_entry_2 = SDL_GetTicks();
-					timer_2 = false;
-				}
-				current_time_2 = SDL_GetTicks() - time_on_entry_2;
-				if (current_time_2 > 600) {
-					if (App->ayin->power_up > 0) {
-						App->particles->power_down.speed.x = int(App->scene_temple->speed);
-						App->particles->power_down.speed.y = -1;
-						App->particles->AddParticle(App->particles->power_down, App->ayin->position.x, App->ayin->position.y);
+
+				//Ayin colliders with enemy
+				if (c2 == App->ayin->coll) {
+
+
+					if (timer_2) {
+						time_on_entry_2 = SDL_GetTicks();
+						timer_2 = false;
 					}
-					App->ayin->power_up--;
-					timer_2 = true;
+					current_time_2 = SDL_GetTicks() - time_on_entry_2;
+					if (current_time_2 > 600) {
+						if (App->ayin->power_up > 0) {
+							App->particles->power_down.speed.x = int(App->scene_temple->speed);
+							App->particles->power_down.speed.y = -1;
+							App->particles->AddParticle(App->particles->power_down, App->ayin->position.x, App->ayin->position.y);
+						}
+						App->ayin->power_up--;
+						timer_2 = true;
+					}
+					Mix_PlayChannel(-1, ayin_pdown, 0);
+					App->ayin->spin_pos = true;
+					App->ayin->state = SPIN_2;
 				}
-				Mix_PlayChannel(-1, ayin_pdown, 0);
-				App->ayin->spin_pos = true;
-				App->ayin->state = SPIN_2;
 			}
-		}
-	
+
 
 
 			//Players kill pegtop
@@ -385,7 +385,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				LOG("FIRE");
 				pegtop_life++;
 
-				
+
 				if (pegtop_life == 1) {
 					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
@@ -403,7 +403,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					{
 						App->inter->score_ayin += 200;
 					}
-					
+
 					delete enemies[i];
 					enemies[i] = nullptr;
 					pegtop_life = 0;
@@ -483,13 +483,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x + 10, enemies[i]->position.y + 10);
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
-<<<<<<< HEAD
+
 				if (ball_life == 100) {
 					//App->audio->PlaySoundEffects(fx_death);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 20, enemies[i]->position.y + 20);
 					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 20, enemies[i]->position.y - 20);
 					App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
-
+					Mix_PlayChannel(-1, ball_die, 0);
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
 					{
 						App->inter->score_katana += 200;
@@ -519,35 +519,82 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 30, enemies[i]->position.y - 30);
 					App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
 
-					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x- 10, enemies[i]->position.y + 40);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 10, enemies[i]->position.y + 40);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 30, enemies[i]->position.y - 30);
 					App->particles->explosion.speed.x = App->scene_temple->speed;
 				}
 				if (chariot_life == 200) {
 					//App->audio->PlaySoundEffects(fx_death);
-=======
-				if (ball_life == 30) {
-					Mix_PlayChannel(-1, ball_die, 0);
->>>>>>> 258ef3de90f13ac5aa0eb129fe349e1c05377605
+
+					
+						
+
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y);
+						App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+
+						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 10, enemies[i]->position.y + 30);
+						//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+
+						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x - 10, enemies[i]->position.y + 5);
+
+						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 40, enemies[i]->position.y);
+
+						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y + 40);
+						//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+						//App->particles->explosion.speed.x = App->scene_temple->speed;
+
+						App->scene_temple->StopCamera();
+						AddEnemy(ENEMY_TYPES::Power_up, enemies[i]->position.x, enemies[i]->position.y);
+
+						if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+						{
+							App->inter->score_katana += 200;
+						}
+						if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+						{
+							App->inter->score_ayin += 200;
+						}
+
+						delete enemies[i];
+						enemies[i] = nullptr;
+						chariot_life = 0;
+					
+				}
+
+				//Players kill green ovni & demonwheel
+
+				if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_DEMONWHEEL && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+
+
+					Mix_PlayChannel(-1, govni_demonwheel, 0);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
-					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y);
-					App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
 
-					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 10, enemies[i]->position.y + 30);
-					//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+					delete enemies[i];
+					enemies[i] = nullptr;
 
-					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x -10, enemies[i]->position.y + 5);
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+					{
+						App->inter->score_katana += 200;
+					}
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+					{
+						App->inter->score_ayin += 200;
+					}
 
-					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 40, enemies[i]->position.y );
+				}
 
-					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y + 40);
-					//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+				//Players kill red ovni & drop power up
 
+				if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+
+					Mix_PlayChannel(-1, govni_demonwheel, 0);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
-					//App->particles->explosion.speed.x = App->scene_temple->speed;
 
-					App->scene_temple->StopCamera();
 					AddEnemy(ENEMY_TYPES::Power_up, enemies[i]->position.x, enemies[i]->position.y);
 
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
@@ -561,287 +608,241 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 					delete enemies[i];
 					enemies[i] = nullptr;
-					chariot_life = 0;
 				}
-			}
 
-			//Players kill green ovni & demonwheel
 
-			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_DEMONWHEEL && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+				//Coin
 
-			
-				Mix_PlayChannel(-1, govni_demonwheel, 0);
-				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
-			
-				delete enemies[i];
-				enemies[i] = nullptr;
+				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_COIN) {
+					Mix_PlayChannel(-1, pick_coin, 0);
+					srand(time(NULL));
+					typeofcoin = rand() % 6;
 
-				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
-				{
-					App->inter->score_katana += 200;
+					switch (typeofcoin) {
+					case 0:
+						coin_type = App->particles->coin_100;
+
+						if (c2 == App->katana->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_katana += 100;
+							coin_position = App->katana->position;
+						}
+						if (c2 == App->ayin->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+
+							App->inter->score_ayin += 100;
+							coin_position = App->ayin->position;
+						}
+
+						break;
+
+					case 1:
+						coin_type = App->particles->coin_200;
+
+						if (c2 == App->katana->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_katana += 200;
+							coin_position = App->katana->position;
+						}
+						if (c2 == App->ayin->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_ayin += 200;
+							coin_position = App->ayin->position;
+						}
+
+						break;
+
+					case 2:
+						coin_type = App->particles->coin_500;
+
+						if (c2 == App->katana->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_katana += 500;
+							coin_position = App->katana->position;
+						}
+						if (c2 == App->ayin->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_ayin += 500;
+							coin_position = App->ayin->position;
+						}
+
+						break;
+
+					case 3:
+						coin_type = App->particles->coin_1000;
+
+						if (c2 == App->katana->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_katana += 1000;
+							coin_position = App->katana->position;
+						}
+						if (c2 == App->ayin->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_ayin += 1000;
+							coin_position = App->ayin->position;
+						}
+
+						break;
+
+					case 4:
+						coin_type = App->particles->coin_2000;
+
+						if (c2 == App->katana->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_katana += 2000;
+							coin_position = App->katana->position;
+						}
+						if (c2 == App->ayin->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_ayin += 2000;
+							coin_position = App->ayin->position;
+						}
+
+						break;
+
+					case 5:
+						coin_type = App->particles->coin_4000;
+
+						if (c2 == App->katana->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_katana += 4000;
+							coin_position = App->katana->position;
+						}
+						if (c2 == App->ayin->coll) {
+							Mix_PlayChannel(-1, pick_coin, 0);
+							App->inter->score_ayin += 4000;
+							coin_position = App->ayin->position;
+						}
+
+						break;
+
+					}
+
+					//coin_type.speed.x = int(App->scene_temple->speed);
+					coin_type.speed.y = -1.5;
+					App->particles->AddParticle(coin_type, coin_position.x, coin_position.y, COLLIDER_NONE, PARTICLE_COIN);
+
+					delete enemies[i];
+					enemies[i] = nullptr;
+
 				}
-				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
-				{
-					App->inter->score_ayin += 200;
-				}
-				
-			}
-
-			//Players kill red ovni & drop power up
-
-			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
-
-				Mix_PlayChannel(-1, govni_demonwheel, 0);
-				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
-
-				AddEnemy(ENEMY_TYPES::Power_up, enemies[i]->position.x, enemies[i]->position.y);
-
-				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
-				{
-					App->inter->score_katana += 200;
-				}
-				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
-				{
-					App->inter->score_ayin += 200;
-				}
-				
-				delete enemies[i];
-				enemies[i] = nullptr;
-			}
 
 
-			//Coin
 
+				//Power up
 
-			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_COIN) {
-				Mix_PlayChannel(-1, pick_coin, 0);
-				srand(time(NULL));
-				typeofcoin = rand() % 6;
-
-				switch (typeofcoin) {
-				case 0:
-					coin_type = App->particles->coin_100;
+				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 					if (c2 == App->katana->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_katana += 100;
-						coin_position = App->katana->position;
+						Mix_PlayChannel(-1, pick_PowerUp, 0);
+						Mix_PlayChannel(-1, katanavoice, 0);
+						if (App->katana->power_up < 4) {
+							//App->particles->power_up.speed.x = App->scene_temple->speed;
+							App->particles->power_up.speed.y = -1;
+							App->particles->AddParticle(App->particles->power_up, App->katana->position.x, App->katana->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_KATANA);
+							App->katana->power_up++;
+						}
+						else {
+							//App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
+							App->particles->coin_2000.speed.y = -1.5;
+							App->particles->AddParticle(App->particles->coin_2000, App->player->position.x, App->player->position.y, COLLIDER_NONE, PARTICLE_COIN);
+							App->inter->score_katana += 2000;
+						}
 					}
 					if (c2 == App->ayin->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-
-						App->inter->score_ayin += 100;
-						coin_position = App->ayin->position;
+						Mix_PlayChannel(-1, pick_PowerUp, 0);
+						Mix_PlayChannel(-1, ayinvoice, 0);
+						if (App->ayin->power_up < 4) {
+							//App->particles->power_up.speed.x = int(App->scene_temple->speed);;
+							App->particles->power_up.speed.y = -1;
+							App->particles->AddParticle(App->particles->power_up, App->ayin->position.x, App->ayin->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_AYIN);
+							App->ayin->power_up++;
+						}
+						else {
+							//App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
+							App->particles->coin_2000.speed.y = -1.5;
+							App->particles->AddParticle(App->particles->coin_2000, App->player2->position.x, App->player2->position.y, COLLIDER_NONE, PARTICLE_COIN);
+							App->inter->score_ayin += 2000;
+						}
 					}
-					
-					break;
 
-				case 1:
-					coin_type = App->particles->coin_200;
-
-					if (c2 == App->katana->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_katana += 200;
-						coin_position = App->katana->position;
-					}
-					if (c2 == App->ayin->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_ayin += 200;
-						coin_position = App->ayin->position;
-					}
-					
-					break;
-
-				case 2:
-					coin_type = App->particles->coin_500;
-
-					if (c2 == App->katana->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_katana += 500;
-						coin_position = App->katana->position;
-					}
-					if (c2 == App->ayin->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_ayin += 500;
-						coin_position = App->ayin->position;
-					}
-			
-					break;
-
-				case 3:
-					coin_type = App->particles->coin_1000;
-
-					if (c2 == App->katana->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_katana += 1000;
-						coin_position = App->katana->position;
-					}
-					if (c2 == App->ayin->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_ayin += 1000;
-						coin_position = App->ayin->position;
-					}
-					
-					break;
-
-				case 4:
-					coin_type = App->particles->coin_2000;
-
-					if (c2 == App->katana->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_katana += 2000;
-						coin_position = App->katana->position;
-					}
-					if (c2 == App->ayin->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_ayin += 2000;
-						coin_position = App->ayin->position;
-					}
-					
-					break;
-
-				case 5:
-					coin_type = App->particles->coin_4000;
-
-					if (c2 == App->katana->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_katana += 4000;
-						coin_position = App->katana->position;
-					}
-					if (c2 == App->ayin->coll) {
-						Mix_PlayChannel(-1, pick_coin, 0);
-						App->inter->score_ayin += 4000;
-						coin_position = App->ayin->position;
-					}
-					
-					break;
-
+					delete enemies[i];
+					enemies[i] = nullptr;
 				}
 
-				//coin_type.speed.x = int(App->scene_temple->speed);
-				coin_type.speed.y = -1.5;
-				App->particles->AddParticle(coin_type, coin_position.x, coin_position.y, COLLIDER_NONE, PARTICLE_COIN);
+				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_ULTI_PARCHMENT) {
 
-				delete enemies[i];
-				enemies[i] = nullptr;
+					if (c2 == App->katana->coll) {
+						if (App->inter->num_ult_katana < 6) {
+
+							App->inter->num_ult_katana++;
+						}
+					}
+
+					if (c2 == App->ayin->coll) {
+						if (App->inter->num_ult_ayin < 6) {
+							App->inter->num_ult_ayin++;
+						}
+					}
+
+					delete enemies[i];
+					enemies[i] = nullptr;
+				}
+
+
+
+				//	//App->audio->PlaySoundEffects(fx_death);
+				//	//App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+				//	if (num_pegtop >= 4) {
+				//		//AddEnemy(ENEMY_TYPES::COIN, enemies[i]->position.x, enemies[i]->position.y);
+				//		num_pegtop = 0;
+				//	}
+				//	delete enemies[i];
+				//	enemies[i] = nullptr;
+
+				//	if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+				//	{
+				//		//App->ui->score_koyori += 200;
+				//	}
+				//	if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+				//	{
+				//		//App->ui->score_sho += 200;
+				//	}
+
+
+				//}
+
+
+
+
+				//if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY && c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT) {
+
+
+				//	App->particles->AddParticle(App->particles->waterExplosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
+				//	enemies[i]->OnCollision(c2);
+				//	App->player->score += 200;
+				//	App->player2->score += 200;
+
+				//	delete enemies[i];
+				//	enemies[i] = nullptr;
+				//	break;
+				//}
+				//
+
+				//if (c2->type == COLLIDER_TYPE::COLLIDER_SHOOT && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY) {
+				//	//App->particles->AddParticle(App->particles->enemyattack, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_ENEMY_SHOT);
+				//	if (shoot) {
+				//		App->particles->AddParticle(App->particles->enemyattack, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_ENEMY_SHOT);
+				//		shoot = false;
+				//	}
+				//}
 
 			}
 
 
-
-			//Power up
-
-			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
-
-				if (c2 == App->katana->coll) {
-					Mix_PlayChannel(-1, pick_PowerUp, 0);
-					Mix_PlayChannel(-1,katanavoice, 0);
-					if (App->katana->power_up < 4) {
-						//App->particles->power_up.speed.x = App->scene_temple->speed;
-						App->particles->power_up.speed.y = -1;
-						App->particles->AddParticle(App->particles->power_up, App->katana->position.x, App->katana->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_KATANA);
-						App->katana->power_up++;
-					}
-					else {
-						//App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
-						App->particles->coin_2000.speed.y = -1.5;
-						App->particles->AddParticle(App->particles->coin_2000, App->player->position.x, App->player->position.y, COLLIDER_NONE, PARTICLE_COIN);
-						App->inter->score_katana += 2000;
-					}
-				}
-				if (c2 == App->ayin->coll) {
-					Mix_PlayChannel(-1, pick_PowerUp, 0);
-					Mix_PlayChannel(-1, ayinvoice, 0);
-					if (App->ayin->power_up < 4) {
-						//App->particles->power_up.speed.x = int(App->scene_temple->speed);;
-						App->particles->power_up.speed.y = -1;
-						App->particles->AddParticle(App->particles->power_up, App->ayin->position.x, App->ayin->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_AYIN);
-						App->ayin->power_up++;
-					}
-					else {
-						//App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
-						App->particles->coin_2000.speed.y = -1.5;
-						App->particles->AddParticle(App->particles->coin_2000, App->player2->position.x, App->player2->position.y, COLLIDER_NONE, PARTICLE_COIN);
-						App->inter->score_ayin += 2000;
-					}
-				}
-
-				delete enemies[i];
-				enemies[i] = nullptr;
-			}
-
-			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_ULTI_PARCHMENT) {
-
-				if (c2 == App->katana->coll) {
-					if (App->inter->num_ult_katana < 6) {
-
-						App->inter->num_ult_katana++;
-					}
-				}
-
-				if (c2 == App->ayin->coll) {
-					if (App->inter->num_ult_ayin < 6) {
-						App->inter->num_ult_ayin++;
-					}
-				}
-
-				delete enemies[i];
-				enemies[i] = nullptr;
-			}
-
-
-
-			//	//App->audio->PlaySoundEffects(fx_death);
-			//	//App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
-
-			//	if (num_pegtop >= 4) {
-			//		//AddEnemy(ENEMY_TYPES::COIN, enemies[i]->position.x, enemies[i]->position.y);
-			//		num_pegtop = 0;
-			//	}
-			//	delete enemies[i];
-			//	enemies[i] = nullptr;
-
-			//	if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
-			//	{
-			//		//App->ui->score_koyori += 200;
-			//	}
-			//	if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
-			//	{
-			//		//App->ui->score_sho += 200;
-			//	}
-
-
-			//}
-
-
-
-
-			//if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY && c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT) {
-
-
-			//	App->particles->AddParticle(App->particles->waterExplosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
-			//	enemies[i]->OnCollision(c2);
-			//	App->player->score += 200;
-			//	App->player2->score += 200;
-
-			//	delete enemies[i];
-			//	enemies[i] = nullptr;
-			//	break;
-			//}
-			//
-
-			//if (c2->type == COLLIDER_TYPE::COLLIDER_SHOOT && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY) {
-			//	//App->particles->AddParticle(App->particles->enemyattack, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_ENEMY_SHOT);
-			//	if (shoot) {
-			//		App->particles->AddParticle(App->particles->enemyattack, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_ENEMY_SHOT);
-			//		shoot = false;
-			//	}
-			//}
-			
 		}
-		
 
 	}
-	
 }
