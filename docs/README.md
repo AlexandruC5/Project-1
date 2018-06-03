@@ -7,7 +7,7 @@ Sengoku Blade, also known as Tengai, is a horizontally scrolling shoot 'em up vi
 
 Group Name:	Instinct Games 
 
-![Team](https://github.com/AlexandruC5/Project-1/blob/master/docs/teamphoto.jpeg)
+[![Team](https://github.com/AlexandruC5/Project-1/blob/master/docs/teamphoto.jpeg)
  
  * Management:	Carlos Peña 
  * Art/Design:	Gerard Berenguer
