@@ -15,7 +15,7 @@ Group Name:	Instinct Games
  * QA:	Alexandru Cercel
 
 ## Original game
-
+ 
 [![Tengai/Sengoku Blade]<iframe width="560" height="315" src="https://www.youtube.com/embed/GFkLYZyX8iQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 [![Tengai/Sengoku Blade](https://img.youtube.com/vi/AuB6EwpKyFg/0.jpg)](https://www.youtube.com/watch?v=AuB6EwpKyFg)
