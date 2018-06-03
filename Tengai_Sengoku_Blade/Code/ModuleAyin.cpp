@@ -259,7 +259,7 @@ update_status ModuleAyin::Update()
 
 
 
-	if (App->charmenu->C1Ayin = true) {
+	if (App->scene_temple->Ayin1=true) {
 		if (input)
 		{
 			if (pressed_J || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
@@ -334,7 +334,7 @@ update_status ModuleAyin::Update()
 		}
 
 	}
-	else if(App->charmenu->C2Ayin=true) {
+	else if(App->scene_temple->Ayin2 = true) {
 		if (input)
 		{
 			if (pressed_J || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
