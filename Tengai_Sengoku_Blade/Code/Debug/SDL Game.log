@@ -1,35 +1,35 @@
-<<<<<<< HEAD
-﻿  ModuleSceneTemple.cpp
-d:\upc citm\project-1\tengai_sengoku_blade\code\winscreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  d:\upc citm\project-1\tengai_sengoku_blade\code\path.h(15): note: vea la declaración de 'Path'
-=======
-<<<<<<< HEAD
-﻿  ModuleSceneIntro.cpp
-c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\winscreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\path.h(15): note: vea la declaración de 'Path'
-  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\entrega\Project-1\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
-=======
-﻿  SHARPENER_KNIFE.cpp
->>>>>>> 00f47118e54feec5f7ea2a10d3de3360d5fc19a6
+﻿  ModuleKatana.cpp
 d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(57): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(204): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(204): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(205): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(205): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(209): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(209): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(210): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(210): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(217): warning C4305: '-=': truncamiento de 'double' a 'float'
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(218): warning C4305: '-=': truncamiento de 'double' a 'float'
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(244): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(245): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(247): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(248): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(296): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(297): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(303): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(135): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(136): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(142): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(143): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(231): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(235): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(238): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(271): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(275): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(278): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(339): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(343): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(346): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(355): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(359): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(483): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(484): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(554): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulekatana.cpp(563): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código...
+  Omitiendo... (no se detectaron cambios relevantes)
+  Ulti_Parchment.cpp
+  SHARPENER_KNIFE.cpp
+  Power_Up.cpp
+  PAGODA.cpp
+  DEMON.cpp
+  Coin.cpp
+  CHARIOT.cpp
+  BALL2.cpp
+  BALL.cpp
   SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
   SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.pdb (Partial PDB)
->>>>>>> fc0b13a4c9a113137994d45df4ad93f24fc9e629
