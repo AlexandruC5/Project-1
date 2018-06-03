@@ -20,27 +20,76 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
 
        Escape to exit game
  
-       Space to start/play again
+       KEYBOARD INPUT
 
- * Player1 Controls:
-  
-    up, left,down, right  W,A,S,D
-   
-    Shoot Enter
+Player 1 :
+
+W: UP
+A: LEFT
+S: DOWN
+D: RIGHT
 
 
- * Player2 controls:
+SPACE: SHOOT
+Z: CHARGED SHOOT
 
- Up, left, down, right     
- up, left, down, right arrow keys
 
- Shoot  right control
- 
- P to join player 2
-F1 = Collissions view
-F5 = GOD MODE
-F6 = DIRECT WIN 
-F7 = DIRECT LOSE
+
+
+Player 2: 
+
+I: UP
+J:LEFT
+K: DOWN
+L: RIGHT
+
+
+Y: SHOOT
+X: CHARGED SHOOT
+
+
+
+
+CONTROLLER INPUT:
+
+
+Controller 1 
+
+
+Start -> start the game
+Select -> exit the game at any moment
+Dpad -> movment
+A->shooting
+B->Charged Shot
+Y->Ultimate
+
+
+Controller 2
+
+Start -> start the game
+Start on Character Selector -> JOIN 2ND PLAYER
+/*Select -> exit the game at any moment*/ Player 2 can not exit the game
+Dpad -> movment
+A->shooting
+B->Charged Shot
+Y->Ultimate
+
+
+
+DEDUB:
+P-> +1 powerup to Katana
+O-> -1 owerup of katana
+
+T-> +1 powerup to Ayin
+R-> -1 powerup to Ayin
+
+F1:Show coliders
+F5: GOD MODE
+F5 from Welcome Screen: Direct Lose Screen
+F7:Direct Win Screen
+
+
+
 
 ## Previous Versions:
 
