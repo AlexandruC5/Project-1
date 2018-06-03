@@ -24,10 +24,14 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
 
 ## Our project game
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OdBlC2SHs_0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## Installation
 
-Unzip the release folder and execute the Tengai.exe file
+### Link to download
+* **[Game](https://github.com/AlexandruC5/Project-1/releases/tag/v1.0)**
+
+Unzip the release folder and execute the Tengai.exe file  
 
 ## Control list:
 
