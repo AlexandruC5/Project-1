@@ -29,8 +29,67 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
 
 Unzip the release folder and execute the Tengai.exe file
 
-## Game Controls
+## Control list:
 
+Escape: To exit game
+
+### KEYBOARD INPUT
+
+Player 1 :
+
+W: UP 
+A: LEFT 
+S: DOWN 
+D: RIGHT
+
+SPACE: SHOOT 
+Z: CHARGED SHOOT
+
+Player 2:
+
+I: UP 
+J: LEFT 
+K: DOWN 
+L: RIGHT
+
+Y: SHOOT 
+X: CHARGED SHOOT
+
+### CONTROLLER INPUT:
+
+Controller 1
+
+Start: Start the game
+Select: Exit the game at any moment
+Dpad: Movment
+
+A: Shooting
+B: Charged Shot
+Y: Ultimate
+
+Controller 2
+
+Start: Start the game
+Start (on Character Selector): JOIN 2ND PLAYER
+Select: Exit the game at any moment (Player 2 can not exit the game)
+Dpad: Movment 
+
+A: Shooting 
+B: Charged Shot 
+Y: Ultimate
+
+### DEDUG KEYS:
+
+P: +1 powerup to Katana 
+O: -1 powerup of katana
+
+T: +1 powerup to Ayin 
+R: -1 powerup of Ayin
+
+F1: Show coliders 
+F5: GOD MODE 
+F5 (From Welcome Screen): Direct Lose Screen 
+F7: Direct Win Screen
 
 ## Data Releases
 
