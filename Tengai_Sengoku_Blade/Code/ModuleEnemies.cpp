@@ -436,13 +436,15 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				ball_life++;
 
 
-				if (ball_life == 1 || ball_life == 10 || ball_life == 20) {
-					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
+				if (ball_life == 1 || ball_life == 10 || ball_life == 20 || ball_life == 30 || ball_life == 40 || ball_life == 50 || ball_life == 60 || ball_life == 70 || ball_life == 80) {
+					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x + 10, enemies[i]->position.y + 10);
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
-				if (ball_life == 30) {
+				if (ball_life == 100) {
 					//App->audio->PlaySoundEffects(fx_death);
-					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 20, enemies[i]->position.y + 20);
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 20, enemies[i]->position.y - 20);
+					App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
 
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
 					{
@@ -455,7 +457,63 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 					delete enemies[i];
 					enemies[i] = nullptr;
-					ball_life = 0;
+					//ball_life = 0;
+				}
+			}
+
+			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_CHARIOT && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+				LOG("FIRE");
+				chariot_life++;
+
+
+				if (chariot_life == 1 || chariot_life == 10 || chariot_life == 20 || chariot_life == 30 || chariot_life == 40 || chariot_life == 50 || chariot_life == 60 || chariot_life == 80 || chariot_life == 120 || chariot_life == 140 || chariot_life == 160 || chariot_life == 180) {
+					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x + 20, enemies[i]->position.y + 40);
+					App->particles->bleeding.speed.x = App->scene_temple->speed;
+				}
+
+				if (chariot_life == 100) {
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 30, enemies[i]->position.y - 30);
+					App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x- 10, enemies[i]->position.y + 40);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 30, enemies[i]->position.y - 30);
+					App->particles->explosion.speed.x = App->scene_temple->speed;
+				}
+				if (chariot_life == 200) {
+					//App->audio->PlaySoundEffects(fx_death);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 10, enemies[i]->position.y + 30);
+					//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x -10, enemies[i]->position.y + 5);
+
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 40, enemies[i]->position.y );
+
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y + 40);
+					//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+					//App->particles->explosion.speed.x = App->scene_temple->speed;
+
+					App->scene_temple->StopCamera();
+					AddEnemy(ENEMY_TYPES::Power_up, enemies[i]->position.x, enemies[i]->position.y);
+
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+					{
+						App->inter->score_katana += 200;
+					}
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+					{
+						App->inter->score_ayin += 200;
+					}
+
+					delete enemies[i];
+					enemies[i] = nullptr;
+					chariot_life = 0;
 				}
 			}
 

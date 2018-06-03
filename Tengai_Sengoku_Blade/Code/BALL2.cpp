@@ -8,6 +8,8 @@
 #include "ModuleSceneTemple.h"
 #include "ModuleRender.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModuleKatana.h"
+#include "ModuleAyin.h"
 
 
 
@@ -79,7 +81,7 @@ BALL2::BALL2(int x, int y, int type) : Enemy(x, y, type)
 	ball_state state = IDLE_BALL2;
 
 
-	collider = App->collision->AddCollider({ 0, 0, 85, 105 }, COLLIDER_TYPE::COLLIDER_ENEMY_BALL, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 75, 100 }, COLLIDER_TYPE::COLLIDER_ENEMY_BALL, (Module*)App->enemies);
 
 	//original_pos = { x,y };
 
@@ -106,7 +108,7 @@ void BALL2::CheckState() {
 	switch (state) {
 
 	case IDLE_BALL2:
-		//position.x -= 2;
+		position.x -= 1.5;
 		if (position.x < App->render->camera.x + (App->render->camera.w) - 180) {
 			state = FLY_BALL2;
 		}
@@ -114,7 +116,7 @@ void BALL2::CheckState() {
 
 	case FLY_BALL2:
 
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 
 		if (time_delay) {
 			time_entry = SDL_GetTicks();
@@ -139,10 +141,11 @@ void BALL2::CheckState() {
 				break;
 		
 			case OPEN_BALL2:
-				position.x += App->scene_temple->speed;
+				position.x += int(App->scene_temple->speed);
 		
 	             	if (open.Finished()) {
-					//Addparticle
+						
+
 					if (time_delay2) {
 						time_entry2 = SDL_GetTicks();
 						time_delay2 = false;
@@ -150,18 +153,20 @@ void BALL2::CheckState() {
 		
 				time_current2 = SDL_GetTicks() - time_entry2;
 		
-					if (time_current2 > 1000) {
+					if (time_current2 > 600) {
+				
 					state = CLOSE_BALL2;
 					open.Reset();
+					App->particles->AddParticle(App->particles->ball_bullet, position.x + 10, position.y + 70, COLLIDER_ENEMY);
 					}
 				}
 				break;
 		
 			case CLOSE_BALL2:
-				position.x += App->scene_temple->speed;
-		
+				position.x += int(App->scene_temple->speed);
 				if (close.Finished()) {
-					//Addparticle
+					
+
 					if (time_delay3) {
 						time_entry3 = SDL_GetTicks();
 						time_delay3 = false;
@@ -169,7 +174,8 @@ void BALL2::CheckState() {
 		
 					time_current3 = SDL_GetTicks() - time_entry3;
 		
-					if (time_current3 > 1000) {
+					if (time_current3 > 600) {
+						App->particles->AddParticle(App->particles->ball_bullet, position.x + 10, position.y + 70, COLLIDER_ENEMY);
 						state = MOVE_BALL2;
 						close.Reset();
 					}
@@ -177,7 +183,7 @@ void BALL2::CheckState() {
 				break;
 		
 			case MOVE_BALL2:
-				position.x += App->scene_temple->speed;
+				position.x += int(App->scene_temple->speed);
 
 				if (movement) {
 		
@@ -236,5 +242,22 @@ void BALL2::PerformActions() {
 		break;
 		
 	}
+
+}
+
+
+void BALL2::Shoot()
+
+{
+
+	Particle* p = new Particle(App->particles->ball_bullet);
+	p->born = SDL_GetTicks();
+	p->position.x = int(position.x) + 5;
+	p->position.y = int(position.y);
+	p->speed.x = (App->katana->position.x - position.x) / 120.f || (App->ayin->position.x - position.x) / 60.f;
+	p->speed.y = (App->katana->position.y - position.y) / 120.f || (App->ayin->position.x - position.x) / 60.f;
+	p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHOT, App->particles);
+	App->particles->AddParticle(p);
+
 
 }

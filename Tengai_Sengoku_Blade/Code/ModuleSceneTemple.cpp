@@ -172,7 +172,11 @@ bool ModuleSceneTemple::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2820, 40, 1);
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2820, 140, 1);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::Ball2, 3560, 80, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Chariot, 3600, 50, 1);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 3620, 170, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 3640, 185, 1);
 	//App->enemies->AddEnemy(ENEMY_TYPES::Ball2, 430, 90, 2);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 580, 80, 1);
@@ -275,7 +279,7 @@ update_status ModuleSceneTemple::Update()
 
 		if (aux_time < 120)
 		{
-			speed = 0;
+			//speed = 0;
 			aux_time++;
 		}
 		else
@@ -360,6 +364,12 @@ void ModuleSceneTemple::ResetPosition() {
 	 pos5 = 491;
 
 
+
+}
+
+void ModuleSceneTemple::StopCamera() {
+
+	speed = 0;
 
 }
 

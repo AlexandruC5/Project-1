@@ -56,6 +56,13 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y, int path_type = 0);
+
+	int num_pegtop = 0;
+	int pegtop_life = 0;
+	int pagoda_life = 0;
+	int sharpener_life = 0;
+	int ball_life = 0;
+	int chariot_life = 0;
 	
 private:
 
@@ -82,11 +89,6 @@ private:
 	SDL_Texture* sprites;
 	SDL_Texture* sprites2;
 
-	int num_pegtop = 0;
-	int pegtop_life = 0;
-	int pagoda_life = 0;
-	int sharpener_life = 0;
-	int ball_life = 0;
 
 };
 

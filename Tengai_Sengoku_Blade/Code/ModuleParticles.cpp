@@ -418,6 +418,68 @@ bool ModuleParticles::Start()
 	explosion.anim.speed = 0.10f;
 	explosion.life = 700;
 
+	//Chariot Explosion
+	chariot_explosion.anim.PushBack({ 546, 779, 29, 28 });
+	chariot_explosion.anim.PushBack({ 610, 778, 31, 31});
+	chariot_explosion.anim.PushBack({ 672, 776, 36, 34 });
+	chariot_explosion.anim.PushBack({ 734, 776, 40, 38 });
+	chariot_explosion.anim.PushBack({ 534, 838, 38, 42 });
+	chariot_explosion.anim.PushBack({ 606, 839, 38, 41 });
+	chariot_explosion.anim.PushBack({ 673, 838, 36, 41 });
+	chariot_explosion.anim.PushBack({ 736, 837, 37, 43 });
+	chariot_explosion.anim.PushBack({ 548, 901, 33, 41 });
+	chariot_explosion.anim.PushBack({ 612, 904, 32, 37 });
+	chariot_explosion.anim.PushBack({ 678, 906, 29, 33 });
+	chariot_explosion.anim.PushBack({ 743, 908, 29, 30 });
+	chariot_explosion.anim.loop = false;
+	chariot_explosion.anim.speed = 0.10f;
+	chariot_explosion.life = 700;
+
+	//Chariot big Explosion
+	chariot_big_explosion.anim.PushBack({ 549, 11, 113, 101 });
+	chariot_big_explosion.anim.PushBack({ 665, 13, 110, 99 });
+	chariot_big_explosion.anim.PushBack({ 543, 122, 111, 133 });
+	chariot_big_explosion.anim.PushBack({ 662, 122, 114, 130 });
+	chariot_big_explosion.anim.PushBack({ 549, 264, 106, 93 });
+	chariot_big_explosion.anim.PushBack({ 659, 259, 111, 100 });
+	chariot_big_explosion.anim.PushBack({ 673, 838, 36, 41 });
+	chariot_big_explosion.anim.PushBack({ 778, 260, 108, 134});
+	chariot_big_explosion.anim.PushBack({ 891, 261, 110, 112 });
+	chariot_big_explosion.anim.PushBack({ 548, 363, 116, 113 });
+	chariot_big_explosion.anim.PushBack({666, 364, 99, 96 });
+	chariot_big_explosion.anim.loop = false;
+	chariot_big_explosion.anim.speed = 0.10f;
+	chariot_big_explosion.life = 700;
+
+	//ball shot
+	ball_bullet.anim.PushBack({ 530, 629, 26, 13 });
+	ball_bullet.anim.PushBack({ 657, 628, 31, 14});
+	ball_bullet.anim.PushBack({ 786, 628, 29, 15});
+	ball_bullet.anim.PushBack({ 913, 620, 69, 29});
+	ball_bullet.anim.PushBack({ 529, 652, 71, 29 });
+	ball_bullet.anim.PushBack({ 657, 655, 81, 23 });
+	ball_bullet.anim.PushBack({ 785, 655, 99, 23});
+	ball_bullet.anim.PushBack({ 914, 656, 94, 22 });
+	ball_bullet.anim.PushBack({ 530, 689, 91, 20 });
+	ball_bullet.anim.PushBack({ 656, 690, 100, 18 });
+	ball_bullet.anim.PushBack({ 785, 690, 95, 18 });
+	ball_bullet.anim.PushBack({ 529, 720, 92, 21 });
+	ball_bullet.speed.x = -4;
+	ball_bullet.anim.loop = false;
+	ball_bullet.life = 2000;
+
+	//chariot bullet
+
+	chariot_bullet.anim.PushBack({579, 511, 16, 18});
+	chariot_bullet.anim.PushBack({609, 511, 20, 18});
+	chariot_bullet.anim.PushBack({642, 511, 18, 18});
+	chariot_bullet.anim.PushBack({578, 543, 18, 18});
+	chariot_bullet.anim.PushBack({610, 543, 19, 18});
+	chariot_bullet.anim.PushBack({ 641, 543, 20, 18 });
+	chariot_bullet.anim.PushBack({ 579, 575, 17, 17 });
+	chariot_bullet.anim.PushBack({ 609, 575, 20, 18 });
+	chariot_bullet.anim.loop = false;
+	chariot_bullet.life = 2000;
 
 	return true;
 }
