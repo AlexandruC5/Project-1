@@ -607,111 +607,225 @@ void ModuleAyin::CheckState()
 	//	}
 	//	break;
 	//case AYN2:
-		switch (state)
-		{
-		case SPAWN_PLAYER_2:
-			if (time) {
-				time_on_entry = SDL_GetTicks();
-				time = false;
-			}
-			current_time = SDL_GetTicks() - time_on_entry;
-			if (current_time > 1500) {
-				state = IDLE_2;
-			}
-			power_up = 0;
 
-			break;
+if (App->input->gamepad2 == NULL) {
 
-		case IDLE_2:
-			if (press_I || press_J || App->input->controller2_Dpad_UP==KEY_STATE::KEY_DOWN || App->input->controller2_Dpad_LEFT==KEY_STATE::KEY_DOWN ) {
-				state = GO_BACKWARD_2;
-			}
-
-			break;
-
-		case GO_BACKWARD_2:
-
-			if (release_I || App->input->controller2_Dpad_UP==KEY_STATE::KEY_UP ) {
-				state = BACK_IDLE_2;
-			}
-			if (release_J || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_UP) {
-				state = BACK_IDLE_2;
-			}
-			if (current_animation->Finished()) {
-				intermediate.Reset();
-				state = BACKWARD_2;
-			}
-			break;
-
-		case BACKWARD_2:
-
-			if (release_I || release_J || App->input->controller2_Dpad_UP == KEY_STATE::KEY_UP || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_UP) {
-				if (released_I || released_J || App->input->controller2_Dpad_UP == KEY_STATE::KEY_IDLE || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_IDLE) {
-
-					state = BACK_IDLE_2;
-
-
-					/*if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
-					if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
-					state = BACK_IDLE;
-					}
-					}
-					if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
-					if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
-					state = BACK_IDLE;*/
-				}
-			}
-			break;
-
-		case BACK_IDLE_2:
-			if (pressed_I || App->input->controller2_Dpad_UP==KEY_REPEAT ) {
-				state = BACK_IDLE_2;
-			}
-			if (pressed_J || App->input->controller2_Dpad_LEFT == KEY_REPEAT) {
-				state = BACK_IDLE_2;
-			}
-			if (current_animation->Finished()) {
-				intermediate.Reset();
-				state = IDLE_2;
-			}
-			break;
-
-		case ULTI_AYIN:
-			if (ulti_ayin.Finished()) {
-				ulti_ayin.Reset();
-				state = IDLE_2;
-			}
-
-		case SPIN_2:
-			if (spin.Finished()) {
-				spin.Reset();
-				spin_circle.Reset();
-				spin_pos = false;
-				state = IDLE_2;
-			}
-			break;
-
-		case DEATH_2:
-			if (position.y > SCREEN_HEIGHT + 80) {
-				state = POST_DEATH_2;
-			}
-			break;
-
-			/*case SPIN_DECHARGING_AYIN:
-			if (spin_decharging.Finished()) {
-			state = DECHARGING_AYIN;
-			}*/
-
-		case POST_DEATH_2:
-			if (App->inter->num_life_ayin > 0) {
-				position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
-				position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
-				time = true;
-				state = SPAWN_PLAYER_2;
-			}
-
-			break;
+	switch (state)
+	{
+	case SPAWN_PLAYER_2:
+		if (time) {
+			time_on_entry = SDL_GetTicks();
+			time = false;
 		}
+		current_time = SDL_GetTicks() - time_on_entry;
+		if (current_time > 1500) {
+			state = IDLE_2;
+		}
+		power_up = 0;
+
+		break;
+
+	case IDLE_2:
+		if (press_I || press_J || App->input->controller_Dpad_UP == KEY_STATE::KEY_DOWN || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_DOWN) {
+			state = GO_BACKWARD_2;
+		}
+
+		break;
+
+	case GO_BACKWARD_2:
+
+		if (release_I || App->input->controller_Dpad_UP == KEY_STATE::KEY_UP) {
+			state = BACK_IDLE_2;
+		}
+		if (release_J || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_UP) {
+			state = BACK_IDLE_2;
+		}
+		if (current_animation->Finished()) {
+			intermediate.Reset();
+			state = BACKWARD_2;
+		}
+		break;
+
+	case BACKWARD_2:
+
+		if (release_I || release_J || App->input->controller_Dpad_UP == KEY_STATE::KEY_UP || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_UP) {
+			if (released_I || released_J || App->input->controller_Dpad_UP == KEY_STATE::KEY_IDLE || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_IDLE) {
+
+				state = BACK_IDLE_2;
+
+
+				/*if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
+				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
+				state = BACK_IDLE;
+				}
+				}
+				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
+				if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
+				state = BACK_IDLE;*/
+			}
+		}
+		break;
+
+	case BACK_IDLE_2:
+		if (pressed_I || App->input->controller_Dpad_UP == KEY_REPEAT) {
+			state = BACK_IDLE_2;
+		}
+		if (pressed_J || App->input->controller_Dpad_LEFT == KEY_REPEAT) {
+			state = BACK_IDLE_2;
+		}
+		if (current_animation->Finished()) {
+			intermediate.Reset();
+			state = IDLE_2;
+		}
+		break;
+
+	case ULTI_AYIN:
+		if (ulti_ayin.Finished()) {
+			ulti_ayin.Reset();
+			state = IDLE_2;
+		}
+
+	case SPIN_2:
+		if (spin.Finished()) {
+			spin.Reset();
+			spin_circle.Reset();
+			spin_pos = false;
+			state = IDLE_2;
+		}
+		break;
+
+	case DEATH_2:
+		if (position.y > SCREEN_HEIGHT + 80) {
+			state = POST_DEATH_2;
+		}
+		break;
+
+		/*case SPIN_DECHARGING_AYIN:
+		if (spin_decharging.Finished()) {
+		state = DECHARGING_AYIN;
+		}*/
+
+	case POST_DEATH_2:
+		if (App->inter->num_life_ayin > 0) {
+			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+			position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+			time = true;
+			state = SPAWN_PLAYER_2;
+		}
+
+		break;
+	}
+
+}
+else{
+
+	switch (state)
+	{
+	case SPAWN_PLAYER_2:
+		if (time) {
+			time_on_entry = SDL_GetTicks();
+			time = false;
+		}
+		current_time = SDL_GetTicks() - time_on_entry;
+		if (current_time > 1500) {
+			state = IDLE_2;
+		}
+		power_up = 0;
+
+		break;
+
+	case IDLE_2:
+		if (press_I || press_J || App->input->controller_Dpad_UP == KEY_STATE::KEY_DOWN || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_DOWN) {
+			state = GO_BACKWARD_2;
+		}
+
+		break;
+
+	case GO_BACKWARD_2:
+
+		if (release_I || App->input->controller_Dpad_UP == KEY_STATE::KEY_UP) {
+			state = BACK_IDLE_2;
+		}
+		if (release_J || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_UP) {
+			state = BACK_IDLE_2;
+		}
+		if (current_animation->Finished()) {
+			intermediate.Reset();
+			state = BACKWARD_2;
+		}
+		break;
+
+	case BACKWARD_2:
+
+		if (release_I || release_J || App->input->controller_Dpad_UP == KEY_STATE::KEY_UP || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_UP) {
+			if (released_I || released_J || App->input->controller_Dpad_UP == KEY_STATE::KEY_IDLE || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_IDLE) {
+
+				state = BACK_IDLE_2;
+
+
+				/*if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
+				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
+				state = BACK_IDLE;
+				}
+				}
+				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
+				if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
+				state = BACK_IDLE;*/
+			}
+		}
+		break;
+
+	case BACK_IDLE_2:
+		if (pressed_I || App->input->controller_Dpad_UP == KEY_REPEAT) {
+			state = BACK_IDLE_2;
+		}
+		if (pressed_J || App->input->controller_Dpad_LEFT == KEY_REPEAT) {
+			state = BACK_IDLE_2;
+		}
+		if (current_animation->Finished()) {
+			intermediate.Reset();
+			state = IDLE_2;
+		}
+		break;
+
+	case ULTI_AYIN:
+		if (ulti_ayin.Finished()) {
+			ulti_ayin.Reset();
+			state = IDLE_2;
+		}
+
+	case SPIN_2:
+		if (spin.Finished()) {
+			spin.Reset();
+			spin_circle.Reset();
+			spin_pos = false;
+			state = IDLE_2;
+		}
+		break;
+
+	case DEATH_2:
+		if (position.y > SCREEN_HEIGHT + 80) {
+			state = POST_DEATH_2;
+		}
+		break;
+
+		/*case SPIN_DECHARGING_AYIN:
+		if (spin_decharging.Finished()) {
+		state = DECHARGING_AYIN;
+		}*/
+
+	case POST_DEATH_2:
+		if (App->inter->num_life_ayin > 0) {
+			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+			position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+			time = true;
+			state = SPAWN_PLAYER_2;
+		}
+
+		break;
+	}
+
+}
 		
 	
 	//switch (state)

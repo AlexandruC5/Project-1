@@ -11,7 +11,7 @@
 #include "ModuleKatanaArrow.h"
 #include "ModuleUI.h"
 #include "ModuleEnemies.h"
-
+#include "ModuleAudio.h"
 #include "SDL\include\SDL_timer.h"
 
 ModuleKatanaArrow::ModuleKatanaArrow()
@@ -69,7 +69,7 @@ bool ModuleKatanaArrow::Start()
 {
 	LOG("Loading partner textures");
 	graphics = App->textures->Load("assets/sprites/characters/katana/Katana_SpriteSheet.png");
-
+	arrowsound = App->audio->LoadFx("assets/audio/effects/Player Shoots/katanapowerUP.wav");
 	if (graphics == nullptr)
 	{
 		LOG("Could not load arrow textures")
@@ -107,7 +107,8 @@ bool ModuleKatanaArrow::CleanUp()
 		LOG("Could not unload partner textures")
 			return false;
 	}
-
+	App->audio->UnloadSFX(arrowsound);
+	arrowsound = nullptr;
 	return true;
 }
 
@@ -150,9 +151,20 @@ update_status ModuleKatanaArrow::Update()
 				katanaPos->y + position[i].y - r.h + offset.y,
 				&r);
 		}
+<<<<<<< HEAD
 
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->controller_A_button == BUTTON_DOWN) {
+=======
+
+<<<<<<< HEAD
+
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->controller_A_button == BUTTON_DOWN) {
+=======
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->controller_A_button==BUTTON_DOWN) {
+			Mix_PlayChannel(-1, arrowsound, 0);
+>>>>>>> e05bc9d8c4a93450670eba418b37f69f4d07d973
+>>>>>>> 78bd20c6ba60b306b2239e198e52e30a3d87d73d
 			if (shot_delay)
 			{
 				shot_entry = SDL_GetTicks();
@@ -336,6 +348,62 @@ void ModuleKatanaArrow::ArrowBehaviour()
 		else
 			position[0].y += speed;
 	}
+<<<<<<< HEAD
+
+	// rest of arrows
+	for (int i = 1; i < ARROWS; i++)
+	{
+		// HORIZONTAL
+		if (left)
+		{
+			if (position[i].x <= speed)
+				position[i].x = 0.0f;
+			else
+				position[i].x -= speed;
+		}
+		else
+		{
+			if (position[i].x >= max_x - speed)
+				position[i].x = max_x;
+			else
+				position[i].x += speed;
+		}
+
+		// VERTICAL
+		if (up) // under prev
+		{
+			float target_y = position[i - 1].y + 10.0f;
+
+			if (position[i].y < target_y - speed)
+			{
+				position[i].y += speed;
+			}
+			else if (position[i].y > target_y + speed)
+			{
+				position[i].y -= speed;
+			}
+			else
+			{
+				position[i].y = target_y;
+			}
+		}
+		else // above prev
+		{
+			float target_y = position[i - 1].y - 10.0f;
+
+			if (position[i].y < target_y + speed)
+			{
+				position[i].y += speed;
+			}
+			else if (position[i].y > target_y - speed)
+			{
+				position[i].y -= speed;
+			}
+			else
+			{
+				position[i].y = target_y;
+			}
+=======
 
 	// rest of arrows
 	for (int i = 1; i < ARROWS; i++)
@@ -407,10 +475,31 @@ void ModuleKatanaArrow::Shoot(SDL_Rect* frame)
 				App->katana->position.x + position[i].x + (frame->w / 2.0f),
 				App->katana->position.y - (32.0f - position[i].y) - (frame->h / 2.0f),
 				COLLIDER_PLAYER_KATANA_SHOT);
+>>>>>>> 78bd20c6ba60b306b2239e198e52e30a3d87d73d
 		}
 	}
 }
 
+<<<<<<< HEAD
+void ModuleKatanaArrow::Shoot(SDL_Rect* frame)
+{
+	//App->particles->AddParticle(App->particles->arrow_shoot, position.x + 22, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT_ARROW);
+
+	if (frame != nullptr)
+	{
+		for (int i = 0; i < App->katana->power_up; i++)
+		{
+			App->particles->AddParticle(
+				App->particles->arrow_shoot,
+				App->katana->position.x + position[i].x + (frame->w / 2.0f),
+				App->katana->position.y - (32.0f - position[i].y) - (frame->h / 2.0f),
+				COLLIDER_PLAYER_KATANA_SHOT);
+		}
+	}
+}
+
+=======
+>>>>>>> 78bd20c6ba60b306b2239e198e52e30a3d87d73d
 void ModuleKatanaArrow::ShootCharged()
 {
 	//App->particles->AddParticle(App->particles->charged_arrow_shoot, position.x + 107, position.y - 3, COLLIDER_PLAYER_KATANA_CHARGED_SHOT_ARROW);

@@ -9,7 +9,7 @@
 
 struct SDL_Texture;
 struct Collider;
-
+struct Mix_Chunk;
 
 enum player_state {
 
@@ -40,6 +40,7 @@ private:
 	void PerformActions();
 
 public:
+	Mix_Chunk* basicsound = nullptr;
 
 	int aux = 0;
 	int aux1 = 0;
