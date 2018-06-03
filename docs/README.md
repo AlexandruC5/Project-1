@@ -1,7 +1,7 @@
 
 # Tribute: Tengai / Sengoku Blade
 
-![](https://github.com/AlexandruC5/Project-1/blob/master/docs/header1.jpg)
+![Tengai](https://github.com/AlexandruC5/Project-1/blob/master/docs/header1.jpg)
 
 Sengoku Blade, also popularly known as Tengai, is an horizontal-scrolling shoot'em up game produced by Psikyo and originally released in Japanese arcades in 1996 as a sequel to Sengoku Ace (1993).
 
@@ -9,7 +9,7 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
 
 ## Members
 
-Group Name:	Instinct Games 
+### Group Name:	Instinct Games 
 
 ![Team](https://github.com/AlexandruC5/Project-1/blob/master/docs/teamphoto22.png)
 
@@ -25,7 +25,11 @@ Group Name:	Instinct Games
 ## Our project game
 
 
-## Game Controlls
+## Installation
+
+Unzip the release folder and execute the Tengai.exe file
+
+## Game Controls
 
 
 ## Data Releases
