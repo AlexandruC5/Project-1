@@ -1,39 +1,39 @@
 ﻿3th assignment: SUDDEN DEATH - 34 DAYS REMAINING
 
 
-0.6
--Scroll background amb les velocitats del joc
--Corregir les animacions (almenys del primer)
--Implementació de Katana (animacions de moviments)
--Corregir els power-ups
+* 0.6
+-Scroll background with game speeds
+-Fix animations (at least the first)
+-Implementation of katana (motion animation)
+-Fix power-ups
 -Fullscreen + gamepads
 -ClearStage
 
-0.7
--animacions de power down i dead
--implementar power-ups de katana (2-4)/mascota (noves animacions i tirs)
--Implementacio de Ayin (animacions moviments)
--Millorem el level amb animacions de les textures (ex: les pedres que cauen)
--Corregir la UI = vida, power-ups, insert coins,...
+* 0.7
+-Power down and dead animations
+-Katana power ups implementation (2-4)/pet (new animations and shoots)
+-Ayin implementation (motion animation)
+-Improve the level with animations of the textures (ex: falling rocks)
+-Fix UI = life, power-ups, insert coins...
 
-0.8
--Pulir el level (detalls visuals)
--Implementar enemics (tots menys els bosses) / moviment i velocitat / explosió al morir / tirs (si tenim temps) / vida /Highlight(si el fa?)
--implementar power-ups de Ayin (2-4)/mascota (noves animacions i tirs)
--Afegir tots els power-ups + ulti del personatge
--Pulir la UI
+* 0.8
+-Improve level (visual details)
+-Enemies implementation (all but the bosses) / move and speed / explosion upon death / shoots / life / highlight
+-Power-ups Ayin implementation (2-4)/pet (new animations and shoots)
+-Add power-ups + ulti of the character
+-Improve UI
 -GameOver screen
 
-0.9
--Implementar audio (intentar afegir tot)
--Implementar bosses (canvis en les velocitats del background)/vida / tirs
--Pulir power-ups/mascota dels personatges
--Pulir ulti del personatge
+* 0.9
+-Audio implementation
+-Bosses impementation (changes in background speeds)/ life / shoots
+-Improve power-ups/pet of the characters
+-Improve ulti of the character
 
-1.0
--events principi del level i final del level
--canvis de pantalles: menu screen/stage clear
--Pulir bosses
--revisar que tot funcioni: god mode, colliders, gamepads, fullscreen, etc
--corregir futurs bugs despres del testeig
+* 1.0
+-Events from the beginning of the level and the end of the level
+-Scene changes: menu screen / stage clear
+-Improve bosses
+-Check that everything works: god mode, colliders, gamepads, fullscreen...
+-Fix bugs after testing
 
