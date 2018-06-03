@@ -131,6 +131,7 @@ bool ModuleKatana::Start()
 
 	graphics = App->textures->Load("assets/sprites/characters/katana/Katana_Spritesheet.png"); 
 	player_death = App->textures->Load("assets/sprites/characters/death_player/Death_Player.png");
+	basicsound = App->audio->LoadFx("assets/audio/effects/Player Shoots/katanabasic.wav");
 	if (App->charmenu->P1katana) {
 		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
@@ -175,6 +176,8 @@ bool ModuleKatana::CleanUp()
 
 	App->inter->game_over_katana = true;
 
+	App->audio->UnloadSFX(basicsound);
+	basicsound = nullptr;
 	return true;
 }
 
@@ -229,13 +232,16 @@ update_status ModuleKatana::Update()
 			switch (aux1) {
 			case 0:
 				App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				Mix_PlayChannel(-1, basicsound, 0);
 				LOG("Shoot 1");
 				break;
 			case 1:
 				App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				Mix_PlayChannel(-1, basicsound, 0);
 				break;
 			case 2:
 				App->particles->AddParticle(App->particles->shoot3, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
+				Mix_PlayChannel(-1, basicsound, 0);
 				aux1 = 0;
 				break;
 

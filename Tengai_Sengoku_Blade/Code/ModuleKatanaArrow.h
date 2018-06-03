@@ -10,7 +10,7 @@
 
 #define ARROWS 4
 struct SDL_Texture;
-
+struct Mix_Chunk;
 enum arrow_state {
 	NOT_EXISTING,
 	LEVEL_ONE,
@@ -41,7 +41,7 @@ private:
 	void ShootCharged();
 
 public:
-
+	Mix_Chunk* arrowsound = nullptr;
 	SDL_Texture* graphics = nullptr;
 	Animation* current_animation = nullptr;
 

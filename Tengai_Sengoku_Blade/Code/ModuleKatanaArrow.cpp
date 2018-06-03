@@ -11,7 +11,7 @@
 #include "ModuleKatanaArrow.h"
 #include "ModuleUI.h"
 #include "ModuleEnemies.h"
-
+#include "ModuleAudio.h"
 #include "SDL\include\SDL_timer.h"
 
 ModuleKatanaArrow::ModuleKatanaArrow()
@@ -69,7 +69,7 @@ bool ModuleKatanaArrow::Start()
 {
 	LOG("Loading partner textures");
 	graphics = App->textures->Load("assets/sprites/characters/katana/Katana_SpriteSheet.png");
-
+	arrowsound = App->audio->LoadFx("assets/audio/effects/Player Shoots/katanapowerUP.wav");
 	if (graphics == nullptr)
 	{
 		LOG("Could not load arrow textures")
@@ -108,6 +108,8 @@ bool ModuleKatanaArrow::CleanUp()
 			return false;
 	}
 
+	App->audio->UnloadSFX(arrowsound);
+	arrowsound = nullptr;
 	return true;
 }
 
@@ -153,6 +155,7 @@ update_status ModuleKatanaArrow::Update()
 
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || App->input->controller_A_button == BUTTON_DOWN) {
+			Mix_PlayChannel(-1, arrowsound, 0);
 			if (shot_delay)
 			{
 				shot_entry = SDL_GetTicks();
