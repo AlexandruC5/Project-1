@@ -59,9 +59,10 @@ Application::Application()
 	//modules[16] = scene_temple = new ModuleSceneTemple();
 	
 	//modules[18] = katana_arrow = new ModuleKatanaArrow();
-	modules[18] = katana = new ModuleKatana();
+	modules[18] = katana_arrow = new ModuleKatanaArrow();
+	modules[19] = katana = new ModuleKatana();
 	//modules[19] = ayin = new ModuleAyin();
-	modules[19] = katana_arrow = new ModuleKatanaArrow();
+	
 	modules[20] = ayin_arrow = new ModuleAyinArrow();
 	modules[21] = ayin = new ModuleAyin();
 	modules[22] = ulti_ayin = new ModuleAyinUltimate();

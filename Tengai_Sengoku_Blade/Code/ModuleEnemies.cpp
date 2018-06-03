@@ -526,44 +526,42 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				if (chariot_life == 200) {
 					//App->audio->PlaySoundEffects(fx_death);
 
-					
-						
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
-						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
 
-						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y);
-						App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 10, enemies[i]->position.y + 30);
+					//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
 
-						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 10, enemies[i]->position.y + 30);
-						//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x - 10, enemies[i]->position.y + 5);
 
-						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x - 10, enemies[i]->position.y + 5);
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 40, enemies[i]->position.y);
 
-						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 40, enemies[i]->position.y);
+					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y + 40);
+					//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
 
-						App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y + 40);
-						//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+					//App->particles->explosion.speed.x = App->scene_temple->speed;
 
-						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
-						//App->particles->explosion.speed.x = App->scene_temple->speed;
+					App->scene_temple->StopCamera();
+					AddEnemy(ENEMY_TYPES::Power_up, enemies[i]->position.x, enemies[i]->position.y);
 
-						App->scene_temple->StopCamera();
-						AddEnemy(ENEMY_TYPES::Power_up, enemies[i]->position.x, enemies[i]->position.y);
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
+					{
+						App->inter->score_katana += 200;
+					}
+					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
+					{
+						App->inter->score_ayin += 200;
+					}
 
-						if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
-						{
-							App->inter->score_katana += 200;
-						}
-						if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
-						{
-							App->inter->score_ayin += 200;
-						}
+					delete enemies[i];
+					enemies[i] = nullptr;
+					chariot_life = 0;
 
-						delete enemies[i];
-						enemies[i] = nullptr;
-						chariot_life = 0;
-					
 				}
+			}
 
 				//Players kill green ovni & demonwheel
 
@@ -771,6 +769,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					enemies[i] = nullptr;
 				}
 
+
 				if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_ULTI_PARCHMENT) {
 
 					if (c2 == App->katana->coll) {
@@ -791,58 +790,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 
 
-
-				//	//App->audio->PlaySoundEffects(fx_death);
-				//	//App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
-
-				//	if (num_pegtop >= 4) {
-				//		//AddEnemy(ENEMY_TYPES::COIN, enemies[i]->position.x, enemies[i]->position.y);
-				//		num_pegtop = 0;
-				//	}
-				//	delete enemies[i];
-				//	enemies[i] = nullptr;
-
-				//	if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
-				//	{
-				//		//App->ui->score_koyori += 200;
-				//	}
-				//	if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)
-				//	{
-				//		//App->ui->score_sho += 200;
-				//	}
-
-
-				//}
-
-
-
-
-				//if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY && c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_SHOT) {
-
-
-				//	App->particles->AddParticle(App->particles->waterExplosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
-				//	enemies[i]->OnCollision(c2);
-				//	App->player->score += 200;
-				//	App->player2->score += 200;
-
-				//	delete enemies[i];
-				//	enemies[i] = nullptr;
-				//	break;
-				//}
-				//
-
-				//if (c2->type == COLLIDER_TYPE::COLLIDER_SHOOT && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY) {
-				//	//App->particles->AddParticle(App->particles->enemyattack, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_ENEMY_SHOT);
-				//	if (shoot) {
-				//		App->particles->AddParticle(App->particles->enemyattack, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_ENEMY_SHOT);
-				//		shoot = false;
-				//	}
-				//}
-
 			}
 
 
 		}
 
 	}
-}

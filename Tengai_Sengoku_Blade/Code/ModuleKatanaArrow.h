@@ -8,6 +8,7 @@
 #include "ModuleKatana.h"
 #include "SDL_mixer\include\SDL_mixer.h"
 
+#define ARROWS 4
 struct SDL_Texture;
 
 enum arrow_state {
@@ -36,6 +37,8 @@ private:
 	void CheckState();
 	void PerformActions();
 	void ArrowBehaviour();
+	void Shoot(SDL_Rect* frame);
+	void ShootCharged();
 
 public:
 
@@ -52,12 +55,13 @@ public:
 
 	SDL_Rect decharging_arrow;
 
-	
-	fPoint position;
+	fPoint* katanaPos;
+	fPoint position[ARROWS];
+	//fPoint position;
 	arrow_state state = NOT_EXISTING;
 	Path shot_movement;
 
-	int arrow_position = 0;
+	//int arrow_position = 0;
 	int aux;
 	bool time_shoot = true, exist = false, time_cat = true;
 	bool arrow_behaviour = false;
@@ -72,6 +76,12 @@ public:
 	int charge_on_entry = 0;
 
 	bool create_bullet = true, update_bullet = false;
+
+	bool left, up = true;
+	float speed = 1.0f;
+	float max_x = 20.0f;
+	float max_y = 20.0f;
+	fPoint offset;
 };
 
 #endif

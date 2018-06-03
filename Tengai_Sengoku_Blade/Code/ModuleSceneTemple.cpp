@@ -367,7 +367,7 @@ void ModuleSceneTemple::ResetPosition() {
 	 posy3 = 0;
 	 pos4 = 224;
 	 pos5 = 491;
-
+	 speed = 1.5;
 
 
 }
