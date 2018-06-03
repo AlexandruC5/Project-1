@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 ﻿  ModuleSceneTemple.cpp
 d:\upc citm\project-1\tengai_sengoku_blade\code\winscreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
   d:\upc citm\project-1\tengai_sengoku_blade\code\path.h(15): note: vea la declaración de 'Path'
+=======
+<<<<<<< HEAD
+﻿  ModuleSceneIntro.cpp
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\winscreen.h(11): warning C4099: 'Path': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\path.h(15): note: vea la declaración de 'Path'
+  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\entrega\Project-1\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
+=======
+﻿  SHARPENER_KNIFE.cpp
+>>>>>>> 00f47118e54feec5f7ea2a10d3de3360d5fc19a6
 d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(57): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(204): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
@@ -22,3 +32,4 @@ d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(297): warn
 d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.cpp(303): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
   SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
   SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.pdb (Partial PDB)
+>>>>>>> fc0b13a4c9a113137994d45df4ad93f24fc9e629
