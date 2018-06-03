@@ -1,7 +1,7 @@
 
 # Tribute: Tengai / Sengoku Blade
 
-![](https://github.com/AlexandruC5/Project-1/blob/master/docs/header1.jpg)
+![Tengai](https://github.com/AlexandruC5/Project-1/blob/master/docs/header1.jpg)
 
 Sengoku Blade, also popularly known as Tengai, is an horizontal-scrolling shoot'em up game produced by Psikyo and originally released in Japanese arcades in 1996 as a sequel to Sengoku Ace (1993).
 
@@ -9,7 +9,7 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
 
 ## Members
 
-Group Name:	Instinct Games 
+### Group Name:	Instinct Games 
 
 ![Team](https://github.com/AlexandruC5/Project-1/blob/master/docs/teamphoto22.png)
 
@@ -25,8 +25,72 @@ Group Name:	Instinct Games
 ## Our project game
 
 
-## Game Controlls
+## Installation
 
+Unzip the release folder and execute the Tengai.exe file
+
+## Control list:
+
+__[Escape]__: To exit game
+
+### Keyboard Input
+
+__Player 1__ :
+
+__[W]__: Up
+__[A]__: Left
+__[S]__: Down
+__[D]__: Right
+
+__[SPACE]__: Shoot
+__[Z]__: Charged Shoot
+
+__Player 2__:
+
+__[I]__: Up
+__[J]__: Left
+__[K]__: Down
+__[L]__: Right
+
+__[Y]__: Shoot
+__[X]__: Charged Shoot
+
+### Controller Input:
+
+__Controller 1__:
+
+__[Start]__: Start the game
+__[Select]__: Exit the game at any moment
+__[Dpad]__: Movment
+
+__[A]__: Shooting
+__[B]__: Charged Shot
+__[Y]__: Ultimate
+
+__Controller 2__:
+
+__[Start]__: Start the game
+__[Start]__ (on Character Selector): JOIN 2ND PLAYER
+__[Select]__: Exit the game at any moment (Player 2 can not exit the game)
+__[Dpad]__: Movment
+
+__[A]__: Shooting
+__[B]__: Charged Shot
+__[Y]__: Ultimate
+
+
+### Debug Keys:
+
+__[P]__: +1 powerup to Katana
+__[O]__: -1 powerup of katana
+
+__[T]__: +1 powerup to Ayin
+__[R]__: -1 powerup of Ayin
+
+__[F1]__: Show coliders
+__[F5]__: GOD MODE
+__[F5]__ (From Welcome Screen): Direct Lose Screen
+__[F7]__: Direct Win Screen
 
 ## Data Releases
 

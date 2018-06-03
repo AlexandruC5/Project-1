@@ -120,6 +120,14 @@ public:
 	Particle power_up, power_down;
 	Particle coin_100, coin_200, coin_500, coin_1000, coin_2000, coin_4000;
 
+	//Chariot
+	Particle chariot_explosion;
+	Particle chariot_big_explosion;
+	Particle chariot_bullet;
+
+	//Ball
+	Particle ball_bullet;
+
 };
 
 class ParticleEmmiter

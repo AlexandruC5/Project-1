@@ -52,7 +52,7 @@ public:
 
 	void Move();
 	
-
+	void Shoot();
 
 
 

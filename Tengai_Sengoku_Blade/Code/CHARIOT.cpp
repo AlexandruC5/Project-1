@@ -141,14 +141,9 @@ void CHARIOT::CheckState() {
 	case start_move_with_cam:
 		position.x += int(App->scene_temple->speed);
 
-		if (time_delay) {
-			time_entry = SDL_GetTicks();
-			time_delay = false;
-		}
+		
 
-		time_current = SDL_GetTicks() - time_entry;
-
-		if (time_current > 2000) {
+		if (App->enemies->ball_life == 100) {
 			state = active;
 		}
 
@@ -182,7 +177,10 @@ void CHARIOT::CheckState() {
 
 	case start_phase2:
 		position.x += int(App->scene_temple->speed);
-		state = phase2;
+
+		if (App->enemies->chariot_life == 100) {
+			state = phase2;
+		}
 		break;
 
 	case phase2:

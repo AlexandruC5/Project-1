@@ -19,6 +19,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void ResetPosition();
+	void StopCamera();
 
 public:
 
