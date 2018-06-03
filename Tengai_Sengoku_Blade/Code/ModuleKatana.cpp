@@ -202,8 +202,8 @@ update_status ModuleKatana::Update()
 	 if (power_up < 0) {
 		 power_up = 0;
 	 }
-	 if (power_up > 2) {
-		 power_up = 2;
+	 if (power_up > 4) {
+		 power_up = 4;
 	 }
 
 	//check state
@@ -245,15 +245,22 @@ update_status ModuleKatana::Update()
 
 		if (pressed_A || App->input->controller_Dpad_LEFT== KEY_STATE::KEY_REPEAT) {
 			position.x -= speed;
+			App->katana_arrow->left = true;
+
 		}
 		if (pressed_W || App->input->controller_Dpad_UP == KEY_STATE::KEY_REPEAT) {
 			position.y -= speed;
+			App->katana_arrow->up = true;
+
 		}
 		if (pressed_D || App->input->controller_Dpad_RIGHT == KEY_STATE::KEY_REPEAT) {
 			position.x += speed;
+			App->katana_arrow->left = false;
+
 		}
 		if (pressed_S || App->input->controller_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
 			position.y += speed;
+			App->katana_arrow->up = false;
 		}
 		if (shot_space || App->input->controller_A_button ==BUTTON_DOWN) {
 			LOG("Shooting bullets");

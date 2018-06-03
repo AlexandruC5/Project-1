@@ -86,6 +86,8 @@ public:
 
 	bool create_wave = true, update_bullet = false;
 	int state_wave = 0;
+
+	
 };
 
 #endif
