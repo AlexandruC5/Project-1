@@ -135,7 +135,7 @@ update_status ModuleKatanaArrow::Update()
 		else if (state == LAST_ARROW_SHOT) App->render->Blit(graphics, position.x + 18, position.y + 9 - r.h, &r);
 			
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN||App->input->controller_A_button==BUTTON_DOWN) {
 			if (shot_delay)
 			{
 				shot_entry = SDL_GetTicks();
@@ -182,7 +182,7 @@ void ModuleKatanaArrow::CheckState() {
 		if (App->katana->power_up == 2) {
 			state = LEVEL_FOUR;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_REPEAT||App->input->controller_B_button==KEY_STATE::KEY_REPEAT) {
 			if (time_shoot) {
 				time_on_entry = SDL_GetTicks();
 				time_shoot = false;
@@ -193,7 +193,7 @@ void ModuleKatanaArrow::CheckState() {
 				state = LEVEL_ONE_CHARGING;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_UP) {
+		if (App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_UP || App->input->controller_B_button == KEY_STATE::KEY_UP) {
 			time_shoot = true;
 		}
 		break;
@@ -205,7 +205,7 @@ void ModuleKatanaArrow::CheckState() {
 			break;
 
 	case LEVEL_ONE_CHARGE:
-		if (App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_UP) {
+		if (App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_UP | App->input->controller_B_button == KEY_STATE::KEY_UP) {
 			state = ARROW_SHOT;
 		}
 		break;
@@ -291,7 +291,7 @@ void ModuleKatanaArrow::ArrowBehaviour() {
 
 	
 
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT||App->input->controller_Dpad_UP==BUTTON_REPEAT) {
 		arrow_position++;
 		//position.y += arrow_position;
 		if (arrow_position >= 47) arrow_position = 47;
@@ -301,7 +301,7 @@ void ModuleKatanaArrow::ArrowBehaviour() {
 	}
 	
 	
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || App->input->controller_Dpad_DOWN==BUTTON_REPEAT) {
 
 		arrow_position--;
 		//position.y += arrow_position;
@@ -312,14 +312,14 @@ void ModuleKatanaArrow::ArrowBehaviour() {
 
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP || App->input->controller_Dpad_DOWN == BUTTON_UP) {
 		position.y += arrow_position;
 
 	}
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || App->input->controller_Dpad_LEFT == BUTTON_REPEAT) {
 
 	}
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || App->input->controller_Dpad_DOWN == BUTTON_REPEAT) {
 
 	}
 

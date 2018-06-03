@@ -27,7 +27,7 @@
 #include "CharSelec.h"
 #include "ModuleInterface.h"
 #include "ModuleAyinUltimate.h"
-
+#include "ModuleSceneIntro.h"
 Application::Application()
 {
 	
@@ -71,7 +71,7 @@ Application::Application()
 	modules[24] = inter = new ModuleInterface();
 	modules[25] = collision = new ModuleCollision();
 	//modules[21] = charmenu = new ModuleCharSelec();
-	
+	modules[26] = scene_intro = new ModuleSceneIntro();
 	
 }
 	

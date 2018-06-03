@@ -46,8 +46,15 @@
     <ClCompile Include="CHARIOT.cpp" />
     <ClCompile Include="PAGODA.cpp" />
     <ClCompile Include="BALL2.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="ModuleSceneIntro.cpp" />
+=======
     <ClCompile Include="DEMON.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Coin.cpp" />
+=======
+>>>>>>> df2ae51acb72abed5d1b5c7fe712a2ced1c4eb4e
+>>>>>>> b3d3e9a9bce1e4d0edd0d710270ffc2a7526cc42
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -100,8 +107,15 @@
     <ClInclude Include="CHARIOT.h" />
     <ClInclude Include="PAGODA.h" />
     <ClInclude Include="BALL2.h" />
+<<<<<<< HEAD
+    <ClInclude Include="ModuleSceneIntro.h" />
+=======
     <ClInclude Include="DEMON.h" />
+<<<<<<< HEAD
     <ClInclude Include="Coin.h" />
+=======
+>>>>>>> df2ae51acb72abed5d1b5c7fe712a2ced1c4eb4e
+>>>>>>> b3d3e9a9bce1e4d0edd0d710270ffc2a7526cc42
   </ItemGroup>
   <ItemGroup>
     <None Include="ModuleUI.cpp" />

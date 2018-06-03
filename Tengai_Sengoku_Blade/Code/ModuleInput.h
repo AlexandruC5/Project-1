@@ -45,9 +45,12 @@ public:
 	KEY_STATE controller_A_button;
 	KEY_STATE controller_Y_button;
 	KEY_STATE controller_X_button;
+	KEY_STATE controller_B_button;
 	KEY_STATE controller_START_button;
 	KEY_STATE controller_Dpad_LEFT;
 	KEY_STATE controller_Dpad_RIGHT;
+	KEY_STATE controller_Dpad_UP;
+	KEY_STATE controller_Dpad_DOWN;
 	KEY_STATE joystick_UP;
 	KEY_STATE joystick_DOWN;
 	KEY_STATE joystick_LEFT;
@@ -57,9 +60,12 @@ public:
 	KEY_STATE controller2_A_button;
 	KEY_STATE controller2_Y_button;
 	KEY_STATE controller2_X_button;
+	KEY_STATE controller2_B_button;
 	KEY_STATE controller2_START_button;
 	KEY_STATE controller2_Dpad_LEFT;
 	KEY_STATE controller2_Dpad_RIGHT;
+	KEY_STATE controller2_Dpad_UP;
+	KEY_STATE controller2_Dpad_DOWN;
 	KEY_STATE joystick2_UP;
 	KEY_STATE joystick2_DOWN;
 	KEY_STATE joystick2_LEFT;
