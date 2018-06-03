@@ -772,7 +772,7 @@ void SharpenerBurst::Update()
 			p->speed.x = SDL_sin(angle) * speed_multiplier;
 			p->speed.y = SDL_cos(angle) * speed_multiplier;
 
-			//p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHARPENER_KNIFE, App->particles);
+			p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHARPENER_KNIFE, App->particles);
 
 			App->particles->AddParticle(p);
 		}

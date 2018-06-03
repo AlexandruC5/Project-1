@@ -5,6 +5,7 @@
 #include "ModuleInterface.h"
 #include "ModuleKatana.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModuleRender.h"
 
 DEMONWHEEL::DEMONWHEEL(int x, int y, int type) : Enemy(x, y,type)
 {
@@ -28,13 +29,27 @@ DEMONWHEEL::DEMONWHEEL(int x, int y, int type) : Enemy(x, y,type)
 	
 
 	if (type == 1) {
-		path.PushBack({ -0.5, 0 }, 150, &backward);
-		path.PushBack({ 1.5, 0 }, 500, &backward);
+		path.PushBack({ -1.f, 0 }, 85, &backward);
+		path.PushBack({ 2.5, 0 }, 500, &backward);
+		path.PushBack({ 1.5, 2.5 }, 200, &backward);
+		path.PushBack({ -1.5, 0 }, 200, &backward);
 	}
 
 	if (type == 2) {
-		path.PushBack({ -1, 0 }, 100, &backward);
-		path.PushBack({ 0.75, 1.5 }, 100, &backward);
+		path.PushBack({ -1.5f, 0 }, 70, &backward);
+		path.PushBack({ 0.75f, 1.5 }, 70, &backward);
+		path.PushBack({ 2.5f, 0 }, 500, &backward);
+	}
+
+	if (type == 3) {
+		path.PushBack({ -1.5, 0 }, 100, &backward);
+		path.PushBack({ 0.75, 1.5 }, 80, &backward);
+		path.PushBack({ 2.5, 0 }, 500, &backward);
+	}
+
+	if (type == 4) {
+		path.PushBack({ -1.5, 0 }, 130, &backward);
+		path.PushBack({ 0.75, 1.5 }, 90, &backward);
 		path.PushBack({ 2.5, 0 }, 500, &backward);
 	}
 
@@ -62,20 +77,20 @@ void DEMONWHEEL::Move()
 
 	if (App->inter->enemies_movement) {
 
-	iPoint path_pos = path.GetCurrentPosition(&animation);
-	position.x = float(original_pos.x + path_pos.x);
-	position.y = float(original_pos.y + path_pos.y);
+		iPoint path_pos = path.GetCurrentPosition(&animation);
+		position.x = float(original_pos.x + path_pos.x);
+		position.y = float(original_pos.y + path_pos.y);
 
-	
+		if (position.x < App->render->camera.x + App->render->camera.w) {
 
-		if (timer > 70) {
-			Shoot();
-			timer = 0;
-			
+			if (timer > 50) {
+				Shoot();
+				timer = 0;
+
+			}
+			else timer++;
 		}
-		else timer++;
 	}
-
 
 }
 
