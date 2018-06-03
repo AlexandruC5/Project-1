@@ -1,3 +1,16 @@
-﻿  Coin.cpp
+﻿  ModuleEnemies.cpp
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(56): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(57): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(302): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(304): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(325): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(327): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(376): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(467): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(468): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(499): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(501): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(513): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+d:\upc citm\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(515): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
   SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.pdb (Partial PDB)

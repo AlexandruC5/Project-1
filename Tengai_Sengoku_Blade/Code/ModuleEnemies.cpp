@@ -368,6 +368,130 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 
 
+
+			//Coin
+
+
+			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_COIN) {
+				srand(time(NULL));
+				typeofcoin = rand() % 6;
+
+				switch (typeofcoin) {
+				case 0:
+					coin_type = App->particles->coin_100;
+
+					if (c2 == App->katana->coll) {
+						App->inter->score_katana += 100;
+						coin_position = App->katana->position;
+					}
+					if (c2 == App->ayin->coll) {
+						App->inter->score_ayin += 100;
+						coin_position = App->ayin->position;
+					}
+					
+					break;
+
+				case 1:
+					coin_type = App->particles->coin_200;
+
+					if (c2 == App->katana->coll) {
+						App->inter->score_katana += 200;
+						coin_position = App->katana->position;
+					}
+					if (c2 == App->ayin->coll) {
+						App->inter->score_ayin += 200;
+						coin_position = App->ayin->position;
+					}
+					
+					break;
+
+				case 2:
+					coin_type = App->particles->coin_500;
+
+					if (c2 == App->katana->coll) {
+						App->inter->score_katana += 500;
+						coin_position = App->katana->position;
+					}
+					if (c2 == App->ayin->coll) {
+						App->inter->score_ayin += 500;
+						coin_position = App->ayin->position;
+					}
+			
+					break;
+
+				case 3:
+					coin_type = App->particles->coin_1000;
+
+					if (c2 == App->katana->coll) {
+						App->inter->score_katana += 1000;
+						coin_position = App->katana->position;
+					}
+					if (c2 == App->ayin->coll) {
+						App->inter->score_ayin += 1000;
+						coin_position = App->ayin->position;
+					}
+					
+					break;
+
+				case 4:
+					coin_type = App->particles->coin_2000;
+
+					if (c2 == App->katana->coll) {
+						App->inter->score_katana += 2000;
+						coin_position = App->katana->position;
+					}
+					if (c2 == App->ayin->coll) {
+						App->inter->score_ayin += 2000;
+						coin_position = App->ayin->position;
+					}
+					
+					break;
+
+				case 5:
+					coin_type = App->particles->coin_4000;
+
+					if (c2 == App->katana->coll) {
+						App->inter->score_katana += 4000;
+						coin_position = App->katana->position;
+					}
+					if (c2 == App->ayin->coll) {
+						App->inter->score_ayin += 4000;
+						coin_position = App->ayin->position;
+					}
+					
+					break;
+
+				}
+
+				//coin_type.speed.x = int(App->scene_temple->speed);
+				coin_type.speed.y = -1.5;
+				App->particles->AddParticle(coin_type, coin_position.x, coin_position.y, COLLIDER_NONE, PARTICLE_COIN);
+
+				delete enemies[i];
+				enemies[i] = nullptr;
+
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 				if (c2 == App->katana->coll) {

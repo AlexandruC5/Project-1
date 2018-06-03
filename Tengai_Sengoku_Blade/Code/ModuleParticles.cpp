@@ -346,10 +346,49 @@ bool ModuleParticles::Start()
 	power_down.anim.speed = 0.10f;
 	power_down.life = 800;
 
-	/*for (int i = 0; i <= 15; i++) {
-		lista_shurikens[i]->speed.x = lista_valores_speed_x[i];
-		lista_shurikens[i]->speed.y = lista_valores_speed_y[i];
-	}*/
+	//Coin
+	coin_100.anim.PushBack({ 406, 724, 9, 7 });
+	coin_100.anim.PushBack({ 406, 733, 9, 7 });
+	coin_100.anim.PushBack({ 406, 742, 9, 7 });
+	coin_100.anim.loop = true;
+	coin_100.anim.speed = 0.20f;
+	coin_100.life = 1000;
+
+	coin_200.anim.PushBack({ 418, 724, 11, 7 });
+	coin_200.anim.PushBack({ 418, 733, 11, 7 });
+	coin_200.anim.PushBack({ 418, 742, 11, 7 });
+	coin_200.anim.loop = true;
+	coin_200.anim.speed = 0.20f;
+	coin_200.life = 1000;
+
+	coin_500.anim.PushBack({ 432, 724, 11, 7 });
+	coin_500.anim.PushBack({ 432, 733, 11, 7 });
+	coin_500.anim.PushBack({ 432, 742, 11, 7 });
+	coin_500.anim.loop = true;
+	coin_500.anim.speed = 0.20f;
+	coin_500.life = 1000;
+
+	coin_1000.anim.PushBack({ 446, 724, 13, 7 });
+	coin_1000.anim.PushBack({ 446, 733, 13, 7 });
+	coin_1000.anim.PushBack({ 446, 742, 13, 7 });
+	coin_1000.anim.loop = true;
+	coin_1000.anim.speed = 0.20f;
+	coin_1000.life = 1000;
+
+	coin_2000.anim.PushBack({ 462, 724, 15, 7 });
+	coin_2000.anim.PushBack({ 462, 733, 15, 7 });
+	coin_2000.anim.PushBack({ 462, 742, 15, 7 });
+	coin_2000.anim.loop = true;
+	coin_2000.anim.speed = 0.20f;
+	coin_2000.life = 1000;
+
+	coin_4000.anim.PushBack({ 480, 724, 15, 7 });
+	coin_4000.anim.PushBack({ 480, 733, 15, 7 });
+	coin_4000.anim.PushBack({ 480, 742, 15, 7 });
+	coin_4000.anim.loop = true;
+	coin_4000.anim.speed = 0.20f;
+	coin_4000.life = 1000;
+
 
 	return true;
 }

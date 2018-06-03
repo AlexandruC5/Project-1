@@ -2,7 +2,7 @@
 #define __ModuleEnemies_H__
 
 #include "Module.h"
-
+#include "ModuleParticles.h"
 #define MAX_ENEMIES 100
 
 // TODO 2: Add a new enemy: Brown Cookies!
@@ -71,7 +71,11 @@ private:
 
 	bool shoot = true;
 	bool spritec;
-	
+
+	int typeofcoin;
+	Particle coin_type;
+	fPoint coin_position;
+	PARTICLE_TYPE particle_type = PARTICLE_NONE;
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];

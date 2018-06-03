@@ -25,6 +25,7 @@ enum PARTICLE_TYPE
 	PARTICLE_ENEMY_SHOT,
 	PARTICLE_POWER_UP_KATANA,
 	PARTICLE_POWER_UP_AYIN,
+	PARTICLE_COIN,
 
 };
 struct Particle
@@ -114,6 +115,7 @@ public:
 	int lista_valores_speed_y[16];
 
 	Particle power_up, power_down;
+	Particle coin_100, coin_200, coin_500, coin_1000, coin_2000, coin_4000;
 
 };
 
