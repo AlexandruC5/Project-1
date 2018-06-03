@@ -207,6 +207,7 @@ void SHARPENER_KNIFE::CheckState() {
 		break;
 
 	case GO_BACKWARD_SHARPENER:
+
 		position.x += 2;
 		if(position.x >= App->render->camera.x + (App->render->camera.w) - 101){
 			state = SHOOT_SHARPENER;
