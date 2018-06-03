@@ -287,7 +287,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		{
 
 			//Player collides w enemies
-			if ((c2->type == COLLIDER_TYPE::COLLIDER_PLAYER /*|| c2->type == COLLIDER_TYPE::COLLIDER_HITBOX_AYIN*/) && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHARPENER_KNIFE) {
+			if ((c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHARPENER_KNIFE || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PAGODA || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_DEMONWHEEL || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_BALL || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_CHARIOT) {
 				LOG("collider on");
 				//Katana colliders with enemy
 				if (c2 == App->katana->coll) {
@@ -345,8 +345,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 				if (pegtop_life == 1) {
-					//App->particles->AddParticle(App->particles->spark, enemies[i]->position.x, enemies[i]->position.y);
-					//App->particles->spark.speed.x = speed;
+					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
 				if (pegtop_life == 10) {
 					//App->audio->PlaySoundEffects(fx_death);
@@ -375,8 +375,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 				if (pagoda_life == 1 || pagoda_life == 15) {
-					//App->particles->AddParticle(App->particles->spark, enemies[i]->position.x, enemies[i]->position.y);
-					//App->particles->spark.speed.x = speed;
+					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
 				if (pagoda_life == 25) {
 					//App->audio->PlaySoundEffects(fx_death);
@@ -405,8 +405,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 				if (sharpener_life == 1 || sharpener_life == 10 || sharpener_life == 20) {
-					//App->particles->AddParticle(App->particles->spark, enemies[i]->position.x, enemies[i]->position.y);
-					//App->particles->spark.speed.x = speed;
+					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
 				if (sharpener_life == 35) {
 					//App->audio->PlaySoundEffects(fx_death);
@@ -436,8 +436,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 				if (ball_life == 1 || ball_life == 10 || ball_life == 20) {
-					//App->particles->AddParticle(App->particles->spark, enemies[i]->position.x, enemies[i]->position.y);
-					//App->particles->spark.speed.x = speed;
+					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
+					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
 				if (ball_life == 30) {
 					//App->audio->PlaySoundEffects(fx_death);

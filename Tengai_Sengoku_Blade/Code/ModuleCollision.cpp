@@ -264,7 +264,25 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_ENEMY: // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
 			break;
+		case COLLIDER_ENEMY_RED: // red
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			break;
 		case COLLIDER_ENEMY_PEGTOP: // red
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			break;
+		case COLLIDER_ENEMY_PAGODA: // red
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			break;
+		case COLLIDER_ENEMY_DEMONWHEEL: // red
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			break;
+		case COLLIDER_ENEMY_SHARPENER_KNIFE: // red
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			break;
+		case COLLIDER_ENEMY_BALL: // red
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			break;
+		case COLLIDER_ENEMY_CHARIOT : // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
 			break;
 		case COLLIDER_PLAYER_SHOT: // yellow
@@ -353,6 +371,12 @@ void ModuleCollision::GodMode() {
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = god_mode;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER] = god_mode;
 	matrix[COLLIDER_ENEMY_PEGTOP][COLLIDER_PLAYER] = god_mode;
+	matrix[COLLIDER_ENEMY_RED][COLLIDER_PLAYER] = god_mode;
+	matrix[COLLIDER_ENEMY_PAGODA][COLLIDER_PLAYER] = god_mode;
+	matrix[COLLIDER_ENEMY_DEMONWHEEL][COLLIDER_PLAYER] = god_mode;
+	matrix[COLLIDER_ENEMY_BALL][COLLIDER_PLAYER] = god_mode;
+	matrix[COLLIDER_ENEMY_SHARPENER_KNIFE][COLLIDER_PLAYER] = god_mode;
+	matrix[COLLIDER_ENEMY_CHARIOT][COLLIDER_PLAYER] = god_mode;
 	god_mode = !god_mode;
 
 }

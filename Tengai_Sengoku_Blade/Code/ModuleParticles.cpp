@@ -389,6 +389,35 @@ bool ModuleParticles::Start()
 	coin_4000.anim.speed = 0.20f;
 	coin_4000.life = 1000;
 
+	//Bleeding
+	bleeding.anim.PushBack({ 16, 799, 36, 15 });
+	bleeding.anim.PushBack({ 66, 797, 44, 19 });
+	bleeding.anim.PushBack({ 124, 798, 49, 17 });
+	bleeding.anim.PushBack({ 197, 799, 44, 17 });
+	bleeding.anim.PushBack({ 248, 800, 47, 18 });
+	bleeding.anim.PushBack({ 306, 799, 48, 17 });
+	bleeding.anim.PushBack({ 373, 795, 46, 20 });
+	bleeding.anim.PushBack({ 439, 796, 42, 20 });
+	bleeding.anim.loop = false;
+	bleeding.anim.speed = 0.25f;
+	bleeding.life = 1200;
+
+	//Enemies Explosion
+	explosion.anim.PushBack({ 14, 832, 52, 48 });
+	explosion.anim.PushBack({ 74, 828, 51, 56 });
+	explosion.anim.PushBack({ 133, 828, 56, 62 });
+	explosion.anim.PushBack({ 193, 831, 56, 59});
+	explosion.anim.PushBack({ 255, 830, 56, 60 });
+	explosion.anim.PushBack({ 320, 829, 52, 64 });
+	explosion.anim.PushBack({ 378, 828, 57, 67});
+	explosion.anim.PushBack({ 11, 910, 59, 66 });
+	explosion.anim.PushBack({ 77, 909, 60, 68 });
+	explosion.anim.PushBack({ 142, 908, 58, 66 });
+	explosion.anim.PushBack({ 208, 908, 56, 63 });
+	explosion.anim.loop = false;
+	explosion.anim.speed = 0.10f;
+	explosion.life = 700;
+
 
 	return true;
 }

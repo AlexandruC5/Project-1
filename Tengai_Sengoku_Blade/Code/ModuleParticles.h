@@ -86,13 +86,13 @@ private:
 public:
 	Particle* lista_shurikens[16];
 	int time;
-	Particle explosion;
+	Particle explosion, bleeding;
 	Particle card1, card2, card3, card4, card5;
 	Particle BigC1, BigC2, BigC3, BigC4, BigC5;
 	Particle waterExplosion;
 	Particle sword1, sword2;
 	Particle enemyattack;
-
+	
 	//Katana
 	Particle shoot1, shoot2, shoot3;
 	Particle ayin_shoot1, ayin_shoot2, ayin_shoot3;
