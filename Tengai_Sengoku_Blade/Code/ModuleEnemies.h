@@ -67,7 +67,7 @@ public:
 	Mix_Chunk* pick_PowerUp = nullptr;
 	Mix_Chunk* katanavoice = nullptr;
 	Mix_Chunk* ayinvoice = nullptr;
-
+	Mix_Chunk* basicImpact = nullptr;
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
@@ -103,6 +103,9 @@ private:
 	int yellingK;
 	int yellingA;
 	bool waitayin = false;
+
+	bool checkhitK = false;
+	bool checkhitA = false;
 };
 
 #endif // __ModuleEnemies_H__

@@ -9,7 +9,7 @@
 #include "SDL_mixer\include\SDL_mixer.h"
 
 struct SDL_Texture;
-
+struct Mix_Chunk;
 enum arrow_state {
 	NOT_EXISTING,
 	LEVEL_ONE,
@@ -38,6 +38,7 @@ private:
 	void ArrowBehaviour();
 
 public:
+	Mix_Chunk* arrowsound = nullptr;
 
 	SDL_Texture* graphics = nullptr;
 	Animation* current_animation = nullptr;
