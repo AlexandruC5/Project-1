@@ -10,7 +10,7 @@
 // TODO 3: Have the Brown Cookies describe a path in the screen
 
 // TODO 4: Create a new enemy type: the Mech
-
+struct Mix_Chunk;
 enum ENEMY_TYPES
 {
 	NO_TYPE,
@@ -57,6 +57,8 @@ public:
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y, int path_type = 0);
 	
+	Mix_Chunk* ayin_pdown = nullptr;
+	Mix_Chunk* katana_pdown = nullptr;
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
@@ -88,6 +90,8 @@ private:
 	int sharpener_life = 0;
 	int ball_life = 0;
 
+	bool waitkatana = false;
+	int yelling;
 };
 
 #endif // __ModuleEnemies_H__

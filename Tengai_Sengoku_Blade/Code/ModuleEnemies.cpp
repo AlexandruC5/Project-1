@@ -29,7 +29,7 @@
 #include "ModuleInterface.h"
 #include "time.h"
 #include "stdlib.h"
-
+#include "ModuleAudio.h"
 #include "SDL\include\SDL_timer.h"
 
 
@@ -53,9 +53,10 @@ bool ModuleEnemies::Start()
 	
 	//sprites = App->textures->Load("assets/enemies2.png");
 	sprites = App -> textures->Load("assets/enemiestemple.png");
-
-
-	
+	ayin_pdown = App->audio->LoadFx("assets/audio/voices/Loose power up/ayin_lvl_down.wav");
+	katana_pdown = App->audio->LoadFx("assets/audio/voices/Loose power up/katana_lvl_down.wav");
+	yelling = 0;
+	waitkatana = false;
 	return true;
 }
 
@@ -174,7 +175,10 @@ bool ModuleEnemies::CleanUp()
 			enemies[i] = nullptr;
 		}
 	}
-
+	App->audio->UnloadSFX(ayin_pdown);
+	ayin_pdown = nullptr;
+	App->audio->UnloadSFX(katana_pdown);
+	katana_pdown = nullptr;
 	return true;
 }
 
@@ -290,6 +294,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if ((c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHARPENER_KNIFE || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PAGODA || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_DEMONWHEEL || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_BALL || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_CHARIOT) {
 				LOG("collider on");
 				//Katana colliders with enemy
+				yelling += 1;
+				if (yelling >= 0 && yelling<=5) waitkatana = true;
+				else if (yelling > 5 && yelling<=7)waitkatana = false, yelling=0;
+				
 				if (c2 == App->katana->coll) {
 					if (timer) {
 						time_on_entry = SDL_GetTicks();
@@ -307,7 +315,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->katana->power_up--;
 						timer = true;
 					}
-					//App->audio->PlaySoundEffects(App->player->k_power_down);
+					
+					if(waitkatana ==true)Mix_PlayChannel(-1, katana_pdown, 0);
 					App->katana->spin_pos = true;
 					App->katana->state = SPIN;
 				}
@@ -329,7 +338,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->ayin->power_up--;
 					timer_2 = true;
 				}
-				//App->audio->PlaySoundEffects(s_power_down);
+				Mix_PlayChannel(-1, ayin_pdown, 0);
 				App->ayin->spin_pos = true;
 				App->ayin->state = SPIN_2;
 			}
