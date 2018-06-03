@@ -64,11 +64,17 @@ COIN::COIN(int x, int y, int type) :Enemy(x, y, type)
 	down.speed = 0.15f;
 
 	
+	if (type == 1) {
+		movement.PushBack({ 1.f, -0.5f }, 50, &up);
+		
+		movement.PushBack({ 1.f, 0.5f }, 1008, &down);
+	}
 
-	movement.PushBack({ 1.f, -0.5f }, 50, &up);
-	//movement.PushBack({ 0,-0.5f }, , &parabola);
-	movement.PushBack({ 1.f, 0.5f }, 1008, &down);
-
+	if (type == 2) {
+		movement.PushBack({ -1.5f, -0 }, 50, &up);
+		movement.PushBack({ 1.f, -0.5f }, 70, &up);
+		movement.PushBack({ 1.f, 0.5f }, 1008, &down);
+	}
 	animation = &up;
 
 	collider = App->collision->AddCollider({ 0, 0, 30, 30 }, COLLIDER_TYPE::COLLIDER_COIN, (Module*)App->enemies);

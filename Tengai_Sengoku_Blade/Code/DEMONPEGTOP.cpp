@@ -86,10 +86,13 @@ void DEMONPEGTOP::CheckState() {
 				state = SHOT_PEGTOP;
 			}
 		if (type == 2) {
-			if (position.x <= App->render->camera.x + (App->render->camera.w) - 90) 
+			if (position.x <= App->render->camera.x + (App->render->camera.w) - 80) 
 				state = SHOT_PEGTOP;
 			}
-			
+		if (type == 3) {
+			if (position.x <= App->render->camera.x + (App->render->camera.w) - 125)
+				state = SHOT_PEGTOP;
+		}
 		
 		break;
 

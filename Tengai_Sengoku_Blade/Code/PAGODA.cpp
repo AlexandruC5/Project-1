@@ -72,7 +72,7 @@ PAGODA::PAGODA(int x, int y, int type) : Enemy(x, y, type)
 	animation = &idle;
 	
 
-	collider = App->collision->AddCollider({ 0, 0, 240, 200 }, COLLIDER_TYPE::COLLIDER_ENEMY_PAGODA, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 65, 80 }, COLLIDER_TYPE::COLLIDER_ENEMY_PAGODA, (Module*)App->enemies);
 
 	original_pos = { x,y };
 
@@ -150,7 +150,7 @@ void PAGODA::CheckState() {
 
 		if (open_toldo.Finished()) {
 			open_toldo.Reset();
-				//addparticle
+			Shoot();
 			state = PAGODA_LAST_SHOT;
 		}
 		break;
@@ -162,7 +162,7 @@ void PAGODA::CheckState() {
 
 		if (go_to_last_shot.Finished()) {
 			go_to_last_shot.Reset();
-			//addparticle
+			Shoot();
 			state = PAGODA_FIRST_SHOT;
 		}
 		break;
@@ -259,7 +259,7 @@ void PAGODA::Shoot() {
 		p->position.y = int(position.y) + i * 3;
 		p->speed.x = (App->katana->position.x - p->position.x) / 60.f;
 		p->speed.y = (App->katana->position.y - p->position.y) / 60.f;
-		//p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHOT, App->particles);
+		p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHOT, App->particles);
 		App->particles->AddParticle(p);
 
 	}

@@ -144,12 +144,41 @@ bool ModuleSceneTemple::Start()
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::SharpenerKnife, 1300, 50);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1900, 40, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1920, 40, 1);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1950, 140, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1970, 140, 1);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2220, -40, 2);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2230, -40, 3);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2240, -40, 4);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2250, -40, 2);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2260, -40, 3);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 2220, 90, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 2240, 20, 3);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 2260, 160, 2);
+
+	/*App->enemies->AddEnemy(ENEMY_TYPES::Coin, 2300, 230, 2);
+	App->enemies->AddEnemy(ENEMY_TYPES::Coin, 2320, 230, 2);
+	App->enemies->AddEnemy(ENEMY_TYPES::Coin, 2340, 230, 2);*/
+
+	App->enemies->AddEnemy(ENEMY_TYPES::Pagoda, 2265, 60, 1);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2650, 40, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2650, 140, 1);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2820, 40, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 2820, 140, 1);
+
+
 	//App->enemies->AddEnemy(ENEMY_TYPES::Ball2, 430, 90, 2);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 580, 80, 1);
 	//App->enemies->AddEnemy(ENEMY_TYPES::Demon, 450, 300, 1);
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::Coin, 350, 100, 1);
+	//App->enemies->AddEnemy(ENEMY_TYPES::Coin, 2350, 100, 1);
 
 
 	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
