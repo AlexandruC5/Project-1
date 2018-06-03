@@ -257,157 +257,84 @@ update_status ModuleAyin::Update()
 
 	//Inputs
 
-	//switch (controller_state) {
-	//case AYN1:
-	//	if (input)
-	//	{
-	//		if (pressed_J || App ->input->controller_Dpad_LEFT== KEY_STATE::KEY_REPEAT ) {
-	//			position.x -= speed;
-	//		}
-	//		if (pressed_I || App->input->controller_Dpad_UP == KEY_STATE::KEY_REPEAT) {
-	//			position.y -= speed;
-	//		}
-	//		if (pressed_L || App->input->controller_Dpad_RIGHT == KEY_STATE::KEY_REPEAT) {
-	//			position.x += speed;
-	//		}
-	//		if (pressed_K || App->input->controller_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
-	//			position.y += speed;
-	//		}
 
-	//		if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN || App->input->controller_Y_button==KEY_STATE::KEY_DOWN) {
-	//			state = ULTI_AYIN;
-	//			App->inter->num_ult_ayin--;
-	//			App->particles->AddEmmiter(AJIN_ULT, &position);
-	//		}
 
-	//		if (shot_space  || App->input->controller_A_button==KEY_STATE::KEY_DOWN ) {
-	//			LOG("Shooting bullets");
+	if (App->scene_temple->Ayin1=true) {
+		if (input)
+		{
+			if (pressed_J || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
+				position.x -= speed;
+			}
+			if (pressed_I || App->input->controller_Dpad_UP == KEY_STATE::KEY_REPEAT) {
+				position.y -= speed;
+			}
+			if (pressed_L || App->input->controller_Dpad_RIGHT == KEY_STATE::KEY_REPEAT) {
+				position.x += speed;
+			}
+			if (pressed_K || App->input->controller_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
+				position.y += speed;
+			}
 
-	//			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
+			if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN || App->input->controller_Y_button == KEY_STATE::KEY_DOWN) {
+				state = ULTI_AYIN;
+				App->inter->num_ult_ayin--;
+				App->particles->AddEmmiter(AJIN_ULT, &position);
+			}
 
-	//			if (current_bullet_time > 100) {
+			if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller_A_button == KEY_STATE::KEY_DOWN) {
+				LOG("Shooting bullets");
 
-	//			bullet_on_entry = SDL_GetTicks();*/
-	//			aux1++;
-	//			switch (aux1) {
-	//			case 0:
-	//				if (power_up == 0 || power_up == 1) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				else if (power_up == 2) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot1_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				else if (power_up == 3 || power_up == 4) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot1_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				LOG("Shoot 1");
-	//				break;
-	//			case 1:
-	//				if (power_up == 0 || power_up == 1) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				else if (power_up == 2) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot2_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				else if (power_up == 3 || power_up == 4) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot2_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				break;
-	//			case 2:
-	//				if (power_up == 0 || power_up == 1) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				else if (power_up == 2) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot3_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				else if (power_up == 3 || power_up == 4) {
-	//					App->particles->AddParticle(App->particles->ayin_shoot3_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//				}
-	//				aux1 = 0;
-	//				break;
+				/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
 
-	//			}
+				if (current_bullet_time > 100) {
 
-	//		}
+				bullet_on_entry = SDL_GetTicks();*/
+				aux1++;
+				switch (aux1) {
+				case 0:
+					if (power_up == 0 || power_up == 1) {
+						App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					else if (power_up == 2) {
+						App->particles->AddParticle(App->particles->ayin_shoot1_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					else if (power_up == 3 || power_up == 4) {
+						App->particles->AddParticle(App->particles->ayin_shoot1_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					LOG("Shoot 1");
+					break;
+				case 1:
+					if (power_up == 0 || power_up == 1) {
+						App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					else if (power_up == 2) {
+						App->particles->AddParticle(App->particles->ayin_shoot2_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					else if (power_up == 3 || power_up == 4) {
+						App->particles->AddParticle(App->particles->ayin_shoot2_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					break;
+				case 2:
+					if (power_up == 0 || power_up == 1) {
+						App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					else if (power_up == 2) {
+						App->particles->AddParticle(App->particles->ayin_shoot3_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					else if (power_up == 3 || power_up == 4) {
+						App->particles->AddParticle(App->particles->ayin_shoot3_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+					}
+					aux1 = 0;
+					break;
 
-	//	}
-	//	break;
-	/*case AYN2:*/
-
-	if (input)
-	{
-		if (pressed_J || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
-			position.x -= speed;
-		}
-		if (pressed_I || App->input->controller2_Dpad_UP == KEY_STATE::KEY_REPEAT) {
-			position.y -= speed;
-		}
-		if (pressed_L || App->input->controller2_Dpad_RIGHT == KEY_STATE::KEY_REPEAT) {
-			position.x += speed;
-		}
-		if (pressed_K || App->input->controller2_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
-			position.y += speed;
-		}
-
-		if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN || App->input->controller2_Y_button == KEY_STATE::KEY_DOWN) {
-			state = ULTI_AYIN;
-			App->inter->num_ult_ayin--;
-			App->particles->AddEmmiter(AJIN_ULT, &position);
-		}
-
-		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller2_A_button == KEY_STATE::KEY_DOWN) {
-			LOG("Shooting bullets");
-
-			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
-
-			if (current_bullet_time > 100) {
-
-			bullet_on_entry = SDL_GetTicks();*/
-			aux1++;
-			switch (aux1) {
-			case 0:
-				if (power_up == 0 || power_up == 1) {
-					App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
 				}
-				else if (power_up == 2) {
-					App->particles->AddParticle(App->particles->ayin_shoot1_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-				}
-				else if (power_up == 3 || power_up == 4) {
-					App->particles->AddParticle(App->particles->ayin_shoot1_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-				}
-				LOG("Shoot 1");
-				break;
-			case 1:
-				if (power_up == 0 || power_up == 1) {
-					App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-				}
-				else if (power_up == 2) {
-					App->particles->AddParticle(App->particles->ayin_shoot2_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-				}
-				else if (power_up == 3 || power_up == 4) {
-					App->particles->AddParticle(App->particles->ayin_shoot2_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-				}
-				break;
-			case 2:
-				if (power_up == 0 || power_up == 1) {
-					App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-				}
-				else if (power_up == 2) {
-					App->particles->AddParticle(App->particles->ayin_shoot3_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-				}
-				else if (power_up == 3 || power_up == 4) {
-					App->particles->AddParticle(App->particles->ayin_shoot3_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-				}
-				aux1 = 0;
-
 
 			}
 
 		}
 
-
-
-
+	}
+	else if(App->scene_temple->Ayin2 = true) {
 		if (input)
 		{
 			if (pressed_J || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
@@ -480,99 +407,8 @@ update_status ModuleAyin::Update()
 			}
 
 		}
-
-		//	}
-
-		//}
-	}
-	//if (input) 
-	//{
-	//	if (pressed_J || gamepad_LEFT || gamepad_LEFT2) {
-	//		position.x -= speed;
-	//	}
-	//	if (pressed_I || gamepad_UP || gamepad_UP2) {
-	//		position.y -= speed;
-	//	}
-	//	if (pressed_L || gamepad_RIGHT || gamepad_RIGHT2) {
-	//		position.x += speed;
-	//	}
-	//	if (pressed_K || gamepad_DOWN || gamepad_DOWN2) {
-	//		position.y += speed;
-	//	}
-
-	//	if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN) {
-	//		state = ULTI_AYIN;
-	//		App->inter->num_ult_ayin--;
-	//		App->particles->AddEmmiter(AJIN_ULT, &position);
-	//	}
-
-	//	if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ /*|| SDL_GameControllerGetButton(App->input->gamepad, SDL_CONTROLLER_BUTTON_A) == 1*/) {
-	//		LOG("Shooting bullets");
-
-	//		/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
-
-	//		if (current_bullet_time > 100) {
-
-	//		bullet_on_entry = SDL_GetTicks();*/
-	//		aux1++;
-	//		switch (aux1) {
-	//		case 0:
-	//			if (power_up == 0 || power_up == 1) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			else if (power_up == 2) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot1_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			else if (power_up == 3 || power_up == 4) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot1_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			LOG("Shoot 1");
-	//			break;
-	//		case 1:
-	//			if (power_up == 0 || power_up == 1) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			else if (power_up == 2) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot2_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			else if (power_up == 3 || power_up == 4) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot2_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			break;
-	//		case 2:
-	//			if (power_up == 0 || power_up == 1) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			else if (power_up == 2) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot3_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			else if (power_up == 3 || power_up == 4) {
-	//				App->particles->AddParticle(App->particles->ayin_shoot3_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-	//			}
-	//			aux1 = 0;
-	//			break;
-
-	//		}
-
-	//	}
-
-	//}
-
-	/*if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) {
-
-	App->particles->AddParticle(App->particles->shoot1, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
-
-	if (time) {
-	time_on_entry = SDL_GetTicks();
-	time = false;
-	}
-	current_time = SDL_GetTicks() - time_on_entry;
-	if (current_time > 1500) {
-	App->particles->AddParticle(App->particles->shoot2, position.x, position.y - 20, COLLIDER_PLAYER_KATANA_SHOT, PARTICLE_SHOT_KATANA);
-	time = true;
 	}
 
-	}*/
 
 
 

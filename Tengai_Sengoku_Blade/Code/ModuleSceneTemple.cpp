@@ -100,9 +100,13 @@ bool ModuleSceneTemple::Start()
 	}
 	if (App->charmenu->P1ayin) {
 		App->ayin->Enable();
+		Ayin1 = true;
+		Ayin2 = false;
 	}
 	if (App->charmenu->P2ayin) {
 		App->ayin->Enable();
+		Ayin1 = false;
+		Ayin2 = true;
 	}
 
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
@@ -342,6 +346,7 @@ bool ModuleSceneTemple::CleanUp()
 
 	if (App->katana->IsEnabled()) {
 		App->katana->Disable();
+	
 	}
 
 	if (App->ayin->IsEnabled()) {

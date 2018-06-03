@@ -39,6 +39,7 @@ public:
 	bool change = true;
 	bool player2 = false;
 	bool boss = false;
+	bool Ayin1 = false, Ayin2 = false;
 	SDL_Texture* graphics = nullptr;
 
 	SDL_Rect Mountains;

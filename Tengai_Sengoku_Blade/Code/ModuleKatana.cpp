@@ -134,10 +134,14 @@ bool ModuleKatana::Start()
 	if (App->charmenu->P1katana) {
 		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+		
+
+
 	}
 	else if (App->charmenu->P2katana) {
 		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
 		position.y = (App->render->camera.y) / SCREEN_SIZE + 155;
+		
 	}
 	coll = App->collision->AddCollider({ (int)position.x, (int)position.y, 32, 32 }, COLLIDER_PLAYER);
 	//hitbox = App->collision->AddCollider({ (int)position.x, (int)position.y,16,16 }, COLLIDER_HITBOX_KATANA);
