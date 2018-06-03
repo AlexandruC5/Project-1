@@ -1,6 +1,8 @@
 
 # Tengai / Sengoku Blade
 
+![](https://github.com/AlexandruC5/Project-1/blob/master/docs/header1.jpg)
+
 Sengoku Blade, also known as Tengai, is a horizontally scrolling shoot 'em up video game released for arcade machines in 1996 by Psikyo as a sequel to their 1993 shooter Sengoku Ace. 
 
 ## Members
@@ -8,7 +10,7 @@ Sengoku Blade, also known as Tengai, is a horizontally scrolling shoot 'em up vi
 Group Name:	Instinct Games 
 
 ![Team](https://github.com/AlexandruC5/Project-1/blob/master/docs/teamphoto22.jpg)
- 
+
  * Management:	Carlos Peña 
  * Art/Design:	Gerard Berenguer
  * Code:	Gerard Clotet
@@ -19,6 +21,9 @@ Group Name:	Instinct Games
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GFkLYZyX8iQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## Our project game
+
+
+## Game Controlls
 
 
 ## Data Releases
