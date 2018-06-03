@@ -67,7 +67,9 @@ bool ModuleEnemies::Start()
 	yellingA = 0;
 	waitkatana = false;
 	waitayin = false;
-
+	checkhitK = false;
+	checkhitA = false;
+	basicImpact = App->audio->LoadFx("assets/audio/effects/Impacts/BasicShotImpact.wav");
 	return true;
 }
 
@@ -212,6 +214,9 @@ bool ModuleEnemies::CleanUp()
 
 	App->audio->UnloadSFX(ayinvoice);
 	ayinvoice = nullptr;
+
+	App->audio->UnloadSFX(basicImpact);
+	basicImpact = nullptr;
 	return true;
 }
 
@@ -376,16 +381,28 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->ayin->state = SPIN_2;
 				}
 			}
+<<<<<<< HEAD
+		}
+	
+			// shot sound impact
+			if (checkhitK == true || checkhitA == true) Mix_PlayChannel(-1, basicImpact, 0), checkhitA = false, checkhitK = false;
+=======
 
 
+>>>>>>> d62133771d2d8cd062be0ecd58114a788bcf4896
 
 			//Players kill pegtop
 
 			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
 				LOG("FIRE");
 				pegtop_life++;
+<<<<<<< HEAD
+				checkhitK = true;
+				checkhitA = true;
+=======
 
 
+>>>>>>> d62133771d2d8cd062be0ecd58114a788bcf4896
 				if (pegtop_life == 1) {
 					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
@@ -416,7 +433,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				LOG("FIRE");
 				pagoda_life++;
 
-
+				checkhitK = true;
+				checkhitA = true;
 				if (pagoda_life == 1 || pagoda_life == 15) {
 					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
@@ -445,7 +463,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHARPENER_KNIFE && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
 				LOG("FIRE");
 				sharpener_life++;
-
+				checkhitK = true;
+				checkhitA = true;
 
 				if (sharpener_life == 1 || sharpener_life == 10 || sharpener_life == 20) {
 					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
@@ -477,7 +496,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_BALL && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
 				LOG("FIRE");
 				ball_life++;
-
+				checkhitK = true;
+				checkhitA = true;
 
 				if (ball_life == 1 || ball_life == 10 || ball_life == 20 || ball_life == 30 || ball_life == 40 || ball_life == 50 || ball_life == 60 || ball_life == 70 || ball_life == 80) {
 					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x + 10, enemies[i]->position.y + 10);
@@ -510,10 +530,17 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				chariot_life++;
 
 
+<<<<<<< HEAD
+				checkhitK = true;
+				checkhitA = true;
+				Mix_PlayChannel(-1, govni_demonwheel, 0);
+				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+=======
 				if (chariot_life == 1 || chariot_life == 10 || chariot_life == 20 || chariot_life == 30 || chariot_life == 40 || chariot_life == 50 || chariot_life == 60 || chariot_life == 80 || chariot_life == 120 || chariot_life == 140 || chariot_life == 160 || chariot_life == 180) {
 					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x + 20, enemies[i]->position.y + 40);
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
+>>>>>>> d62133771d2d8cd062be0ecd58114a788bcf4896
 
 				if (chariot_life == 100) {
 					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 30, enemies[i]->position.y - 30);
@@ -526,10 +553,25 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				if (chariot_life == 200) {
 					//App->audio->PlaySoundEffects(fx_death);
 
+<<<<<<< HEAD
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
 					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x, enemies[i]->position.y);
 					App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
+=======
+<<<<<<< HEAD
+			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
+				checkhitK = true;
+				checkhitA = true;
+				Mix_PlayChannel(-1, govni_demonwheel, 0);
+				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+=======
+					
+						
+
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+>>>>>>> d62133771d2d8cd062be0ecd58114a788bcf4896
+>>>>>>> e05bc9d8c4a93450670eba418b37f69f4d07d973
 
 					App->particles->AddParticle(App->particles->chariot_big_explosion, enemies[i]->position.x + 10, enemies[i]->position.y + 30);
 					//App->particles->chariot_big_explosion.speed.x = App->scene_temple->speed;
