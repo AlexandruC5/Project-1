@@ -78,7 +78,8 @@ Y->Ultimate
 
 
 
-DEDUB:
+##DEDUG KEYS:
+
 P-> +1 powerup to Katana
 O-> -1 owerup of katana
 
