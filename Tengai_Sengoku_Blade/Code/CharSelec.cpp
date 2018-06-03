@@ -160,7 +160,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics2, 35, 127, &lettersA);
 			App->render->Blit(graphics2, 0, 161, &blueline);
 			App->render->Blit(graphics3, 83, 157, &square1);
-			if (App->input->keyboard[SDL_SCANCODE_RETURN ] == KEY_STATE::KEY_DOWN &&P1ayin == false || App->input->controller_A_button==BUTTON_DOWN&&P1ayin == false)P1ayin = true, Mix_PlayChannel(-1, selectayin, 0), done = true;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN &&P1ayin == false || App->input->controller_A_button == BUTTON_DOWN && P1ayin == false)P1ayin = true, C1Ayin = true, Mix_PlayChannel(-1, selectayin, 0), done = true;
 			
 			if (P1ayin) App->fade->FadeToBlack(this, App->scene_temple, 4);
 			break;
@@ -189,7 +189,7 @@ update_status ModuleCharSelec::Update() {
 				App->render->Blit(graphics2, 35, 127, &lettersK);
 			}
 			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && rand <= 5 && P1katana == false || App->input->controller_A_button==BUTTON_DOWN && rand <=5 && P1katana == false) P1katana = true, Mix_PlayChannel(-1, selectkatana, 0),done = true,stoprand=2;
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN&&  rand>5 && rand <= 11 && P1katana == false || App->input->controller_A_button==BUTTON_DOWN && rand > 5 && rand <=11 && P1katana == false) P1ayin = true, Mix_PlayChannel(-1, selectayin, 0), done = true,stoprand=1;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN&&  rand > 5 && rand <= 11 && P1katana == false || App->input->controller_A_button == BUTTON_DOWN && rand > 5 && rand <= 11 && P1katana == false) P1ayin = true, C1Ayin = true; Mix_PlayChannel(-1, selectayin, 0), done = true, stoprand = 1;
 				
 			
 			if (P1katana || P1ayin) {
@@ -262,7 +262,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics3, 83, 157, &square2);
 			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && P1katana == false || App->input->controller_A_button==BUTTON_DOWN&& P1katana == false) P1katana = true, Mix_PlayChannel(-1, selectkatana, 0),doneP1 = true;
-			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN&& P2ayin == false || App->input->controller2_A_button == BUTTON_DOWN&& P2ayin == false) P2ayin= true, Mix_PlayChannel(-1, selectayin, 0),doneP2 =true;
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN&& P2ayin == false || App->input->controller2_A_button == BUTTON_DOWN&& P2ayin == false) P2ayin= true,C2Ayin=true, Mix_PlayChannel(-1, selectayin, 0),doneP2 =true;
 			if (P1katana && P2ayin) {
 			
 				App->fade->FadeToBlack(this, App->scene_temple, 4);
@@ -289,7 +289,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 23, 157, &square1);
 			App->render->Blit(graphics3, 143, 157, &square2);
 			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN&& P1katana==false || App->input->controller_A_button == BUTTON_DOWN && P1katana == false) P1katana = true, Mix_PlayChannel(-1, selectkatana, 0),doneP1 = true;
-			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN  && rand <= 5 && P2ayin == false || App->input->controller2_A_button == BUTTON_DOWN && rand <= 5 && P2ayin == false) P2ayin = true, Mix_PlayChannel(-1, selectayin, 0),doneP2 = true,stoprand =1;
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN  && rand <= 5 && P2ayin == false || App->input->controller2_A_button == BUTTON_DOWN && rand <= 5 && P2ayin == false) P2ayin = true, C2Ayin = true, Mix_PlayChannel(-1, selectayin, 0), doneP2 = true, stoprand = 1;
 			if (P1katana && P2ayin) {
 				App->fade->FadeToBlack(this, App->scene_temple, 4);
 			}
@@ -302,7 +302,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics3, 23, 157, &square2);
 
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && P1ayin == false || App->input->controller_A_button == BUTTON_DOWN&& P1ayin == false) P1ayin = true, Mix_PlayChannel(-1, selectayin, 0),doneP1 = true;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && P1ayin == false || App->input->controller_A_button == BUTTON_DOWN&& P1ayin == false) P1ayin = true,C1Ayin=true, Mix_PlayChannel(-1, selectayin, 0),doneP1 = true;
 			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && P2katana == false || App->input->controller2_A_button == BUTTON_DOWN &&P2katana == false) P2katana = true, Mix_PlayChannel(-1, selectkatana, 0),doneP2 = true;
 			if (P1ayin && P2katana) {
 				App->fade->FadeToBlack(this, App->scene_temple, 4);
@@ -327,7 +327,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 83, 157, &square1);
 			App->render->Blit(graphics3, 143, 157, &square2);
 
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && P1ayin == false || App->input->controller_A_button == BUTTON_DOWN && P1ayin == false) P1ayin = true, Mix_PlayChannel(-1, selectayin, 0),doneP1 = true;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN && P1ayin == false || App->input->controller_A_button == BUTTON_DOWN && P1ayin == false) P1ayin = true,C1Ayin=true, Mix_PlayChannel(-1, selectayin, 0),doneP1 = true;
 			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && P2katana == false || App->input->controller2_A_button == BUTTON_DOWN && P2katana == false) P2katana = true, Mix_PlayChannel(-1, selectkatana, 0),doneP2 = true,stoprand=1;
 			if (P1ayin && P2katana) {
 				App->fade->FadeToBlack(this, App->scene_temple, 4);
@@ -353,7 +353,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 143, 157, &square1);
 			App->render->Blit(graphics3, 23, 157, &square2);
 
-			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN &&P1ayin==false|| App->input->controller_A_button == BUTTON_DOWN &&P1ayin == false) P1ayin = true, Mix_PlayChannel(-1, selectayin, 0),doneP1=true,stoprand=1;
+			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN &&P1ayin==false|| App->input->controller_A_button == BUTTON_DOWN &&P1ayin == false) P1ayin = true,C1Ayin=true, Mix_PlayChannel(-1, selectayin, 0),doneP1=true,stoprand=1;
 			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && P2katana == false || App->input->controller2_A_button == BUTTON_DOWN&& P2katana == false) P2katana = true, Mix_PlayChannel(-1, selectkatana, 0),doneP2 = true;
 			if ( P1ayin && P2katana) {
 				App->fade->FadeToBlack(this, App->scene_temple, 4);
@@ -380,7 +380,7 @@ update_status ModuleCharSelec::Update() {
 			App->render->Blit(graphics3, 143, 157, &square1);
 			App->render->Blit(graphics3, 83, 157, &square2);
 			if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN &&P1katana == false || App->input->controller_A_button == BUTTON_DOWN) P1katana = true, Mix_PlayChannel(-1, selectkatana, 0),doneP1=true,stoprand=1;
-			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN &&P2ayin==false || App->input->controller2_A_button == BUTTON_DOWN &&P2ayin == false) P2ayin = true, Mix_PlayChannel(-1, selectayin, 0), doneP2 = true;
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN &&P2ayin==false || App->input->controller2_A_button == BUTTON_DOWN &&P2ayin == false) P2ayin = true,C2Ayin=true, Mix_PlayChannel(-1, selectayin, 0), doneP2 = true;
 			if (P2ayin && P1katana) {
 				App->fade->FadeToBlack(this, App->scene_temple, 4);
 			}
