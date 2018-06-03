@@ -11,6 +11,7 @@ enum state_pegtop {
 	SHOT_PEGTOP,
 	RETURN_SHOT_PEGTOP,
 	FAREWELL_PEGTOP,
+	DESPAWNING_PEGTOP
 };
 
 class DEMONPEGTOP : public Enemy {

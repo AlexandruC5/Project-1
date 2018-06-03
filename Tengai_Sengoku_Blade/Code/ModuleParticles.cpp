@@ -312,7 +312,7 @@ bool ModuleParticles::Start()
 	//enemy_bullet.speed.x = 
 	//enemy_bullet.speed.y = 
 	enemy_bullet.anim.loop = true;
-	enemy_bullet.life = 1400;
+	enemy_bullet.life = 2000;
 
 
 	//Sharpener bullet
@@ -612,7 +612,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 					if (current_time > 1000) {
 						App->katana->explosion = true;
 						//App->audio->PlaySoundEffects(App->enemies->fx_death);
-						//App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
+						App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
 						//App->audio->PlaySoundEffects(koyori_death);
 						App->inter->num_life_katana--;
 						timer = true;

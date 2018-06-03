@@ -82,7 +82,7 @@ void DEMONPEGTOP::CheckState() {
 	case IDLE_PEGTOP:
 		position.x -= 0.2;
 		if(type == 1){
-			if (position.x <= App->render->camera.x + (App->render->camera.w) - 80) 
+			if (position.x <= App->render->camera.x + (App->render->camera.w) - 170) 
 				state = SHOT_PEGTOP;
 			}
 		if (type == 2) {
@@ -94,7 +94,7 @@ void DEMONPEGTOP::CheckState() {
 		break;
 
 	case SHOT_PEGTOP:
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 		if (shot.Finished()) {
 			Shoot();
 			state = RETURN_SHOT_PEGTOP;
@@ -102,13 +102,13 @@ void DEMONPEGTOP::CheckState() {
 		break;
 
 	case RETURN_SHOT_PEGTOP:
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 		if (return_shot.Finished()) {
 
-			if (ammo < 5){
+			/*if (ammo < 5){
 				state = SHOT_PEGTOP;
-			}
-			else state = FAREWELL_PEGTOP;
+			}*/
+			 state = FAREWELL_PEGTOP;
 			//shoot.Reset();
 			//App->particles->AddParticle(App->particles->sharpener_bullet, position.x , position.y - 30, COLLIDER_ENEMY_SHOT);
 			
@@ -117,7 +117,7 @@ void DEMONPEGTOP::CheckState() {
 
 	case FAREWELL_PEGTOP:
 
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 		
 		if (time_delay) {
 			time_entry = SDL_GetTicks();
@@ -129,11 +129,17 @@ void DEMONPEGTOP::CheckState() {
 		if (time_current > 600) {
 			  // position.x += App->scene_temple->speed;
 			   position.y -= 1;
-			//time_entry = SDL_GetTicks();
+
+			   if (position.y < App->render->camera.y - 50) {
+				   state = DESPAWNING_PEGTOP;
+			   }
+			
 			}
 		break;
 
-
+	case DESPAWNING_PEGTOP:
+     
+		break;
 
 	}
 
@@ -161,6 +167,11 @@ void DEMONPEGTOP::PerformActions()
 		animation = &idle;
 
 		break;
+
+	case DESPAWNING_PEGTOP:
+		animation = &idle;
+
+		break;
 	}
 
 }
@@ -171,7 +182,18 @@ void DEMONPEGTOP::PerformActions()
 	void DEMONPEGTOP::Shoot() 
 	
 	{
-		for (int i = 0; i < ammo; i++) {
+
+		Particle* p = new Particle(App->particles->enemy_bullet);
+		p->born = SDL_GetTicks();
+		p->position.x = int(position.x) - 5;
+		p->position.y = int(position.y);
+		p->speed.x = (App->katana->position.x - position.x) / 60.f;
+		p->speed.y = (App->katana->position.y - position.y) / 60.f;
+		p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHOT, App->particles);
+		App->particles->AddParticle(p);
+
+
+		/*for (int i = 0; i < ammo; i++) {
 
 			Particle* p = new Particle(App->particles->enemy_bullet);
 			p->born = SDL_GetTicks();
@@ -183,47 +205,7 @@ void DEMONPEGTOP::PerformActions()
 			App->particles->AddParticle(p);
 
 		}
-		ammo++;
-
-
-
-
-		/*App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
-
-		App->particles->enemy_bullet.speed.x = (App->katana->position.x - position.x) * 6;
-		App->particles->enemy_bullet.speed.y = (App->katana->position.y - position.y) * 6;
-
-
-*/
-
-
-
-		/*if (App->katana->position.x < position.x && App->katana->position.y < position.y)
-				{
-					App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
-
-					App->particles->enemy_bullet.speed.x = App->katana->position.x - position.x;
-					App->particles->enemy_bullet.speed.y = App->katana->position.y - position.y;
-				}
-		else if (App->katana->position.x < position.x && App->katana->position.y > position.y)
-		        {
-					App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
-					App->particles->enemy_bullet.speed.x = App->katana->position.x - position.x;
-					App->particles->enemy_bullet.speed.y = App->katana->position.y - position.y;
-				}
-		else if (App->katana->position.x > position.x && App->katana->position.y < position.y) 
-		        {
-					App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
-					App->particles->enemy_bullet.speed.x = App->katana->position.x - position.x;
-					App->particles->enemy_bullet.speed.y = App->katana->position.y - position.y;
-				}
-		else if (App->katana->position.x > position.x && App->katana->position.y > position.y)
-		        {
-					App->particles->AddParticle(App->particles->enemy_bullet, position.x + 5, position.y + 20, COLLIDER_ENEMY_SHOT);
-					App->particles->enemy_bullet.speed.x = App->katana->position.x - position.x;
-					App->particles->enemy_bullet.speed.y = App->katana->position.y - position.y;
-				}*/
-
+		ammo++;*/
 
 
 

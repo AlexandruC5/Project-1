@@ -63,12 +63,12 @@ COIN::COIN(int x, int y, int type) :Enemy(x, y, type)
 	parabola.speed = 0.15f;
 	down.speed = 0.15f;
 
-	movement.PushBack({ -1.0f,0 }, 20, &parabola);
+	
 
-	/*movement.PushBack({ 1.75f, -3.0f }, 28, &up);
-	movement.PushBack({ 1.0f,-2.0f }, 20, &parabola);
+	movement.PushBack({ 1.f, -0.5f }, 50, &up);
+	//movement.PushBack({ 0,-0.5f }, , &parabola);
+	movement.PushBack({ 1.f, 0.5f }, 1008, &down);
 
-	movement.PushBack({ 1.0f,2.0f }, 1008, &down);*/
 	animation = &up;
 
 	collider = App->collision->AddCollider({ 0, 0, 30, 30 }, COLLIDER_TYPE::COLLIDER_COIN, (Module*)App->enemies);

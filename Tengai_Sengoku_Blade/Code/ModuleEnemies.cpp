@@ -299,7 +299,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					if (current_time > 600) {
 						if (App->katana->power_up > 0) {
 							
-							App->particles->power_down.speed.x = App->scene_temple->speed;
+							App->particles->power_down.speed.x = int(App->scene_temple->speed);
 							App->particles->power_down.speed.y = -1;
 							App->particles->AddParticle(App->particles->power_down, App->katana->position.x, App->katana->position.y);
 							
@@ -322,7 +322,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				current_time_2 = SDL_GetTicks() - time_on_entry_2;
 				if (current_time_2 > 600) {
 					if (App->ayin->power_up > 0) {
-						App->particles->power_down.speed.x = App->scene_temple->speed;
+						App->particles->power_down.speed.x = int(App->scene_temple->speed);
 						App->particles->power_down.speed.y = -1;
 						App->particles->AddParticle(App->particles->power_down, App->ayin->position.x, App->ayin->position.y);
 					}
@@ -350,6 +350,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 				if (pegtop_life == 10) {
 					//App->audio->PlaySoundEffects(fx_death);
+					AddEnemy(ENEMY_TYPES::Coin, enemies[i]->position.x, enemies[i]->position.y);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
@@ -611,27 +612,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 				if (c2 == App->katana->coll) {
 					if (App->katana->power_up < 4) {
-						App->particles->power_up.speed.x = App->scene_temple->speed;
+						App->particles->power_up.speed.x = int(App->scene_temple->speed);;
 						App->particles->power_up.speed.y = -1;
 						App->particles->AddParticle(App->particles->power_up, App->katana->position.x, App->katana->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_KATANA);
 						App->katana->power_up++;
@@ -645,7 +630,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 				if (c2 == App->ayin->coll) {
 					if (App->ayin->power_up < 4) {
-						App->particles->power_up.speed.x = App->scene_temple->speed;
+						App->particles->power_up.speed.x = int(App->scene_temple->speed);;
 						App->particles->power_up.speed.y = -1;
 						App->particles->AddParticle(App->particles->power_up, App->ayin->position.x, App->ayin->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_AYIN);
 						App->ayin->power_up++;

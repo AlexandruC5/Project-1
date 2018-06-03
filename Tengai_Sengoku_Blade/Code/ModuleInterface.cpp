@@ -124,7 +124,7 @@ update_status ModuleInterface::Update()
 
 		if (!game_over_katana && App->katana->IsEnabled()) {
 			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
-			App->fonts->BlitText(55, 5, font_score, player1_score);
+			App->fonts->BlitText(30, 5, font_score, player1_score);
 
 			//Life Katana
 			for (int i = 1; i <= num_life_katana - 1; i++) {
@@ -146,7 +146,7 @@ update_status ModuleInterface::Update()
 
 		if (!game_over_ayin && App->ayin->IsEnabled()) {
 			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
-			App->fonts->BlitText(55, 5, font_score, player1_score);
+			App->fonts->BlitText(30, 5, font_score, player1_score);
 
 			for (int i = 1; i <= num_life_ayin - 1; i++) {
 				App->render->Blit(graphics, 76 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);
@@ -167,7 +167,7 @@ update_status ModuleInterface::Update()
 		sprintf_s(player2_score, 10, "%1d", score_ayin);
 		if (!game_over_katana && App->katana->IsEnabled()) {
 			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
-			App->fonts->BlitText(55, 5, font_score, player1_score);
+			App->fonts->BlitText(30, 5, font_score, player1_score);
 
 			//Life Katana
 			for (int i = 1; i <= num_life_katana - 1; i++) {
@@ -195,7 +195,7 @@ update_status ModuleInterface::Update()
 		sprintf_s(player2_score, 10, "%1d", score_katana);
 		if (!game_over_ayin && App->ayin->IsEnabled()) {
 			App->render->Blit(graphics, 10, 6, &player1, 0.00f, 0.00f);
-			App->fonts->BlitText(55, 5, font_score, player1_score);
+			App->fonts->BlitText(30, 5, font_score, player1_score);
 
 			for (int i = 1; i <= num_life_ayin - 1; i++) {
 				App->render->Blit(graphics, 76 + life_ayin.w*i, 1, &life_ayin, 0.00f, 0.00f);

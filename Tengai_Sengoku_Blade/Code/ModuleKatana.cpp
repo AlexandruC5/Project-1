@@ -312,7 +312,7 @@ update_status ModuleKatana::Update()
 	if (spin_pos) {
 		aux_spin.x = position.x ;
 		aux_spin.y = position.y - 32;
-		//spin_pos = false;
+		spin_pos = false;
 		
 	}
 	
@@ -559,8 +559,8 @@ void ModuleKatana::PerformActions()
 		App->render->Blit(player_death, aux_death.x, aux_death.y, &death_rect, 1.0f);
 		/*if (explosion) {
 			App->particles->AddParticle(App->particles->explosion, position.x - 8, position.y - 8);
-			explosion = false;*/
-		//}
+			explosion = false;
+		}*/
 		alpha_player = 255;
 		break;
 				
