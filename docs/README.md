@@ -31,65 +31,66 @@ Unzip the release folder and execute the Tengai.exe file
 
 ## Control list:
 
-Escape: To exit game
+__[Escape]__: To exit game
 
-### KEYBOARD INPUT
+### Keyboard Input
 
-Player 1 :
+__Player 1 :
 
-W: UP 
-A: LEFT 
-S: DOWN 
-D: RIGHT
+__[W]__: Up 
+__[A]__: Left 
+__[S]__: Down 
+__[D]__: Right
 
-SPACE: SHOOT 
-Z: CHARGED SHOOT
+__[SPACE]__: Shoot 
+__[Z]__: Charged Shoot 
 
-Player 2:
+__Player 2:
 
-I: UP 
-J: LEFT 
-K: DOWN 
-L: RIGHT
+__[I]__: Up 
+__[J]__: Left 
+__[K]__: Down 
+__[L]__: Right
 
-Y: SHOOT 
-X: CHARGED SHOOT
+__[Y]__: Shoot 
+__[X]__: Charged Shoot
 
-### CONTROLLER INPUT:
+### Controller Input:
 
-Controller 1
+__Controller 1
 
-Start: Start the game
-Select: Exit the game at any moment
-Dpad: Movment
+__[Start]__: Start the game
+__[Select]__: Exit the game at any moment
+__[Dpad]__: Movment
 
-A: Shooting
-B: Charged Shot
-Y: Ultimate
+__[A]__: Shooting
+__[B]__: Charged Shot
+__[Y]__: Ultimate
 
-Controller 2
+__Controller 2
 
-Start: Start the game
-Start (on Character Selector): JOIN 2ND PLAYER
-Select: Exit the game at any moment (Player 2 can not exit the game)
-Dpad: Movment 
+__[Start]__: Start the game
+__[Start]__ (on Character Selector): JOIN 2ND PLAYER
+__[Select]__: Exit the game at any moment (Player 2 can not exit the game)
+__[Dpad]__: Movment 
 
-A: Shooting 
-B: Charged Shot 
-Y: Ultimate
+__[A]__: Shooting
+__[B]__: Charged Shot
+__[Y]__: Ultimate
 
-### DEDUG KEYS:
 
-P: +1 powerup to Katana 
-O: -1 powerup of katana
+### Debug Keys:
 
-T: +1 powerup to Ayin 
-R: -1 powerup of Ayin
+__[P]__: +1 powerup to Katana 
+__[O]__: -1 powerup of katana
 
-F1: Show coliders 
-F5: GOD MODE 
-F5 (From Welcome Screen): Direct Lose Screen 
-F7: Direct Win Screen
+__[T]__: +1 powerup to Ayin 
+__[R]__: -1 powerup of Ayin
+
+__[F1]__: Show coliders 
+__[F5]__: GOD MODE 
+__[F5]__ (From Welcome Screen): Direct Lose Screen 
+__[F7]__: Direct Win Screen
 
 ## Data Releases
 
