@@ -259,7 +259,7 @@ update_status ModuleAyin::Update()
 
 
 
-	if (App->scene_temple->Ayin1=true) {
+	if (App->input->gamepad2==NULL) {
 		if (input)
 		{
 			if (pressed_J || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
@@ -334,7 +334,7 @@ update_status ModuleAyin::Update()
 		}
 
 	}
-	else if(App->scene_temple->Ayin2 = true) {
+	else  {
 		if (input)
 		{
 			if (pressed_J || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {

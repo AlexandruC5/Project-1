@@ -12,6 +12,7 @@
 
 struct SDL_Texture;
 struct Collider;
+struct Mix_Chunk;
 enum COLLIDER_TYPE;
 
 enum PARTICLE_TYPE
@@ -92,7 +93,9 @@ public:
 	Particle waterExplosion;
 	Particle sword1, sword2;
 	Particle enemyattack;
-	
+	Mix_Chunk* fx_death = nullptr;
+	Mix_Chunk* Katana_Death = nullptr;
+	Mix_Chunk* Katana_Explosion = nullptr;
 	//Katana
 	Particle shoot1, shoot2, shoot3;
 	Particle ayin_shoot1, ayin_shoot2, ayin_shoot3;

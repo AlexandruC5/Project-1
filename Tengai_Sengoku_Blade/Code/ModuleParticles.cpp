@@ -9,6 +9,7 @@
 #include "ModuleKatana.h"
 #include "ModuleEnemies.h"
 #include "ModuleInterface.h"
+#include "ModuleAudio.h"
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -31,6 +32,14 @@ bool ModuleParticles::Start()
 	//graphics2 = App->textures->Load("assets/sprites/sho.png");
 	//graphics3 = App->textures->Load("assets/enemies2.png");
 	    graphics4 = App->textures->Load("assets/sprites/characters/katana/Katana_Spritesheet.png");
+
+
+
+		//Audio
+
+		Katana_Death = App->audio->LoadFx("assets/audio/voices/Getting hit/katanagettinghit.wav");
+		fx_death = App->audio->LoadFx("assets/aduio/effects/Impacts/tengai-134effect6.wav");
+		Katana_Explosion = App->audio->LoadFx("assets/audio/effects/Explotions/playerdeath_explosion.wav");
 
 	card1.anim.PushBack({ 26, 136, 11, 13 });
 	card2.anim.PushBack({ 49, 136, 12, 12 });
@@ -612,8 +621,12 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 					if (current_time > 1000) {
 						App->katana->explosion = true;
 						//App->audio->PlaySoundEffects(App->enemies->fx_death);
+						Mix_PlayChannel(-1, Katana_Explosion, 0);
+						Mix_PlayChannel(-1, Katana_Death, 0);
+						Mix_PlayChannel(-1, fx_death, 0);
 						App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
 						//App->audio->PlaySoundEffects(koyori_death);
+						
 						App->inter->num_life_katana--;
 						timer = true;
 					}

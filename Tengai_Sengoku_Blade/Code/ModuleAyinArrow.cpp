@@ -211,108 +211,215 @@ update_status ModuleAyinArrow::Update()
 
 void ModuleAyinArrow::CheckState() {
 
-	switch (state)
-	{
-	case NOT_EXISTING_2:
-		if (App->ayin->power_up == 1) {
-			exist = true;
-			state = SPAWN_2;
-		}
-		break;
-
-	case SPAWN_2:
-		if (spawn.Finished()) {
-			spawn.Reset();
-			state = LEVEL_ONE_2;
-		}
-	case LEVEL_ONE_2:
-		if (App->ayin->power_up == 0) {
-			exist = false;
-			state = NOT_EXISTING_2;
-		}
-		if (App->ayin->power_up == 2 || App->ayin->power_up == 3 || App->ayin->power_up == 4) {
-			state = LEVEL_ONE_2;
-		}
-		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_REPEAT || App->input->controller2_B_button==KEY_REPEAT) {
-			if (time_shoot) {
-				time_on_entry = SDL_GetTicks();
-				time_shoot = false;
+	if (App->input->gamepad2 == NULL) {
+		switch (state)
+		{
+		case NOT_EXISTING_2:
+			if (App->ayin->power_up == 1) {
+				exist = true;
+				state = SPAWN_2;
 			}
-			current_time = SDL_GetTicks() - time_on_entry;
-			if (current_time > 800) {
+			break;
+
+		case SPAWN_2:
+			if (spawn.Finished()) {
+				spawn.Reset();
+				state = LEVEL_ONE_2;
+			}
+		case LEVEL_ONE_2:
+			if (App->ayin->power_up == 0) {
+				exist = false;
+				state = NOT_EXISTING_2;
+			}
+			if (App->ayin->power_up == 2 || App->ayin->power_up == 3 || App->ayin->power_up == 4) {
+				state = LEVEL_ONE_2;
+			}
+			if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_REPEAT || App->input->controller_B_button == KEY_REPEAT) {
+				if (time_shoot) {
+					time_on_entry = SDL_GetTicks();
+					time_shoot = false;
+				}
+				current_time = SDL_GetTicks() - time_on_entry;
+				if (current_time > 800) {
+					time_shoot = true;
+					state = LEVEL_ONE_CHARGING_2;
+				}
+			}
+			if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP || App->input->controller_B_button == KEY_UP) {
 				time_shoot = true;
-				state = LEVEL_ONE_CHARGING_2;
+
 			}
-		}
-		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP || App->input->controller2_B_button == KEY_UP) {
-			time_shoot = true;
-			
-		}
-		break;
+			break;
 
-	case LEVEL_ONE_CHARGING_2:
-		if (charging.Finished() && App->ayin->charging.Finished()) {
-			state = LEVEL_ONE_CHARGE_2;
-		}
-		break;
+		case LEVEL_ONE_CHARGING_2:
+			if (charging.Finished() && App->ayin->charging.Finished()) {
+				state = LEVEL_ONE_CHARGE_2;
+			}
+			break;
 
-	case LEVEL_ONE_CHARGE_2:
-		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP) {
-			state = WAVE_SHOT_2;
-			create_wave = true;
-		}
-		break;
+		case LEVEL_ONE_CHARGE_2:
+			if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP ||  App->input->controller_B_button == KEY_UP) {
+				state = WAVE_SHOT_2;
+				create_wave = true;
+			}
+			break;
 
-	case WAVE_SHOT_2:
-		if (App->ayin->spin_decharging.Finished()) {
-		
-			//App->ayin->state = DECHARGING_AYIN;
-			state = SWORD_WAVE;
-		}
-		break;
+		case WAVE_SHOT_2:
+			if (App->ayin->spin_decharging.Finished()) {
 
-	case SWORD_WAVE:
-		if (App->ayin->decharging.Finished()) {
+				//App->ayin->state = DECHARGING_AYIN;
+				state = SWORD_WAVE;
+			}
+			break;
 
-			state = AYIN_COMEBACK;
-		}
-		break;
-    
+		case SWORD_WAVE:
+			if (App->ayin->decharging.Finished()) {
 
-	case AYIN_COMEBACK:
+				state = AYIN_COMEBACK;
+			}
+			break;
 
-		if (return_sword.Finished()) {
-			state = LAST_SWORD_ANIM;
-		}
 
-		/*if (App->ayin->return_idle.Finished()) {
+		case AYIN_COMEBACK:
+
+			if (return_sword.Finished()) {
+				state = LAST_SWORD_ANIM;
+			}
+
+			/*if (App->ayin->return_idle.Finished()) {
 			App->ayin->state = IDLE_2;
 			state = SPAWN_2;
-		}*/
-		break;
+			}*/
+			break;
 
-	case LAST_SWORD_ANIM:
+		case LAST_SWORD_ANIM:
 
-		if (App->ayin->return_idle.Finished()) {
-			App->ayin->state = IDLE_2;
-			state = SPAWN_2;
+			if (App->ayin->return_idle.Finished()) {
+				App->ayin->state = IDLE_2;
+				state = SPAWN_2;
+			}
+			break;
+
+
+			//case LAST_ARROW_SHOT:
+			//	if (last_descharging.Finished()) {
+
+			//		charging_time = SDL_GetTicks() - charge_on_entry;
+			//		if (charging_time > 300) {
+			//			charge_on_entry = SDL_GetTicks();
+			//			create_bullet = true;
+			//			state = LEVEL_ONE;
+			//		}
+			//	}
+			//	break;
+
 		}
-		break;
-
-
-	//case LAST_ARROW_SHOT:
-	//	if (last_descharging.Finished()) {
-
-	//		charging_time = SDL_GetTicks() - charge_on_entry;
-	//		if (charging_time > 300) {
-	//			charge_on_entry = SDL_GetTicks();
-	//			create_bullet = true;
-	//			state = LEVEL_ONE;
-	//		}
-	//	}
-	//	break;
-
 	}
+	else {
+		switch (state)
+		{
+		case NOT_EXISTING_2:
+			if (App->ayin->power_up == 1) {
+				exist = true;
+				state = SPAWN_2;
+			}
+			break;
+
+		case SPAWN_2:
+			if (spawn.Finished()) {
+				spawn.Reset();
+				state = LEVEL_ONE_2;
+			}
+		case LEVEL_ONE_2:
+			if (App->ayin->power_up == 0) {
+				exist = false;
+				state = NOT_EXISTING_2;
+			}
+			if (App->ayin->power_up == 2 || App->ayin->power_up == 3 || App->ayin->power_up == 4) {
+				state = LEVEL_ONE_2;
+			}
+			if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_REPEAT || App->input->controller2_B_button == KEY_REPEAT) {
+				if (time_shoot) {
+					time_on_entry = SDL_GetTicks();
+					time_shoot = false;
+				}
+				current_time = SDL_GetTicks() - time_on_entry;
+				if (current_time > 800) {
+					time_shoot = true;
+					state = LEVEL_ONE_CHARGING_2;
+				}
+			}
+			if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP || App->input->controller2_B_button == KEY_UP) {
+				time_shoot = true;
+
+			}
+			break;
+
+		case LEVEL_ONE_CHARGING_2:
+			if (charging.Finished() && App->ayin->charging.Finished()) {
+				state = LEVEL_ONE_CHARGE_2;
+			}
+			break;
+
+		case LEVEL_ONE_CHARGE_2:
+			if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP || App->input->controller2_B_button == KEY_UP) {
+				state = WAVE_SHOT_2;
+				create_wave = true;
+			}
+			break;
+
+		case WAVE_SHOT_2:
+			if (App->ayin->spin_decharging.Finished()) {
+
+				//App->ayin->state = DECHARGING_AYIN;
+				state = SWORD_WAVE;
+			}
+			break;
+
+		case SWORD_WAVE:
+			if (App->ayin->decharging.Finished()) {
+
+				state = AYIN_COMEBACK;
+			}
+			break;
+
+
+		case AYIN_COMEBACK:
+
+			if (return_sword.Finished()) {
+				state = LAST_SWORD_ANIM;
+			}
+
+			/*if (App->ayin->return_idle.Finished()) {
+			App->ayin->state = IDLE_2;
+			state = SPAWN_2;
+			}*/
+			break;
+
+		case LAST_SWORD_ANIM:
+
+			if (App->ayin->return_idle.Finished()) {
+				App->ayin->state = IDLE_2;
+				state = SPAWN_2;
+			}
+			break;
+
+
+			//case LAST_ARROW_SHOT:
+			//	if (last_descharging.Finished()) {
+
+			//		charging_time = SDL_GetTicks() - charge_on_entry;
+			//		if (charging_time > 300) {
+			//			charge_on_entry = SDL_GetTicks();
+			//			create_bullet = true;
+			//			state = LEVEL_ONE;
+			//		}
+			//	}
+			//	break;
+
+		}
+	}
+	
 }
 
 
