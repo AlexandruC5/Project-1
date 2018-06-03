@@ -59,6 +59,15 @@ public:
 	
 	Mix_Chunk* ayin_pdown = nullptr;
 	Mix_Chunk* katana_pdown = nullptr;
+	Mix_Chunk* pegtop_die = nullptr;
+	Mix_Chunk*pagoda_die = nullptr;
+	Mix_Chunk*ball_die = nullptr;
+	Mix_Chunk*govni_demonwheel = nullptr;
+	Mix_Chunk* pick_coin = nullptr;
+	Mix_Chunk* pick_PowerUp = nullptr;
+	Mix_Chunk* katanavoice = nullptr;
+	Mix_Chunk* ayinvoice = nullptr;
+
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
@@ -91,7 +100,9 @@ private:
 	int ball_life = 0;
 
 	bool waitkatana = false;
-	int yelling;
+	int yellingK;
+	int yellingA;
+	bool waitayin = false;
 };
 
 #endif // __ModuleEnemies_H__

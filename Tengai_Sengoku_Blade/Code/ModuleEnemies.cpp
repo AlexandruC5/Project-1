@@ -55,8 +55,19 @@ bool ModuleEnemies::Start()
 	sprites = App -> textures->Load("assets/enemiestemple.png");
 	ayin_pdown = App->audio->LoadFx("assets/audio/voices/Loose power up/ayin_lvl_down.wav");
 	katana_pdown = App->audio->LoadFx("assets/audio/voices/Loose power up/katana_lvl_down.wav");
-	yelling = 0;
+	pegtop_die = App->audio->LoadFx("assets/audio/effects/Explotions/PegtopDie.wav");
+	pagoda_die = App->audio->LoadFx("assets/audio/effects/Explotions/PagodaDie.wav");
+	ball_die = App->audio->LoadFx("assets/audio/effects/Explotions/BallDie.wav");
+	govni_demonwheel = App->audio->LoadFx("assets/audio/effects/Explotions/GOvni&DemonWheel.wav"); 
+	pick_coin = App->audio->LoadFx("assets/audio/effects/ItemCollects/pickcoin.wav");//cambiar path
+	pick_PowerUp = App->audio->LoadFx("assets/audio/effects/ItemCollects/getbluePU.wav");//cambiarpath
+	katanavoice = App->audio->LoadFx("assets/audio/voices/Pick ower up/katanavoice.wav");
+	ayinvoice = App->audio->LoadFx("assets/audio/voices/Pick ower up/ayinvoice.wav");
+	yellingK = 0;
+	yellingA = 0;
 	waitkatana = false;
+	waitayin = false;
+
 	return true;
 }
 
@@ -179,6 +190,28 @@ bool ModuleEnemies::CleanUp()
 	ayin_pdown = nullptr;
 	App->audio->UnloadSFX(katana_pdown);
 	katana_pdown = nullptr;
+	App->audio->UnloadSFX(pegtop_die);
+	pegtop_die = nullptr;
+
+	App->audio->UnloadSFX(pagoda_die);
+	pagoda_die = nullptr;
+
+	App->audio->UnloadSFX(ball_die);
+	ball_die = nullptr;
+
+	App->audio->UnloadSFX(govni_demonwheel);
+	govni_demonwheel = nullptr;
+	App->audio->UnloadSFX(pick_coin);
+	pick_coin = nullptr;
+
+	App->audio->UnloadSFX(pick_PowerUp);
+	pick_PowerUp = nullptr;
+
+	App->audio->UnloadSFX(katanavoice);
+	katanavoice = nullptr;
+
+	App->audio->UnloadSFX(ayinvoice);
+	ayinvoice = nullptr;
 	return true;
 }
 
@@ -294,11 +327,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if ((c2->type == COLLIDER_TYPE::COLLIDER_PLAYER) && c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PEGTOP || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHARPENER_KNIFE || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_PAGODA || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_DEMONWHEEL || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_BALL || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_CHARIOT) {
 				LOG("collider on");
 				//Katana colliders with enemy
-				yelling += 1;
-				if (yelling >= 0 && yelling<=5) waitkatana = true;
-				else if (yelling > 5 && yelling<=7)waitkatana = false, yelling=0;
-				
+			
 				if (c2 == App->katana->coll) {
+					
 					if (timer) {
 						time_on_entry = SDL_GetTicks();
 						timer = false;
@@ -316,7 +347,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						timer = true;
 					}
 					
-					if(waitkatana ==true)Mix_PlayChannel(-1, katana_pdown, 0);
+					Mix_PlayChannel(-1, katana_pdown, 0);
 					App->katana->spin_pos = true;
 					App->katana->state = SPIN;
 				}
@@ -324,6 +355,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 			//Ayin colliders with enemy
 			if (c2 == App->ayin->coll) {
+				
+				
 				if (timer_2) {
 					time_on_entry_2 = SDL_GetTicks();
 					timer_2 = false;
@@ -352,13 +385,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				LOG("FIRE");
 				pegtop_life++;
 
-
+				
 				if (pegtop_life == 1) {
 					App->particles->AddParticle(App->particles->bleeding, enemies[i]->position.x, enemies[i]->position.y);
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
 				if (pegtop_life == 10) {
-					//App->audio->PlaySoundEffects(fx_death);
+					Mix_PlayChannel(-1, pegtop_die, 0);
 					AddEnemy(ENEMY_TYPES::Coin, enemies[i]->position.x, enemies[i]->position.y);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
@@ -389,7 +422,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
 				if (pagoda_life == 25) {
-					//App->audio->PlaySoundEffects(fx_death);
+					Mix_PlayChannel(-1, pagoda_die, 0);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
@@ -419,7 +452,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
 				if (sharpener_life == 35) {
-					//App->audio->PlaySoundEffects(fx_death);
+					Mix_PlayChannel(-1, pagoda_die, 0);
+
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
@@ -450,7 +484,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->particles->bleeding.speed.x = App->scene_temple->speed;
 				}
 				if (ball_life == 30) {
-					//App->audio->PlaySoundEffects(fx_death);
+					Mix_PlayChannel(-1, ball_die, 0);
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
 					if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT)
@@ -473,7 +507,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY || c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_DEMONWHEEL && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
 
 			
-				//App->audio->PlaySoundEffects(fx_death);
+				Mix_PlayChannel(-1, govni_demonwheel, 0);
 				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
 			
@@ -495,7 +529,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 			if (c1->type == COLLIDER_TYPE::COLLIDER_ENEMY_RED && (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_KATANA_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_PLAYER_AYIN_SHOT)) {
 
-				//App->audio->PlaySoundEffects(fx_death);
+				Mix_PlayChannel(-1, govni_demonwheel, 0);
 				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 
 				AddEnemy(ENEMY_TYPES::Power_up, enemies[i]->position.x, enemies[i]->position.y);
@@ -518,6 +552,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_COIN) {
+				Mix_PlayChannel(-1, pick_coin, 0);
 				srand(time(NULL));
 				typeofcoin = rand() % 6;
 
@@ -526,10 +561,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					coin_type = App->particles->coin_100;
 
 					if (c2 == App->katana->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_katana += 100;
 						coin_position = App->katana->position;
 					}
 					if (c2 == App->ayin->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
+
 						App->inter->score_ayin += 100;
 						coin_position = App->ayin->position;
 					}
@@ -540,10 +578,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					coin_type = App->particles->coin_200;
 
 					if (c2 == App->katana->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_katana += 200;
 						coin_position = App->katana->position;
 					}
 					if (c2 == App->ayin->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_ayin += 200;
 						coin_position = App->ayin->position;
 					}
@@ -554,10 +594,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					coin_type = App->particles->coin_500;
 
 					if (c2 == App->katana->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_katana += 500;
 						coin_position = App->katana->position;
 					}
 					if (c2 == App->ayin->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_ayin += 500;
 						coin_position = App->ayin->position;
 					}
@@ -568,10 +610,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					coin_type = App->particles->coin_1000;
 
 					if (c2 == App->katana->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_katana += 1000;
 						coin_position = App->katana->position;
 					}
 					if (c2 == App->ayin->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_ayin += 1000;
 						coin_position = App->ayin->position;
 					}
@@ -582,10 +626,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					coin_type = App->particles->coin_2000;
 
 					if (c2 == App->katana->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_katana += 2000;
 						coin_position = App->katana->position;
 					}
 					if (c2 == App->ayin->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_ayin += 2000;
 						coin_position = App->ayin->position;
 					}
@@ -596,10 +642,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					coin_type = App->particles->coin_4000;
 
 					if (c2 == App->katana->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_katana += 4000;
 						coin_position = App->katana->position;
 					}
 					if (c2 == App->ayin->coll) {
+						Mix_PlayChannel(-1, pick_coin, 0);
 						App->inter->score_ayin += 4000;
 						coin_position = App->ayin->position;
 					}
@@ -624,6 +672,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 				if (c2 == App->katana->coll) {
+					Mix_PlayChannel(-1, pick_PowerUp, 0);
+					Mix_PlayChannel(-1,katanavoice, 0);
 					if (App->katana->power_up < 4) {
 						//App->particles->power_up.speed.x = App->scene_temple->speed;
 						App->particles->power_up.speed.y = -1;
@@ -638,6 +688,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 				if (c2 == App->ayin->coll) {
+					Mix_PlayChannel(-1, pick_PowerUp, 0);
+					Mix_PlayChannel(-1, ayinvoice, 0);
 					if (App->ayin->power_up < 4) {
 						//App->particles->power_up.speed.x = int(App->scene_temple->speed);;
 						App->particles->power_up.speed.y = -1;
