@@ -32,6 +32,8 @@ void Enemy::Draw(SDL_Texture* sprites)
 	if (demon_down != nullptr)
 		App->render->Blit(sprites, position.x + 59, position.y + 72, &(demon_down->GetCurrentFrame()));
 
+	if (demon_wheel1 != nullptr)
+		App->render->Blit(sprites, position.x + w1x, position.y + w1y , &(demon_wheel1->GetCurrentFrame()));
 
 	if (animation_chariot_wheels != nullptr)
 		App->render->Blit(sprites, position.x - wheel_x + 80, position.y + 70 + wheel_y, &(animation_chariot_wheels->GetCurrentFrame()));

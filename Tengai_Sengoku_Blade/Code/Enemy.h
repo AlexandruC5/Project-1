@@ -12,6 +12,7 @@ class Enemy
 protected:
 	int spoty;
 	int wheel_x, wheel_y;
+	int w1x, w1y;
 protected:
 	Animation * animation = nullptr;
 	Animation * animation_chariot = nullptr;
@@ -28,6 +29,8 @@ protected:
 	Animation* demon_wheel = nullptr;
 	Animation* demon_up = nullptr;
 	Animation* demon_down = nullptr;
+
+	Animation* demon_wheel1 = nullptr;
 
 public:
 	fPoint position;

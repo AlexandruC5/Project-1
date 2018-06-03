@@ -135,6 +135,8 @@ bool ModuleSceneTemple::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 580, 80, 1);
 	//App->enemies->AddEnemy(ENEMY_TYPES::Demon, 450, 300, 1);
 
+	//App->enemies->AddEnemy(ENEMY_TYPES::Coin, 350, 100, 1);
+
 
 	coll_up = App->collision->AddCollider({ 0, 0, 99000, SCREEN_HEIGHT - 220 }, COLLIDER_WALL);
 	coll_down = App->collision->AddCollider({ 0, SCREEN_HEIGHT - 4, 990000, 16 }, COLLIDER_WALL);

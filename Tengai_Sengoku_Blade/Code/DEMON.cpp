@@ -38,6 +38,15 @@ DEMON::DEMON(int x, int y, int type) : Enemy(x, y, type)
 	wheel.loop = true;
 
 
+	wheel1.PushBack({ 557, 1236, 34, 34 });
+	wheel1.PushBack({ 594, 1236, 34, 34 });
+	wheel1.PushBack({ 631, 1236,31,34 });
+	wheel1.PushBack({ 666, 1231, 34, 39 });
+	wheel1.PushBack({ 703, 1231, 34, 39 });
+	wheel1.PushBack({ 741, 1231, 34, 39 });
+	wheel1.speed = 0.2f;
+
+	demon_wheel1 = nullptr;
 	
 
 	
@@ -98,6 +107,9 @@ void DEMON::CheckState() {
 		position.x += int(App->scene_temple->speed);
 			//Shoot();
 
+		if (w1x >= 20 && w1y >= 20) {
+			state = CIRCULAR_ATTACK;
+		}
 		if (time_delay2) {
 			time_entry2 = SDL_GetTicks();
 			time_delay2 = false;
@@ -105,9 +117,9 @@ void DEMON::CheckState() {
 
 		time_current2 = SDL_GetTicks() - time_entry2;
 
-		if (time_current2 > 600) {
+		if (time_current2 > 1600) {
 
-			state = CIRCULAR_ATTACK;
+			//state = CIRCULAR_ATTACK;
 		}
 		break;
 
@@ -179,6 +191,11 @@ void DEMON::PerformActions()
 		demon_down = &down;
 		demon_up = &up;
 		demon_wheel = &wheel;
+
+		w1x -= 1.5;
+		w1y -= 1;
+
+		demon_wheel1 = &wheel1;
 		break;
 
 	case CIRCULAR_ATTACK:

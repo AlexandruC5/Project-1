@@ -48,14 +48,14 @@ CHARIOT::CHARIOT(int x, int y, int type) : Enemy(x, y, type)
 	chariot_wheels2.PushBack({ 1928, 413, 48, 48 });
 	chariot_wheels2.speed = 0.20f;
 
-	furni.PushBack({2498, 799, 214, 156});
+	furni.PushBack({ 2498, 799, 214, 156 });
 
-	robot.PushBack({2128, 537, 95, 95});
+	robot.PushBack({ 2128, 537, 95, 95 });
 	robot.PushBack({ 2127, 634, 96, 94 });
 	robot.PushBack({ 2223, 537, 96, 95 });
 	robot.speed = 0.05f;
 
-	wolf.PushBack({2146, 790, 36, 41});
+	wolf.PushBack({ 2146, 790, 36, 41 });
 	wolf.PushBack({ 2271, 789, 35, 42 });
 	wolf.PushBack({ 2147, 852, 38, 43 });
 	wolf.speed = 0.05f;
@@ -67,6 +67,12 @@ CHARIOT::CHARIOT(int x, int y, int type) : Enemy(x, y, type)
 	animation_chariot = &wheel;
 	animation_chariot_wheels = &chariot_wheels;
 	animation_chariot_wheels2 = &chariot_wheels2;
+
+	
+
+
+
+
 
 	furniture = nullptr;
 	chariot_wolf = nullptr;

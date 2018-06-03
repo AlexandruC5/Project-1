@@ -28,6 +28,7 @@ private:
 	Animation down;
 	Animation wheel;
 
+	Animation wheel1;
 	
 	int shootTimer = 0;
 	int type;
@@ -51,6 +52,7 @@ public:
 	int ammo = 3;
 	int weapon_timer = 0;
 	void Move();
+	
 };
 #endif
 

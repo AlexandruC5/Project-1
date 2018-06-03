@@ -24,6 +24,7 @@ enum ENEMY_TYPES
 	SharpenerKnife,
 	Power_up,
 	Ulti_parchment,
+	Coin,
 	Chariot,
 	Ball,
 	Ball2,

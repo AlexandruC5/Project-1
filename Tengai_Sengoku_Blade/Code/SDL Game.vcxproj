@@ -78,6 +78,7 @@
     <ClInclude Include="BALL2.h" />
     <ClInclude Include="CHARIOT.h" />
     <ClInclude Include="CharSelec.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="DEMON.h" />
     <ClInclude Include="DEMONPEGTOP.h" />
     <ClInclude Include="DEMONWHEEL.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="BALL2.cpp" />
     <ClCompile Include="CHARIOT.cpp" />
     <ClCompile Include="CharSelec.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="DEMON.cpp" />
     <ClCompile Include="DEMONPEGTOP.cpp" />
     <ClCompile Include="DEMONWHEEL.cpp" />

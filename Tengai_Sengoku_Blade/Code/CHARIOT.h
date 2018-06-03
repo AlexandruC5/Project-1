@@ -37,6 +37,8 @@ private:
 
 	
 
+	
+
 public:
 
 	CHARIOT(int x, int y, int type);

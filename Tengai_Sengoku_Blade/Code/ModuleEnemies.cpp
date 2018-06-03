@@ -19,6 +19,7 @@
 #include "DEMON.h"
 #include "Power_Up.h"
 #include "Ulti_Parchment.h"
+#include "Coin.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "OrientalGenius.h"
@@ -245,6 +246,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				break;
 			case ENEMY_TYPES::Ulti_parchment:
 				enemies[i] = new Ulti_Parchment(info.x, info.y, info.path_type);
+
+				break;
+			case ENEMY_TYPES::Coin:
+				enemies[i] = new COIN(info.x, info.y, info.path_type);
 
 				break;
 
