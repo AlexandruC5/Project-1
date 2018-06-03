@@ -239,19 +239,19 @@ update_status ModuleKatana::Update()
 
 		}
 
-		if (pressed_A || App->input->controller_Dpad_LEFT) {
+		if (pressed_A || App->input->controller_Dpad_LEFT== KEY_STATE::KEY_REPEAT) {
 			position.x -= speed;
 		}
-		if (pressed_W || App->input->controller_Dpad_UP) {
+		if (pressed_W || App->input->controller_Dpad_UP == KEY_STATE::KEY_REPEAT) {
 			position.y -= speed;
 		}
-		if (pressed_D || App->input->controller_Dpad_RIGHT) {
+		if (pressed_D || App->input->controller_Dpad_RIGHT == KEY_STATE::KEY_REPEAT) {
 			position.x += speed;
 		}
-		if (pressed_S || App->input->controller_Dpad_DOWN) {
+		if (pressed_S || App->input->controller_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
 			position.y += speed;
 		}
-		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller_A_button == KEY_STATE::KEY_DOWN) {
+		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller_A_button ==BUTTON_DOWN) {
 			LOG("Shooting bullets");
 
 

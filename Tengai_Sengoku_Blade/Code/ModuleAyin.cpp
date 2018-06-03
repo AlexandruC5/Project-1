@@ -209,8 +209,8 @@ bool ModuleAyin::CleanUp()
 update_status ModuleAyin::Update()
 {
 
-	if (App->charmenu->P1ayin) controller_state == AYN1;
-	else if (App->charmenu->P2ayin) controller_state == AYN2;
+	if (App->charmenu->P1ayin==true) controller_state == AYN1;
+    if (App->charmenu->P2ayin==true) controller_state == AYN2;
 
 
 
@@ -257,30 +257,179 @@ update_status ModuleAyin::Update()
 
 	//Inputs
 
-	switch (controller_state) {
-	case AYN1:
+	//switch (controller_state) {
+	//case AYN1:
+	//	if (input)
+	//	{
+	//		if (pressed_J || App ->input->controller_Dpad_LEFT== KEY_STATE::KEY_REPEAT ) {
+	//			position.x -= speed;
+	//		}
+	//		if (pressed_I || App->input->controller_Dpad_UP == KEY_STATE::KEY_REPEAT) {
+	//			position.y -= speed;
+	//		}
+	//		if (pressed_L || App->input->controller_Dpad_RIGHT == KEY_STATE::KEY_REPEAT) {
+	//			position.x += speed;
+	//		}
+	//		if (pressed_K || App->input->controller_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
+	//			position.y += speed;
+	//		}
+
+	//		if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN || App->input->controller_Y_button==KEY_STATE::KEY_DOWN) {
+	//			state = ULTI_AYIN;
+	//			App->inter->num_ult_ayin--;
+	//			App->particles->AddEmmiter(AJIN_ULT, &position);
+	//		}
+
+	//		if (shot_space  || App->input->controller_A_button==KEY_STATE::KEY_DOWN ) {
+	//			LOG("Shooting bullets");
+
+	//			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
+
+	//			if (current_bullet_time > 100) {
+
+	//			bullet_on_entry = SDL_GetTicks();*/
+	//			aux1++;
+	//			switch (aux1) {
+	//			case 0:
+	//				if (power_up == 0 || power_up == 1) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				else if (power_up == 2) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot1_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				else if (power_up == 3 || power_up == 4) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot1_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				LOG("Shoot 1");
+	//				break;
+	//			case 1:
+	//				if (power_up == 0 || power_up == 1) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				else if (power_up == 2) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot2_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				else if (power_up == 3 || power_up == 4) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot2_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				break;
+	//			case 2:
+	//				if (power_up == 0 || power_up == 1) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				else if (power_up == 2) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot3_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				else if (power_up == 3 || power_up == 4) {
+	//					App->particles->AddParticle(App->particles->ayin_shoot3_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+	//				}
+	//				aux1 = 0;
+	//				break;
+
+	//			}
+
+	//		}
+
+	//	}
+	//	break;
+	/*case AYN2:*/
+
+	if (input)
+	{
+		if (pressed_J || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
+			position.x -= speed;
+		}
+		if (pressed_I || App->input->controller2_Dpad_UP == KEY_STATE::KEY_REPEAT) {
+			position.y -= speed;
+		}
+		if (pressed_L || App->input->controller2_Dpad_RIGHT == KEY_STATE::KEY_REPEAT) {
+			position.x += speed;
+		}
+		if (pressed_K || App->input->controller2_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
+			position.y += speed;
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN || App->input->controller2_Y_button == KEY_STATE::KEY_DOWN) {
+			state = ULTI_AYIN;
+			App->inter->num_ult_ayin--;
+			App->particles->AddEmmiter(AJIN_ULT, &position);
+		}
+
+		if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller2_A_button == KEY_STATE::KEY_DOWN) {
+			LOG("Shooting bullets");
+
+			/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
+
+			if (current_bullet_time > 100) {
+
+			bullet_on_entry = SDL_GetTicks();*/
+			aux1++;
+			switch (aux1) {
+			case 0:
+				if (power_up == 0 || power_up == 1) {
+					App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 2) {
+					App->particles->AddParticle(App->particles->ayin_shoot1_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 3 || power_up == 4) {
+					App->particles->AddParticle(App->particles->ayin_shoot1_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				LOG("Shoot 1");
+				break;
+			case 1:
+				if (power_up == 0 || power_up == 1) {
+					App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 2) {
+					App->particles->AddParticle(App->particles->ayin_shoot2_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 3 || power_up == 4) {
+					App->particles->AddParticle(App->particles->ayin_shoot2_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				break;
+			case 2:
+				if (power_up == 0 || power_up == 1) {
+					App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 2) {
+					App->particles->AddParticle(App->particles->ayin_shoot3_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				else if (power_up == 3 || power_up == 4) {
+					App->particles->AddParticle(App->particles->ayin_shoot3_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
+				}
+				aux1 = 0;
+
+
+			}
+
+		}
+
+
+
+
 		if (input)
 		{
-			if (pressed_J || gamepad_LEFT ) {
+			if (pressed_J || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
 				position.x -= speed;
 			}
-			if (pressed_I || gamepad_UP ) {
+			if (pressed_I || App->input->controller2_Dpad_UP == KEY_STATE::KEY_REPEAT) {
 				position.y -= speed;
 			}
-			if (pressed_L || gamepad_RIGHT ) {
+			if (pressed_L || App->input->controller2_Dpad_RIGHT == KEY_STATE::KEY_REPEAT) {
 				position.x += speed;
 			}
-			if (pressed_K || gamepad_DOWN ) {
+			if (pressed_K || App->input->controller2_Dpad_DOWN == KEY_STATE::KEY_REPEAT) {
 				position.y += speed;
 			}
 
-			if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN) {
+			if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN || App->input->controller2_Y_button == KEY_STATE::KEY_DOWN) {
 				state = ULTI_AYIN;
 				App->inter->num_ult_ayin--;
 				App->particles->AddEmmiter(AJIN_ULT, &position);
 			}
 
-			if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ ||App->input->controller_A_button==BUTTON_DOWN ) {
+			if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller2_A_button == KEY_STATE::KEY_DOWN) {
 				LOG("Shooting bullets");
 
 				/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
@@ -331,82 +480,10 @@ update_status ModuleAyin::Update()
 			}
 
 		}
-	case AYN2:
 
-		if (input)
-		{
-			if (pressed_J || gamepad_LEFT2) {
-				position.x -= speed;
-			}
-			if (pressed_I || gamepad_UP2) {
-				position.y -= speed;
-			}
-			if (pressed_L || gamepad_RIGHT2) {
-				position.x += speed;
-			}
-			if (pressed_K || gamepad_DOWN2) {
-				position.y += speed;
-			}
+		//	}
 
-			if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN) {
-				state = ULTI_AYIN;
-				App->inter->num_ult_ayin--;
-				App->particles->AddEmmiter(AJIN_ULT, &position);
-			}
-
-			if (shot_space /*|| App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT*/ || App->input->controller2_A_button == BUTTON_DOWN) {
-				LOG("Shooting bullets");
-
-				/*current_bullet_time = SDL_GetTicks() - bullet_on_entry;
-
-				if (current_bullet_time > 100) {
-
-				bullet_on_entry = SDL_GetTicks();*/
-				aux1++;
-				switch (aux1) {
-				case 0:
-					if (power_up == 0 || power_up == 1) {
-						App->particles->AddParticle(App->particles->ayin_shoot1, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					else if (power_up == 2) {
-						App->particles->AddParticle(App->particles->ayin_shoot1_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					else if (power_up == 3 || power_up == 4) {
-						App->particles->AddParticle(App->particles->ayin_shoot1_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					LOG("Shoot 1");
-					break;
-				case 1:
-					if (power_up == 0 || power_up == 1) {
-						App->particles->AddParticle(App->particles->ayin_shoot2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					else if (power_up == 2) {
-						App->particles->AddParticle(App->particles->ayin_shoot2_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					else if (power_up == 3 || power_up == 4) {
-						App->particles->AddParticle(App->particles->ayin_shoot2_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					break;
-				case 2:
-					if (power_up == 0 || power_up == 1) {
-						App->particles->AddParticle(App->particles->ayin_shoot3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					else if (power_up == 2) {
-						App->particles->AddParticle(App->particles->ayin_shoot3_2, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					else if (power_up == 3 || power_up == 4) {
-						App->particles->AddParticle(App->particles->ayin_shoot3_3, position.x, position.y - 20, COLLIDER_PLAYER_AYIN_SHOT, PARTICLE_SHOT_AYIN);
-					}
-					aux1 = 0;
-					break;
-
-				}
-
-			}
-
-		}
-
-		break;
+		//}
 	}
 	//if (input) 
 	//{
@@ -584,111 +661,328 @@ void ModuleAyin::CheckState()
 	bool gamepad_UP2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTY) < -CONTROLLER_DEAD_ZONE;
 	bool gamepad_RIGHT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) > CONTROLLER_DEAD_ZONE;
 	bool gamepad_LEFT2 = SDL_GameControllerGetAxis(App->input->gamepad2, SDL_CONTROLLER_AXIS_LEFTX) < -CONTROLLER_DEAD_ZONE;
-	switch (state)
-	{
-	case SPAWN_PLAYER_2:
-		if (time) {
-			time_on_entry = SDL_GetTicks();
-			time = false;
-		}
-		current_time = SDL_GetTicks() - time_on_entry;
-		if (current_time > 1500) {
-			state = IDLE_2;
-		}
-		power_up = 0;
 
-		break;
+	//switch (controller_state) {
+	//case AYN1:
+	//	switch (state)
+	//	{
+	//	case SPAWN_PLAYER_2:
+	//		if (time) {
+	//			time_on_entry = SDL_GetTicks();
+	//			time = false;
+	//		}
+	//		current_time = SDL_GetTicks() - time_on_entry;
+	//		if (current_time > 1500) {
+	//			state = IDLE_2;
+	//		}
+	//		power_up = 0;
 
-	case IDLE_2:
-		if (press_I || press_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
-			state = GO_BACKWARD_2;
-		}
+	//		break;
 
-		break;
+	//	case IDLE_2:
+	//		if (press_I || press_J || App->input->controller_Dpad_UP==KEY_STATE::KEY_DOWN || App->input->controller_Dpad_LEFT==KEY_STATE::KEY_DOWN ) {
+	//			state = GO_BACKWARD_2;
+	//		}
 
-	case GO_BACKWARD_2:
+	//		break;
 
-		if (release_I || gamepad_UP || gamepad_UP2) {
-			state = BACK_IDLE_2;
-		}
-		if (release_J || gamepad_LEFT || gamepad_LEFT2) {
-			state = BACK_IDLE_2;
-		}
-		if (current_animation->Finished()) {
-			intermediate.Reset();
-			state = BACKWARD_2;
-		}
-		break;
+	//	case GO_BACKWARD_2:
 
-	case BACKWARD_2:
+	//		if (release_I || gamepad_UP ) {
+	//			state = BACK_IDLE_2;
+	//		}
+	//		if (release_J || gamepad_LEFT ) {
+	//			state = BACK_IDLE_2;
+	//		}
+	//		if (current_animation->Finished()) {
+	//			intermediate.Reset();
+	//			state = BACKWARD_2;
+	//		}
+	//		break;
 
-		if (release_I || release_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
-			if (released_I || released_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
+	//	case BACKWARD_2:
 
-				state = BACK_IDLE_2;
+	//		if (release_I || release_J || App->input->controller_Dpad_UP == KEY_STATE::KEY_IDLE || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_IDLE) {
+	//			if (released_I || released_J || App->input->controller_Dpad_UP==KEY_STATE::KEY_IDLE || App->input->controller_Dpad_LEFT==KEY_STATE::KEY_IDLE ) {
+
+	//				state = BACK_IDLE_2;
 
 
-				/*if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
-				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
-				state = BACK_IDLE;
-				}
-				}
-				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
-				if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
-				state = BACK_IDLE;*/
+	//				/*if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
+	//				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
+	//				state = BACK_IDLE;
+	//				}
+	//				}
+	//				if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
+	//				if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
+	//				state = BACK_IDLE;*/
+	//			}
+	//		}
+	//		break;
+
+	//	case BACK_IDLE_2:
+	//		if (pressed_I || App->input->controller_Dpad_UP==KEY_STATE::KEY_REPEAT ) {
+	//			state = BACK_IDLE_2;
+	//		}
+	//		if (pressed_J || App->input->controller_Dpad_LEFT == KEY_STATE::KEY_REPEAT) {
+	//			state = BACK_IDLE_2;
+	//		}
+	//		if (current_animation->Finished()) {
+	//			intermediate.Reset();
+	//			state = IDLE_2;
+	//		}
+	//		break;
+
+	//	case ULTI_AYIN:
+	//		if (ulti_ayin.Finished()) {
+	//			ulti_ayin.Reset();
+	//			state = IDLE_2;
+	//		}
+
+	//	case SPIN_2:
+	//		if (spin.Finished()) {
+	//			spin.Reset();
+	//			spin_circle.Reset();
+	//			spin_pos = false;
+	//			state = IDLE_2;
+	//		}
+	//		break;
+
+	//	case DEATH_2:
+	//		if (position.y > SCREEN_HEIGHT + 80) {
+	//			state = POST_DEATH_2;
+	//		}
+	//		break;
+
+	//		/*case SPIN_DECHARGING_AYIN:
+	//		if (spin_decharging.Finished()) {
+	//		state = DECHARGING_AYIN;
+	//		}*/
+
+	//	case POST_DEATH_2:
+	//		if (App->inter->num_life_ayin > 0) {
+	//			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+	//			position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+	//			time = true;
+	//			state = SPAWN_PLAYER_2;
+	//		}
+
+	//		break;
+	//	}
+	//	break;
+	//case AYN2:
+		switch (state)
+		{
+		case SPAWN_PLAYER_2:
+			if (time) {
+				time_on_entry = SDL_GetTicks();
+				time = false;
 			}
-		}
-		break;
+			current_time = SDL_GetTicks() - time_on_entry;
+			if (current_time > 1500) {
+				state = IDLE_2;
+			}
+			power_up = 0;
 
-	case BACK_IDLE_2:
-		if (pressed_I || gamepad_UP || gamepad_UP2) {
-			state = BACK_IDLE_2;
-		}
-		if (pressed_J || gamepad_LEFT || gamepad_LEFT2) {
-			state = BACK_IDLE_2;
-		}
-		if (current_animation->Finished()) {
-			intermediate.Reset();
-			state = IDLE_2;
-		}
-		break;
+			break;
 
-	case ULTI_AYIN:
-		if (ulti_ayin.Finished()) {
-			ulti_ayin.Reset();
-			state = IDLE_2;
-		}
+		case IDLE_2:
+			if (press_I || press_J || App->input->controller2_Dpad_UP==KEY_STATE::KEY_DOWN || App->input->controller2_Dpad_LEFT==KEY_STATE::KEY_DOWN ) {
+				state = GO_BACKWARD_2;
+			}
 
-	case SPIN_2:
-		if (spin.Finished()) {
-			spin.Reset();
-			spin_circle.Reset();
-			spin_pos = false;
-			state = IDLE_2;
-		}
-		break;
+			break;
 
-	case DEATH_2:
-		if (position.y > SCREEN_HEIGHT + 80) {
-			state = POST_DEATH_2;
-		}
-		break;
+		case GO_BACKWARD_2:
 
-	/*case SPIN_DECHARGING_AYIN:
-		if (spin_decharging.Finished()) {
+			if (release_I || App->input->controller2_Dpad_UP==KEY_STATE::KEY_UP ) {
+				state = BACK_IDLE_2;
+			}
+			if (release_J || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_UP) {
+				state = BACK_IDLE_2;
+			}
+			if (current_animation->Finished()) {
+				intermediate.Reset();
+				state = BACKWARD_2;
+			}
+			break;
+
+		case BACKWARD_2:
+
+			if (release_I || release_J || App->input->controller2_Dpad_UP == KEY_STATE::KEY_UP || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_UP) {
+				if (released_I || released_J || App->input->controller2_Dpad_UP == KEY_STATE::KEY_IDLE || App->input->controller2_Dpad_LEFT == KEY_STATE::KEY_IDLE) {
+
+					state = BACK_IDLE_2;
+
+
+					/*if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
+					if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
+					state = BACK_IDLE;
+					}
+					}
+					if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
+					if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
+					state = BACK_IDLE;*/
+				}
+			}
+			break;
+
+		case BACK_IDLE_2:
+			if (pressed_I || App->input->controller2_Dpad_UP==KEY_REPEAT ) {
+				state = BACK_IDLE_2;
+			}
+			if (pressed_J || App->input->controller2_Dpad_LEFT == KEY_REPEAT) {
+				state = BACK_IDLE_2;
+			}
+			if (current_animation->Finished()) {
+				intermediate.Reset();
+				state = IDLE_2;
+			}
+			break;
+
+		case ULTI_AYIN:
+			if (ulti_ayin.Finished()) {
+				ulti_ayin.Reset();
+				state = IDLE_2;
+			}
+
+		case SPIN_2:
+			if (spin.Finished()) {
+				spin.Reset();
+				spin_circle.Reset();
+				spin_pos = false;
+				state = IDLE_2;
+			}
+			break;
+
+		case DEATH_2:
+			if (position.y > SCREEN_HEIGHT + 80) {
+				state = POST_DEATH_2;
+			}
+			break;
+
+			/*case SPIN_DECHARGING_AYIN:
+			if (spin_decharging.Finished()) {
 			state = DECHARGING_AYIN;
-		}*/
+			}*/
 
-	case POST_DEATH_2:
-		if (App->inter->num_life_ayin > 0) {
-			position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
-			position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
-			time = true;
-			state = SPAWN_PLAYER_2;
+		case POST_DEATH_2:
+			if (App->inter->num_life_ayin > 0) {
+				position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+				position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+				time = true;
+				state = SPAWN_PLAYER_2;
+			}
+
+			break;
 		}
 		
-		break;
-	}
+	
+	//switch (state)
+	//{
+	//case SPAWN_PLAYER_2:
+	//	if (time) {
+	//		time_on_entry = SDL_GetTicks();
+	//		time = false;
+	//	}
+	//	current_time = SDL_GetTicks() - time_on_entry;
+	//	if (current_time > 1500) {
+	//		state = IDLE_2;
+	//	}
+	//	power_up = 0;
+
+	//	break;
+
+	//case IDLE_2:
+	//	if (press_I || press_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
+	//		state = GO_BACKWARD_2;
+	//	}
+
+	//	break;
+
+	//case GO_BACKWARD_2:
+
+	//	if (release_I || gamepad_UP || gamepad_UP2) {
+	//		state = BACK_IDLE_2;
+	//	}
+	//	if (release_J || gamepad_LEFT || gamepad_LEFT2) {
+	//		state = BACK_IDLE_2;
+	//	}
+	//	if (current_animation->Finished()) {
+	//		intermediate.Reset();
+	//		state = BACKWARD_2;
+	//	}
+	//	break;
+
+	//case BACKWARD_2:
+
+	//	if (release_I || release_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
+	//		if (released_I || released_J || gamepad_UP || gamepad_LEFT || gamepad_UP2 || gamepad_LEFT2) {
+
+	//			state = BACK_IDLE_2;
+
+
+	//			/*if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || gamepad_UP) {
+	//			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || gamepad_LEFT) {
+	//			state = BACK_IDLE;
+	//			}
+	//			}
+	//			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_UP || gamepad_LEFT) {
+	//			if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || gamepad_UP) {
+	//			state = BACK_IDLE;*/
+	//		}
+	//	}
+	//	break;
+
+	//case BACK_IDLE_2:
+	//	if (pressed_I || gamepad_UP || gamepad_UP2) {
+	//		state = BACK_IDLE_2;
+	//	}
+	//	if (pressed_J || gamepad_LEFT || gamepad_LEFT2) {
+	//		state = BACK_IDLE_2;
+	//	}
+	//	if (current_animation->Finished()) {
+	//		intermediate.Reset();
+	//		state = IDLE_2;
+	//	}
+	//	break;
+
+	//case ULTI_AYIN:
+	//	if (ulti_ayin.Finished()) {
+	//		ulti_ayin.Reset();
+	//		state = IDLE_2;
+	//	}
+
+	//case SPIN_2:
+	//	if (spin.Finished()) {
+	//		spin.Reset();
+	//		spin_circle.Reset();
+	//		spin_pos = false;
+	//		state = IDLE_2;
+	//	}
+	//	break;
+
+	//case DEATH_2:
+	//	if (position.y > SCREEN_HEIGHT + 80) {
+	//		state = POST_DEATH_2;
+	//	}
+	//	break;
+
+	///*case SPIN_DECHARGING_AYIN:
+	//	if (spin_decharging.Finished()) {
+	//		state = DECHARGING_AYIN;
+	//	}*/
+
+	//case POST_DEATH_2:
+	//	if (App->inter->num_life_ayin > 0) {
+	//		position.x = (App->render->camera.x) / SCREEN_SIZE - 20;
+	//		position.y = (App->render->camera.y) / SCREEN_SIZE + 100;
+	//		time = true;
+	//		state = SPAWN_PLAYER_2;
+	//	}
+	//	
+	//	break;
+	//}
 }
 
 void ModuleAyin::PerformActions()
