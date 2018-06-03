@@ -30,7 +30,8 @@ Power_Up::Power_Up(int x, int y, int type) :Enemy(x, y,type)
 
 	iddle.speed = 0.20f;
 
-	movement.PushBack({ -0.1f, 0.0f }, 80, &iddle);
+	movement.PushBack({ 2.f, 0.0f }, 80, &iddle);
+	movement.PushBack({ -0.1f, 0.0f }, 1000, &iddle);
 	//movement.PushBack({ 1.0f, 0.0f }, 160, &iddle);
 
 	animation = &iddle;

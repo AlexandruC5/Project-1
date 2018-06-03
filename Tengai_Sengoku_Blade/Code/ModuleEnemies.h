@@ -3,7 +3,7 @@
 
 #include "Module.h"
 #include "ModuleParticles.h"
-#define MAX_ENEMIES 100
+#define MAX_ENEMIES 800
 
 // TODO 2: Add a new enemy: Brown Cookies!
 

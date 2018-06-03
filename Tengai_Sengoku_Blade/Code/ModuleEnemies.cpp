@@ -610,19 +610,19 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 
-
+			//Power up
 
 			if (c2->type == COLLIDER_TYPE::COLLIDER_PLAYER  && c1->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 				if (c2 == App->katana->coll) {
 					if (App->katana->power_up < 4) {
-						App->particles->power_up.speed.x = int(App->scene_temple->speed);;
+						//App->particles->power_up.speed.x = App->scene_temple->speed;
 						App->particles->power_up.speed.y = -1;
 						App->particles->AddParticle(App->particles->power_up, App->katana->position.x, App->katana->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_KATANA);
 						App->katana->power_up++;
 					}
 					else {
-						App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
+						//App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
 						App->particles->coin_2000.speed.y = -1.5;
 						App->particles->AddParticle(App->particles->coin_2000, App->player->position.x, App->player->position.y, COLLIDER_NONE, PARTICLE_COIN);
 						App->inter->score_katana += 2000;
@@ -630,13 +630,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 				if (c2 == App->ayin->coll) {
 					if (App->ayin->power_up < 4) {
-						App->particles->power_up.speed.x = int(App->scene_temple->speed);;
+						//App->particles->power_up.speed.x = int(App->scene_temple->speed);;
 						App->particles->power_up.speed.y = -1;
 						App->particles->AddParticle(App->particles->power_up, App->ayin->position.x, App->ayin->position.y, COLLIDER_NONE, PARTICLE_POWER_UP_AYIN);
 						App->ayin->power_up++;
 					}
 					else {
-						App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
+						//App->particles->coin_2000.speed.x = int(App->scene_temple->speed);
 						App->particles->coin_2000.speed.y = -1.5;
 						App->particles->AddParticle(App->particles->coin_2000, App->player2->position.x, App->player2->position.y, COLLIDER_NONE, PARTICLE_COIN);
 						App->inter->score_ayin += 2000;

@@ -17,8 +17,8 @@ red::red(int x, int y, int type) : Enemy(x, y,type)
 
 
 
-	path.PushBack({ -1, 0 }, 100, &backward);
-	path.PushBack({ 2.5, 0 }, 500, &backward);
+	path.PushBack({ -1.f, 0 }, 100, &backward);
+	path.PushBack({ 2.f, 0 }, 500, &backward);
 
 
 	backward.speed = 0.1f;

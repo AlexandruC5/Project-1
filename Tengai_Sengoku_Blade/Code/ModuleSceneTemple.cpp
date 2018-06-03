@@ -114,7 +114,7 @@ bool ModuleSceneTemple::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::Power_up, 400, 150,1);
 	//App->enemies->AddEnemy(ENEMY_TYPES::Ulti_parchment, 400, 50,1);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 520, 80, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 450, 80, 1);
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 810, 30, 2);
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 850, 160, 2);
 
@@ -122,6 +122,11 @@ bool ModuleSceneTemple::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 610, 45, 1);
 	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 620, 75, 1);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED, 630, 105, 1);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1130, 90, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1120, 120, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1110, 150, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED, 1100, 180, 1);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::Ball, 430, 50, 1);
 	//App->enemies->AddEnemy(ENEMY_TYPES::Chariot, 430, 50, 1);
