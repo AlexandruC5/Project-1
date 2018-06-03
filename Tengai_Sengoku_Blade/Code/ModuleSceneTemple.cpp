@@ -108,32 +108,41 @@ bool ModuleSceneTemple::Start()
 	graphics = App->textures->Load("assets/sprites/Scenes/Scene_Temple/templemap.png");
 
 	
-	//App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop,400,50);
+	
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::SharpenerKnife, 500, 50);
+	
 	//App->enemies->AddEnemy(ENEMY_TYPES::Power_up, 400, 150,1);
 	//App->enemies->AddEnemy(ENEMY_TYPES::Ulti_parchment, 400, 50,1);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 450, 80, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 400, 80, 1);
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 810, 30, 2);
 	App->enemies->AddEnemy(ENEMY_TYPES::DemonPegTop, 850, 160, 2);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 600, 15, 1);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 610, 45, 1);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 620, 75, 1);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED, 630, 105, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 550, 15, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 560, 45, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 570, 75, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED, 580, 105, 1);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1130, 90, 1);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1120, 120, 1);
-	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1110, 150, 1);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED, 1100, 180, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1080, 90, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1070, 120, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::Green2, 1060, 150, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED, 1050, 180, 1);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::Ball, 430, 50, 1);
 	//App->enemies->AddEnemy(ENEMY_TYPES::Chariot, 430, 50, 1);
 	//App->enemies->AddEnemy(ENEMY_TYPES::Pagoda, 430, 50, 1);
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 630, 105, 1);
-	//App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 430, -40, 2);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1200, 40, 1);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1240, 140, 1);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1300, -40, 2);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1320, -40, 3);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1340, -40, 4);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1360, -40, 2);
+	App->enemies->AddEnemy(ENEMY_TYPES::DemonWheel, 1380, -40, 3); 
+
+	
+	App->enemies->AddEnemy(ENEMY_TYPES::SharpenerKnife, 1300, 50);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::Ball2, 430, 90, 2);
 

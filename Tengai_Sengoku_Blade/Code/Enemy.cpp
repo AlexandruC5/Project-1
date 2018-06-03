@@ -7,6 +7,8 @@
 Enemy::Enemy(int x, int y, int type) : position(x, y)
 {}
 
+
+
 Enemy::~Enemy()
 {
 	if (collider != nullptr)
@@ -43,6 +45,7 @@ void Enemy::Draw(SDL_Texture* sprites)
 
 	if (animation != nullptr)
 		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
+
 
 	if (chariot_robot != nullptr)
 		App->render->Blit(sprites, position.x + 45, position.y + 5, &(chariot_robot->GetCurrentFrame()));

@@ -199,7 +199,7 @@ void SHARPENER_KNIFE::CheckState() {
 	switch (state)
 	{
 	case SPAWN_SHARPENER:
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 		if (spin.Finished()) {
 			spin.Reset();
 			state = GO_BACKWARD_SHARPENER;
@@ -214,17 +214,17 @@ void SHARPENER_KNIFE::CheckState() {
 		break;
 
 	case SHOOT_SHARPENER:
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 		if (shoot.Finished()) {
 			shoot.Reset();
-			//App->particles->AddParticle(App->particles->sharpener_bullet, position.x , position.y - 30, COLLIDER_ENEMY_SHOT);
+			Shoot();
 			state = RETURN_SHOOT_SHARPENER;
 		}
 		break;
 
 	case RETURN_SHOOT_SHARPENER:
 
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 		if (return_shoot.Finished()) {
 			return_shoot.Reset();
 			state = IDLE_FORWARD;
@@ -234,7 +234,7 @@ void SHARPENER_KNIFE::CheckState() {
 	case IDLE_FORWARD:
 
 		if (position.x < App->render->camera.x + (App->render->camera.w) - 200) {
-			position.x += App->scene_temple->speed;
+			position.x += int(App->scene_temple->speed);
 			state = GO_SPIN_SHARPENER;
 			App->particles->AddEmmiter(SHARPENER_BURST, &position);
 		}
@@ -268,7 +268,7 @@ void SHARPENER_KNIFE::CheckState() {
 
 	case IDLE_SHARPENER:
 
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 
 		if (time_delay) {
 			time_entry = SDL_GetTicks();
@@ -292,10 +292,11 @@ void SHARPENER_KNIFE::CheckState() {
 		break;
 
 	case FULL_SHOOT_SHARPENER:
-		position.x += App->scene_temple->speed;
+		position.x += int(App->scene_temple->speed);
 		active_shoot = true;
 		if (shoot.Finished()) {
 			shoot.Reset();
+			Shoot();
 			//App->particles->AddParticle(App->particles->sharpener_bullet, position.x, position.y - 30, COLLIDER_ENEMY_SHOT);
 			state = IDLE_SHARPENER;
 		}
@@ -366,5 +367,24 @@ void SHARPENER_KNIFE::PerformActions()
 		animation = &idle;
 		break;
 	}
+
+}
+
+void SHARPENER_KNIFE::Shoot() {
+
+	for (int i = 0; i < ammo; i++) {
+
+		Particle* p = new Particle(App->particles->enemy_bullet);
+		p->born = SDL_GetTicks();
+		p->position.x = int(position.x) + i * 6;
+		p->position.y = int(position.y) + i * 2;
+		p->speed.x = (App->katana->position.x - p->position.x) / 60.f;
+		p->speed.y = (App->katana->position.y - p->position.y) / 60.f;
+		p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), COLLIDER_ENEMY_SHOT, App->particles);
+		App->particles->AddParticle(p);
+
+	}
+
+
 
 }

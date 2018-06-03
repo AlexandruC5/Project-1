@@ -34,6 +34,7 @@ protected:
 
 public:
 	fPoint position;
+	
 
 public:
 	Enemy(int x, int y, int type);

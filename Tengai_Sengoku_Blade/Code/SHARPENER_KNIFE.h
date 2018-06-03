@@ -31,6 +31,7 @@ private:
 	int spot = 0;;
 	bool going_forward = true;
 	bool active_shoot = false;
+	int ammo = 6;
 	Path path;
 
 	Animation idle;
@@ -48,6 +49,7 @@ public:
 	int time_current = 0;
 	int time_entry = 0;
 	void Move();
+	void Shoot();
 };
 #endif
 

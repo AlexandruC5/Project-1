@@ -16,7 +16,9 @@ GREEN2::GREEN2(int x, int y, int type) : Enemy(x, y, type)
 
 
 	path.PushBack({ -1.f, 0 }, 100, &backward);
-	path.PushBack({ 2.f, 0 }, 500, &backward);
+	path.PushBack({ 2.5f, 0 }, 300, &backward);
+	path.PushBack({ 0, 2.f }, 300, &backward);
+	path.PushBack({ -2.f, 0 }, 1000, &backward);
 
 
 
