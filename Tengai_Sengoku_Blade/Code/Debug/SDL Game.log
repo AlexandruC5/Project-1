@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  ModuleParticles.cpp
 d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(57): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 d:\upc citm\project-1\tengai_sengoku_blade\code\modulescenetemple.h(58): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
@@ -36,3 +37,63 @@ d:\upc citm\project-1\tengai_sengoku_blade\code\moduleparticles.cpp(623): warnin
   BALL.cpp
   SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
   SDL Game.vcxproj -> D:\UPC CITM\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.pdb (Partial PDB)
+=======
+<<<<<<< HEAD
+﻿  ModuleAyinArrow.cpp
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\modulescenetemple.h(57): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\modulescenetemple.h(58): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(136): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(137): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(138): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(139): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(141): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(142): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(143): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(163): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(167): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(171): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(175): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(184): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(188): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(192): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(196): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(507): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(511): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(515): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(519): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(524): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(528): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexa\desktop\project-1\tengai_sengoku_blade\code\moduleayinarrow.cpp(533): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  SDL Game.vcxproj -> C:\Users\alexa\Desktop\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
+=======
+﻿  ModuleEnemies.cpp
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\modulescenetemple.h(57): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\modulescenetemple.h(58): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(343): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(369): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(390): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(391): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(395): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(396): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(421): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(422): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(426): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(451): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(452): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(457): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(483): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(484): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(488): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(511): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(533): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(535): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(556): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(660): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(661): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(680): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(685): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(696): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerard clotet\documents\github\entrega\project-1\project-1\tengai_sengoku_blade\code\moduleenemies.cpp(701): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+  SDL Game.vcxproj -> C:\Users\Gerard Clotet\Documents\GitHub\entrega\Project-1\Project-1\Tengai_Sengoku_Blade\Code\Debug\SDL6 Handout.exe
+>>>>>>> 7c56227a8fce77443c517640bc0b4fafaf470e1b
+>>>>>>> 258ef3de90f13ac5aa0eb129fe349e1c05377605

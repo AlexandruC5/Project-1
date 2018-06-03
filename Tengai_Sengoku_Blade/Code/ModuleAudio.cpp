@@ -33,7 +33,7 @@ bool ModuleAudio::Init()
 	// load support for the PNG image format
 	int flags = MIX_INIT_OGG;
 	int init = Mix_Init(flags);
-	Mix_OpenAudio(44100, AUDIO_S8, 2, 4096);
+	Mix_OpenAudio(22050, AUDIO_S8, 2, 4096);
 
 	if ((init & flags) != flags)
 	{
