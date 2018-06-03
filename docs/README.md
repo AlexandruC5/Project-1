@@ -3,7 +3,9 @@
 
 ![](https://github.com/AlexandruC5/Project-1/blob/master/docs/header1.jpg)
 
-Sengoku Blade, also known as Tengai, is a horizontally scrolling shoot 'em up video game released for arcade machines in 1996 by Psikyo as a sequel to their 1993 shooter Sengoku Ace. 
+Sengoku Blade, also popularly known as Tengai, is an horizontal-scrolling shoot'em up game produced by Psikyo and originally released in Japanese arcades in 1996 as a sequel to Sengoku Ace (1993).
+
+Tengai sets in an imaginative and futuristic version of feudal Japan featuring traditional ninjas, demons and magic steam-powered machinery with steam-driven weapons. On gameplay, you can chose five playable characters and two ones who are hidden initially. In addition, game has items include a power-up to increase weapon power level, bombs, and bonus coins to increase score.
 
 ## Members
 
@@ -28,6 +30,29 @@ Group Name:	Instinct Games
 
 ## Data Releases
 
+### 0.3
+* Inlcudes playable character
+* Main screen
+* Water scene
+* Audio
+* Parallax
+
+### 0.4
+* Inlcudes
+* Projectiles
+* Player animation
+* Background animation
+* Fx sound
+
+### 0.5
+* Includes
+* Score
+* Win & loose condition
+* Colliders
+* Player2
+* PowerUps
+* Enemies
+* Game loop
 
 ### 0.6
 * Scroll background with game speeds
