@@ -88,7 +88,7 @@ R-> -1 powerup to Ayin
 
 F1:Show coliders
 F5: GOD MODE
-F5 from Welcome Screen: Direct Lose Screen
+F9 Screen: Direct Lose Screen
 F7:Direct Win Screen
 
 
