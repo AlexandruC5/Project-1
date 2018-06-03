@@ -143,7 +143,7 @@ update_status ModuleAyinArrow::Update()
 		else if (state == LAST_SWORD_ANIM) App->render->Blit(graphics, position.x + 25, position.y + 2 - r.h, &r);
 
 
-		if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN || App->input->controller2_A_button==KEY_DOWN) {
 			if (shot_delay)
 			{
 				shot_entry = SDL_GetTicks();
@@ -233,7 +233,7 @@ void ModuleAyinArrow::CheckState() {
 		if (App->ayin->power_up == 2 || App->ayin->power_up == 3 || App->ayin->power_up == 4) {
 			state = LEVEL_ONE_2;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_REPEAT || App->input->controller2_B_button==KEY_REPEAT) {
 			if (time_shoot) {
 				time_on_entry = SDL_GetTicks();
 				time_shoot = false;
@@ -244,7 +244,7 @@ void ModuleAyinArrow::CheckState() {
 				state = LEVEL_ONE_CHARGING_2;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP) {
+		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_UP || App->input->controller2_B_button == KEY_UP) {
 			time_shoot = true;
 			
 		}
