@@ -1,7 +1,7 @@
 
 # Tribute: Tengai / Sengoku Blade
 
-<img src:"https://github.com/AlexandruC5/Project-1/blob/master/docs/header1.jpg" ></img>
+![](https://github.com/AlexandruC5/Project-1/blob/master/docs/header1.jpg)
 
 Sengoku Blade, also popularly known as Tengai, is an horizontal-scrolling shoot'em up game produced by Psikyo and originally released in Japanese arcades in 1996 as a sequel to Sengoku Ace (1993).
 
