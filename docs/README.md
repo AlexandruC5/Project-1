@@ -11,7 +11,7 @@ Tengai sets in an imaginative and futuristic version of feudal Japan featuring t
 
 ### Group Name:	Instinct Games 
 
-![Team](https://raw.githubusercontent.com/AlexandruC5/Project-1/master/Wiki/0.Home/teamphoto.jpg)
+![Team](https://raw.githubusercontent.com/AlexandruC5/Project-1/master/docs/teamphoto.jpg)
 
  * Management:	Carlos Peña 
  * Art/Design:	Gerard Berenguer
